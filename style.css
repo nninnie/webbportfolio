@@ -133,6 +133,7 @@ body.light {
     }
 }
 
+/* HERO */
 .hero {
     text-align: center;
     padding: 5rem 2rem;
@@ -189,3 +190,49 @@ body.light {
 .pink { background: var(--pink); }
 .orange { background: var(--orange); }
 .blue { background: var(--blue); }
+
+
+/* ABOUT ME */
+
+.sectionabout {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    text-align: center;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+.sectionabout h2 {
+    font-size: clamp(1.8rem, 4vw, 3rem); /* responsivt större */
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.skills-list.icons {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    text-align: center;
+}
+
+.skills-list.icons li {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    color: #f7f7f7a2;
+}
+
+.skills-list.icons i {
+    font-size: 22px; 
+    margin-bottom: 0.2rem;
+}
+
+.skills-list.icons span {
+    font-size: clamp(0.55rem, 1.2vw, 0.75rem); 
+    margin-top: 0.1rem;
+    opacity: 0.9;
+    padding-bottom: 2rem;
+}

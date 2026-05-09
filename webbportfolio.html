@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ninnie Dahlström - Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.16.0/devicon.min.css">
 </head>
 
 <body>
@@ -76,7 +76,7 @@
 
 
 <!-- ABOUT -->
-<section id="about" class="section">
+<section id="about" class="sectionabout">
     <h2 data-i18n="about_title">Om mig</h2>
     <p data-i18n="about_text">
         Systemutvecklare .NET med fokus på robust backend-utveckling, API-integrationer och fullstack-lösningar. 
@@ -87,49 +87,81 @@
 
 
 <!-- SKILLS -->
-<section id="skills" class="section">
-    <h2 data-i18n="skills_title">Kunskaper</h2>
+<ul class="skills-list icons">
 
-    <ul class="skills-list icons">
+    <!-- FRONTEND -->
+    <li>
+        <i class="devicon-html5-plain colored"></i>
+        <span>HTML5</span>
+    </li>
 
-        <li>
-            <img src="icons/html5.svg" alt="HTML5">
-            <span>HTML5</span>
-        </li>
+    <li>
+        <i class="devicon-css3-plain colored"></i>
+        <span>CSS3</span>
+    </li>
 
-        <li>
-            <img src="icons/css3.svg" alt="CSS3">
-            <span>CSS3</span>
-        </li>
+    <li>
+        <i class="devicon-javascript-plain colored"></i>
+        <span>JavaScript</span>
+    </li>
 
-        <li>
-            <img src="icons/javascript.svg" alt="JavaScript">
-            <span>JavaScript</span>
-        </li>
+    <!-- BACKEND / .NET / API -->
+    <li>
+        <i class="devicon-csharp-plain colored"></i>
+        <span>C# / .NET</span>
+    </li>
 
-        <li>
-            <img src="icons/csharp.svg" alt="C#">
-            <span>C# / .NET</span>
-        </li>
+    <li>
+        <i class="devicon-dotnetcore-plain colored"></i>
+        <span>.NET Core</span>
+    </li>
 
-        <li>
-            <img src="icons/sql.svg" alt="SQL">
-            <span>SQL / SSMS</span>
-        </li>
+    <li>
+        <i class="devicon-nodejs-plain colored"></i>
+        <span>API / Backend</span>
+    </li>
 
-        <li>
-            <img src="icons/uiux.svg" alt="UI/UX">
-            <span>UI / UX</span>
-        </li>
+    <!-- DATABASE -->
+    <li>
+        <i class="devicon-microsoftsqlserver-plain colored"></i>
+        <span>SQL / SSMS</span>
+    </li>
 
-        <li>
-            <img src="icons/ai.svg" alt="AI">
-            <span>AI</span>
-        </li>
+    <!-- TOOLS -->
+    <li>
+        <i class="devicon-git-plain colored"></i>
+        <span>Git</span>
+    </li>
 
-    </ul>
-</section>
+    <li>
+        <i class="devicon-github-original colored"></i>
+        <span>GitHub</span>
+    </li>
 
+
+    <li>
+        <i class="devicon-visualstudio-plain colored"></i>
+        <span>Visual Studio</span>
+    </li>
+
+    <li>
+        <i class="devicon-vscode-plain colored"></i>
+        <span>VS Code</span>
+    </li>
+
+    <!-- DESIGN -->
+    <li>
+        <i class="devicon-figma-plain colored"></i>
+        <span>UI / UX</span>
+    </li>
+
+    <!-- AI -->
+    <li>
+        <i class="devicon-python-plain colored"></i>
+        <span>AI</span>
+    </li>
+
+</ul>
 
 
 <!-- PROJECTS (mappar som öppnas) -->
