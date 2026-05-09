@@ -505,11 +505,13 @@ body.light .skills-list.icons span {
 .projects-card {
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.06);
-    padding: 2.5rem;
+    padding: 2rem;
     border-radius: 1rem;
     backdrop-filter: blur(10px);
-    max-width: 900px;
+    max-width: 700px;
     margin: 0 auto;
+    line-height: 1.6;
+    opacity: 0.9;
 }
 
 
@@ -569,11 +571,13 @@ body.light .skills-list.icons span {
 .contact-card {
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.06);
-    padding: 2.5rem;
+    padding: 2rem;
     border-radius: 1rem;
     backdrop-filter: blur(10px);
     max-width: 700px;
     margin: 0 auto;
+    line-height: 1.6;
+    opacity: 0.9;
 }
 
 .contact-card form {
