@@ -682,6 +682,16 @@ footer {
     transition: 0.25s ease;
 }
 
+.footer-icons img {
+    opacity: 0.8; /* lite genomskinlig */
+    transition: 0.25s ease;
+}
+
+.footer-icons a:hover img {
+    opacity: 1; /* full färg vid hover */
+}
+
+
 /* Hover-effekt */
 .footer-icons a:hover .icon,
 .footer-icons a:hover img {
