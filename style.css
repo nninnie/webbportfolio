@@ -28,10 +28,33 @@ body {
     margin: 0;
 }
 
+/* WHITE MODE */
 body.light {
     background: var(--bg-light);
     color: var(--text-dark);
 }
+/* WHITE MODE TEXT COLORS */
+body.light .nav-links a,
+body.light .mobile-menu a,
+body.light .icon-btn,
+body.light .hero,
+body.light .sectionabout,
+body.light .skills-section,
+body.light .sectionproject,
+body.light .sectioncontact {
+    color: var(--text-dark);
+}
+
+/* Orb-knappar i white mode */
+body.light .btn.orb {
+    color: #000;
+}
+/* skills text*/
+body.light .skills-list.icons span {
+    color: #333;
+}
+
+
 
 /* NAVBAR WRAPPER */
 .navbar {
@@ -180,8 +203,14 @@ body.light {
     text-align: center;
     padding: 5rem 2rem;
 }
+.hero h1 {
+    margin-bottom: 0.3rem; /* tajtar upp avståndet */
+}
+
 .hero p {
-    margin-bottom: 3rem; /* flyttar ner knapparna */
+    margin-top: 0;         /* tar bort extra luft ovanför */
+    line-height: 1.4;      /* snyggare radavstånd */
+    margin-bottom: 2rem;
 }
 
 .sectionabout {
@@ -202,56 +231,83 @@ body.light {
 }
 
 /* KNAPPAR*/
-.btn {
-    padding: 0.6rem 1.2rem;
-    border-radius: 8px;
-    text-decoration: none;
-    color: #ececec;
-    font-weight: 600;
-    margin: 0.9rem;
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
 }
+
 .btn.orb {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 3.2rem;
-    height: 3.2rem;
+    width: 0.9rem;              
+    height: 0.9rem;
     border-radius: 50%;
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-align: center;
-    padding: 0;
-    background: var(--glow);
+    font-size: 0;             
+    overflow: hidden;
+    transition: 0.3s ease;
     color: #ececec;
-    box-shadow:
-        0 0 10px var(--glow),
-        0 0 20px color-mix(in srgb, var(--glow) 50%, transparent);
-    transition: 0.25s ease;
+    position: relative;
+}
+
+/* Texten inuti knappen */
+.btn.orb span {
+    opacity: 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: opacity 0.25s ease;
+}
+
+/* Hover-effekt */
+.btn.orb:hover {
+    width: 6.5rem;            /* expanderar */
+    height: 2.4rem;
+    border-radius: 20px;      /* blir en pill-button */
+    font-size: 0.7rem;        /* text syns */
+    padding: 0 0.6rem;
+}
+
+/* Text fade-in */
+.btn.orb:hover span {
+    opacity: 1;
 }
 .btn.orb.pink {
     background: var(--pink);
-    box-shadow:
-        0 0 10px var(--pink),
-        0 0 20px color-mix(in srgb, var(--pink) 50%, transparent);
+    box-shadow: 0 0 10px var(--pink);
 }
 
 .btn.orb.orange {
     background: var(--orange);
-    box-shadow:
-        0 0 10px var(--orange),
-        0 0 20px color-mix(in srgb, var(--orange) 50%, transparent);
+    box-shadow: 0 0 10px var(--orange);
 }
 
-.btn.orb:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow:
-        0 0 15px var(--glow),
-        0 0 30px color-mix(in srgb, var(--glow) 60%, transparent);
+.btn.orb.pink:hover {
+    box-shadow: 0 0 20px var(--pink);
 }
+
+.btn.orb.orange:hover {
+    box-shadow: 0 0 20px var(--orange);
+}
+
+@media (max-width: 768px) {
+    .btn.orb {
+        width: 6rem;
+        height: 2.4rem;
+        border-radius: 20px;
+        font-size: 0.7rem;
+        padding: 0 0.6rem;
+    }
+
+    .btn.orb span {
+        opacity: 1; /* visa text direkt */
+    }
+}
+
 
 /* PORTRÄT*/
 .portrait {
-    width: 10rem;
+    width: 8rem;
     border-radius: 20rem;
     border: 3px solid var(--glow);
     box-shadow:
@@ -295,7 +351,6 @@ body.light {
 
 
 /* ABOUT ME */
-
 .sectionabout {
     font-size: clamp(0.9rem, 2vw, 1.1rem);
     text-align: center;
@@ -308,6 +363,7 @@ body.light {
     font-weight: 700;
 }
 
+/* SKILLS */
 .skills-list.icons {
     list-style: none;
     padding: 0;
