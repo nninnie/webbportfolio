@@ -60,6 +60,20 @@ body.light {
     display: none;
 }
 
+.nav-links a,
+.mobile-menu a {
+    color: var(--text);          /* vit text */
+    text-decoration: none;       /* tar bort understrykning */
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.nav-links a:hover,
+.mobile-menu a:hover {
+    color: var(--blue);          /* ändra till din blå glow-färg */
+    text-decoration: none;       /* ingen underline på hover heller */
+}
+
 /* IKONER – alltid höger */
 .nav-controls {
     display: flex;
