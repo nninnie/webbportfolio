@@ -57,7 +57,7 @@ body.light {
 .hamburger {
     background: none;
     border: none;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     cursor: pointer;
     color: var(--text);
 }
@@ -67,13 +67,30 @@ body.light {
     display: none;
 }
 
+.mobile-menu {
+    text-align: right; /* högerställer texten */
+}
+
 .nav-links a,
 .mobile-menu a {
-    color: var(--text);          /* vit text */
-    text-decoration: none;       /* tar bort understrykning */
-    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 400;
     transition: 0.2s ease;
 }
+
+/* Desktop */
+.nav-links a {
+    font-size: 1rem;
+}
+
+/* Mobilmeny */
+.mobile-menu a {
+    font-size: 0.9rem;      
+    padding: 0.5rem 0;      
+    text-align: right;      
+}
+
 
 .nav-links a:hover,
 .mobile-menu a:hover {
@@ -81,7 +98,7 @@ body.light {
     text-decoration: none;       /* ingen underline på hover heller */
 }
 
-/* IKONER – alltid höger */
+/* IKONER white mode & spårk – alltid höger */
 .nav-controls {
     display: flex;
     align-items: center;
@@ -97,7 +114,7 @@ body.light {
     color: var(--text);
 }
 
-/* DOLD SELECT */
+/* DOLD gömd- språk måste ha för jordgloben*/
 .hidden-select {
     opacity: 0;
     position: absolute;
@@ -111,14 +128,18 @@ body.light {
     background: rgba(0,0,0,0.8);
     backdrop-filter: blur(10px);
     padding: 1rem;
+    text-align: right; /* högerställer texten */
 }
 
 .mobile-menu a {
     color: var(--text);
     text-decoration: none;
-    padding: 0.8rem 0;
-    font-size: 1.2rem;
+    font-weight: 400;
+    font-size: 1rem;   /* mindre text */
+    padding: 0.5rem 0;   /* mindre mellanrum */
+    transition: 0.2s ease;
 }
+
 
 @media (min-width: 768px) {
     .hamburger {
@@ -160,10 +181,27 @@ body.light {
     padding: 5rem 2rem;
 }
 .hero p {
-    margin-bottom: 2rem; /* flyttar ner knapparna */
+    margin-bottom: 3rem; /* flyttar ner knapparna */
 }
 
+.sectionabout {
+    text-align: center;
+    padding: 5rem 2rem;
+}
+.section.skills-section {
+    text-align: center;
+    padding: 5rem 2rem;
+}
+.sectionproject {
+    text-align: center;
+    padding: 5rem 2rem;
+}
+.sectioncontact {
+    text-align: center;
+    padding: 5rem 2rem;
+}
 
+/* KNAPPAR*/
 .btn {
     padding: 0.6rem 1.2rem;
     border-radius: 8px;
@@ -172,7 +210,46 @@ body.light {
     font-weight: 600;
     margin: 0.9rem;
 }
+.btn.orb {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0;
+    background: var(--glow);
+    color: #ececec;
+    box-shadow:
+        0 0 10px var(--glow),
+        0 0 20px color-mix(in srgb, var(--glow) 50%, transparent);
+    transition: 0.25s ease;
+}
+.btn.orb.pink {
+    background: var(--pink);
+    box-shadow:
+        0 0 10px var(--pink),
+        0 0 20px color-mix(in srgb, var(--pink) 50%, transparent);
+}
 
+.btn.orb.orange {
+    background: var(--orange);
+    box-shadow:
+        0 0 10px var(--orange),
+        0 0 20px color-mix(in srgb, var(--orange) 50%, transparent);
+}
+
+.btn.orb:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow:
+        0 0 15px var(--glow),
+        0 0 30px color-mix(in srgb, var(--glow) 60%, transparent);
+}
+
+/* PORTRÄT*/
 .portrait {
     width: 10rem;
     border-radius: 20rem;
@@ -228,7 +305,6 @@ body.light {
 .sectionabout h2 {
     font-size: clamp(1.8rem, 4vw, 3rem); /* responsivt större */
     text-align: center;
-    margin-bottom: 1rem;
     font-weight: 700;
 }
 
