@@ -1,23 +1,36 @@
-// Tema-knapp
+/* -----------------------------------------
+   🌞 / 🌙  TEMA-TOGGLE (sol i light mode, måne i dark mode)
+----------------------------------------- */
 const themeToggle = document.getElementById("themeToggle");
 
 themeToggle.addEventListener("click", () => {
     document.body.classList.toggle("light");
-    console.log("Theme toggled!");
+
+    // Light mode → visa måne
+    if (document.body.classList.contains("light")) {
+        themeToggle.textContent = "🌑";
+    } 
+    // Dark mode → visa sol
+    else {
+        themeToggle.textContent = "🌕";
+    }
 });
 
-// --- Glow Color Picker ---
+
+/* -----------------------------------------
+   🎨  GLOW COLOR PICKER (sparas i localStorage)
+----------------------------------------- */
 const glowPicker = document.getElementById("glowPicker");
 const openColorPicker = document.getElementById("openColorPicker");
 
-// Ladda sparad färg om den finns
+// Ladda sparad glow-färg om den finns
 const savedGlow = localStorage.getItem("glowColor");
 if (savedGlow) {
     document.documentElement.style.setProperty("--glow", savedGlow);
     glowPicker.value = savedGlow;
 }
 
-// 👉 Klick på 🎨 öppnar färgväljaren
+// Klick på 🎨 öppnar färgväljaren
 openColorPicker.addEventListener("click", () => {
     glowPicker.click();
 });
@@ -29,7 +42,10 @@ glowPicker.addEventListener("input", (e) => {
     localStorage.setItem("glowColor", color);
 });
 
-// Hämtar väderdata från externt API enligt kurskrav
+
+/* -----------------------------------------
+   🌤️  VÄDER-API (Open-Meteo)
+----------------------------------------- */
 async function loadWeather() {
     try {
         const response = await fetch(
@@ -42,7 +58,7 @@ async function loadWeather() {
 
         const weatherEl = document.getElementById("weather");
 
-        // Väderikon baserat på väderkod
+        // Ikon baserat på väderkod
         let icon = "☀️";
         if (code >= 45 && code <= 48) icon = "🌫️";
         if (code >= 51 && code <= 67) icon = "🌧️";
@@ -58,7 +74,10 @@ async function loadWeather() {
 
 loadWeather();
 
-// Hamburgarmeny
+
+/* -----------------------------------------
+   🍔  HAMBURGARMENY (öppna/stäng)
+----------------------------------------- */
 const hamburgerBtn = document.getElementById("hamburgerBtn");
 const mobileMenu = document.getElementById("mobileMenu");
 

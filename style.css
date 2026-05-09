@@ -136,11 +136,11 @@ body.light .skills-list.icons span {
 }
 
 
-/* IKONER / SPRÅK */
+/* IKONER / SPRÅK - LIGHT MODE */
 .nav-controls {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.2rem;
 }
 
 .icon-btn {
