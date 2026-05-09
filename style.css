@@ -1,3 +1,4 @@
+/* ============== ROOT ============== */
 :root {
     --bg: #000000;
     --bg-light: #ffffff;
@@ -14,17 +15,29 @@
     --glow: #003B73;
 }
 
+/* ============== HTML ============== */
 html {
     overflow-y: auto;
 }
 
-h1, h2 {
+/* ============== FONT ============== */
+h1 {
     font-family: "Montserrat", sans-serif;
-    font-weight: 900;
-    letter-spacing: -1px;
     font-size: clamp(2.4rem, 6vw, 4.5rem);
+    font-weight: 900;
     text-align: center;
+    letter-spacing: -1px;
     margin-bottom: 1rem;
+}
+
+h2 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+    font-size: clamp(1.8rem, 4vw, 3rem); /* responsivt större */
+    text-align: center;
+    font-weight: 700;
 }
 
 h3 {
@@ -42,7 +55,7 @@ a, li, span {
     font-size: clamp(0.9rem, 1.8vw, 1.1rem);
 }
 
-
+/* ============== BODY ============== */
 
 body {
     background: var(--bg);
@@ -72,12 +85,9 @@ body.light .sectioncontact {
 body.light .btn.orb {
     color: #000;
 }
-/* skills text*/
-body.light .skills-list.icons span {
-    color: #333;
-}
 
 
+/* ============== NAVBAR ============== */
 
 /* NAVBAR WRAPPER */
 .navbar {
@@ -235,11 +245,12 @@ body.light .skills-list.icons span {
     }
 }
 
+/* ============== HERO ============== */
 
 /* HERO */
 .hero {
     text-align: center;
-    padding: 2rem 2rem;
+    padding: 3rem 2rem;
 }
 .hero h1 {
     margin-bottom: 0.3rem; /* tajtar upp avståndet */
@@ -251,24 +262,7 @@ body.light .skills-list.icons span {
     margin-bottom: 2rem;
 }
 
-.sectionabout {
-    text-align: center;
-    padding: 5rem 2rem;
-}
-.section.skills-section {
-    text-align: center;
-    padding: 5rem 2rem;
-}
-.sectionproject {
-    text-align: center;
-    padding: 5rem 2rem;
-}
-.sectioncontact {
-    text-align: center;
-    padding: 5rem 2rem;
-}
-
-/* KNAPPAR*/
+/* HERO - KNAPPAR*/
 .hero-buttons {
     display: flex;
     justify-content: center;
@@ -351,7 +345,7 @@ body.light .skills-list.icons span {
 }
 
 
-/* PORTRÄTT BILD*/
+/* HERO - PORTRÄTT BILD*/
 .portrait {
     width: 7rem;
     border-radius: 20rem;
@@ -399,20 +393,70 @@ body.light .skills-list.icons span {
     transform: scale(1.1);
 }
 
-/* ABOUT ME */
+
+
+/* ============== ABOUT ============== */
 .sectionabout {
-    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    padding: 6rem 2rem;
     text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
     line-height: 1.6;
     opacity: 0.9;
 }
-.sectionabout h2 {
-    font-size: clamp(1.8rem, 4vw, 3rem); /* responsivt större */
-    text-align: center;
-    font-weight: 700;
+
+.sectionabout .accent {
+    color: var(--glow);
+    font-weight: 900;
 }
 
-/* SKILLS */
+.about-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 2rem;
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+
+/* ============== SKILLS ============== */
+
+.skills-section {
+    padding: 5rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.skills-section h2 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.skills-section .accent {
+    color: var(--glow);
+    font-weight: 900;
+}
+
+.skills-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 2rem;
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* Ikonlista */
 .skills-list.icons {
     list-style: none;
     padding: 0;
@@ -426,19 +470,25 @@ body.light .skills-list.icons span {
 
 .skills-list.icons li {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
     color: #f7f7f7a2;
 }
 
 .skills-list.icons i {
-    font-size: 22px; 
-    margin-bottom: 0.2rem;
+    font-size: 28px;
+    margin-bottom: 0.4rem;
 }
 
 .skills-list.icons span {
-    font-size: clamp(0.7rem, 1.4vw, 1rem);
+    font-size: clamp(0.8rem, 1.4vw, 1rem);
     margin-top: 0.1rem;
     opacity: 0.9;
     padding-bottom: 2rem;
 }
+
+/* Light mode fix */
+body.light .skills-list.icons span {
+    color: #333;
+}
+
