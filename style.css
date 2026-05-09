@@ -159,14 +159,18 @@ body.light {
     text-align: center;
     padding: 5rem 2rem;
 }
+.hero p {
+    margin-bottom: 2rem; /* flyttar ner knapparna */
+}
+
 
 .btn {
-    padding: 0.8rem 1.4rem;
+    padding: 0.6rem 1.2rem;
     border-radius: 8px;
     text-decoration: none;
     color: #ececec;
     font-weight: 600;
-    margin: 1rem;
+    margin: 0.9rem;
 }
 
 .portrait {
