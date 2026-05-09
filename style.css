@@ -1,0 +1,135 @@
+:root {
+    --bg: #000000;              /* Mörk bakgrundsfärg (dark mode) */
+    --bg-light: #ffffff;        /* Ljus bakgrundsfärg (light mode) */
+
+    --text: #ececec;            /* Textfärg i dark mode */
+    --text-dark: #000000;          /* Textfärg i light mode */
+
+    --pink: #FF4FD8;            /* Rosa accentfärg */
+    --orange: #FF7A00;          /* Orange accentfärg */
+    --blue: #4AB3FF;            /* Blå accentfärg */
+
+    --console-bg: #000;         /* Bakgrund för konsolfönster */
+    --console-border: #333;     /* Ramfärg för konsolfönster */
+    --glow: #003B73;            /* Glow-färg runt porträttet */
+}
+
+body {
+    background: var(--bg);      /* bakgrund dark mode */
+    color: var(--text);         /* textfärg vit */
+    font-family: "Segoe UI", sans-serif; 
+    margin: 0;                  
+}
+
+/* Light mode */
+body.light {
+    background: var(--bg-light); /* bakgrund light mode */
+    color: var(--text-dark);     /* textfärg svart */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;               /* Lägger element i rad */
+    justify-content: space-between; /* Sprider ut nav + kontroller */
+    padding: 1rem 2rem;          /* Luft runt navbaren */
+    background: rgba(0,0,0,0.3); /* lätt glas */
+    backdrop-filter: blur(10px); /* glas-effekt */
+}
+
+.nav-controls {
+    display: flex;               /* Ikoner i rad */
+    align-items: center;         /* Vertikal centrering */
+    gap: 1rem;                   /* Avstånd mellan ikoner */
+}
+
+.weather {
+    font-size: 1rem;             /* Storlek på vädertext */
+    color: var(--text);          /* vit text */
+    opacity: 0.8;                /* Lite nedtonad */
+}
+
+/* Hero */
+.hero {
+    text-align: center;          /* Centrerar allt i hero */
+    padding: 5rem 2rem;          /* Luft runt hero-sektionen */
+}
+
+/* Buttons */
+.btn {
+    padding: 0.8rem 1.4rem;      /* Storlek på knappar */
+    border-radius: 8px;          /* Rundade hörn */
+    text-decoration: none;       /* Ingen understrykning */
+    color: white;                /* Vit text */
+    font-weight: 600;            /* Fet text */
+}
+
+.portrait {
+    width: 10rem;                /* Storlek på porträttbild */
+    border-radius: 20rem;        /* Gör bilden rund */
+    border: 3px solid var(--glow); /* Glow-färgad ram */
+    box-shadow:
+        0 0 15px var(--glow),    /* Yttre glow */
+        0 0 30px color-mix(in srgb, var(--glow) 60%, transparent),
+        0 0 45px color-mix(in srgb, var(--glow) 30%, transparent);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease; /* Smooth glow-animation */
+}
+
+.hero-image-wrapper {
+    position: relative;          /* Gör att ikonen kan placeras ovanpå bilden */
+    display: inline-block;       /* Gör att wrappern krymper runt bilden */
+}
+
+/* Ikonen är osynlig som standard */
+.color-icon {
+    position: absolute;          /* Placeras ovanpå bilden */
+    bottom: 0;                   /* Nere vid kanten */
+    right: 0;                    /* Till höger */
+    background: rgba(0,0,0,0.4); /* Liten glasbakgrund */
+    backdrop-filter: blur(6px);  /* Blur-effekt */
+    border: none;                /* Ingen ram */
+    border-radius: 50%;          /* Rund ikon */
+    padding: 0.4rem;             /* Storlek */
+    cursor: pointer;             /* Klickbar */
+    font-size: 1.2rem;           /* Ikonstorlek */
+    color: var(--blue);          /* Blå ikon */
+    opacity: 0;                  /* Osynlig från början */
+    pointer-events: none;        /* Går inte att klicka */
+    transition: 0.25s ease;      /* Smooth fade */
+}
+
+/* När man hovrar över bilden visas ikonen */
+.hero-image-wrapper:hover .color-icon {
+    opacity: 1;                  /* Gör ikonen synlig */
+    pointer-events: auto;        /* Gör den klickbar */
+    transform: scale(1.1);       /* Liten zoom-effekt */
+}
+
+.pink { background: var(--pink); }   /* Rosa knapp */
+.orange { background: var(--orange);} /* Orange knapp */
+.blue { background: var(--blue); }    /* Blå knapp */
+
+/* Folders */
+.folder {
+    margin-bottom: 1rem;         /* Avstånd mellan mappar */
+    border: 1px solid var(--console-border); /* Konsolram */
+    background: var(--console-bg); /* Svart bakgrund */
+    padding: 1rem;               /* Luft i mappen */
+    border-radius: 6px;          /* Rundade hörn */
+}
+
+.folder-toggle {
+    background: none;            /* Ingen bakgrund */
+    border: none;                /* Ingen ram */
+    color: var(--pink);          /* Rosa ikon/text */
+    font-size: 1.2rem;           /* Storlek */
+    cursor: pointer;             /* Klickbar */
+}
+
+.folder-content {
+    display: none;               /* Dold som standard */
+    margin-top: 0.5rem;          /* Lite luft ovanför innehållet */
+}
+
+.folder.open .folder-content {
+    display: block;              /* Visas när mappen är öppen */
+}
