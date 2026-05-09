@@ -1,135 +1,191 @@
 :root {
-    --bg: #000000;              /* Mörk bakgrundsfärg (dark mode) */
-    --bg-light: #ffffff;        /* Ljus bakgrundsfärg (light mode) */
+    --bg: #000000;
+    --bg-light: #ffffff;
 
-    --text: #ececec;            /* Textfärg i dark mode */
-    --text-dark: #000000;          /* Textfärg i light mode */
+    --text: #ececec;
+    --text-dark: #000000;
 
-    --pink: #FF4FD8;            /* Rosa accentfärg */
-    --orange: #FF7A00;          /* Orange accentfärg */
-    --blue: #4AB3FF;            /* Blå accentfärg */
+    --pink: #FF4FD8;
+    --orange: #FF7A00;
+    --blue: #4AB3FF;
 
-    --console-bg: #000;         /* Bakgrund för konsolfönster */
-    --console-border: #333;     /* Ramfärg för konsolfönster */
-    --glow: #003B73;            /* Glow-färg runt porträttet */
+    --console-bg: #000;
+    --console-border: #333;
+    --glow: #003B73;
 }
 
 body {
-    background: var(--bg);      /* bakgrund dark mode */
-    color: var(--text);         /* textfärg vit */
-    font-family: "Segoe UI", sans-serif; 
-    margin: 0;                  
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", sans-serif;
+    margin: 0;
 }
 
-/* Light mode */
 body.light {
-    background: var(--bg-light); /* bakgrund light mode */
-    color: var(--text-dark);     /* textfärg svart */
+    background: var(--bg-light);
+    color: var(--text-dark);
 }
 
-/* Navbar */
+/* NAVBAR WRAPPER */
 .navbar {
-    display: flex;               /* Lägger element i rad */
-    justify-content: space-between; /* Sprider ut nav + kontroller */
-    padding: 1rem 2rem;          /* Luft runt navbaren */
-    background: rgba(0,0,0,0.3); /* lätt glas */
-    backdrop-filter: blur(10px); /* glas-effekt */
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
 }
 
-.nav-controls {
-    display: flex;               /* Ikoner i rad */
-    align-items: center;         /* Vertikal centrering */
-    gap: 1rem;                   /* Avstånd mellan ikoner */
+/* NAVBAR CONTENT */
+.navbar nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.2rem;
 }
 
+/* VÄDER – alltid vänster */
 .weather {
-    font-size: 1rem;             /* Storlek på vädertext */
-    color: var(--text);          /* vit text */
-    opacity: 0.8;                /* Lite nedtonad */
+    font-size: 1rem;
+    opacity: 0.9;
 }
 
-/* Hero */
+/* HAMBURGER – syns bara på mobil */
+.hamburger {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text);
+}
+
+/* MENY – gömd på mobil */
+.nav-links {
+    display: none;
+}
+
+/* IKONER – alltid höger */
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--text);
+}
+
+/* DOLD SELECT */
+.hidden-select {
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+/* MOBILMENY DROPDOWN */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+}
+
+.mobile-menu a {
+    color: var(--text);
+    text-decoration: none;
+    padding: 0.8rem 0;
+    font-size: 1.2rem;
+}
+
+@media (min-width: 768px) {
+    .hamburger {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex: 1;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .mobile-menu {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1025px) {
+    .navbar nav {
+        padding: 1.2rem 3rem;
+    }
+
+    .nav-links {
+        gap: 3rem;
+    }
+
+    .icon-btn {
+        font-size: 1.5rem;
+    }
+}
+
 .hero {
-    text-align: center;          /* Centrerar allt i hero */
-    padding: 5rem 2rem;          /* Luft runt hero-sektionen */
+    text-align: center;
+    padding: 5rem 2rem;
 }
 
-/* Buttons */
 .btn {
-    padding: 0.8rem 1.4rem;      /* Storlek på knappar */
-    border-radius: 8px;          /* Rundade hörn */
-    text-decoration: none;       /* Ingen understrykning */
-    color: white;                /* Vit text */
-    font-weight: 600;            /* Fet text */
+    padding: 0.8rem 1.4rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #ececec;
+    font-weight: 600;
+    margin: 1rem;
 }
 
 .portrait {
-    width: 10rem;                /* Storlek på porträttbild */
-    border-radius: 20rem;        /* Gör bilden rund */
-    border: 3px solid var(--glow); /* Glow-färgad ram */
+    width: 10rem;
+    border-radius: 20rem;
+    border: 3px solid var(--glow);
     box-shadow:
-        0 0 15px var(--glow),    /* Yttre glow */
+        0 0 15px var(--glow),
         0 0 30px color-mix(in srgb, var(--glow) 60%, transparent),
         0 0 45px color-mix(in srgb, var(--glow) 30%, transparent);
-    transition: box-shadow 0.3s ease, border-color 0.3s ease; /* Smooth glow-animation */
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .hero-image-wrapper {
-    position: relative;          /* Gör att ikonen kan placeras ovanpå bilden */
-    display: inline-block;       /* Gör att wrappern krymper runt bilden */
+    position: relative;
+    display: inline-block;
 }
 
-/* Ikonen är osynlig som standard */
 .color-icon {
-    position: absolute;          /* Placeras ovanpå bilden */
-    bottom: 0;                   /* Nere vid kanten */
-    right: 0;                    /* Till höger */
-    background: rgba(0,0,0,0.4); /* Liten glasbakgrund */
-    backdrop-filter: blur(6px);  /* Blur-effekt */
-    border: none;                /* Ingen ram */
-    border-radius: 50%;          /* Rund ikon */
-    padding: 0.4rem;             /* Storlek */
-    cursor: pointer;             /* Klickbar */
-    font-size: 1.2rem;           /* Ikonstorlek */
-    color: var(--blue);          /* Blå ikon */
-    opacity: 0;                  /* Osynlig från början */
-    pointer-events: none;        /* Går inte att klicka */
-    transition: 0.25s ease;      /* Smooth fade */
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(6px);
+    border: none;
+    border-radius: 50%;
+    padding: 0.4rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--blue);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.25s ease;
 }
 
-/* När man hovrar över bilden visas ikonen */
 .hero-image-wrapper:hover .color-icon {
-    opacity: 1;                  /* Gör ikonen synlig */
-    pointer-events: auto;        /* Gör den klickbar */
-    transform: scale(1.1);       /* Liten zoom-effekt */
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1.1);
 }
 
-.pink { background: var(--pink); }   /* Rosa knapp */
-.orange { background: var(--orange);} /* Orange knapp */
-.blue { background: var(--blue); }    /* Blå knapp */
-
-/* Folders */
-.folder {
-    margin-bottom: 1rem;         /* Avstånd mellan mappar */
-    border: 1px solid var(--console-border); /* Konsolram */
-    background: var(--console-bg); /* Svart bakgrund */
-    padding: 1rem;               /* Luft i mappen */
-    border-radius: 6px;          /* Rundade hörn */
-}
-
-.folder-toggle {
-    background: none;            /* Ingen bakgrund */
-    border: none;                /* Ingen ram */
-    color: var(--pink);          /* Rosa ikon/text */
-    font-size: 1.2rem;           /* Storlek */
-    cursor: pointer;             /* Klickbar */
-}
-
-.folder-content {
-    display: none;               /* Dold som standard */
-    margin-top: 0.5rem;          /* Lite luft ovanför innehållet */
-}
-
-.folder.open .folder-content {
-    display: block;              /* Visas när mappen är öppen */
-}
+.pink { background: var(--pink); }
+.orange { background: var(--orange); }
+.blue { background: var(--blue); }

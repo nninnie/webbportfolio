@@ -12,25 +12,42 @@
 
 <header class="navbar">
     <nav>
-        <ul class="nav-links">
-            <li><a data-i18n="nav_about" href="#about">Om mig</a></li>
-            <li><a data-i18n="nav_skills" href="#skills">Kunskaper</a></li>
-            <li><a data-i18n="nav_projects" href="#projects">Projekt</a></li>
-            <li><a data-i18n="nav_contact" href="#contact">Kontakt</a></li>
+
+        <!-- Väder längst till vänster -->
+        <span id="weather" class="weather">--°C</span>
+
+        <!-- Hamburgarmeny (mobil) -->
+        <button class="hamburger" id="hamburgerBtn">☰</button>
+
+        <!-- Menylänkar -->
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">Om mig</a></li>
+            <li><a href="#skills">Kunskaper</a></li>
+            <li><a href="#projects">Projekt</a></li>
+            <li><a href="#contact">Kontakt</a></li>
         </ul>
 
+        <!-- Ikoner längst till höger -->
         <div class="nav-controls">
-            <span id="weather" class="weather">--°C</span>
-
             <button id="themeToggle" class="icon-btn">🌙</button>
             <button id="languageToggle" class="icon-btn">🌐</button>
 
+            <!-- Dold select språk -->
             <select id="languageSelect" class="hidden-select">
                 <option value="sv">SV</option>
                 <option value="en">EN</option>
             </select>
         </div>
+
     </nav>
+
+    <!-- Mobilmeny som glider ner -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about">Om mig</a>
+        <a href="#skills">Kunskaper</a>
+        <a href="#projects">Projekt</a>
+        <a href="#contact">Kontakt</a>
+    </div>
 </header>
 
 
