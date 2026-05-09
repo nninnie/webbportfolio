@@ -14,6 +14,10 @@
     --glow: #003B73;
 }
 
+html {
+    overflow-y: auto;
+}
+
 h1, h2 {
     font-family: "Montserrat", sans-serif;
     font-weight: 900;
@@ -77,6 +81,9 @@ body.light .skills-list.icons span {
 
 /* NAVBAR WRAPPER */
 .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
     background: rgba(0,0,0,0.3);
     backdrop-filter: blur(10px);
 }
@@ -177,6 +184,12 @@ body.light .skills-list.icons span {
     position: absolute;
     pointer-events: none;
 }
+
+.navbar.scrolled {
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.18),
+                0 0 18px rgba(0, 122, 255, 0.08);
+}
+
 
 /* MOBIL DROPDOWN */
 .mobile-menu {

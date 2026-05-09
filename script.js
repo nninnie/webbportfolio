@@ -85,3 +85,13 @@ hamburgerBtn.addEventListener("click", () => {
     mobileMenu.style.display =
         mobileMenu.style.display === "flex" ? "none" : "flex";
 });
+
+
+window.addEventListener("scroll", () => {
+    const nav = document.querySelector(".navbar");
+    if (window.scrollY > 10) {
+        nav.classList.add("scrolled");
+    } else {
+        nav.classList.remove("scrolled");
+    }
+});
