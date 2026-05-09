@@ -13,6 +13,7 @@
     --console-bg: #000;
     --console-border: #333;
     --glow: #003B73;
+    
 }
 
 /* ============== HTML ============== */
@@ -493,7 +494,7 @@ body.light .skills-list.icons span {
 }
 
 
-/* ============== PROJECTS ============== */
+/* ============== PORTFOLIO ============== */
 .sectionproject {
     padding: 6rem 2rem;
     max-width: 900px;
@@ -510,6 +511,7 @@ body.light .skills-list.icons span {
     max-width: 900px;
     margin: 0 auto;
 }
+
 
 /* Folder styling */
 .folder {
@@ -533,10 +535,14 @@ body.light .skills-list.icons span {
     color: var(--blue);
 }
 
-.folder-content {
+.sectionproject{
     display: none;
     padding-left: 1rem;
     margin-top: 0.5rem;
+}
+.folder-content .accent {
+    color: var(--glow);
+    font-weight: 900;
 }
 
 .folder-content a {
@@ -554,6 +560,10 @@ body.light .skills-list.icons span {
     max-width: 900px;
     margin: 0 auto;
     text-align: center;
+}
+.sectioncontact .accent {
+    color: var(--glow);
+    font-weight: 900;
 }
 
 .contact-card {
