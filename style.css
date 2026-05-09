@@ -176,6 +176,12 @@ body.light .skills-list.icons span {
     color: var(--text);
 }
 
+.weather,
+.icon-btn {
+    font-size: 0.9rem;
+}
+
+
 /* DOLD SELECT */
 .hidden-select {
     opacity: 0;
@@ -286,7 +292,7 @@ body.light .skills-list.icons span {
 /* Texten inuti knappen */
 .btn.orb span {
     opacity: 0;
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 2vw, 1rem);
     font-weight: 500;
     transition: opacity 0.25s ease;
     text-decoration: none;
@@ -355,6 +361,13 @@ body.light .skills-list.icons span {
         0 0 16px color-mix(in srgb, var(--glow) 50%, transparent),
         0 0 24px color-mix(in srgb, var(--glow) 20%, transparent);
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.portrait:hover {
+    box-shadow:
+        0 0 10px var(--glow),
+        0 0 20px color-mix(in srgb, var(--glow) 50%, transparent),
+        0 0 28px color-mix(in srgb, var(--glow) 20%, transparent);
+    transform: scale(1.01);
 }
 
 
