@@ -13,18 +13,37 @@
     --console-border: #333;
     --glow: #003B73;
 }
-/* SKA JAG HA DENNA h2 för alla?*/
-h2 {
-    font-size: clamp(1.8rem, 4vw, 3rem); 
+
+h1, h2 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    letter-spacing: -1px;
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
     text-align: center;
     margin-bottom: 1rem;
-    font-weight: 700;
 }
+
+h3 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+}
+p {
+    font-family: "Poppins", sans-serif;
+    font-size: clamp(0.95rem, 2vw, 1.2rem);
+    line-height: 1.6;
+}
+a, li, span {
+    font-family: "Poppins", sans-serif;
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+}
+
+
 
 body {
     background: var(--bg);
     color: var(--text);
-    font-family: "Segoe UI", sans-serif;
+    font-family: "Poppins", sans-serif;
     margin: 0;
 }
 
@@ -319,7 +338,7 @@ body.light .skills-list.icons span {
 }
 
 
-/* PORTRÄT*/
+/* PORTRÄTT BILD*/
 .portrait {
     width: 8rem;
     border-radius: 20rem;
@@ -346,7 +365,7 @@ body.light .skills-list.icons span {
     border-radius: 50%;
     padding: 0.4rem;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     color: var(--blue);
     opacity: 0;
     pointer-events: none;
@@ -358,11 +377,6 @@ body.light .skills-list.icons span {
     pointer-events: auto;
     transform: scale(1.1);
 }
-
-.pink { background: var(--pink); }
-.orange { background: var(--orange); }
-.blue { background: var(--blue); }
-
 
 /* ABOUT ME */
 .sectionabout {
@@ -402,7 +416,7 @@ body.light .skills-list.icons span {
 }
 
 .skills-list.icons span {
-    font-size: clamp(0.55rem, 1.2vw, 0.75rem); 
+    font-size: clamp(0.7rem, 1.4vw, 1rem);
     margin-top: 0.1rem;
     opacity: 0.9;
     padding-bottom: 2rem;
