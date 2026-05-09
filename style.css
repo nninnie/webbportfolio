@@ -13,6 +13,13 @@
     --console-border: #333;
     --glow: #003B73;
 }
+/* SKA JAG HA DENNA h2 för alla?*/
+h2 {
+    font-size: clamp(1.8rem, 4vw, 3rem); 
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
 
 body {
     background: var(--bg);
