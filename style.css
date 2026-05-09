@@ -558,9 +558,9 @@ body.light .skills-list.icons span {
 .projects-card {
     display: flex;
     justify-content: center;
-    gap: 3rem;
+    gap: 5rem;
     flex-wrap: wrap;
-    padding: 3rem 2rem;
+    padding: 6rem 3rem;
 }
 
 /* MAPP-KORT */
@@ -646,11 +646,45 @@ body.light .skills-list.icons span {
 }
 
 /* ============== FOOTER ============== */
-
+/* FOOTER */
 footer {
     margin-top: 1rem;
     padding: 2rem 0;
     text-align: center;
-    color: var(--glow);
+    color: var(--bg-light);
     opacity: 0.9;
+}
+
+.copy-symbol {
+    color: var(--glow);
+}
+
+/* Ikoncontainer */
+.footer-icons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.4rem;
+}
+
+/* SVG-ikoner */
+.footer-icons .icon {
+    width: 28px;
+    height: 28px;
+    transition: 0.25s ease;
+}
+
+/* Instagram som IMG */
+.footer-icons img {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px; /* matchar SVG-rundningen */
+    transition: 0.25s ease;
+}
+
+/* Hover-effekt */
+.footer-icons a:hover .icon,
+.footer-icons a:hover img {
+    transform: translateY(-2px) scale(1.08);
+    filter: drop-shadow(0 0 6px var(--glow));
 }
