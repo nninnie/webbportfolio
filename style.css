@@ -98,7 +98,6 @@ body.light .skills-list.icons span {
 
 /* VÄDER – alltid vänster */
 .weather {
-    font-size: 1rem;
     opacity: 0.9;
 }
 
@@ -173,7 +172,6 @@ body.light .skills-list.icons span {
     background: none;
     border: none;
     padding: 0;
-    font-size: clamp(0.8rem, 1.5vw, 1.1rem);
     cursor: pointer;
     color: var(--text);
 }
@@ -228,10 +226,6 @@ body.light .skills-list.icons span {
 
     .nav-links {
         gap: 3rem;
-    }
-
-    .icon-btn {
-        font-size: 1.5rem;
     }
 }
 
