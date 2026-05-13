@@ -23,6 +23,7 @@ themeToggle.addEventListener("click", () => {
 const popup = document.getElementById("customColorPopup");
 const customColorInput = document.getElementById("customColorInput");
 const closePopup = document.getElementById("closeColorPopup");
+const openColorPicker = document.getElementById("openColorPicker");
 
 // Öppna popup
 openColorPicker.addEventListener("click", () => {
