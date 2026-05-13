@@ -20,23 +20,22 @@ themeToggle.addEventListener("click", () => {
 /* -----------------------------------------
    🎨  GLOW COLOR PICKER (sparas i localStorage)
 ----------------------------------------- */
-const glowPicker = document.getElementById("glowPicker");
-const openColorPicker = document.getElementById("openColorPicker");
+const popup = document.getElementById("customColorPopup");
+const customColorInput = document.getElementById("customColorInput");
+const closePopup = document.getElementById("closeColorPopup");
 
-// Ladda sparad glow-färg om den finns
-const savedGlow = localStorage.getItem("glowColor");
-if (savedGlow) {
-    document.documentElement.style.setProperty("--glow", savedGlow);
-    glowPicker.value = savedGlow;
-}
-
-// Klick på 🎨 öppnar färgväljaren
+// Öppna popup
 openColorPicker.addEventListener("click", () => {
-    glowPicker.click();
+    popup.style.display = "block";
+});
+
+// Stäng popup
+closePopup.addEventListener("click", () => {
+    popup.style.display = "none";
 });
 
 // När användaren väljer färg
-glowPicker.addEventListener("input", (e) => {
+customColorInput.addEventListener("input", (e) => {
     const color = e.target.value;
     document.documentElement.style.setProperty("--glow", color);
     localStorage.setItem("glowColor", color);

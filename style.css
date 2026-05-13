@@ -372,6 +372,45 @@ body.light .btn.orb {
         0 0 28px color-mix(in srgb, var(--glow) 20%, transparent);
     transform: scale(1.01);
 }
+.color-popup {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.85);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    display: none;
+    text-align: center;
+    z-index: 99999;
+}
+
+.color-popup h4 {
+    margin: 0 0 1rem;
+    color: var(--text);
+}
+
+.color-popup input[type="color"] {
+    width: 80px;
+    height: 80px;
+    border: none;
+    padding: 0;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.color-popup button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--blue);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+}
+
 
 
 .hero-image-wrapper {
