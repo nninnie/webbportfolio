@@ -223,15 +223,22 @@
 
     <div class="contact-card">
         <form id="contactForm" action="https://formsubmit.co/ninnie_dahlstrom@hotmail.com" method="POST">
+
             <input type="text" name="name" placeholder="Namn" required>
             <input type="email" name="email" placeholder="Email" required>
             <textarea name="message" placeholder="Meddelande" required></textarea>
 
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_redirect" value="false">
 
-            <button type="submit" class="btn blue">Skicka</button>
-        </form>
+            <!-- Viktigt: matcha din GitHub Pages-domän -->
+            <input type="hidden" name="_origin" value="https://nninnie.github.io">
+
+            <!-- Viktigt: redirect tillbaka till din sida -->
+            <input type="hidden" name="_redirect" value="https://nninnie.github.io/#contact">
+
+        <button type="submit" class="btn blue">Skicka</button>
+    </form>
+
 
 
         <div id="successPopup" class="popup">
