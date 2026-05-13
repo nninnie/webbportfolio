@@ -158,19 +158,27 @@ body.light .btn.orb {
     text-decoration: none;
 }
 
-/* CV-länk – normal (vit) */
+/* CV-länk alltid rosa */
 .nav-links a[href$="cv-ninniedahlstrom.pdf"],
 .mobile-menu a[href$="cv-ninniedahlstrom.pdf"] {
-    color: var(--text);
+    color: var(--pink) !important;
     font-weight: 600;
 }
 
-/* CV-länk – rosa vid hover */
-.nav-links a[href$="cv-ninniedahlstrom.pdf"]:hover,
-.mobile-menu a[href$="cv-ninniedahlstrom.pdf"]:hover {
-    color: var(--pink);
+/* Portfolio-länk alltid orange */
+.nav-links a[href*="portfolio"],
+.mobile-menu a[href*="portfolio"] {
+    color: var(--orange) !important;
+    font-weight: 600;
 }
 
+/* Ingen hover-färg på dessa två */
+.nav-links a[href$="cv-ninniedahlstrom.pdf"]:hover,
+.mobile-menu a[href$="cv-ninniedahlstrom.pdf"]:hover,
+.nav-links a[href*="portfolio"]:hover,
+.mobile-menu a[href*="portfolio"]:hover {
+    color: inherit !important;
+}
 
 /* IKONER / SPRÅK - LIGHT MODE */
 .nav-controls {
