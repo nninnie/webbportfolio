@@ -94,3 +94,17 @@ window.addEventListener("scroll", () => {
         nav.classList.remove("scrolled");
     }
 });
+
+
+/* -----------------------------------------
+   📩 Kontaktformulär: visa popup efter skickat
+----------------------------------------- */
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    setTimeout(() => {
+        document.getElementById("successPopup").style.display = "block";
+
+        setTimeout(() => {
+            document.getElementById("successPopup").style.display = "none";
+        }, 4000);
+    }, 500);
+});
