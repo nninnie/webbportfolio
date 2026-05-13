@@ -227,11 +227,12 @@
             <input type="email" name="email" placeholder="Email" required>
             <textarea name="message" placeholder="Meddelande" required></textarea>
 
-            <!-- Anti-spam / stänger av FormSubmit’s inbyggda CAPTCHA / måste INTE bevisa att de inte är en robot -->
             <input type="hidden" name="_captcha" value="false">
-    
+            <input type="hidden" name="_redirect" value="false">
+
             <button type="submit" class="btn blue">Skicka</button>
         </form>
+
 
         <div id="successPopup" class="popup">
             <p>Tack! Ditt meddelande är nu på väg till Ninnie Dahlström.</p>

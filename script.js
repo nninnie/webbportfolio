@@ -97,14 +97,30 @@ window.addEventListener("scroll", () => {
 
 
 /* -----------------------------------------
-   📩 Kontaktformulär: visa popup efter skickat
+   📩 Kontaktformulär: skicka utan redirect + visa popup
 ----------------------------------------- */
 document.getElementById("contactForm").addEventListener("submit", function(e) {
-    setTimeout(() => {
+    e.preventDefault(); // Stoppar FormSubmit från att ladda om sidan
+
+    const form = this;
+    const formData = new FormData(form);
+
+    // Skicka formuläret via fetch (AJAX)
+    fetch(form.action, {
+        method: "POST",
+        body: formData
+    })
+    .then(() => {
+        // Visa popup
         document.getElementById("successPopup").style.display = "block";
 
+        // Dölj popup efter 4 sekunder
         setTimeout(() => {
             document.getElementById("successPopup").style.display = "none";
         }, 4000);
-    }, 500);
+
+        // Rensa formuläret
+        form.reset();
+    })
+    .catch(error => console.log("FormSubmit error:", error));
 });
