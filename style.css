@@ -279,6 +279,10 @@ body.light .btn.orb {
     padding: clamp(4rem, 12vw, 14rem) 2rem;
     text-align: center;
 }
+.hero {
+    padding-top: clamp(4rem, 8vw, 8rem);
+    padding-bottom: clamp(4rem, 8vw, 8rem);
+}
 
 .hero h1 {
     margin-bottom: 0.3rem; /* tajtar upp avståndet */
