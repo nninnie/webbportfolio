@@ -58,7 +58,7 @@ body.light .copy-symbol {
 
 /* Orb-knappar i white mode */
 body.light .btn.orb {
-    color: #000;
+    color: #e8dddd;
 }
 
 /* White mode cards */
@@ -68,6 +68,21 @@ body.light .projects-card,
 body.light .contact-card {
     background: rgba(0,0,0,0.05); /* svag mörk ton */
     border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* White mode inputs */
+body.light .contact-card input,
+body.light .contact-card textarea {
+    background: rgba(0,0,0,0.05); /* ljus ton */
+    color: var(--text-dark);      /* mörk text */
+    border: 1px solid rgba(0,0,0,0.15);
+}
+
+/* White mode hamburger menu background */
+body.light .mobile-menu {
+    background: rgba(0,0,0,0.05); /* svag mörk ton */
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0,0,0,0.08);
 }
 
 
@@ -689,8 +704,13 @@ body.light .skills-list.icons span {
 .sectioncontact {
     max-width: 900px;
     margin: 0 auto;
+}
+
+.sectioncontact h2,
+.sectioncontact .accent {
     text-align: center;
 }
+
 .sectioncontact .accent {
     color: var(--glow);
     font-weight: 900;
@@ -699,24 +719,27 @@ body.light .skills-list.icons span {
 .contact-card {
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.06);
-    padding: 2rem;
+    padding: 2rem 2rem;
     border-radius: 1rem;
     backdrop-filter: blur(10px);
-    max-width: 700px;
+    max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
     opacity: 0.9;
 }
 
 .contact-card form {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    align-items: center;
 }
 
 .contact-card input,
 .contact-card textarea {
     width: 100%;
+    display: block;
     padding: 0.8rem;
     border-radius: 8px;
     border: none;
@@ -726,8 +749,30 @@ body.light .skills-list.icons span {
 }
 
 .contact-card button {
-    margin-top: 1rem;
+    margin-top: 0.6rem;
+    color: (var(--bg-light));
+    border-radius: 10px;
+    padding: 0.2rem 0.6rem;
+    display: flex;
+    justify-content: center;
+    border: none;
+    background: #004AAD; /* samma färg som din orb */
+    font-weight: 400;
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 8px var(--glow);
+    transition: 0.25s ease;
 }
+
+/* Hover-effekt */
+.contact-card button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px var(--glow);
+}
+
 
 .popup {
     display: none;
