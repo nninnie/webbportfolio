@@ -280,7 +280,7 @@ body.light .btn.orb {
     text-align: center;
 }
 .hero {
-    padding-top: clamp(2.5rem, 5vw, 5rem);
+    padding-top: clamp(2rem, 4vw, 4rem);
     padding-bottom: clamp(4rem, 8vw, 8rem);
 }
 
