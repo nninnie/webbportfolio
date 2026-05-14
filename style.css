@@ -277,6 +277,7 @@ body.light .btn.orb {
     max-width: 900px;
     margin: 0 auto;
     padding: clamp(4rem, 12vw, 14rem) 2rem;
+    text-align: center;
 }
 
 .hero h1 {
