@@ -30,6 +30,45 @@ section {
     padding: clamp(4rem, 10vw, 10rem) 2rem;
 }
 
+/* ============== WHITE MODE ============== */
+/* WHITE MODE */
+body.light {
+    background: var(--bg-light);
+    color: var(--text-dark);
+}
+/* WHITE MODE TEXT COLORS */
+body.light footer,
+body.light .nav-links a,
+body.light .mobile-menu a,
+body.light .icon-btn,
+body.light .hero,
+body.light .sectionabout,
+body.light .skills-section,
+body.light .sectionproject,
+body.light .sectioncontact,
+body.light .folder-title {
+    color: var(--text-dark);
+}
+
+/* Accent och copyright ska ALLTID vara glow */
+body.light .accent,
+body.light .copy-symbol {
+    color: var(--glow) !important; /* important - regeln gäller alltid! */
+}
+
+/* Orb-knappar i white mode */
+body.light .btn.orb {
+    color: #000;
+}
+
+/* White mode cards */
+body.light .about-card,
+body.light .skills-card,
+body.light .projects-card,
+body.light .contact-card {
+    background: rgba(0,0,0,0.05); /* svag mörk ton */
+    border: 1px solid rgba(0,0,0,0.1);
+}
 
 
 /* ============== HTML ============== */
@@ -81,27 +120,6 @@ body {
     margin: 0;
 }
 
-/* WHITE MODE */
-body.light {
-    background: var(--bg-light);
-    color: var(--text-dark);
-}
-/* WHITE MODE TEXT COLORS */
-body.light .nav-links a,
-body.light .mobile-menu a,
-body.light .icon-btn,
-body.light .hero,
-body.light .sectionabout,
-body.light .skills-section,
-body.light .sectionproject,
-body.light .sectioncontact {
-    color: var(--text-dark);
-}
-
-/* Orb-knappar i white mode */
-body.light .btn.orb {
-    color: #000;
-}
 
 
 /* ============== NAVBAR ============== */
