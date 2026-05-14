@@ -1,4 +1,6 @@
 /* ============== ROOT ============== */
+
+/* FÄRGER GLOBALT*/
 :root {
     --bg: #000000;
     --bg-light: #ffffff;
@@ -15,6 +17,20 @@
     --glow: #003B73;
     
 }
+
+/* GLOBAL WRAPPER */
+.page-wrapper {
+    max-width: 1400px; 
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* AVSTÅND MELLAN SEKTIONER – RESPONSIVE */
+section {
+    padding: clamp(4rem, 10vw, 10rem) 2rem;
+}
+
+
 
 /* ============== HTML ============== */
 html {
@@ -258,9 +274,11 @@ body.light .btn.orb {
 
 /* HERO */
 .hero {
-    text-align: center;
-    padding: 3rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: clamp(4rem, 12vw, 14rem) 2rem;
 }
+
 .hero h1 {
     margin-bottom: 0.3rem; /* tajtar upp avståndet */
 }
@@ -445,7 +463,6 @@ body.light .btn.orb {
 
 /* ============== ABOUT ============== */
 .sectionabout {
-    padding: 6rem 2rem;
     text-align: center;
     max-width: 900px;
     margin: 0 auto;
@@ -475,7 +492,6 @@ body.light .btn.orb {
 /* ============== SKILLS ============== */
 
 .skills-section {
-    padding: 5rem 2rem;
     max-width: 900px;
     margin: 0 auto;
 }
@@ -543,7 +559,6 @@ body.light .skills-list.icons span {
 
 /* ============== PORTFOLIO ============== */
 .sectionproject {
-    padding: 6rem 2rem;
     max-width: 900px;
     margin: 0 auto;
     text-align: center;
@@ -649,7 +664,6 @@ body.light .skills-list.icons span {
 
 /* ============== CONTACT ============== */
 .sectioncontact {
-    padding: 6rem 2rem;
     max-width: 900px;
     margin: 0 auto;
     text-align: center;
