@@ -41,7 +41,6 @@ if (savedGlow) {
 }
 
 
-
 /* -----------------------------------------
    🌤️  VÄDER-API (Open-Meteo)
 ----------------------------------------- */
@@ -86,6 +85,9 @@ hamburgerBtn.addEventListener("click", () => {
 });
 
 
+/* -----------------------------------------
+   📜 NAVBAR SCROLL-EFFEKT
+----------------------------------------- */
 window.addEventListener("scroll", () => {
     const nav = document.querySelector(".navbar");
     if (window.scrollY > 10) {
@@ -125,8 +127,9 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
     .catch(error => console.log("FormSubmit error:", error));
 });
 
+
 /* -----------------------------------------
-   📁 Mappar Portfolio: öppnas / stängas
+   📁 Mappar Portfolio: popover-kort
 ----------------------------------------- */
 const projects = {
     "Kassasystem App": {
@@ -151,16 +154,17 @@ const projects = {
     }
 };
 
-
 const modal = document.getElementById("projectModal");
 const titleEl = document.getElementById("projectTitle");
 const descEl = document.getElementById("projectDescription");
 const githubEl = document.getElementById("githubLink");
 const demoEl = document.getElementById("demoLink");
 
-// Öppna modal när man klickar på en mapp
+// Öppna popover när man klickar på en mapp
 document.querySelectorAll(".folder-item").forEach(folder => {
-    folder.addEventListener("click", () => {
+    folder.addEventListener("click", (e) => {
+        e.stopPropagation(); // hindrar att klicket stänger direkt via document-click
+
         const name = folder.querySelector(".folder-title").textContent;
 
         titleEl.textContent = name;
@@ -168,16 +172,29 @@ document.querySelectorAll(".folder-item").forEach(folder => {
         githubEl.href = projects[name].github;
         demoEl.href = projects[name].demo;
 
-        modal.style.display = "flex";
+        const rect = folder.getBoundingClientRect();
+        const modalWidth = 280;
+
+        // Centrera popover över mappen
+        const left = rect.left + (rect.width / 2) - (modalWidth / 2);
+        const top = rect.top - 190; // justera vid behov
+
+        modal.style.left = left + "px";
+        modal.style.top = top + "px";
+        modal.style.display = "block";
     });
 });
 
-// Stäng modal med X
-document.querySelector(".close-modal").addEventListener("click", () => {
-    modal.style.display = "none";
+// Stäng popover när man klickar utanför
+document.addEventListener("click", (e) => {
+    if (!modal.contains(e.target) && !e.target.closest(".folder-item")) {
+        modal.style.display = "none";
+    }
 });
 
-// Stäng modal genom att klicka utanför
-modal.addEventListener("click", (e) => {
-    if (e.target === modal) modal.style.display = "none";
+// Stäng med ESC
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        modal.style.display = "none";
+    }
 });

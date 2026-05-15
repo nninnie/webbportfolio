@@ -704,28 +704,36 @@ body {
 
 /* MODAL WRAPPER */
 .project-modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.65);
+    position: absolute;
+    width: 280px; /* perfekt storlek */
+    background: var(--card-bg, rgba(0,0,0,0.6));
     backdrop-filter: blur(12px);
+    padding: 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 20px var(--glow);
     display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 99999;
+    z-index: 999;
+    animation: pop 0.15s ease-out;
 }
+
+@keyframes pop {
+    from { transform: scale(0.95); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+
 
 /* MODAL CONTENT */
 .project-modal-content {
-    background: rgba(20, 20, 20, 0.877);
+    background: rgba(20, 20, 20, 0.85);
     border: 1px solid rgba(255,255,255,0.12);
-    padding: 2rem;
-    border-radius: 1rem;
-    width: min(90%, 500px);
-    box-shadow: 0 0 20px var(--glow);
-    animation: fadeIn 0.25s ease;
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    width: 100%; /* följer popoverns 280px */
+    box-shadow: 0 0 14px var(--glow);
     position: relative;
     color: var(--text);
 }
+
 
 /* CLOSE BUTTON */
 .close-modal {
@@ -748,6 +756,9 @@ body {
 }
 
 .project-links a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     padding: 0.5rem 1rem;
     border-radius: 8px;
     background: var(--glow);
@@ -758,15 +769,32 @@ body {
     transition: 0.25s ease;
 }
 
+.project-links a img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
 .project-links a:hover {
     transform: scale(1.08);
     box-shadow: 0 0 16px var(--glow);
 }
 
-.icon-img dark,
-.icon-img light {
+.icon-img {
+    display: none;
     width: 20px;
+    height: 20px;
+    object-fit: contain;
 }
+
+body.light .icon-img.light {
+    display: inline-block;
+}
+
+body:not(.light) .icon-img.dark {
+    display: inline-block;
+}
+
 
 
 /* ============== CONTACT ============== */
