@@ -177,7 +177,7 @@ document.querySelectorAll(".folder-item").forEach(folder => {
 
         // Centrera popover över mappen
         const left = rect.left + (rect.width / 2) - (modalWidth / 2);
-        const top = rect.top - 190; // justera vid behov
+        const top = Math.max(20, rect.top - 150);
 
         modal.style.left = left + "px";
         modal.style.top = top + "px";

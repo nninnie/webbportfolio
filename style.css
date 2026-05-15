@@ -597,6 +597,8 @@ body {
     font-size: clamp(0.9rem, 2vw, 1.1rem);
     line-height: 1.6;
     opacity: 0.9;
+    position: relative;
+    z-index: 10;
 }
 
 .projects-card {
@@ -712,7 +714,7 @@ body {
     border-radius: 12px;
     box-shadow: 0 0 20px var(--glow);
     display: none;
-    z-index: 999;
+    z-index: 9999;
     animation: pop 0.15s ease-out;
 }
 
