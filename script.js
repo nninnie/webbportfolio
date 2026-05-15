@@ -22,18 +22,24 @@ themeToggle.addEventListener("click", () => {
 ----------------------------------------- */
 const glowPicker = document.getElementById("glowPicker");
 
+// När användaren väljer färg
 glowPicker.addEventListener("input", (e) => {
     const color = e.target.value;
     document.documentElement.style.setProperty("--glow", color);
     localStorage.setItem("glowColor", color);
 });
 
-// Ladda sparad glow
+// Ladda sparad glow vid start
 const savedGlow = localStorage.getItem("glowColor");
 if (savedGlow) {
     document.documentElement.style.setProperty("--glow", savedGlow);
     glowPicker.value = savedGlow;
+} else {
+    // Standard Samsung-blå glow
+    document.documentElement.style.setProperty("--glow", "#003B73");
+    glowPicker.value = "#003B73";
 }
+
 
 
 /* -----------------------------------------
@@ -117,4 +123,61 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
         form.reset();
     })
     .catch(error => console.log("FormSubmit error:", error));
+});
+
+/* -----------------------------------------
+   📁 Mappar Portfolio: öppnas / stängas
+----------------------------------------- */
+const projects = {
+    "Kassasystem App": {
+        description: "Ett av mina första .NET-projekt. Byggt i C# med SQL-databas, CRUD-funktionalitet och fokus på att lära mig grunderna i objektorientering och datalagring.",
+        github: "https://github.com/nninnie/CashRegisterSystem",
+        demo: "https://github.com/nninnie/CashRegisterSystem#readme",
+        tech: ["C#", ".NET", "SQL", "CRUD", "OOP"]
+    },
+
+    "Hotell App": {
+        description: "Mitt första fullstack-inspirerade projekt i .NET. Jag tränade på API-anrop, SQL-hantering, systemstruktur och backend-logik.",
+        github: "https://github.com/nninnie/HotelBooking",
+        demo: "https://github.com/nninnie/HotelBooking#readme",
+        tech: ["C#", ".NET", "SQL", "API", "Backend"]
+    },
+
+    "Webbportfolio": {
+        description: "Min första riktiga portfolio byggd från grunden med HTML, CSS och JavaScript. Fokus på glow UI, modern design, responsivitet och interaktiva komponenter.",
+        github: "https://github.com/nninnie/webbportfolio",
+        demo: "https://nninnie.github.io/webbportfolio/",
+        tech: ["HTML", "CSS", "JavaScript", "UI/UX", "Glow UI"]
+    }
+};
+
+
+const modal = document.getElementById("projectModal");
+const titleEl = document.getElementById("projectTitle");
+const descEl = document.getElementById("projectDescription");
+const githubEl = document.getElementById("githubLink");
+const demoEl = document.getElementById("demoLink");
+
+// Öppna modal när man klickar på en mapp
+document.querySelectorAll(".folder-item").forEach(folder => {
+    folder.addEventListener("click", () => {
+        const name = folder.querySelector(".folder-title").textContent;
+
+        titleEl.textContent = name;
+        descEl.textContent = projects[name].description;
+        githubEl.href = projects[name].github;
+        demoEl.href = projects[name].demo;
+
+        modal.style.display = "flex";
+    });
+});
+
+// Stäng modal med X
+document.querySelector(".close-modal").addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+// Stäng modal genom att klicka utanför
+modal.addEventListener("click", (e) => {
+    if (e.target === modal) modal.style.display = "none";
 });

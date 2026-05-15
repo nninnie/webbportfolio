@@ -89,6 +89,21 @@ body.light .mobile-menu {
     border: 1px solid rgba(214, 214, 214, 0.845);
 }
 
+/* White mode - textfärg skillsss */
+body.light .skills-list.icons span {
+    color: #333;
+    font-size: clamp(0.8rem, 1.4vw, 1rem);
+    margin-top: 0.1rem;
+    opacity: 0.9;
+    padding-bottom: 2rem;
+    font-weight: 500;
+}
+
+body.light .skills-list.icons li:hover i {
+    filter: drop-shadow(0 0 8px var(--glow));
+    transform: scale(1.15);
+}
+
 
 /* ============== HTML ============== */
 html {
@@ -207,7 +222,7 @@ body {
 /* HOVER PÅ ALLA LÄNKAR (utom CV) */
 .nav-links a:hover,
 .mobile-menu a:hover {
-    color: var(--blue);
+    color: var(--glow);
     text-decoration: none;
 }
 
@@ -218,12 +233,14 @@ body {
     font-weight: 600;
 }
 
+
 /* Portfolio-länk alltid orange */
 .nav-links a[href*="portfolio"],
 .mobile-menu a[href*="portfolio"] {
     color: var(--orange) !important;
     font-weight: 600;
 }
+
 
 /* Ingen hover-färg på dessa två */
 .nav-links a[href$="cv-ninniedahlstrom.pdf"]:hover,
@@ -232,6 +249,7 @@ body {
 .mobile-menu a[href*="portfolio"]:hover {
     color: inherit !important;
 }
+
 
 /* IKONER / SPRÅK - LIGHT MODE */
 .nav-controls {
@@ -565,9 +583,9 @@ body {
     padding-bottom: 2rem;
 }
 
-/* Light mode fix */
-body.light .skills-list.icons span {
-    color: #333;
+.skills-list.icons li:hover i {
+    filter: drop-shadow(0 0 8px var(--glow));
+    transform: scale(1.15);
 }
 
 
@@ -682,6 +700,73 @@ body.light .skills-list.icons span {
     color: var(--bg-light);
 }
 
+/* öPPNA MAPPARNA */
+
+/* MODAL WRAPPER */
+.project-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(12px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+/* MODAL CONTENT */
+.project-modal-content {
+    background: rgba(20, 20, 20, 0.877);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 2rem;
+    border-radius: 1rem;
+    width: min(90%, 500px);
+    box-shadow: 0 0 20px var(--glow);
+    animation: fadeIn 0.25s ease;
+    position: relative;
+    color: var(--text);
+}
+
+/* CLOSE BUTTON */
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* LINKS */
+.project-links {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.project-links a {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    background: var(--glow);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 0 10px var(--glow);
+    transition: 0.25s ease;
+}
+
+.project-links a:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 16px var(--glow);
+}
+
+.icon-img dark,
+.icon-img light {
+    width: 20px;
+}
 
 
 /* ============== CONTACT ============== */
