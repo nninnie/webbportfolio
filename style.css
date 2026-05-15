@@ -27,7 +27,10 @@
 
 /* AVSTÅND MELLAN SEKTIONER – RESPONSIVE */
 section {
-    padding: clamp(4rem, 10vw, 10rem) 2rem;
+    min-height: 90vh; /* varje sektion fyller hela skärmen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* centrerar innehållet vertikalt */
 }
 
 /* ============== WHITE MODE ============== */
@@ -310,12 +313,12 @@ body {
 .hero {
     max-width: 900px;
     margin: 0 auto;
-    padding: clamp(4rem, 12vw, 14rem) 2rem;
     text-align: center;
-}
-.hero {
-    padding-top: clamp(2rem, 4vw, 4rem);
-    padding-bottom: clamp(4rem, 8vw, 8rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    padding-top: 8rem;
 }
 
 .hero h1 {
@@ -424,45 +427,14 @@ body {
         0 0 28px color-mix(in srgb, var(--glow) 20%, transparent);
     transform: scale(1.01);
 }
-.color-popup {
-    position: fixed;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0,0,0,0.85);
-    padding: 1.5rem;
-    border-radius: 1rem;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.1);
-    display: none;
-    text-align: center;
-    z-index: 99999;
-}
 
-.color-popup h4 {
-    margin: 0 0 1rem;
-    color: var(--text);
-}
-
-.color-popup input[type="color"] {
-    width: 80px;
-    height: 80px;
-    border: none;
-    padding: 0;
-    border-radius: 50%;
-    overflow: hidden;
-}
-
-.color-popup button {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background: var(--blue);
-    border: none;
-    border-radius: 6px;
-    color: white;
+.color-icon input[type="color"] {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
 }
-
 
 
 .hero-image-wrapper {
@@ -514,6 +486,7 @@ body {
 .about-card {
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.06);
+    width: 100%;
     padding: 2rem;
     border-radius: 1rem;
     backdrop-filter: blur(10px);
@@ -527,8 +500,12 @@ body {
 /* ============== SKILLS ============== */
 
 .skills-section {
+    text-align: center;
     max-width: 900px;
     margin: 0 auto;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    line-height: 1.6;
+    opacity: 0.9;
 }
 
 .skills-section h2 {
@@ -547,6 +524,7 @@ body {
 .skills-card {
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.06);
+    width: 100%;
     padding: 2rem;
     border-radius: 1rem;
     backdrop-filter: blur(10px);
@@ -595,14 +573,18 @@ body.light .skills-list.icons span {
 
 /* ============== PORTFOLIO ============== */
 .sectionproject {
+    text-align: center;
     max-width: 900px;
     margin: 0 auto;
-    text-align: center;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    line-height: 1.6;
+    opacity: 0.9;
 }
 
 .projects-card {
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.06);
+    width: 100%;
     padding: 2rem;
     border-radius: 1rem;
     backdrop-filter: blur(10px);
@@ -655,6 +637,9 @@ body.light .skills-list.icons span {
 
 /* PORTFOLIO GRID */
 .projects-card {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     gap: 5rem;
@@ -701,8 +686,12 @@ body.light .skills-list.icons span {
 
 /* ============== CONTACT ============== */
 .sectioncontact {
+    text-align: center;
     max-width: 900px;
     margin: 0 auto;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    line-height: 1.6;
+    opacity: 0.9;
 }
 
 .sectioncontact h2,
@@ -722,7 +711,8 @@ body.light .skills-list.icons span {
     padding: 2rem 2rem;
     border-radius: 1rem;
     backdrop-filter: blur(10px);
-    max-width: 600px;
+    max-width: 700px;
+    width: 100%;
     margin: 0 auto;
     line-height: 1.6;
     opacity: 0.9;
@@ -734,6 +724,9 @@ body.light .skills-list.icons span {
     flex-direction: column;
     gap: 1rem;
     align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1.5rem;
 }
 
 .contact-card input,
@@ -747,6 +740,11 @@ body.light .skills-list.icons span {
     background: rgba(255,255,255,0.08);
     color: var(--text);
 }
+
+.contact-card textarea {
+    min-height: 80px;
+}
+
 
 .contact-card button {
     margin-top: 0.6rem;
