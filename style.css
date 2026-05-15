@@ -54,9 +54,10 @@ body.light .folder-title {
 body.light .accent,
 body.light .copy-symbol {
     color: var(--glow) !important; /* important - regeln gäller alltid! */
+    text-shadow: 0 0 3px var(--glow);
 }
 
-/* Orb-knappar i white mode */
+/* Orb-knappar i white mode CV & Portfolio*/
 body.light .btn.orb {
     color: #e8dddd;
 }
@@ -340,21 +341,29 @@ body {
     justify-content: center;
     width: 0.9rem;              
     height: 0.9rem;
-    border-radius: 50%;
-    font-size: 0;             
+    border-radius: 50%;          
     overflow: hidden;
     transition: 0.3s ease;
     color: #ececec;
     position: relative;
 }
 
-/* Texten inuti knappen */
 .btn.orb span {
     opacity: 0;
-    font-size: clamp(0.8rem, 2vw, 1rem);
+    font-size: clamp(0.6rem, 1.6vw, 0.9rem);
     font-weight: 500;
     transition: opacity 0.25s ease;
-    text-decoration: none;
+}
+
+.btn.orb:hover {
+    width: 6.5rem;
+    height: 2.4rem;
+    border-radius: 20px;
+    padding: 0 0.6rem;
+}
+
+.btn.orb:hover span {
+    opacity: 1;
 }
 
 .btn.orb,
@@ -364,19 +373,6 @@ body {
     text-decoration: none;
 }
 
-/* Hover-effekt */
-.btn.orb:hover {
-    width: 6.5rem;            /* expanderar */
-    height: 2.4rem;
-    border-radius: 20px;      /* blir en pill-button */
-    font-size: 0.7rem;        /* text syns */
-    padding: 0 0.6rem;
-}
-
-/* Text fade-in */
-.btn.orb:hover span {
-    opacity: 1;
-}
 .btn.orb.pink {
     background: var(--pink);
     box-shadow: 0 0 10px var(--pink);
@@ -400,12 +396,12 @@ body {
         width: 6rem;
         height: 2.4rem;
         border-radius: 20px;
-        font-size: 0.7rem;
         padding: 0 0.6rem;
     }
 
     .btn.orb span {
-        opacity: 1; /* visa text direkt */
+        opacity: 1;
+        font-size: clamp(0.6rem, 2.5vw, 0.8rem);
     }
 }
 
@@ -511,6 +507,7 @@ body {
 
 .sectionabout .accent {
     color: var(--glow);
+    text-shadow: 0 0 6px var(--glow);
     font-weight: 900;
 }
 
@@ -543,6 +540,7 @@ body {
 
 .skills-section .accent {
     color: var(--glow);
+    text-shadow: 0 0 6px var(--glow);
     font-weight: 900;
 }
 
@@ -644,6 +642,7 @@ body.light .skills-list.icons span {
 }
 .sectionproject .accent {
     color: var(--glow);
+    text-shadow: 0 0 6px var(--glow);
     font-weight: 900;
 }
 
@@ -668,7 +667,7 @@ body.light .skills-list.icons span {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 140px; /* större mapp */
+    width: 140px;
     cursor: pointer;
     transition: 0.25s ease;
 }
@@ -713,6 +712,7 @@ body.light .skills-list.icons span {
 
 .sectioncontact .accent {
     color: var(--glow);
+    text-shadow: 0 0 6px var(--glow);
     font-weight: 900;
 }
 
@@ -750,7 +750,7 @@ body.light .skills-list.icons span {
 
 .contact-card button {
     margin-top: 0.6rem;
-    color: (var(--bg-light));
+    color: #ffffff;
     border-radius: 10px;
     padding: 0.2rem 0.6rem;
     display: flex;
@@ -763,24 +763,23 @@ body.light .skills-list.icons span {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 8px var(--glow);
+    box-shadow: 0 0 6px var(--glow);
     transition: 0.25s ease;
 }
 
 /* Hover-effekt */
 .contact-card button:hover {
-    transform: translateY(-2px);
+    transform: scale(1.1);
     box-shadow: 0 0 10px var(--glow);
 }
 
-
+/* Popup: bekräftelse att meddelandet skickats */
 .popup {
     display: none;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
     background: rgba(255,255,255,0.1);
     padding: 1.2rem 1.6rem;
     border-radius: 10px;
@@ -793,7 +792,7 @@ body.light .skills-list.icons span {
     z-index: 9999;
 }
 
-
+/* Animation: fade-in för bekräftelse-popup */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
@@ -806,7 +805,7 @@ footer {
     margin-top: 1rem;
     padding: 2rem 0;
     text-align: center;
-    color: var(--bg-light);
+    color: var(--text);
     opacity: 0.9;
 }
 
