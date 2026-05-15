@@ -80,9 +80,9 @@ body.light .contact-card textarea {
 
 /* White mode hamburger menu background */
 body.light .mobile-menu {
-    background: rgba(0,0,0,0.05); /* svag mörk ton */
+    background: rgba(255, 255, 255, 0.877); /* svag mörk ton */
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(0,0,0,0.08);
+    border: 1px solid rgba(214, 214, 214, 0.845);
 }
 
 
@@ -756,7 +756,7 @@ body.light .skills-list.icons span {
     display: flex;
     justify-content: center;
     border: none;
-    background: #004AAD; /* samma färg som din orb */
+    background: #004AAD;
     font-weight: 400;
     font-size: 0.8rem;
     cursor: pointer;
