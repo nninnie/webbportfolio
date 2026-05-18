@@ -336,7 +336,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start; 
-    padding-top: clamp(6rem, 12vh, 14rem);
+    padding-top: clamp(6rem, 18vh, 14rem);
 }
 
 .hero h1 {
