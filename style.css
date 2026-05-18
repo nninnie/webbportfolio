@@ -596,68 +596,33 @@ body {
 
 /* ============== PORTFOLIO ============== */
 .sectionproject {
-    text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
-    font-size: clamp(0.9rem, 2vw, 1.1rem);
-    line-height: 1.6;
-    opacity: 0.9;
-    position: relative;
-    z-index: 10;
+    text-align: center;              /* centrerar text */
+    max-width: 900px;                /* maxbredd på sektionen */
+    margin: 0 auto;                  /* centrerar sektionen */
+    font-size: clamp(0.9rem, 2vw, 1.1rem); /* responsiv text */
+    line-height: 1.6;                /* radavstånd */
+    opacity: 0.9;                    /* lite genomskinlig look */
+    position: relative;              /* behövs för modalens z-index */
+    z-index: 10;                     /* lägger sektionen över bakgrunden */
 }
 
 .projects-card {
-    background: rgba(255,255,255,0.03);
+    background: rgba(255,255,255,0.03); /* glas-effekt */
     border: 1px solid rgba(255,255,255,0.06);
     width: 100%;
     padding: 2rem;
     border-radius: 1rem;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);     /* blur bakom */
     max-width: 700px;
     margin: 0 auto;
     line-height: 1.6;
     opacity: 0.9;
 }
 
-
-/* Folder styling */
-.folder {
-    margin-bottom: 1.5rem;
-    text-align: left;
-}
-
-.folder-toggle {
-    width: 100%;
-    background: none;
-    border: none;
-    color: var(--text);
-    font-size: 1.1rem;
-    padding: 0.8rem;
-    cursor: pointer;
-    text-align: left;
-    transition: 0.2s ease;
-}
-
-.folder-toggle:hover {
-    color: var(--blue);
-}
-
-.folder-content {
-    display: none;
-    padding-left: 1rem;
-    margin-top: 0.5rem;
-}
 .sectionproject .accent {
-    color: var(--glow);
+    color: var(--glow);              /* glow-färg */
     text-shadow: 0 0 6px var(--glow);
     font-weight: 900;
-}
-
-.folder-content a {
-    display: block;
-    margin: 0.3rem 0;
-    color: var(--blue);
-    text-decoration: none;
 }
 
 /* PORTFOLIO GRID */
@@ -665,10 +630,10 @@ body {
     max-width: 700px;
     width: 100%;
     margin: 0 auto;
-    display: flex;
+    display: flex;                   /* grid med flex */
     justify-content: center;
-    gap: 5rem;
-    flex-wrap: wrap;
+    gap: 5rem;                       /* avstånd mellan mappar */
+    flex-wrap: wrap;                 /* radbrytning */
     padding: 6rem 3rem;
 }
 
@@ -678,13 +643,13 @@ body {
     flex-direction: column;
     align-items: center;
     width: 140px;
-    cursor: pointer;
+    cursor: pointer;                 /* visar klickbar */
     transition: 0.25s ease;
 }
 
 /* MAPP-IKON */
 .folder-icon {
-    font-size: 4.5rem; /* STOR ikon */
+    font-size: 4.5rem;               /* stor ikon */
     line-height: 1;
     transition: 0.25s ease;
 }
@@ -699,35 +664,36 @@ body {
 
 /* HOVER-EFFEKT */
 .folder-item:hover .folder-icon {
-    transform: scale(1.1);
+    transform: scale(1.1);           /* zoom vid hover */
     filter: drop-shadow(0 0 8px var(--glow));
 }
 
 .folder-item:hover .folder-title {
-    color: var(--bg-light);
+    color: var(--bg-light);          /* ljus text vid hover */
 }
-
-/* öPPNA MAPPARNA */
 
 /* MODAL WRAPPER */
 .project-modal {
-    position: absolute;
-    width: 280px; /* perfekt storlek */
+    position: fixed;                 /* ligger över allt */
+    top: 50%;
+    left: 50%;      
+    transform: translate(-50%, -50%);
+    width: 280px;           
     background: var(--card-bg, rgba(0,0,0,0.6));
     backdrop-filter: blur(12px);
     padding: 1.2rem;
-    border-radius: 12px;
+    border-radius: 16px;
     box-shadow: 0 0 20px var(--glow);
-    display: none;
-    z-index: 9999;
-    animation: pop 0.15s ease-out;
+    display: none;                   /* dold tills man klickar */
+    z-index: 9999;                   /* över allt annat */
+    animation: pop 0.15s ease-out;   /* liten pop-animation */
 }
 
+/* Animation som gör att modalen “poppar” in med en liten zoom + fade‑in. */
 @keyframes pop {
     from { transform: scale(0.95); opacity: 0; }
     to   { transform: scale(1); opacity: 1; }
 }
-
 
 /* MODAL CONTENT */
 .project-modal-content {
@@ -735,24 +701,24 @@ body {
     border: 1px solid rgba(255,255,255,0.12);
     padding: 1rem 1.2rem;
     border-radius: 12px;
-    width: 100%; /* följer popoverns 280px */
+    width: 100%;
     box-shadow: 0 0 14px var(--glow);
-    position: relative;
+    position: relative; /* behövs för close-knappen */
     color: var(--text);
 }
-
 
 /* CLOSE BUTTON */
 .close-modal {
-    position: absolute;
-    top: 10px;
-    right: 12px;
-    background: none;
-    border: none;
-    color: var(--text);
-    font-size: 1.2rem;
-    cursor: pointer;
+    position: absolute;                   /* placerad ovanpå kortet */
+    top: 10px;                            /* avstånd från toppen */
+    right: 12px;                          /* avstånd från höger */
+    background: none;                     /* ingen bakgrund */
+    border: none;                         /* ingen kant */
+    color: var(--text);                   /* ikonfärg */
+    font-size: 1.2rem;                    /* storlek på X */
+    cursor: pointer;                      /* visar klickbar */
 }
+
 
 /* LINKS */
 .project-links {
@@ -763,23 +729,24 @@ body {
 }
 
 .project-links a {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    background: var(--glow);
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    box-shadow: 0 0 10px var(--glow);
-    transition: 0.25s ease;
+    display: flex;                        /* ikon + text i rad */
+    align-items: center;                  
+    gap: 0.5rem;                          
+    padding: 0.5rem 1rem;                 /* knappens storlek */
+    border-radius: 8px;                   /* rundade hörn */
+    background: var(--glow);             
+    color: white;                         
+    text-decoration: none;                /* ingen underline */
+    font-weight: 600;                     
+    box-shadow: 0 0 10px var(--glow);     /* glow runt knappen */
+    transition: 0.25s ease;               /* smooth hover */
 }
+
 
 .project-links a img {
     width: 20px;
     height: 20px;
-    object-fit: contain;
+    object-fit: contain; /* behåll proportioner */
 }
 
 .project-links a:hover {
@@ -787,20 +754,24 @@ body {
     box-shadow: 0 0 16px var(--glow);
 }
 
+/* DARK/LIGHT MODE IKONER */
 .icon-img {
-    display: none;
+    display: none;                        /* döljer alla ikoner som standard */
     width: 20px;
     height: 20px;
     object-fit: contain;
 }
 
+
 body.light .icon-img.light {
-    display: inline-block;
+    display: inline-block;                /* visa ljusa ikoner i light mode */
 }
 
+
 body:not(.light) .icon-img.dark {
-    display: inline-block;
+    display: inline-block;                /* visa mörka ikoner i dark mode */
 }
+
 
 
 
