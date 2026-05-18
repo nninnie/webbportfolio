@@ -158,22 +158,26 @@ const modal = document.getElementById("projectModal");
 const titleEl = document.getElementById("projectTitle");
 const descEl = document.getElementById("projectDescription");
 const githubEl = document.getElementById("githubLink");
-const demoEl = document.getElementById("demoLink");
+const demoEl = document.getElementById("demoLink"); 
 
-// Öppna popover när man klickar på en mapp
 document.querySelectorAll(".folder-item").forEach(folder => {
     folder.addEventListener("click", (e) => {
-        e.stopPropagation(); // hindrar att klicket stänger direkt via document-click
+        e.stopPropagation();
 
         const name = folder.querySelector(".folder-title").textContent;
 
         titleEl.textContent = name;
         descEl.textContent = projects[name].description;
         githubEl.href = projects[name].github;
-        demoEl.href = projects[name].demo;
+        demoEl.href = projects[name].demo; // RÄTT PROPERTY
 
-       modal.style.display = "block";
+        modal.style.display = "block";
     });
+});
+
+// Stäng med X i högra hörnet 
+document.querySelector(".close-modal").addEventListener("click", () => {
+    modal.style.display = "none";
 });
 
 // Stäng popover när man klickar utanför
