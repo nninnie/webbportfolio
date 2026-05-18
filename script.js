@@ -136,21 +136,21 @@ const projects = {
         description: "Ett av mina första .NET-projekt. Byggt i C# med SQL-databas, CRUD-funktionalitet och fokus på att lära mig grunderna i objektorientering och datalagring.",
         github: "https://github.com/nninnie/CashRegisterSystem",
         demo: "https://github.com/nninnie/CashRegisterSystem#readme",
-        tech: ["C#", ".NET", "SQL", "CRUD", "OOP"]
+        tech: ["C#", ".NET", "CRUD", "OOP"]
     },
 
     "Hotell App": {
         description: "Mitt första fullstack-inspirerade projekt i .NET. Jag tränade på API-anrop, SQL-hantering, systemstruktur och backend-logik.",
         github: "https://github.com/nninnie/HotelBooking",
         demo: "https://github.com/nninnie/HotelBooking#readme",
-        tech: ["C#", ".NET", "SQL", "API", "Backend"]
+        tech: ["C#", ".NET", "SQL", "CRUD", "OOP"]
     },
 
     "Webbportfolio": {
         description: "Min första riktiga portfolio byggd från grunden med HTML, CSS och JavaScript. Fokus på glow UI, modern design, responsivitet och interaktiva komponenter.",
-        github: "https://github.com/nninnie/webbportfolio",
-        demo: "https://nninnie.github.io/webbportfolio/",
-        tech: ["HTML", "CSS", "JavaScript", "UI/UX", "Glow UI"]
+        github: "https://nninnie.github.io/webbportfolio",
+        demo: "https://github.com/nninnie/webbportfolio#readme",
+        tech: ["HTML", "CSS", "JavaScript", "UI/UX", "API"]
     }
 };
 

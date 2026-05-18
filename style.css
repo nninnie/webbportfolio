@@ -336,7 +336,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start; 
-    padding-top: clamp(3rem, 8vh, 6rem);
+    padding-top: clamp(6rem, 18vh, 14rem);
 }
 
 .hero h1 {
@@ -673,6 +673,7 @@ body {
 }
 
 /* MODAL WRAPPER */
+
 /* OVERLAY */
 .project-modal {
     position: fixed;
@@ -680,25 +681,31 @@ body {
     z-index: 9999;
     background: rgba(0,0,0,0.3);
     backdrop-filter: blur(4px);
-    
-    /* Ändra display till flex i JavaScript när modalen visas */
     display: none; 
-    
-    /* Dessa två rader centrerar kortet helt perfekt */
     justify-content: center;
     align-items: center;
 }
 
 /* SJÄLVA KORTET */
 .project-modal-content {
-    /* Ändra från fixed till relative så stängknappen (position: absolute) utgår från kortet */
     position: relative; 
     width: 280px;
-    background: rgba(20,20,20,0.85);
+    background: rgba(20, 20, 20, 0.952);
     border-radius: 16px;
-    padding: 1.2rem 1.4rem;
-    box-shadow: 0 0 20px var(--glow);
+    padding: 1.5rem 2rem;
+    box-shadow: 0 0 5px var(--glow);
     animation: pop 0.15s ease-out;
+}
+
+#projectTitle {
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-weight: 700;
+}
+
+#projectDescription, 
+#demoLink {
+    font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+    line-height: 1.5;
 }
 
 
@@ -724,19 +731,22 @@ body {
 }
 
 .project-links a {
-    display: flex;                        /* ikon + text i rad */
-    align-items: center;                  
-    gap: 0.5rem;                          
-    padding: 0.5rem 1rem;                 /* knappens storlek */
-    border-radius: 8px;                   /* rundade hörn */
-    background: var(--glow);             
-    color: white;                         
-    text-decoration: none;                /* ingen underline */
-    font-weight: 600;                     
-    box-shadow: 0 0 10px var(--glow);     /* glow runt knappen */
-    transition: 0.25s ease;               /* smooth hover */
-}
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
 
+    background: rgba(39, 39, 39, 0.801);   
+    color: var(--text);                   /* textfärg följer tema */
+    border: 1px solid rgba(36, 36, 36, 0.15);
+
+    text-decoration: none;
+    font-weight: 600;
+
+    box-shadow: none;                     /* ingen glow */
+    transition: 0.25s ease;
+}
 
 .project-links a img {
     width: 20px;
@@ -746,7 +756,7 @@ body {
 
 .project-links a:hover {
     transform: scale(1.08);
-    box-shadow: 0 0 16px var(--glow);
+    box-shadow: 0 0 6px var(--glow);
 }
 
 /* DARK/LIGHT MODE IKONER */
