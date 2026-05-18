@@ -171,7 +171,7 @@ document.querySelectorAll(".folder-item").forEach(folder => {
         githubEl.href = projects[name].github;
         demoEl.href = projects[name].demo; // RÄTT PROPERTY
 
-        modal.style.display = "block";
+        modal.style.display = "flex";
     });
 });
 

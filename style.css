@@ -673,22 +673,26 @@ body {
 }
 
 /* MODAL WRAPPER */
-
 /* OVERLAY */
 .project-modal {
     position: fixed;
     inset: 0;
-    display: none;
     z-index: 9999;
     background: rgba(0,0,0,0.3);
     backdrop-filter: blur(4px);
+    
+    /* Ändra display till flex i JavaScript när modalen visas */
+    display: none; 
+    
+    /* Dessa två rader centrerar kortet helt perfekt */
+    justify-content: center;
+    align-items: center;
 }
 
 /* SJÄLVA KORTET */
 .project-modal-content {
-    position: fixed;
-    top: 50%;
-    left: 50%;
+    /* Ändra från fixed till relative så stängknappen (position: absolute) utgår från kortet */
+    position: relative; 
     width: 280px;
     background: rgba(20,20,20,0.85);
     border-radius: 16px;
