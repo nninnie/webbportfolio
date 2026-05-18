@@ -686,23 +686,15 @@ body {
 
 /* SJÄLVA KORTET */
 .project-modal-content {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
     width: 280px;
     background: rgba(20,20,20,0.85);
     border-radius: 16px;
     padding: 1.2rem 1.4rem;
     box-shadow: 0 0 20px var(--glow);
     animation: pop 0.15s ease-out;
-}
-
-
-/* Animation som gör att modalen “poppar” in med en liten zoom + fade‑in. */
-@keyframes pop {
-    from { transform: translate(-50%, -50%) scale(0.95); opacity: 0; }
-    to   { transform: translate(-50%, -50%) scale(1); opacity: 1; }
 }
 
 
