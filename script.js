@@ -172,9 +172,6 @@ document.querySelectorAll(".folder-item").forEach(folder => {
         githubEl.href = projects[name].github;
         demoEl.href = projects[name].demo;
 
-        const rect = folder.getBoundingClientRect();
-        const modalWidth = 280;
-
        modal.style.display = "block";
     });
 });
