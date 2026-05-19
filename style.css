@@ -30,7 +30,6 @@ section {
     min-height: 100vh; /* varje sektion fyller hela skärmen */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* centrerar innehållet vertikalt */
 }
 
 /* ============== WHITE MODE ============== */
@@ -336,7 +335,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center; 
-    padding: 2rem 0;
+    padding: 0 0 3rem 0;
     box-sizing: border-box; /* Gör att padding och border räknas in i elementets totala bredd*/
 }
 
@@ -514,7 +513,7 @@ body {
     padding: 2rem;
     border-radius: 1rem;
     backdrop-filter: blur(10px);
-    max-width: 700px;
+    max-width: clamp(300px, 90%, 700px); 
     margin: 0 auto;
     line-height: 1.6;
     opacity: 0.9;
@@ -552,7 +551,7 @@ body {
     padding: 2rem;
     border-radius: 1rem;
     backdrop-filter: blur(10px);
-    max-width: 700px;
+    max-width: clamp(300px, 90%, 700px); 
     margin: 0 auto;
     line-height: 1.6;
     opacity: 0.9;
@@ -607,17 +606,22 @@ body {
     z-index: 10;                     /* lägger sektionen över bakgrunden */
 }
 
+/* PORTFOLIO GRID */
 .projects-card {
     background: rgba(255,255,255,0.03); 
     border: 1px solid rgba(255,255,255,0.06);
     width: 100%;
-    padding: 2rem;
+    padding: 6rem 3rem;
     border-radius: 1rem;
     backdrop-filter: blur(10px);     /* blur bakom */
-    max-width: 700px;
+    max-width: clamp(300px, 90%, 700px); 
     margin: 0 auto;
     line-height: 1.6;
     opacity: 0.9;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5rem;
 }
 
 .sectionproject .accent {
@@ -626,17 +630,6 @@ body {
     font-weight: 900;
 }
 
-/* PORTFOLIO GRID */
-.projects-card {
-    max-width: 700px;
-    width: 100%;
-    margin: 0 auto;
-    display: flex;                   /* grid med flex */
-    justify-content: center;
-    gap: 5rem;                       /* avstånd mellan mappar */
-    flex-wrap: wrap;                 /* radbrytning */
-    padding: 6rem 3rem;
-}
 
 /* MAPP-KORT */
 .folder-item {
@@ -808,7 +801,7 @@ body:not(.light) .icon-img.dark {
     padding: 2rem 2rem;
     border-radius: 1rem;
     backdrop-filter: blur(10px);
-    max-width: 700px;
+    max-width: clamp(300px, 90%, 700px); 
     width: 100%;
     margin: 0 auto;
     line-height: 1.6;
