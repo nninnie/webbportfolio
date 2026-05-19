@@ -127,60 +127,80 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
     .catch(error => console.log("FormSubmit error:", error));
 });
 
-
 /* -----------------------------------------
    📁 Mappar Portfolio: popover-kort
 ----------------------------------------- */
 const projects = {
     "Kassasystem App": {
-        description: "Ett av mina första .NET-projekt. Byggt i C# med SQL-databas, CRUD-funktionalitet och fokus på att lära mig grunderna i objektorientering och datalagring.",
+        description: "Ett .NET-projekt byggt i C# i Visual Studio med SQL-databas. Jag arbetade med CRUD-funktionalitet, OOP och en tydlig mappstruktur. Jag började även tillämpa SOLID och DRY för att skriva mer hållbar kod.",
         github: "https://github.com/nninnie/CashRegisterSystem",
         demo: "https://github.com/nninnie/CashRegisterSystem#readme",
-        tech: ["C#", ".NET", "CRUD", "OOP"]
+        tech: ["C#", "OOP"]
     },
 
     "Hotell App": {
-        description: "Mitt första fullstack-inspirerade projekt i .NET. Jag tränade på API-anrop, SQL-hantering, systemstruktur och backend-logik.",
+        description: "Ett mer avancerat .NET-projekt där jag använde C# och SQL via Code First. Jag arbetade med datamodellering, CRUD-logik och en renare arkitektur med tydligare mappar och klasser. Här fördjupade jag mina kunskaper i OOP, SOLID och DRY.",
         github: "https://github.com/nninnie/HotelBooking",
         demo: "https://github.com/nninnie/HotelBooking#readme",
-        tech: ["C#", ".NET", "SQL", "CRUD", "OOP"]
+        tech: ["C#", "SQL"]
     },
 
     "Webbportfolio": {
-        description: "Min första riktiga portfolio byggd från grunden med HTML, CSS och JavaScript. Fokus på glow UI, modern design, responsivitet och interaktiva komponenter.",
+        description: "En egenbyggd webbportfolio utvecklad i Visual Studio Code med HTML5, CSS3 och JavaScript. Fokus låg på glow UI, responsiv design och interaktiva komponenter. Projektet gav mig praktisk erfarenhet av modern frontend-utveckling och struktur.",
         github: "https://nninnie.github.io/webbportfolio",
         demo: "https://github.com/nninnie/webbportfolio#readme",
         tech: ["HTML", "CSS", "JavaScript", "UI/UX", "API"]
     }
 };
 
+const techIcons = {
+    "HTML": "devicon-html5-plain colored",
+    "CSS": "devicon-css3-plain colored",
+    "JavaScript": "devicon-javascript-plain colored",
+    "UI/UX": "devicon-figma-plain colored",
+    "API": "devicon-nodejs-plain colored",
+    "C#": "devicon-csharp-plain colored",
+    ".NET": "devicon-dotnetcore-plain colored",
+    "SQL": "devicon-microsoftsqlserver-plain colored",
+    "OOP": "devicon-code-plain colored"
+
+};
+
 const modal = document.getElementById("projectModal");
 const titleEl = document.getElementById("projectTitle");
 const descEl = document.getElementById("projectDescription");
 const githubEl = document.getElementById("githubLink");
-const demoEl = document.getElementById("demoLink"); 
+const demoEl = document.getElementById("demoLink");
+const techEl = document.getElementById("projectTech");
 
+// Öppna modal
 document.querySelectorAll(".folder-item").forEach(folder => {
     folder.addEventListener("click", (e) => {
         e.stopPropagation();
 
         const name = folder.querySelector(".folder-title").textContent;
+        const project = projects[name];
 
         titleEl.textContent = name;
-        descEl.textContent = projects[name].description;
-        githubEl.href = projects[name].github;
-        demoEl.href = projects[name].demo; // RÄTT PROPERTY
+        descEl.textContent = project.description;
+        githubEl.href = project.github;
+        demoEl.href = project.demo;
+
+        // 🔥 GENERERA IKONERNA HÄR
+        techEl.innerHTML = project.tech
+            .map(t => `<i class="${techIcons[t] || ''}"></i>`)
+            .join("");
 
         modal.style.display = "flex";
     });
 });
 
-// Stäng med X i högra hörnet 
+// Stäng med X
 document.querySelector(".close-modal").addEventListener("click", () => {
     modal.style.display = "none";
 });
 
-// Stäng popover när man klickar utanför
+// Stäng när man klickar utanför
 document.addEventListener("click", (e) => {
     if (!modal.contains(e.target) && !e.target.closest(".folder-item")) {
         modal.style.display = "none";
