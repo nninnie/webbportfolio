@@ -83,13 +83,20 @@ body.light .contact-card {
     border: 1px solid #ccb6b6da;
 }
 
-/* White mode inputs */
+/* White mode inputs CONTACT CARD */
 body.light .contact-card input,
 body.light .contact-card textarea {
     background: rgba(0,0,0,0.05); /* ljus ton */
     color: var(--text-dark);      /* mörk text */
     border: 1px solid rgba(0,0,0,0.15);
 }
+/* White mode knapp CONTACT CARD */
+body.light .contact-card button {
+    background: rgba(0,0,0,0.20);
+    border: 1px solid rgba(0,0,0,0.25);
+    color: #fff;
+}
+
 
 /* White mode hamburger menu background */
 body.light .mobile-menu {
@@ -144,7 +151,6 @@ body.light .close-modal:hover {
     color: var(--glow); /* glow-färg vid hover */
     text-shadow: 0 0 6px var(--glow);
 }
-
 
 
 /* ============== HTML ============== */
@@ -894,28 +900,27 @@ body:not(.light) .icon-img.dark {
 }
 
 .contact-card button {
-    margin-top: 0.6rem;
+    padding: 0.35rem 0.9rem;      /* smal & liten */
+    min-width: 65px;              /* håller formen */
+    border-radius: 12px;          /* Samsung rundning */
+    border: 1px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.15); /* glasig */
+    backdrop-filter: blur(10px);
+
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2px;
     color: #ffffff;
-    border-radius: 10px;
-    padding: 0.2rem 0.6rem;
-    display: flex;
-    justify-content: center;
-    border: none;
-    background: #004AAD;
-    font-weight: 400;
-    font-size: 0.8rem;
+
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 6px var(--glow);
     transition: 0.25s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
     align-self: center;
 }
 
 /* Hover-effekt */
 .contact-card button:hover {
-    transform: scale(1.1);
+    transform: scale(1);
     box-shadow: 0 0 10px var(--glow);
 }
 
