@@ -3,7 +3,8 @@
 /* FÄRGER GLOBALT*/
 :root {
     --bg: #000000;
-    --bg-light: #ffffff;
+    --bg-light: #f5e5e5;
+;
 
     --text: #ececec;
     --text-dark: #000000;
@@ -14,7 +15,7 @@
 
     --console-bg: #000;
     --console-border: #333;
-    --glow: #003B73;
+    --glow: #07308ace;
     
 }
 
@@ -52,6 +53,14 @@ body.light .folder-title {
     color: var(--text-dark);
 }
 
+/* White mode navbar */
+body.light .navbar {
+    background: rgba(204, 182, 182, 0.30); 
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(204, 182, 182, 0.45);
+}
+
+
 /* Accent och copyright ska ALLTID vara glow */
 body.light .accent,
 body.light .copy-symbol {
@@ -69,8 +78,9 @@ body.light .about-card,
 body.light .skills-card,
 body.light .projects-card,
 body.light .contact-card {
-    background: rgba(0,0,0,0.05); /* svag mörk ton */
-    border: 1px solid rgba(0,0,0,0.1);
+    background: #ebd7d7cc;
+    backdrop-filter: blur(12px);
+    border: 1px solid #ccb6b6da;
 }
 
 /* White mode inputs */
@@ -83,19 +93,20 @@ body.light .contact-card textarea {
 
 /* White mode hamburger menu background */
 body.light .mobile-menu {
-    background: rgba(255, 255, 255, 0.877); /* svag mörk ton */
+    background: #ebd7d7cc; 
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(214, 214, 214, 0.845);
+    border: 1px solid #ccb6b6da;
 }
 
-/* White mode - textfärg skillsss */
+/* White mode - textfärg skills */
 body.light .skills-list.icons span {
-    color: #333;
+    color: var(--text-dark);
     font-size: clamp(0.8rem, 1.4vw, 1rem);
     margin-top: 0.1rem;
     opacity: 0.9;
     padding-bottom: 2rem;
     font-weight: 500;
+
 }
 
 body.light .skills-list.icons li:hover i {
@@ -105,17 +116,16 @@ body.light .skills-list.icons li:hover i {
 
 /* White mode - portfolio modal - öppna mappen kortet */
 body.light .project-modal-content {
-    background: rgba(255, 255, 255, 0.877);
+    background: #ccb6b6da;
     color: var(--text-dark);
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid #ac9898da;
 }
 
 /* White mode – modalens knappar */
 body.light .project-links a {
-    background: rgba(255, 255, 255, 0.877);
-    color: var(--text-dark);
-    border: 1px solid rgba(0,0,0,0.15);
-    box-shadow: none;
+    background: #ccb6b6e3;
+    border: 1px solid #ccb6b6da;
+    box-shadow: 0 0 10px #ac9898da;
 }
 
 body.light .project-links a:hover {
@@ -134,12 +144,6 @@ body.light .close-modal:hover {
     color: var(--glow); /* glow-färg vid hover */
     text-shadow: 0 0 6px var(--glow);
 }
-
-body.light .folder-item:hover .folder-title {
-    color: var(--glow);          
-    filter: drop-shadow(0 0 1px var(--glow));
-}
-
 
 
 
@@ -612,13 +616,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #f7f7f7a2;
+    color: var(--text);
 }
 
 .skills-list.icons i {
-    font-size: 28px;
+    font-size: clamp(22px, 3vw, 32px);
     margin-bottom: 0.4rem;
 }
+
 
 .skills-list.icons span {
     font-size: clamp(0.8rem, 1.4vw, 1rem);
@@ -626,6 +631,8 @@ body {
     opacity: 0.9;
     padding-bottom: 2rem;
 }
+
+
 
 
 
