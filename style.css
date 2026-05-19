@@ -3,7 +3,7 @@
 /* FÄRGER GLOBALT*/
 :root {
     --bg: #000000;
-    --bg-light: #f5e5e5;
+    --bg-light: #f7f2f3;
 ;
 
     --text: #ececec;
@@ -55,9 +55,9 @@ body.light .folder-title {
 
 /* White mode navbar */
 body.light .navbar {
-    background: rgba(204, 182, 182, 0.30); 
+    background: rgba(245, 236, 238, 0.30);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(204, 182, 182, 0.45);
+    border-bottom: 1px solid rgba(245, 236, 238, 0.45);
 }
 
 
@@ -78,9 +78,9 @@ body.light .about-card,
 body.light .skills-card,
 body.light .projects-card,
 body.light .contact-card {
-    background: #ebd7d7cc;
+    background: rgba(245, 236, 238, 0.30);
     backdrop-filter: blur(12px);
-    border: 1px solid #ccb6b6da;
+    border: 1px solid rgba(245, 236, 238, 0.45);
 }
 
 /* White mode inputs CONTACT CARD */
@@ -100,9 +100,9 @@ body.light .contact-card button {
 
 /* White mode hamburger menu background */
 body.light .mobile-menu {
-    background: #ebd7d7cc; 
+    background: rgba(245, 236, 238, 0.30); 
     backdrop-filter: blur(12px);
-    border: 1px solid #ccb6b6da;
+    border: 1px solid rgba(245, 236, 238, 0.45);
 }
 
 /* White mode - textfärg skills */
@@ -123,16 +123,16 @@ body.light .skills-list.icons li:hover i {
 
 /* White mode - portfolio modal - öppna mappen kortet */
 body.light .project-modal-content {
-    background: #ccb6b6da;
+    background: rgba(245, 236, 238, 0.30);
     color: var(--text-dark);
-    border: 1px solid #ac9898da;
+    border: 1px solid rgba(245, 236, 238, 0.45);
 }
 
 /* White mode – modalens knappar */
 body.light .project-links a {
-    background: #ccb6b6e3;
-    border: 1px solid #ccb6b6da;
-    box-shadow: 0 0 10px #ac9898da;
+    background: rgba(245, 236, 238, 0.30);
+    border: 1px solid rgba(235, 211, 211, 0.384);
+    border-bottom: 1px solid rgba(245, 236, 238, 0.45);
 }
 
 body.light .project-links a:hover {
