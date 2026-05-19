@@ -27,7 +27,7 @@
 
 /* AVSTÅND MELLAN SEKTIONER – RESPONSIVE */
 section {
-    min-height: 90vh; /* varje sektion fyller hela skärmen */
+    min-height: 100vh; /* varje sektion fyller hela skärmen */
     display: flex;
     flex-direction: column;
     justify-content: center; /* centrerar innehållet vertikalt */
@@ -335,8 +335,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; 
-    padding-top: clamp(6rem, 18vh, 14rem);
+    justify-content: center; 
+    padding: 2rem 0;
+    box-sizing: border-box; /* Gör att padding och border räknas in i elementets totala bredd*/
 }
 
 .hero h1 {
