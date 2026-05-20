@@ -7,7 +7,7 @@
 ;
 
     --text: #ececec;
-    --text-dark: #000000;
+    --text-dark: #3a3a3a;
 
     --pink: #FF4FD8;
     --orange: #FF7A00;
@@ -55,11 +55,32 @@ body.light .folder-title {
 
 /* White mode navbar */
 body.light .navbar {
-    background: rgba(245, 236, 238, 0.30);
+    background: rgba(225, 210, 214, 0.38);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(245, 236, 238, 0.45);
+    border-bottom: 1px solid rgba(210, 195, 198, 0.55); 
 }
 
+/* CV-länk alltid rosa */
+body.light .nav-links a[href$="cv-ninniedahlstrom.pdf"],
+body.light .mobile-menu a[href$="cv-ninniedahlstrom.pdf"] {
+    color: var(--pink);
+    font-weight: 500;
+}
+
+
+/* Portfolio-länk alltid orange */
+body.light .nav-links a[href*="portfolio"],
+body.light .mobile-menu a[href*="portfolio"] {
+    color: var(--orange);
+    font-weight: 500;
+}
+
+/* HOVER PÅ ALLA LÄNKAR */
+body.light .nav-links a:hover,
+body.light .mobile-menu a:hover {
+    color: var(--glow);
+    text-decoration: none;
+}
 
 /* Accent och copyright ska ALLTID vara glow */
 body.light .accent,
@@ -78,16 +99,17 @@ body.light .about-card,
 body.light .skills-card,
 body.light .projects-card,
 body.light .contact-card {
-    background: rgba(245, 236, 238, 0.30);
+    background: rgba(225, 210, 214, 0.38); 
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(245, 236, 238, 0.45);
+    border: 1px solid rgba(210, 195, 198, 0.55); 
 }
+
 
 /* White mode inputs CONTACT CARD */
 body.light .contact-card input,
 body.light .contact-card textarea {
-    background: rgba(0,0,0,0.05); /* ljus ton */
-    color: var(--text-dark);      /* mörk text */
+    background: rgba(0,0,0,0.05); 
+    color: var(--text-dark);      
     border: 1px solid rgba(0,0,0,0.15);
 }
 /* White mode knapp CONTACT CARD */
@@ -100,9 +122,13 @@ body.light .contact-card button {
 
 /* White mode hamburger menu background */
 body.light .mobile-menu {
-    background: rgba(245, 236, 238, 0.30); 
+    background: rgba(238, 223, 227, 0.32);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(245, 236, 238, 0.45);
+    border: 1px solid rgba(210, 195, 198, 0.55);
+}
+
+body.light #hamburgerBtn {
+    color: rgba(172, 91, 117, 0.85);
 }
 
 /* White mode - textfärg skills */
@@ -116,23 +142,20 @@ body.light .skills-list.icons span {
 
 }
 
-body.light .skills-list.icons li:hover i {
-    filter: drop-shadow(0 0 8px var(--glow));
-    transform: scale(1.15);
-}
-
 /* White mode - portfolio modal - öppna mappen kortet */
 body.light .project-modal-content {
-    background: rgba(245, 236, 238, 0.30);
+    background: rgba(253, 242, 247, 0.904);
+    backdrop-filter: blur(14px);
     color: var(--text-dark);
-    border: 1px solid rgba(245, 236, 238, 0.45);
+    border: 1px solid rgba(210, 195, 198, 0.35);
 }
 
 /* White mode – modalens knappar */
 body.light .project-links a {
-    background: rgba(245, 236, 238, 0.30);
-    border: 1px solid rgba(235, 211, 211, 0.384);
-    border-bottom: 1px solid rgba(245, 236, 238, 0.45);
+    background: rgba(240, 233, 234, 0.24);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(158, 141, 144, 0.45);
+    color: var(--text-dark);
 }
 
 body.light .project-links a:hover {
@@ -143,7 +166,7 @@ body.light .project-links a:hover {
 
 /* White mode – stäng‑krysset */
 body.light .close-modal {
-    color: var(--text-dark); /* mörk text i white mode */
+    color: var(--text-dark); 
     text-shadow: 0 0 4px rgba(0,0,0,0.15);
 }
 
@@ -152,13 +175,7 @@ body.light .close-modal:hover {
     text-shadow: 0 0 6px var(--glow);
 }
 
-
-/* ============== HTML ============== */
-html {
-    overflow-y: auto;
-}
-
-/* ============== FONT ============== */
+/* ============== TEXT - FONT ============== */
 h1 {
     font-family: "Montserrat", sans-serif;
     font-size: clamp(2.4rem, 6vw, 4.5rem);
@@ -267,37 +284,28 @@ body {
     text-align: right;
 }
 
-/* HOVER PÅ ALLA LÄNKAR (utom CV) */
-.nav-links a:hover,
-.mobile-menu a:hover {
-    color: var(--glow);
-    text-decoration: none;
-}
 
 /* CV-länk alltid rosa */
 .nav-links a[href$="cv-ninniedahlstrom.pdf"],
 .mobile-menu a[href$="cv-ninniedahlstrom.pdf"] {
-    color: var(--pink) !important;
-    font-weight: 600;
+    color: var(--pink);
+    font-weight: 500;
 }
 
 
 /* Portfolio-länk alltid orange */
 .nav-links a[href*="portfolio"],
 .mobile-menu a[href*="portfolio"] {
-    color: var(--orange) !important;
-    font-weight: 600;
+    color: var(--orange);
+    font-weight: 500;
 }
 
-
-/* Ingen hover-färg på dessa två */
-.nav-links a[href$="cv-ninniedahlstrom.pdf"]:hover,
-.mobile-menu a[href$="cv-ninniedahlstrom.pdf"]:hover,
-.nav-links a[href*="portfolio"]:hover,
-.mobile-menu a[href*="portfolio"]:hover {
-    color: inherit !important;
+/* HOVER PÅ ALLA LÄNKAR */
+.nav-links a:hover,
+.mobile-menu a:hover {
+    color: var(--glow);
+    text-decoration: none;
 }
-
 
 /* IKONER / SPRÅK - LIGHT MODE */
 .nav-controls {
