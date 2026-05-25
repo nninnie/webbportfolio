@@ -87,7 +87,7 @@ body.light .accent,
 body.light .copy-symbol {
     color: var(--glow) !important; /* important - regeln gäller alltid! */
     text-shadow: 0 0 3px var(--glow);
-}
+} 
 
 /* Orb-knappar i white mode CV & Portfolio*/
 body.light .btn.orb {
