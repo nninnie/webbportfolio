@@ -197,7 +197,6 @@ h2 {
     margin-bottom: 1rem;
     font-size: clamp(1.8rem, 4vw, 3rem); /* responsivt större */
     text-align: center;
-    font-weight: 700;
 }
 
 h3 {
@@ -557,7 +556,7 @@ body {
     text-align: center;
     max-width: 900px;
     margin: 0 auto;
-    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
     line-height: 1.6;
     opacity: 0.9;
 }
@@ -582,30 +581,42 @@ body {
 }
 
 .about-education {
-    margin-top: 2rem;
+    margin-top: 4rem;
     text-align: left;
     opacity: 0.9;
 }
 
 .about-education h3 {
-    font-family: "Montserrat", sans-serif;
-    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-    margin-bottom: 0.8rem;
-    text-align: center;
+    margin-bottom: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--glow);
+    letter-spacing: 0.5px;
 }
 
 .about-education ul {
     list-style: none;
     padding: 0;
-    margin: 0 auto;
-    max-width: 500px;
+    margin: 0;
 }
 
 .about-education li {
-    margin-bottom: 0.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
     font-size: clamp(0.9rem, 1.8vw, 1.1rem);
     line-height: 1.4;
-    text-align: center;
+}
+
+.about-education li strong {
+    font-weight: 500;
+}
+
+.about-education li span {
+    opacity: 0.7;
+    font-size: 0.9em;
 }
 
 
@@ -647,6 +658,15 @@ body {
     line-height: 1.6;
     opacity: 0.9;
 }
+
+/* SKILLS TEXT */
+.skills-intro {
+    opacity: 0.85;
+    margin-bottom: 2rem;
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+    text-align: center;
+}
+
 
 /* Ikonlista */
 .skills-list.icons {

@@ -1,5 +1,5 @@
 /* -----------------------------------------
-   🌞 / 🌙  TEMA-TOGGLE (sol i light mode, måne i dark mode)
+   🌕 / 🌑  TEMA-TOGGLE (sol i light mode, måne i dark mode)
 ----------------------------------------- */
 const themeToggle = document.getElementById("themeToggle");
 
@@ -56,13 +56,18 @@ async function loadWeather() {
 
         const weatherEl = document.getElementById("weather");
 
-        // Ikon baserat på väderkod
-        let icon = "☀️";
-        if (code >= 45 && code <= 48) icon = "🌫️";
-        if (code >= 51 && code <= 67) icon = "🌧️";
-        if (code >= 71 && code <= 77) icon = "❄️";
-        if (code >= 80 && code <= 82) icon = "🌦️";
-        if (code >= 95) icon = "⛈️";
+        let icon = "☀️"; 
+
+        if (code === 0) icon = "☀️";        
+        if (code === 1) icon = "🌤️";        
+        if (code === 2) icon = "⛅";         
+        if (code === 3) icon = "☁️";         
+
+        if (code >= 45 && code <= 48) icon = "🌫️";   
+        if (code >= 51 && code <= 67) icon = "🌧️";   
+        if (code >= 71 && code <= 77) icon = "❄️";   
+        if (code >= 80 && code <= 82) icon = "🌦️";   
+        if (code >= 95) icon = "⛈️";                 
 
         weatherEl.textContent = `${temp}°C ${icon}`;
     } catch (err) {
@@ -71,7 +76,6 @@ async function loadWeather() {
 }
 
 loadWeather();
-
 
 /* -----------------------------------------
    🍔  HAMBURGARMENY (öppna/stäng)
