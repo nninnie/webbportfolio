@@ -722,7 +722,7 @@ body {
     background: rgba(255,255,255,0.03); 
     border: 1px solid rgba(255,255,255,0.06);
     width: 100%;
-    padding: 6rem 3rem;
+    padding: 2rem 2rem 4rem;
     border-radius: 1rem;
     backdrop-filter: blur(10px);     /* blur bakom */
     max-width: clamp(300px, 90%, 700px); 
@@ -732,7 +732,7 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 5rem;
+    gap: 3rem;
 }
 
 .sectionproject .accent {
