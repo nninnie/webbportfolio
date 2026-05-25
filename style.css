@@ -94,6 +94,11 @@ body.light .btn.orb {
     color: #e8dddd;
 }
 
+/* WHITE MODE - ABOUT EDUCATION */
+body.light .about-education li {
+    color: var(--text-dark);
+}
+
 /* White mode cards */
 body.light .about-card,
 body.light .skills-card,
@@ -575,6 +580,35 @@ body {
     line-height: 1.6;
     opacity: 0.9;
 }
+
+.about-education {
+    margin-top: 2rem;
+    text-align: left;
+    opacity: 0.9;
+}
+
+.about-education h3 {
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    margin-bottom: 0.8rem;
+    text-align: center;
+}
+
+.about-education ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.about-education li {
+    margin-bottom: 0.6rem;
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+    line-height: 1.4;
+    text-align: center;
+}
+
+
 
 
 /* ============== SKILLS ============== */
