@@ -574,7 +574,7 @@ body {
     padding: 2rem;
     border-radius: 1rem;
     backdrop-filter: blur(10px);
-    max-width: clamp(300px, 90%, 700px); 
+    max-width: clamp(350px, 90%, 900px);
     margin: 0 auto;
     line-height: 1.6;
     opacity: 0.9;
@@ -653,7 +653,7 @@ body {
     padding: 2rem;
     border-radius: 1rem;
     backdrop-filter: blur(10px);
-    max-width: clamp(300px, 90%, 700px); 
+    max-width: clamp(350px, 90%, 900px);
     margin: 0 auto;
     line-height: 1.6;
     opacity: 0.9;
@@ -665,7 +665,6 @@ body {
     margin-bottom: 2rem;
     font-size: clamp(0.9rem, 1.8vw, 1.1rem);
     text-align: center;
-    padding-bottom: 1rem;
 }
 
 
@@ -679,6 +678,7 @@ body {
     gap: 1.5rem;
     justify-content: center;
     text-align: center;
+    padding-top: 2rem;
 }
 
 .skills-list.icons li {
@@ -725,7 +725,8 @@ body {
     padding: 2rem 2rem 4rem;
     border-radius: 1rem;
     backdrop-filter: blur(10px);     /* blur bakom */
-    max-width: clamp(300px, 90%, 700px); 
+    max-width: clamp(350px, 90%, 900px);
+
     margin: 0 auto;
     line-height: 1.6;
     opacity: 0.9;
@@ -927,7 +928,7 @@ body:not(.light) .icon-img.dark {
     padding: 2rem 2rem;
     border-radius: 1rem;
     backdrop-filter: blur(10px);
-    max-width: clamp(300px, 90%, 700px); 
+    max-width: clamp(350px, 90%, 900px);
     width: 100%;
     margin: 0 auto;
     line-height: 1.6;
