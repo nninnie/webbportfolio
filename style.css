@@ -652,7 +652,7 @@ body {
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.06);
     width: 100%;
-    padding: 4rem 2rem;
+    padding: 3rem 2rem;
     border-radius: 1rem;
     backdrop-filter: blur(10px);
     max-width: clamp(350px, 90%, 900px);
@@ -677,11 +677,10 @@ body {
     padding: 0;
     margin: 2rem 0 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-    flex-wrap: wrap;
+    grid-template-columns: repeat(5, 1fr);
     gap: 1.5rem;
-    justify-content: center;
-    text-align: center;    
+    column-gap: 0.1rem; 
+    justify-items: center;
 }
 
 .skills-list.icons li {
@@ -726,7 +725,7 @@ body {
     background: rgba(255, 255, 255, 0.03); 
     border: 1px solid rgba(255,255,255,0.06);
     width: 100%;
-    padding: 6rem 2rem ;
+    padding: 5rem 2rem ;
     border-radius: 1rem;
     backdrop-filter: blur(10px);     /* blur bakom */
     max-width: clamp(350px, 90%, 900px);
@@ -736,7 +735,7 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 4rem;
+    gap: 6rem;
 }
 
 .sectionproject .accent {
@@ -758,7 +757,7 @@ body {
 
 /* MAPP-IKON */
 .folder-icon {
-    font-size: 4.5rem;               /* stor ikon */
+    font-size: 5rem;               /* stor ikon */
     line-height: 1;
     transition: 0.25s ease;
 }
