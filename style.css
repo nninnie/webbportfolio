@@ -20,6 +20,11 @@
     
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
+
 /* GLOBAL WRAPPER */
 .page-wrapper {
     max-width: 1400px; 
@@ -29,7 +34,7 @@
 
 /* AVSTÅND MELLAN SEKTIONER – RESPONSIVE */
 section {
-    min-height: 100vh; /* varje sektion fyller hela skärmen */
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
 }
@@ -47,27 +52,27 @@ h1 {
 
 
 h2 {
-    font-family: "JetBrains Mono", monospace;
+    font-family: "Poppins", sans-serif;
     font-weight: 700;
     letter-spacing: -1px;
     margin-bottom: 1rem;
-    font-size: clamp(1.8rem, 4vw, 3rem); /* responsivt större */
+    font-size: clamp(1.8rem, 4vw, 3rem); 
     text-align: left;
 }
 
 h3 {
-    font-family: "JetBrains Mono", monospace;
+    font-family: "Poppins", sans-serif;
     font-weight: 300;
     font-size: clamp(1.1rem, 2.5vw, 1.6rem);
 }
 p {
-    font-family: "JetBrains Mono", monospace;
+    font-family: "Poppins", sans-serif;
     font-size: clamp(0.85rem, 1.4vw, 1rem);
     line-height: 1.55;
 }
 
 a, li, span {
-    font-family: "JetBrains Mono", monospace;
+    font-family: "Poppins", sans-serif;
     font-size: clamp(0.8rem, 1.2vw, 0.95rem);
 }
 
@@ -77,7 +82,7 @@ a, li, span {
 body {
     background: var(--bg);
     color: var(--text);
-    font-family: "JetBrains Mono", monospace;
+    font-family: "Poppins", sans-serif;
     margin: 0;
 }
 
@@ -320,20 +325,20 @@ body {
 
 .btn.orb.pink {
     background: var(--orange);
-    box-shadow: 0 0 10px var(--orange);
+    box-shadow: 0 0 5px var(--orange);
 }
 
 .btn.orb.orange {
     background: var(--pink);
-    box-shadow: 0 0 10px var(--pink);
+    box-shadow: 0 0 5px var(--pink);
 }
 
 .btn.orb.pink:hover {
-    box-shadow: 0 0 20px var(--orange);
+    box-shadow: 0 0 10px var(--orange);
 }
 
 .btn.orb.orange:hover {
-    box-shadow: 0 0 20px var(--pink);
+    box-shadow: 0 0 10px var(--pink);
 }
 
 @media (max-width: 768px) {
@@ -430,6 +435,7 @@ body {
     grid-template-columns: 2fr 1fr;
     gap: 2rem;
     align-items: stretch; /* gör att båda korten synkas i höjd */
+    width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -440,7 +446,6 @@ body {
 
 .about-card {
     flex: 2;
-    min-width: 350px;
     padding: 3rem;
     border-radius: 1rem;
     background: rgba(255,255,255,0.03);
@@ -502,13 +507,12 @@ body {
 /* ============== SKILLS ============== */
 
 .skills-section {
-    text-align: center;
+    width: 100%;
     margin: 0 auto;
     font-size: clamp(0.9rem, 2vw, 1.1rem);
     line-height: 1.6;
     opacity: 0.9;
     scroll-margin-top: clamp(80px, 15vw, 250px);
-    text-align: left;
 }
 
 .skills-section .accent {
@@ -516,29 +520,38 @@ body {
     text-shadow: 0 0 6px var(--glow);
     font-weight: 900;
 }
-
+.skills-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
 .skills-card {
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.06);
     width: 100%;
-    padding: 3rem 2rem;
+    padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem);
     border-radius: 1rem;
     backdrop-filter: blur(10px);
     max-width: clamp(350px, 90%, 900px);
-    margin: 0 auto;
     line-height: 1.6;
     opacity: 0.9;
 }
+
+
 
 /* Ikoner */
 .skills-list.icons {
     list-style: none;
     padding: 0;
-    margin: 2rem 0 0;
+    margin: 2rem auto 0;  
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    justify-items: center; 
+    text-align: center;   
+    gap: clamp(1rem, 4vw, 4rem);
+  
 }
+
 
 .skills-list.icons li {
     display: flex;
@@ -548,7 +561,7 @@ body {
 }
 
 .skills-list.icons i {
-    font-size: clamp(36px, 4vw, 52px);
+    font-size: clamp(28px, 4vw, 52px);
     margin-bottom: 0.4rem;
 }
 
@@ -567,7 +580,7 @@ body {
 /* ============== PORTFOLIO ============== */
 .sectionproject {
     text-align: center;              
-    max-width: 900px;                
+    max-width: clamp(350px, 90%, 900px);                
     margin: 0 auto;                  
     font-size: clamp(0.9rem, 2vw, 1.1rem); 
     line-height: 1.6;                
@@ -582,17 +595,23 @@ body {
     background: rgba(255, 255, 255, 0.03); 
     border: 1px solid rgba(255,255,255,0.06);
     width: 100%;
-    padding: 5rem 2rem ;
+    padding: clamp(2rem, 4vw, 5rem) clamp(1rem, 3vw, 2rem);
     border-radius: 1rem;
     backdrop-filter: blur(10px);     /* blur bakom */
-    max-width: clamp(350px, 90%, 900px);
+    max-width: clamp(150px, 90%, 900px);
     margin: 0 auto;
     line-height: 1.6;
     opacity: 0.9;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 6rem;
+    gap: clamp(2rem, 6vw, 4rem);
+}
+
+.portfolio-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .sectionproject .accent {
@@ -762,14 +781,15 @@ body:not(.light) .icon-img.dark {
 
 /* ============== CONTACT ============== */
 .sectioncontact {
-    text-align: center;
-    max-width: 900px;
+    width: 100%;
     margin: 0 auto;
+    text-align: center;
     font-size: clamp(0.65rem, 1.6vw, 0.85rem);
     line-height: 1.6;
     opacity: 0.9;
     scroll-margin-top: clamp(80px, 15vw, 250px);
 }
+
 
 .sectioncontact .accent {
     color: var(--glow);
@@ -780,7 +800,7 @@ body:not(.light) .icon-img.dark {
 .contact-card {
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.06);
-    padding: 2rem 2rem;
+    padding: clamp(1rem, 3vw, 2rem);
     border-radius: 1rem;
     backdrop-filter: blur(10px);
     max-width: clamp(350px, 90%, 900px);
@@ -790,23 +810,31 @@ body:not(.light) .icon-img.dark {
     opacity: 0.9;
 }
 
+.contact-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+
 .contact-card form {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: clamp(0.6rem, 2vw, 1rem);
     align-items: stretch; 
     box-sizing: border-box;
-    padding: 1.5rem;
+    padding: clamp(0.5rem, 2vw, 1.2rem);
+
 }
 
 
 .contact-card input,
 .contact-card textarea {
     width: 100%;
-    display: block;
+    max-width: 100%;
     box-sizing: border-box;
-    padding: 0.8rem;
+    padding: clamp(0.5rem, 1.2vw, 0.8rem); /* mindre padding */
     border-radius: 8px;
     border: none;
     outline: none;
@@ -814,8 +842,9 @@ body:not(.light) .icon-img.dark {
     color: var(--text);
 }
 
+
 .contact-card textarea {
-    min-height: 6rem;
+    min-height: clamp(6rem, 15vw, 12rem);
     margin-bottom: 1rem;
 }
 
@@ -840,8 +869,8 @@ body:not(.light) .icon-img.dark {
 
 /* Gör svarta SVG-ikoner vita */
 .input-icon {
-    width: clamp(10px, 2vw, 14px);
-    height: clamp(10px, 2vw, 14px);
+    width: clamp(12px, 2vw, 14px);
+    height: clamp(12px, 2vw, 14px);
     opacity: 0.85;
     transform: translateY(2px);
 }
