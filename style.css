@@ -47,7 +47,7 @@ h1 {
 
 
 h2 {
-    font-family: "Montserrat", sans-serif;
+    font-family: "JetBrains Mono", monospace;
     font-weight: 700;
     letter-spacing: -1px;
     margin-bottom: 1rem;
@@ -56,18 +56,18 @@ h2 {
 }
 
 h3 {
-    font-family: "Poppins", sans-serif;
+    font-family: "JetBrains Mono", monospace;
     font-weight: 300;
     font-size: clamp(1.1rem, 2.5vw, 1.6rem);
 }
 p {
-    font-family: "Poppins", sans-serif;
+    font-family: "JetBrains Mono", monospace;
     font-size: clamp(0.85rem, 1.4vw, 1rem);
     line-height: 1.55;
 }
 
 a, li, span {
-    font-family: "Poppins", sans-serif;
+    font-family: "JetBrains Mono", monospace;
     font-size: clamp(0.8rem, 1.2vw, 0.95rem);
 }
 
@@ -77,7 +77,7 @@ a, li, span {
 body {
     background: var(--bg);
     color: var(--text);
-    font-family: "Poppins", sans-serif;
+    font-family: "JetBrains Mono", monospace;
     margin: 0;
 }
 
@@ -925,31 +925,20 @@ footer {
     margin-top: 1rem;
     display: flex;
     justify-content: center;
-    gap: 1.4rem;
-}
-
-/* SVG-ikoner */
-.footer-icons .icon {
-    width: 28px;
-    height: 28px;
-    transition: 0.25s ease;
-}
-
-/* Instagram som IMG */
-.footer-icons img {
-    width: 28px;
-    height: 28px;
-    border-radius: 6px; /* matchar SVG-rundningen */
-    transition: 0.25s ease;
+    gap: 1rem;
 }
 
 .footer-icons img {
-    opacity: 0.8; /* lite genomskinlig */
+    width: 23px;
+    height: 23px;
+    opacity: 0.8;
+    object-fit: contain;
     transition: 0.25s ease;
 }
 
-.footer-icons a:hover img {
-    opacity: 1; /* full färg vid hover */
+.footer-icons img.github {
+    width: 25px;  
+    height: 25px;
 }
 
 
@@ -960,20 +949,7 @@ footer {
     filter: drop-shadow(0 0 6px var(--glow));
 }
 
-/* Dölj alla ikonversioner som standard */
-.icon-img {
-    display: none;
-}
 
-/* Visa light-ikoner i light mode */
-body.light .icon-img.light {
-    display: block;
-}
-
-/* Visa dark-ikoner i dark mode */
-body:not(.light) .icon-img.dark {
-    display: block;
-}
 
 
 /* ============== WHITE MODE ============== */
@@ -1121,4 +1097,14 @@ body.light .close-modal {
 body.light .close-modal:hover {
     color: var(--glow); /* glow-färg vid hover */
     text-shadow: 0 0 6px var(--glow);
+}
+
+/* Visa light-ikoner i light mode */
+body.light .icon-img.light {
+    display: block;
+}
+
+/* Visa dark-ikoner i dark mode */
+body:not(.light) .icon-img.dark {
+    display: block;
 }
