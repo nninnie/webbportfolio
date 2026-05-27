@@ -423,7 +423,7 @@ body {
     margin: 0 auto;
     font-size: clamp(0.9rem, 1.8vw, 1.1rem);
     line-height: 1.6;
-    opacity: 0.9;
+    opacity: 0.85;
     scroll-margin-top: clamp(80px, 15vw, 250px);
 }
 
@@ -546,12 +546,11 @@ body {
     width: 100%;
     margin: 0 auto;
     max-width: clamp(350px, 90%, 900px);
-    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
-    line-height: 1.65;
-    opacity: 0.95;
-    scroll-margin-top: clamp(80px, 12vw, 200px);
+    font-size: clamp(0.85rem, 1.4vw, 1rem);
+    line-height: 1.5;
+    opacity: 0.85;
+    scroll-margin-top: clamp(80px, 12vw, 180px);
 }
-
 
 .skills-section .accent {
     color: var(--glow);
@@ -584,7 +583,8 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
     justify-items: center;
     text-align: center;
-    gap: clamp(1.2rem, 3vw, 3rem);
+    gap: clamp(0.8rem, 2.5vw, 2rem);
+
 }
 
 
@@ -606,7 +606,7 @@ body {
 
 .skills-list.icons i {
     font-size: clamp(30px, 4vw, 50px);
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.2rem;
     opacity: 0.95;
     transition: 0.25s ease;
 }
@@ -618,11 +618,12 @@ body {
 
 
 .skills-list.icons span {
-    font-size: clamp(0.8rem, 1.4vw, 1rem);
-    margin-top: 0.1rem;
-    opacity: 0.9;
-    padding-bottom: 2rem;
+    font-size: clamp(0.7rem, 1.1vw, 0.85rem);
+    opacity: 0.75;
+    font-weight: 400;
+    margin-top: 0.2rem;
 }
+
 
 .github-icon {
     font-size: clamp(28px, 4vw, 52px);
@@ -638,7 +639,7 @@ body {
     margin: 0 auto;                  
     font-size: clamp(0.9rem, 2vw, 1.1rem); 
     line-height: 1.6;                
-    opacity: 0.9;                    
+    opacity: 0.85;                   
     position: relative;              /* behövs för modalens z-index */
     z-index: 10;                     /* lägger sektionen över bakgrunden */
     scroll-margin-top: clamp(80px, 15vw, 250px);
@@ -842,7 +843,7 @@ body:not(.light) .icon-img.dark {
     text-align: center;
     font-size: clamp(0.65rem, 1.6vw, 0.85rem);
     line-height: 1.6;
-    opacity: 0.9;
+    opacity: 0.85;
     scroll-margin-top: clamp(80px, 15vw, 250px);
 }
 
@@ -931,6 +932,7 @@ body:not(.light) .icon-img.dark {
     transform: translateY(2px);
 }
 
+/* ikoner brevid namn, email, meddelande */
 .icon-rosa {
     filter: invert(73%) sepia(93%) saturate(7490%) hue-rotate(295deg) brightness(102%) contrast(101%);
 }
@@ -944,30 +946,31 @@ body:not(.light) .icon-img.dark {
 
 /* SKICKA KNAPP */
 .contact-card button {
-    width: 100%;
-    padding: 0.85rem;
+    width: fit-content;
+    padding: 0.6rem 1.3rem;
+    margin: 0 auto;
+    display: block;
     border-radius: 12px;
     border: none;
-    background: linear-gradient(135deg, #ff7a00 0%, #ff4fd8 100%);
-    color: #fff;
-    font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+    background: var(--purple);
+    color: var(--text);
+    font-size: clamp(0.8rem, 1.2vw, 0.95rem);
     font-weight: 600;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.25px;
     cursor: pointer;
     box-shadow:
-        0 3px 8px rgba(0,0,0,0.25),
-        0 0 6px rgba(255, 122, 0, 0.25),
-        0 0 10px rgba(255, 79, 216, 0.18);
+        0 0 6px var(--purple),
+        0 0 12px rgba(140, 0, 255, 0.35);
+
+    /* smooth animation */
     transition: 0.25s ease, transform 0.2s ease;
 }
 
-
-
-/* Hover-effekt */
 .contact-card button:hover {
     transform: scale(1.03);
     box-shadow: 0 0 10px var(--glow);
 }
+
 
 /* Popup: bekräftelse att meddelandet skickats */
 .popup {
