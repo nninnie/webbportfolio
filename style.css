@@ -561,6 +561,15 @@ body {
   
 }
 
+@media (max-width: 768px) {
+    .skills-list.icons {
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+        gap: 0.9rem; /* mindre gap på mobil */
+        padding: 1rem;
+    }
+}
+
+
 
 .skills-list.icons li {
     display: flex;
@@ -844,7 +853,7 @@ body:not(.light) .icon-img.dark {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-    padding: clamp(0.5rem, 1.2vw, 0.8rem); /* mindre padding */
+    padding: clamp(0.5rem, 1.2vw, 0.8rem); 
     border-radius: 8px;
     border: none;
     outline: none;
@@ -872,7 +881,7 @@ body:not(.light) .icon-img.dark {
     display: flex;
     align-items: left;
     gap: 0.55rem;
-    font-size: clamp(0.6rem, 1.2vw, 0.8rem);
+    font-size: clamp(0.7rem, 1.2vw, 0.9rem);
     color: var(--text);
     opacity: 0.85;
 }
