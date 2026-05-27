@@ -426,29 +426,29 @@ body {
 }
 
 .about-wrapper {
-    display: flex;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
     gap: 2rem;
-    justify-content: center;
-    align-items: stretch;
-    flex-wrap: wrap;
+    align-items: stretch; /* gör att båda korten synkas i höjd */
 }
+
 
 .about-card {
     flex: 2;
-    min-width: 300px;
-    padding: 2rem;
+    min-width: 350px;
+    padding: 3rem;
     border-radius: 1rem;
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.06);
     backdrop-filter: blur(10px);
     line-height: 1.6;
     opacity: 0.9;
+    
 }
 
 .about-education {
     flex: 1;
-    min-width: 280px;
-    padding: 1rem 2rem 2rem 2rem; 
+    padding: 1.5rem;
     border-radius: 1rem;
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.06);
@@ -457,38 +457,38 @@ body {
     opacity: 0.9;
 }
 
+.edu-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    margin-top: 1rem; 
+}
+
+.edu-item strong {
+    font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+    font-weight: 600;
+    color: var(--text);
+}
+
+.edu-school {
+    font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+    opacity: 0.85;
+}
+
+.edu-year {
+    font-size: clamp(0.7rem, 1.1vw, 0.9rem);
+    opacity: 0.6;
+}
 
 .about-education h3 {
-    margin-bottom: 1rem;
     text-align: left;
     font-weight: 600;
     color: var(--glow);
     letter-spacing: 0.5px;
 }
 
-.about-education ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.about-education li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.4rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
-    line-height: 1.4;
-}
-
-.about-education li strong {
-    font-weight: 500;
-}
-
-.about-education li span {
-    opacity: 0.7;
-    font-size: 0.9em;
+.about-card p {
+    margin-top: 1rem; /* öka värdet för mer nedflyttning */
 }
 
 
