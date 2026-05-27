@@ -559,6 +559,7 @@ body {
     font-size: clamp(0.9rem, 1.8vw, 1.1rem);
     line-height: 1.6;
     opacity: 0.9;
+    scroll-margin-top: clamp(80px, 15vw, 250px);
 }
 
 .sectionabout .accent {
@@ -631,6 +632,7 @@ body {
     font-size: clamp(0.9rem, 2vw, 1.1rem);
     line-height: 1.6;
     opacity: 0.9;
+    scroll-margin-top: clamp(80px, 15vw, 250px);
 }
 
 .skills-section h2 {
@@ -650,13 +652,14 @@ body {
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.06);
     width: 100%;
-    padding: 2rem;
+    padding: 4rem 2rem;
     border-radius: 1rem;
     backdrop-filter: blur(10px);
     max-width: clamp(350px, 90%, 900px);
     margin: 0 auto;
     line-height: 1.6;
     opacity: 0.9;
+
 }
 
 /* SKILLS TEXT */
@@ -678,7 +681,7 @@ body {
     gap: 1.5rem;
     justify-content: center;
     text-align: center;
-    padding-top: 2rem;
+    
 }
 
 .skills-list.icons li {
@@ -715,25 +718,25 @@ body {
     opacity: 0.9;                    
     position: relative;              /* behövs för modalens z-index */
     z-index: 10;                     /* lägger sektionen över bakgrunden */
+    scroll-margin-top: clamp(80px, 15vw, 250px);
 }
 
 /* PORTFOLIO GRID */
 .projects-card {
-    background: rgba(255,255,255,0.03); 
+    background: rgba(255, 255, 255, 0.03); 
     border: 1px solid rgba(255,255,255,0.06);
     width: 100%;
-    padding: 2rem 2rem 4rem;
+    padding: 6rem 2rem ;
     border-radius: 1rem;
     backdrop-filter: blur(10px);     /* blur bakom */
     max-width: clamp(350px, 90%, 900px);
-
     margin: 0 auto;
     line-height: 1.6;
     opacity: 0.9;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 3rem;
+    gap: 4rem;
 }
 
 .sectionproject .accent {
@@ -909,6 +912,7 @@ body:not(.light) .icon-img.dark {
     font-size: clamp(0.9rem, 2vw, 1.1rem);
     line-height: 1.6;
     opacity: 0.9;
+    scroll-margin-top: clamp(80px, 15vw, 250px);
 }
 
 .sectioncontact h2,
