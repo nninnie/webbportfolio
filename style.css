@@ -676,7 +676,8 @@ body {
     list-style: none;
     padding: 0;
     margin: 2rem 0 0;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
     flex-wrap: wrap;
     gap: 1.5rem;
     justify-content: center;
