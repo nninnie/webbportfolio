@@ -37,6 +37,8 @@ section {
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
+    padding-top: clamp(4rem, 8vw, 8rem);
+    padding-bottom: clamp(3rem, 6vw, 6rem);
 }
 
 
@@ -501,6 +503,13 @@ body {
     margin-top: 1rem; /* öka värdet för mer nedflyttning */
 }
 
+@media (max-width: 768px) {
+    .sectionabout {
+        padding-bottom: 40vh;
+    }
+}
+
+
 
 
 
@@ -509,6 +518,7 @@ body {
 .skills-section {
     width: 100%;
     margin: 0 auto;
+    max-width: clamp(350px, 90%, 900px);
     font-size: clamp(0.9rem, 2vw, 1.1rem);
     line-height: 1.6;
     opacity: 0.9;
@@ -536,7 +546,6 @@ body {
     line-height: 1.6;
     opacity: 0.9;
 }
-
 
 
 /* Ikoner */
@@ -783,6 +792,7 @@ body:not(.light) .icon-img.dark {
 .sectioncontact {
     width: 100%;
     margin: 0 auto;
+    max-width: clamp(350px, 90%, 900px);
     text-align: center;
     font-size: clamp(0.65rem, 1.6vw, 0.85rem);
     line-height: 1.6;
