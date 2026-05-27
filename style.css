@@ -12,7 +12,8 @@
     --pink: #FF4FD8;
     --orange: #FF7A00;
     --blue: #4AB3FF;
-    --purple: #9900ff;
+    --purple: #C17CFF;
+
 
     --console-bg: #000;
     --console-border: #333;
@@ -448,7 +449,7 @@ body {
 
 .about-card {
     flex: 2;
-    padding: 3rem;
+    padding: clamp(1rem, 3vw, 2rem);
     border-radius: 1rem;
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.06);
@@ -460,7 +461,7 @@ body {
 
 .about-education {
     flex: 1;
-    padding: 1.5rem;
+    padding: clamp(1rem, 3vw, 2rem);
     border-radius: 1rem;
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.06);
@@ -490,17 +491,18 @@ body {
 .edu-year {
     font-size: clamp(0.7rem, 1.1vw, 0.9rem);
     opacity: 0.6;
+    padding-bottom: 1rem;
 }
 
 .about-education h3 {
     text-align: left;
     font-weight: 600;
-    color: var(--glow);
+    color: var(--purple);
     letter-spacing: 0.5px;
 }
 
 .about-card p {
-    margin-top: 1rem; /* öka värdet för mer nedflyttning */
+    margin-top: 1rem; 
 }
 
 @media (max-width: 768px) {
@@ -509,7 +511,28 @@ body {
     }
 }
 
+/* FÄRGADE ORD i texten */
+.key-purple {
+    color: var(--purple);
+    font-weight: 600;
+    font-size: clamp(1em, 1.1em, 1.15em);
+}
+.key-orange {
+    color: var(--orange);
+    font-weight: 600;
+    font-size: clamp(1em, 1.1em, 1.15em);
+}
+.key-pink {
+    color: var(--pink);
+    font-weight: 600;
+    font-size: clamp(1em, 1.1em, 1.15em);
+}
+.key-blue {
+    color: var(--blue);
+    font-weight: 600;
+    font-size: clamp(1em, 1.1em, 1.15em);
 
+}
 
 
 
@@ -519,11 +542,12 @@ body {
     width: 100%;
     margin: 0 auto;
     max-width: clamp(350px, 90%, 900px);
-    font-size: clamp(0.9rem, 2vw, 1.1rem);
-    line-height: 1.6;
-    opacity: 0.9;
-    scroll-margin-top: clamp(80px, 15vw, 250px);
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+    line-height: 1.65;
+    opacity: 0.95;
+    scroll-margin-top: clamp(80px, 12vw, 200px);
 }
+
 
 .skills-section .accent {
     color: var(--glow);
@@ -539,36 +563,34 @@ body {
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.06);
     width: 100%;
-    padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem);
-    border-radius: 1rem;
-    backdrop-filter: blur(10px);
+    padding: clamp(1.8rem, 4vw, 3rem) clamp(1.2rem, 3vw, 2.2rem);
+    border-radius: 1.1rem;
+    backdrop-filter: blur(12px);
     max-width: clamp(350px, 90%, 900px);
-    line-height: 1.6;
-    opacity: 0.9;
+    line-height: 1.65;
+    opacity: 0.95;
 }
-
 
 /* Ikoner */
 .skills-list.icons {
     list-style: none;
     padding: 0;
-    margin: 2rem auto 0;  
+    margin: 2.2rem auto 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
-    justify-items: center; 
-    text-align: center;   
-    gap: clamp(1rem, 4vw, 4rem);
-  
+    justify-items: center;
+    text-align: center;
+    gap: clamp(1.2rem, 3vw, 3rem);
 }
+
 
 @media (max-width: 768px) {
     .skills-list.icons {
-        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-        gap: 0.9rem; /* mindre gap på mobil */
-        padding: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(55px, 1fr));
+        gap: clamp(0.7rem, 2vw, 1rem);
+        padding: 0.5rem;
     }
 }
-
 
 
 .skills-list.icons li {
@@ -579,8 +601,15 @@ body {
 }
 
 .skills-list.icons i {
-    font-size: clamp(28px, 4vw, 52px);
-    margin-bottom: 0.4rem;
+    font-size: clamp(30px, 4vw, 50px);
+    margin-bottom: 0.35rem;
+    opacity: 0.95;
+    transition: 0.25s ease;
+}
+
+.skills-list.icons i:hover {
+    transform: translateY(-3px) scale(1.08);
+    filter: drop-shadow(0 0 8px var(--glow));
 }
 
 
@@ -591,8 +620,11 @@ body {
     padding-bottom: 2rem;
 }
 
-
-
+.github-icon {
+    font-size: clamp(28px, 4vw, 52px);
+    transition: 0.25s ease;
+    filter: invert(0);
+}
 
 
 /* ============== PORTFOLIO ============== */
@@ -768,6 +800,7 @@ body {
     width: 20px;
     height: 20px;
     object-fit: contain;
+    display: block;
 }
 
 
@@ -959,47 +992,53 @@ body:not(.light) .icon-img.dark {
 
 
 /* ============== FOOTER ============== */
-/* FOOTER */
+
 footer {
-    margin-top: 1rem;
-    padding: 2rem 0;
+    margin-top: 2rem;
+    padding: clamp(1.5rem, 3vw, 2.5rem) 0;
     text-align: center;
     color: var(--text);
-    opacity: 0.9;
+    opacity: 0.95;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 }
 
+/* Copyright-symbol */
 .copy-symbol {
     color: var(--glow);
-    font-size: 1rem;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
 }
 
 /* Ikoncontainer */
 .footer-icons {
-    margin-top: 1rem;
+    margin-top: 1.4rem;
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.2rem;
 }
 
+/* Ikoner */
 .footer-icons img {
-    width: 23px;
-    height: 23px;
-    opacity: 0.8;
+    width: 26px;
+    height: 26px;
+    opacity: 0.75;
     object-fit: contain;
-    transition: 0.25s ease;
+    transition: 0.3s ease;
+    filter: drop-shadow(0 0 0 transparent);
 }
 
+/* GitHub lite större */
 .footer-icons img.github {
-    width: 25px;  
-    height: 25px;
+    width: 30px;
+    height: 30px;
 }
-
 
 /* Hover-effekt */
-.footer-icons a:hover .icon,
 .footer-icons a:hover img {
-    transform: translateY(-2px) scale(1.08);
-    filter: drop-shadow(0 0 6px var(--glow));
+    opacity: 1;
+    transform: translateY(-3px) scale(1.12);
+    filter: drop-shadow(0 0 10px var(--glow));
 }
 
 
@@ -1152,12 +1191,7 @@ body.light .close-modal:hover {
     text-shadow: 0 0 6px var(--glow);
 }
 
-/* Visa light-ikoner i light mode */
-body.light .icon-img.light {
-    display: block;
-}
-
-/* Visa dark-ikoner i dark mode */
-body:not(.light) .icon-img.dark {
-    display: block;
+/* Light mode – svart ikon */
+body.light .github-icon {
+    filter: invert(1);
 }
