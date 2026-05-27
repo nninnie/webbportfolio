@@ -12,10 +12,11 @@
     --pink: #FF4FD8;
     --orange: #FF7A00;
     --blue: #4AB3FF;
+    --purple: #9900ff;
 
     --console-bg: #000;
     --console-border: #333;
-    --glow: #07308ace;
+    --glow: #07308aa2;
     
 }
 
@@ -33,152 +34,6 @@ section {
     flex-direction: column;
 }
 
-/* ============== WHITE MODE ============== */
-/* WHITE MODE */
-body.light {
-    background: var(--bg-light);
-    color: var(--text-dark);
-}
-/* WHITE MODE TEXT COLORS */
-body.light footer,
-body.light .nav-links a,
-body.light .mobile-menu a,
-body.light .icon-btn,
-body.light .hero,
-body.light .sectionabout,
-body.light .skills-section,
-body.light .sectionproject,
-body.light .sectioncontact,
-body.light .folder-title {
-    color: var(--text-dark);
-}
-
-/* White mode navbar */
-body.light .navbar {
-    background: rgba(225, 210, 214, 0.38);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(210, 195, 198, 0.55); 
-}
-
-/* CV-länk alltid rosa */
-body.light .nav-links a[href$="cv-ninniedahlstrom.pdf"],
-body.light .mobile-menu a[href$="cv-ninniedahlstrom.pdf"] {
-    color: var(--pink);
-    font-weight: 500;
-}
-
-
-/* Portfolio-länk alltid orange */
-body.light .nav-links a[href*="portfolio"],
-body.light .mobile-menu a[href*="portfolio"] {
-    color: var(--orange);
-    font-weight: 500;
-}
-
-/* HOVER PÅ ALLA LÄNKAR */
-body.light .nav-links a:hover,
-body.light .mobile-menu a:hover {
-    color: var(--glow);
-    text-decoration: none;
-}
-
-/* Accent och copyright ska ALLTID vara glow */
-body.light .accent,
-body.light .copy-symbol {
-    color: var(--glow) !important; /* important - regeln gäller alltid! */
-    text-shadow: 0 0 3px var(--glow);
-} 
-
-/* Orb-knappar i white mode CV & Portfolio*/
-body.light .btn.orb {
-    color: #e8dddd;
-}
-
-/* WHITE MODE - ABOUT EDUCATION */
-body.light .about-education li {
-    color: var(--text-dark);
-}
-
-/* White mode cards */
-body.light .about-card,
-body.light .skills-card,
-body.light .projects-card,
-body.light .contact-card {
-    background: rgba(225, 210, 214, 0.38); 
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(210, 195, 198, 0.55); 
-}
-
-
-/* White mode inputs CONTACT CARD */
-body.light .contact-card input,
-body.light .contact-card textarea {
-    background: rgba(0,0,0,0.05); 
-    color: var(--text-dark);      
-    border: 1px solid rgba(0,0,0,0.15);
-}
-/* White mode knapp CONTACT CARD */
-body.light .contact-card button {
-    background: rgba(0,0,0,0.20);
-    border: 1px solid rgba(0,0,0,0.25);
-    color: #fff;
-}
-
-
-/* White mode hamburger menu background */
-body.light .mobile-menu {
-    background: rgba(238, 223, 227, 0.32);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(210, 195, 198, 0.55);
-}
-
-body.light #hamburgerBtn {
-    color: rgba(172, 91, 117, 0.85);
-}
-
-/* White mode - textfärg skills */
-body.light .skills-list.icons span {
-    color: var(--text-dark);
-    font-size: clamp(0.8rem, 1.4vw, 1rem);
-    margin-top: 0.1rem;
-    opacity: 0.9;
-    padding-bottom: 2rem;
-    font-weight: 500;
-
-}
-
-/* White mode - portfolio modal - öppna mappen kortet */
-body.light .project-modal-content {
-    background: rgba(253, 242, 247, 0.904);
-    backdrop-filter: blur(14px);
-    color: var(--text-dark);
-    border: 1px solid rgba(210, 195, 198, 0.35);
-}
-
-/* White mode – modalens knappar */
-body.light .project-links a {
-    background: rgba(240, 233, 234, 0.24);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(158, 141, 144, 0.45);
-    color: var(--text-dark);
-}
-
-body.light .project-links a:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 6px var(--glow);
-}
-
-
-/* White mode – stäng‑krysset */
-body.light .close-modal {
-    color: var(--text-dark); 
-    text-shadow: 0 0 4px rgba(0,0,0,0.15);
-}
-
-body.light .close-modal:hover {
-    color: var(--glow); /* glow-färg vid hover */
-    text-shadow: 0 0 6px var(--glow);
-}
 
 /* ============== TEXT - FONT ============== */
 h1 {
@@ -190,13 +45,14 @@ h1 {
     margin-bottom: 1rem;
 }
 
+
 h2 {
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
     letter-spacing: -1px;
     margin-bottom: 1rem;
     font-size: clamp(1.8rem, 4vw, 3rem); /* responsivt större */
-    text-align: center;
+    text-align: left;
 }
 
 h3 {
@@ -461,21 +317,21 @@ body {
 }
 
 .btn.orb.pink {
-    background: var(--pink);
-    box-shadow: 0 0 10px var(--pink);
-}
-
-.btn.orb.orange {
     background: var(--orange);
     box-shadow: 0 0 10px var(--orange);
 }
 
+.btn.orb.orange {
+    background: var(--pink);
+    box-shadow: 0 0 10px var(--pink);
+}
+
 .btn.orb.pink:hover {
-    box-shadow: 0 0 20px var(--pink);
+    box-shadow: 0 0 20px var(--orange);
 }
 
 .btn.orb.orange:hover {
-    box-shadow: 0 0 20px var(--orange);
+    box-shadow: 0 0 20px var(--pink);
 }
 
 @media (max-width: 768px) {
@@ -553,7 +409,6 @@ body {
 
 /* ============== ABOUT ============== */
 .sectionabout {
-    text-align: center;
     max-width: 900px;
     margin: 0 auto;
     font-size: clamp(0.9rem, 1.8vw, 1.1rem);
@@ -568,24 +423,38 @@ body {
     font-weight: 900;
 }
 
+.about-wrapper {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
 .about-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.06);
-    width: 100%;
+    flex: 2;
+    min-width: 300px;
     padding: 2rem;
     border-radius: 1rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
     backdrop-filter: blur(10px);
-    max-width: clamp(350px, 90%, 900px);
-    margin: 0 auto;
     line-height: 1.6;
     opacity: 0.9;
 }
 
 .about-education {
-    margin-top: 4rem;
-    text-align: left;
+    flex: 1;
+    min-width: 260px;
+    padding: 2rem;
+    border-radius: 1rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    backdrop-filter: blur(10px);
+    line-height: 1.6;
     opacity: 0.9;
 }
+
 
 .about-education h3 {
     margin-bottom: 1rem;
@@ -633,13 +502,12 @@ body {
     line-height: 1.6;
     opacity: 0.9;
     scroll-margin-top: clamp(80px, 15vw, 250px);
+    text-align: left;
 }
 
 .skills-section h2 {
     font-size: clamp(1.8rem, 4vw, 3rem);
     font-weight: 700;
-    margin-bottom: 2rem;
-    text-align: center;
 }
 
 .skills-section .accent {
@@ -659,7 +527,6 @@ body {
     margin: 0 auto;
     line-height: 1.6;
     opacity: 0.9;
-
 }
 
 /* SKILLS TEXT */
@@ -669,7 +536,13 @@ body {
     font-size: clamp(0.9rem, 1.8vw, 1.1rem);
     text-align: center;
 }
-
+/* <skill<> TEXT Mono*/
+.code-tag {
+    font-family: "JetBrains Mono", monospace;
+    opacity: 0.6;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
 
 /* Ikonlista */
 .skills-list.icons {
@@ -908,15 +781,10 @@ body:not(.light) .icon-img.dark {
     text-align: center;
     max-width: 900px;
     margin: 0 auto;
-    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    font-size: clamp(0.65rem, 1.6vw, 0.85rem);
     line-height: 1.6;
     opacity: 0.9;
     scroll-margin-top: clamp(80px, 15vw, 250px);
-}
-
-.sectioncontact h2,
-.sectioncontact .accent {
-    text-align: center;
 }
 
 .sectioncontact .accent {
@@ -945,7 +813,6 @@ body:not(.light) .icon-img.dark {
     gap: 1rem;
     align-items: stretch; 
     box-sizing: border-box;
-
     padding: 1.5rem;
 }
 
@@ -965,6 +832,47 @@ body:not(.light) .icon-img.dark {
 .contact-card textarea {
     min-height: 4rem;
 }
+
+/* Grupp för label + ikon */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+
+}
+
+/* Label med ikon */
+.input-label {
+    display: flex;
+    align-items: left;
+    gap: 0.55rem;
+    font-size: clamp(0.45rem, 1.3vw, 0.65rem);
+    color: var(--text);
+    opacity: 0.85;
+}
+
+/* Gör svarta SVG-ikoner vita */
+.input-icon {
+    width: clamp(10px, 2vw, 14px);
+    height: clamp(10px, 2vw, 14px);
+    opacity: 0.85;
+    transform: translateY(2px);
+}
+
+.icon-rosa {
+    filter: invert(73%) sepia(93%) saturate(7490%) hue-rotate(295deg) brightness(102%) contrast(101%);
+}
+
+.icon-orange {
+    filter: invert(53%) sepia(94%) saturate(2470%) hue-rotate(1deg) brightness(103%) contrast(102%);
+}
+.icon-bla {
+    filter: invert(57%) sepia(94%) saturate(2470%) hue-rotate(180deg) brightness(103%) contrast(102%);
+}
+
+
+
 
 .contact-card button {
     padding: 0.35rem 0.9rem;      /* smal & liten */
@@ -1084,4 +992,152 @@ body.light .icon-img.light {
 /* Visa dark-ikoner i dark mode */
 body:not(.light) .icon-img.dark {
     display: block;
+}
+
+
+/* ============== WHITE MODE ============== */
+/* WHITE MODE */
+body.light {
+    background: var(--bg-light);
+    color: var(--text-dark);
+}
+/* WHITE MODE TEXT COLORS */
+body.light footer,
+body.light .nav-links a,
+body.light .mobile-menu a,
+body.light .icon-btn,
+body.light .hero,
+body.light .sectionabout,
+body.light .skills-section,
+body.light .sectionproject,
+body.light .sectioncontact,
+body.light .folder-title {
+    color: var(--text-dark);
+}
+
+/* White mode navbar */
+body.light .navbar {
+    background: rgba(225, 210, 214, 0.38);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(210, 195, 198, 0.55); 
+}
+
+/* CV-länk alltid rosa */
+body.light .nav-links a[href$="cv-ninniedahlstrom.pdf"],
+body.light .mobile-menu a[href$="cv-ninniedahlstrom.pdf"] {
+    color: var(--pink);
+    font-weight: 500;
+}
+
+
+/* Portfolio-länk alltid orange */
+body.light .nav-links a[href*="portfolio"],
+body.light .mobile-menu a[href*="portfolio"] {
+    color: var(--orange);
+    font-weight: 500;
+}
+
+/* HOVER PÅ ALLA LÄNKAR */
+body.light .nav-links a:hover,
+body.light .mobile-menu a:hover {
+    color: var(--glow);
+    text-decoration: none;
+}
+
+/* Accent och copyright ska ALLTID vara glow */
+body.light .accent,
+body.light .copy-symbol {
+    color: var(--glow) !important; /* important - regeln gäller alltid! */
+    text-shadow: 0 0 3px var(--glow);
+} 
+
+/* Orb-knappar i white mode CV & Portfolio*/
+body.light .btn.orb {
+    color: #e8dddd;
+}
+
+/* WHITE MODE - ABOUT EDUCATION */
+body.light .about-education li {
+    color: var(--text-dark);
+}
+
+/* White mode cards */
+body.light .about-card,
+body.light .skills-card,
+body.light .projects-card,
+body.light .contact-card {
+    background: rgba(225, 210, 214, 0.38); 
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(210, 195, 198, 0.55); 
+}
+
+
+/* White mode inputs CONTACT CARD */
+body.light .contact-card input,
+body.light .contact-card textarea {
+    background: rgba(0,0,0,0.05); 
+    color: var(--text-dark);      
+    border: 1px solid rgba(0,0,0,0.15);
+}
+/* White mode knapp CONTACT CARD */
+body.light .contact-card button {
+    background: rgba(0,0,0,0.20);
+    border: 1px solid rgba(0,0,0,0.25);
+    color: #fff;
+}
+
+
+/* White mode hamburger menu background */
+body.light .mobile-menu {
+    background: rgba(238, 223, 227, 0.32);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(210, 195, 198, 0.55);
+}
+
+body.light #hamburgerBtn {
+    color: rgba(172, 91, 117, 0.85);
+}
+
+/* White mode - textfärg skills */
+body.light .skills-list.icons span {
+    color: var(--text-dark);
+    font-size: clamp(0.8rem, 1.4vw, 1rem);
+    margin-top: 0.1rem;
+    opacity: 0.9;
+    padding-bottom: 2rem;
+    font-weight: 500;
+
+}
+
+/* White mode - portfolio modal - öppna mappen kortet */
+body.light .project-modal-content {
+    background: rgba(253, 242, 247, 0.904);
+    backdrop-filter: blur(14px);
+    color: var(--text-dark);
+    border: 1px solid rgba(210, 195, 198, 0.35);
+}
+
+/* White mode – modalens knappar */
+body.light .project-links a {
+    background: rgba(240, 233, 234, 0.24);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(158, 141, 144, 0.45);
+    color: var(--text-dark);
+}
+
+body.light .project-links a:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 6px var(--glow);
+}
+
+
+/* White mode – stäng‑krysset */
+body.light .close-modal {
+    color: var(--text-dark); 
+    text-shadow: 0 0 4px rgba(0,0,0,0.15);
+}
+
+body.light .close-modal:hover {
+    color: var(--glow); /* glow-färg vid hover */
+    text-shadow: 0 0 6px var(--glow);
 }

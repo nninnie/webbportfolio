@@ -70,9 +70,10 @@
             </label>
     </div>
 
+        <h1>Ninnie Dahlström</h1>
 
-    <h1>Ninnie Dahlström</h1>
-    <h3>Junior Systemutvecklare .NET</h3>
+        <h3>Junior Systemutvecklare .NET</h3>
+
         <br>
         <p>Fullstack • API-utveckling • Modern webbutveckling</p>
 
@@ -96,7 +97,7 @@
 <!-- ABOUT -->
 <section id="about" class="sectionabout">
     <h2><span class="accent">/</span> Om mig</h2>
-
+<div class="about-wrapper">
     <div class="about-card">
 <p>
     Junior systemutvecklare inom .NET under utbildning, med fokus på backend, API-utveckling och fullstack.
@@ -104,7 +105,7 @@
     Jag använder modern UI/UX med tydlig hierarki och responsiv design för att skapa rena och användarvänliga gränssnitt.
 </p>
 
-
+</div>
         <div class="about-education">
             <h3>Utbildning</h3>
 
@@ -125,9 +126,10 @@
 <section id="skills" class="section skills-section">
     <h2><span class="accent">/</span> Kunskaper</h2>
 
-
-    
     <div class="skills-card">
+
+        <p><span class="code-tag">&lt;skills&gt;</span></p>
+        
 
         <ul class="skills-list icons">
 
@@ -188,7 +190,9 @@
             </li>
 
         </ul>
+        <p><span class="code-tag">&lt;/skills&gt;</span></p>
     </div>
+    
 </section>
 
 
@@ -253,22 +257,36 @@
 
         <form id="contactForm" action="https://formsubmit.co/ninnie_dahlstrom@hotmail.com" method="POST">
 
-            <input type="text" name="name" placeholder="Namn" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <textarea name="message" placeholder="Meddelande" required></textarea>
+            <div class="input-group">
+                <label>
+                    <img src="image/icons/user-round.png" alt="User" class="input-icon icon-rosa">
+                    Namn
+                </label>
+                <input type="text" name="name" placeholder="Ditt namn" required>
+            </div>
+
+            <div class="input-group">
+                <label>
+                    <img src="image/icons/mail.png" alt="Email" class="input-icon icon-orange">
+                    Email
+                </label>
+                <input type="email" name="email" placeholder="din.email@example.com" required>
+            </div>
+
+            <div class="input-group">
+                <label>
+                    <img src="image/icons/message.png" alt="Meddelande" class="input-icon icon-bla">
+                    Meddelande
+                </label>
+                <textarea name="message" placeholder="Ditt meddelande" required></textarea>
+            </div>
 
             <input type="hidden" name="_captcha" value="false">
-
-            <!-- Viktigt: matcha din GitHub Pages-domän -->
             <input type="hidden" name="_origin" value="https://nninnie.github.io">
-
-            <!-- Viktigt: redirect tillbaka till din sida -->
             <input type="hidden" name="_redirect" value="https://nninnie.github.io/#contact">
 
-        <button type="submit" class="btn blue">Skicka</button>
-    </form>
-
-
+            <button type="submit" class="btn blue">Skicka</button>
+        </form>
 
         <div id="successPopup" class="popup">
             <p>Tack! Ditt meddelande är nu på väg till Ninnie Dahlström.</p>
@@ -276,6 +294,8 @@
 
     </div>
 </section>
+
+
 
 
 <!-- FOOTER -->
