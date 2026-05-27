@@ -432,6 +432,11 @@ body {
     align-items: stretch; /* gör att båda korten synkas i höjd */
 }
 
+@media (max-width: 768px) {
+    .about-wrapper {
+        grid-template-columns: 1fr; /* mobil: stapla */
+    }
+}
 
 .about-card {
     flex: 2;
@@ -498,18 +503,12 @@ body {
 
 .skills-section {
     text-align: center;
-    max-width: 900px;
     margin: 0 auto;
     font-size: clamp(0.9rem, 2vw, 1.1rem);
     line-height: 1.6;
     opacity: 0.9;
     scroll-margin-top: clamp(80px, 15vw, 250px);
     text-align: left;
-}
-
-.skills-section h2 {
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    font-weight: 700;
 }
 
 .skills-section .accent {
@@ -531,30 +530,13 @@ body {
     opacity: 0.9;
 }
 
-/* SKILLS TEXT */
-.skills-intro {
-    opacity: 0.85;
-    margin-bottom: 2rem;
-    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
-    text-align: center;
-}
-/* <skill<> TEXT Mono*/
-.code-tag {
-    font-family: "JetBrains Mono", monospace;
-    opacity: 0.6;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-}
-
-/* Ikonlista */
+/* Ikoner */
 .skills-list.icons {
     list-style: none;
     padding: 0;
     margin: 2rem 0 0;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 1.5rem;
-    column-gap: 0.1rem; 
     justify-items: center;
 }
 
@@ -935,6 +917,7 @@ footer {
 
 .copy-symbol {
     color: var(--glow);
+    font-size: 1rem;
 }
 
 /* Ikoncontainer */
