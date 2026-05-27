@@ -468,6 +468,7 @@ body {
     backdrop-filter: blur(10px);
     line-height: 1.6;
     opacity: 0.9;
+    padding-bottom: 2rem;
 }
 
 .edu-item {
@@ -475,6 +476,10 @@ body {
     flex-direction: column;
     gap: 0.1rem;
     margin-top: 1rem; 
+    border-left: 2px solid var(--glow);
+    margin-left: -0.8rem; 
+    padding-left: 1rem;
+    
 }
 
 .edu-item strong {
@@ -491,7 +496,6 @@ body {
 .edu-year {
     font-size: clamp(0.7rem, 1.1vw, 0.9rem);
     opacity: 0.6;
-    padding-bottom: 1rem;
 }
 
 .about-education h3 {
@@ -515,22 +519,22 @@ body {
 .key-purple {
     color: var(--purple);
     font-weight: 600;
-    font-size: clamp(1em, 1.1em, 1.15em);
+    font-size: clamp(1em, 1.1em, 1.25em);
 }
 .key-orange {
     color: var(--orange);
     font-weight: 600;
-    font-size: clamp(1em, 1.1em, 1.15em);
+    font-size: clamp(1em, 1.1em, 1.25em);
 }
 .key-pink {
     color: var(--pink);
     font-weight: 600;
-    font-size: clamp(1em, 1.1em, 1.15em);
+    font-size: clamp(1em, 1.1em, 1.25em);
 }
 .key-blue {
     color: var(--blue);
     font-weight: 600;
-    font-size: clamp(1em, 1.1em, 1.15em);
+    font-size: clamp(1em, 1.1em, 1.225em);
 
 }
 
