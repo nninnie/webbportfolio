@@ -550,7 +550,6 @@ body {
     width: 100%;
     margin: 0 auto;
     max-width: clamp(150px, 90%, 1100px);
-    font-size: clamp(0.85rem, 1.4vw, 1rem);
     line-height: 1.5;
     opacity: 0.85;
     scroll-margin-top: clamp(80px, 12vw, 180px);
