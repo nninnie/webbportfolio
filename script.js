@@ -136,25 +136,85 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
 ----------------------------------------- */
 const projects = {
     "Kassasystem App": {
-        description: "Ett .NET-projekt byggt i C# i Visual Studio med SQL-databas. Jag arbetade med CRUD-funktionalitet, OOP och en tydlig mappstruktur. Jag började även tillämpa SOLID och DRY för att skriva mer hållbar kod.",
-        github: "https://github.com/nninnie/CashRegisterSystem",
-        demo: "https://github.com/nninnie/CashRegisterSystem#readme",
-        tech: ["C#", "OOP"]
-    },
+    description:
+        "Modernt kassasystem byggt i .NET och SQL.",
 
-    "Hotell App": {
-        description: "Ett mer avancerat .NET-projekt där jag använde C# och SQL via Code First. Jag arbetade med datamodellering, CRUD-logik och en renare arkitektur med tydligare mappar och klasser. Här fördjupade jag mina kunskaper i OOP, SOLID och DRY.",
-        github: "https://github.com/nninnie/HotelBooking",
-        demo: "https://github.com/nninnie/HotelBooking#readme",
-        tech: ["C#", "SQL"]
-    },
+    fullDescription:
+        "Ett kassasystem utvecklat i C# med fokus på tydlig mappstruktur, OOP och ren kod. Projektet gav praktisk erfarenhet av DRY- och SOLID-principer för att skapa en mer strukturerad och underhållbar applikation.",
 
-    "Webbportfolio": {
-        description: "En egenbyggd webbportfolio utvecklad i Visual Studio Code med HTML5, CSS3 och JavaScript. Fokus låg på glow UI, responsiv design och interaktiva komponenter. Projektet gav mig praktisk erfarenhet av modern frontend-utveckling och struktur.",
-        github: "https://nninnie.github.io/webbportfolio",
-        demo: "https://github.com/nninnie/webbportfolio#readme",
-        tech: ["HTML", "CSS", "JavaScript", "UI/UX", "API"]
-    }
+    github:
+        "https://github.com/nninnie/CashRegisterSystem",
+
+    demo:
+        "https://github.com/nninnie/CashRegisterSystem#readme",
+
+    tech: [
+        "C#",
+        ".NET",
+        "SQL Server"
+    ],
+
+    features: [
+        "CRUD-operationer",
+        "Databashantering",
+        "OOP-struktur",
+        "Responsiv design"
+    ]
+},
+
+"Hotell App": {
+    description:
+        "Modern Hotellbokningssystem byggt i .NET och SQL Server.",
+
+    fullDescription:
+         "Ett hotellbokningssystem utvecklat i C# och SQL Server med Code First som grund för databashantering och datamodellering. Projektet fokuserade på OOP, strukturerad mappstruktur och SOLID-principer för att skapa en skalbar och underhållbar applikation.",
+    github:
+        "https://github.com/nninnie/HotelBooking",
+
+    demo:
+        "https://github.com/nninnie/HotelBooking#readme",
+
+    tech: [
+        "C#",
+        ".NET",
+        "SQL Server"
+    ],
+
+    features: [
+        "CRUD-operationer",
+        "Code First",
+        "Databashantering",
+        "Bokningssystem"
+    ]
+},
+
+"Webbportfolio": {
+    description:
+        "Modern portfolio med glow UI och responsiv design.",
+
+    fullDescription:
+        "En egenutvecklad portfolio skapad med HTML5, CSS3 och JavaScript med fokus på modern frontend-utveckling, responsiv design och interaktiva komponenter. Projektet innehåller bland annat dark/light mode, API-integrationer och UI/UX-inspirerad design.",
+    github:
+        "https://github.com/nninnie/webbportfolio",
+
+    demo:
+        "https://nninnie.github.io/webbportfolio/",
+
+    tech: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "UI/UX",
+        "API"
+    ],
+
+    features: [
+        "Responsiv design",
+        "Dark/Light mode",
+        "Weather API",
+        "Interaktiva komponenter"
+    ]
+}
 };
 
 const techIcons = {
@@ -170,6 +230,30 @@ const techIcons = {
 
 };
 
+const projectsGrid = document.getElementById("projectsGrid");
+
+Object.entries(projects).forEach(([title, data]) => {
+    const card = document.createElement("div");
+    card.className = "folder-item project-card";
+
+    card.innerHTML = `
+        <div class="project-icon">📁</div>
+        <span class="folder-title">${title}</span>
+        <p>${data.description}</p>
+
+
+        <div class="card-tech">
+            ${data.tech
+                .map(t => `<i class="${techIcons[t] || ''}"></i>`)
+                .join("")}
+        </div>
+        
+    `;
+
+    projectsGrid.appendChild(card);
+});
+
+
 const modal = document.getElementById("projectModal");
 const titleEl = document.getElementById("projectTitle");
 const descEl = document.getElementById("projectDescription");
@@ -181,19 +265,25 @@ const techEl = document.getElementById("projectTech");
 document.querySelectorAll(".folder-item").forEach(folder => {
     folder.addEventListener("click", (e) => {
         e.stopPropagation();
+        
 
         const name = folder.querySelector(".folder-title").textContent;
         const project = projects[name];
 
         titleEl.textContent = name;
-        descEl.textContent = project.description;
+        descEl.innerHTML = project.fullDescription
+        .replace(/SOLID-principer/g, '<span class="pink-tech">SOLID-principer</span>')
+        .replace(/Code First/g, '<span class="blue-tech">Code First</span>')
+        .replace(/SQL/g, '<span class="orange-tech">SQL</span>')
+        .replace(/OOP/gi, '<span class="purple-tech">OOP</span>')
+        .replace(/frontend-utveckling/gi, '<span class="purple-tech">frontend-utveckling</span>')
+        .replace(/UI\/UX/gi, '<span class="blue-tech">UI/UX</span>');
+
+
         githubEl.href = project.github;
         demoEl.href = project.demo;
 
-        // 🔥 GENERERA IKONERNA HÄR
-        techEl.innerHTML = project.tech
-            .map(t => `<i class="${techIcons[t] || ''}"></i>`)
-            .join("");
+        
 
         modal.style.display = "flex";
     });

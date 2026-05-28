@@ -663,16 +663,18 @@ body {
     width: 100%;
     padding: clamp(2rem, 4vw, 5rem) clamp(1rem, 3vw, 2rem);
     border-radius: 1rem;
-    backdrop-filter: blur(10px);     /* blur bakom */
-    max-width: clamp(150px, 90%, 900px);
+    backdrop-filter: blur(10px);
+    max-width: clamp(350px, 90%, 900px);
     margin: 0 auto;
     line-height: 1.6;
     opacity: 0.9;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: clamp(2rem, 6vw, 4rem);
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    justify-items: center;
 }
+
 
 .portfolio-wrapper {
     max-width: 900px;
@@ -686,36 +688,36 @@ body {
     font-weight: 900;
 }
 
-
-/* MAPP-KORT */
-.folder-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 140px;
-    cursor: pointer;                 /* visar klickbar */
+/* PORTFOLIO CARD */
+.project-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    backdrop-filter: blur(12px);
+    padding: 1.8rem;
+    border-radius: 1rem;
+    text-align: left;
+    width: clamp(100px, 14vw, 150px);
     transition: 0.25s ease;
+    cursor: pointer;
+    box-shadow:
+        0 0 6px rgba(0,0,0,0.25),
+        0 0 12px rgba(0,0,0,0.15);
 }
 
-/* MAPP-IKON */
-.folder-icon {
-    font-size: 5rem;               /* stor ikon */
-    line-height: 1;
-    transition: 0.25s ease;
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 12px var(--glow);
 }
 
-/* TEXT UNDER */
-.folder-title {
-    margin-top: 0.6rem;
-    font-size: clamp(0.9rem, 1.6vw, 1.1rem);
-    opacity: 0.9;
-    color: var(--text);
+.project-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
 }
 
-/* HOVER-EFFEKT */
-.folder-item:hover .folder-icon {
-    transform: scale(1.1);           /* zoom vid hover */
-    filter: drop-shadow(0 0 4px var(--glow));
+.project-card p {
+    opacity: 0.8;
+    font-size: clamp(0.8rem, 1.4vw, 1rem);
+    margin-top: 0.5rem;
 }
 
 
@@ -736,17 +738,50 @@ body {
 /* SJÄLVA KORTET */
 .project-modal-content {
     position: relative; 
-    width: 280px;
+    width: clamp(210px, 26vw, 280px);
+
     background: rgba(20, 20, 20, 0.952);
-    border-radius: 16px;
+    border-radius: 25px;
     padding: 1.5rem 2rem;
     box-shadow: 0 0 5px var(--glow);
     animation: pop 0.15s ease-out;
 }
 
+.folder-title {
+    font-size: clamp(0.8rem, 1.4vw, 1.2rem);
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+/* FÄRGADE ORD I MODAL */ 
+.pink-tech {
+    color: var(--pink);
+    font-weight: 600;
+}
+
+.purple-tech {
+    color: var(--purple);
+    font-weight: 600;
+}
+
+.orange-tech {
+    color: var(--orange);
+    font-weight: 600;
+}
+
+.blue-tech {
+    color: var(--blue);
+    font-weight: 600;
+}
+
+
+
 #projectTitle {
     font-size: clamp(1.2rem, 2vw, 1.6rem);
     font-weight: 700;
+    color: var(--text);
 }
 
 #projectDescription, 
@@ -793,7 +828,7 @@ body {
     border: 1px solid rgba(36, 36, 36, 0.15);
 
     text-decoration: none;
-    font-weight: 00;
+    font-weight: 600;
     box-shadow: none;                     /* ingen glow */
     transition: 0.25s ease;
 }
@@ -812,11 +847,10 @@ body {
 /* DARK/LIGHT MODE IKONER */
 .icon-img.dark,
 .icon-img.light {
-    display: none;                        /* döljer alla ikoner som standard */
     width: 20px;
     height: 20px;
     object-fit: contain;
-    display: block;
+    display: none;
 }
 
 
@@ -830,20 +864,24 @@ body:not(.light) .icon-img.dark {
 }
 
 /* SKILLS IKONER I CARDET ÖPPNA MAPP PORTFOLIO */
-.project-tech {
-    margin-top: 1rem;
+.card-tech {
+    margin-top: 1.2rem;
     display: flex;
-    justify-content: center;
-    gap: 0.8rem;
+    justify-content: flex-start;
+    gap: 0.6rem;
     flex-wrap: wrap;
+    opacity: 0.9;
 }
 
-.project-tech i {
-    font-size: 26px;
-    color: var(--text);
+.card-tech i {
+    font-size: 22px;
+    opacity: 0.9;
     transition: 0.25s ease;
 }
 
+.project-card:hover .card-tech i {
+    transform: scale(1.1);
+}
 
 
 /* ============== CONTACT ============== */
@@ -1067,14 +1105,6 @@ footer {
 }
 
 
-/* Se till att GitHub följer dark/light-reglerna */
-.footer-icons img.github {
-    width: 26px;
-    height: 26px;
-    display: none !important;
-}
-
-
 /* Hover-effekt */
 .footer-icons a:hover img {
     opacity: 1;
@@ -1086,14 +1116,6 @@ footer {
 .github {
     display: none;
 }
-
-/* Dark mode – visa mörka GitHub-ikonen */
-body:not(.light) .github.dark {
-    display: inline-block;
-}
-
-
-
 
 
 /* ============== WHITE MODE ============== */
