@@ -265,7 +265,7 @@ body {
 }
 
 .hero h1 {
-    margin-bottom: 0.3rem; /* tajtar upp avståndet */
+    margin-bottom: 0.3rem; 
 }
 
 .hero h3 {
@@ -274,9 +274,10 @@ body {
 }
 
 .hero p {
-    margin-top: 0;         /* tar bort extra luft ovanför */
-    line-height: 1.4;      /* snyggare radavstånd */
+    margin-top: 0;        
+    line-height: 1.4;      
     margin-bottom: 2rem;
+    font-size: clamp(0.75rem, 1.6vw, 1.1rem);    
 }
 
 /* HERO - KNAPPAR*/
@@ -344,8 +345,8 @@ body {
 
 @media (max-width: 768px) {
     .btn.orb {
-        width: 6rem;
-        height: 2.4rem;
+        width: 4.5rem;
+        height: 2rem;
         border-radius: 20px;
         padding: 0 0.6rem;
     }
