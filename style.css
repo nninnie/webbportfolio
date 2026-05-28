@@ -424,7 +424,6 @@ body {
 /* ============== ABOUT ============== */
 .sectionabout {
     max-width: 900px;
-    width: 100%;
     margin: 0 auto;
     font-size: clamp(0.9rem, 1.8vw, 1.1rem);
     line-height: 1.6;
@@ -445,7 +444,6 @@ body {
     gap: 2rem;
     align-items: stretch; /* gör att båda korten synkas i höjd */
     width: 100%;
-    margin: 0 auto;
 }
 
 @media (max-width: 768px) {
@@ -463,8 +461,6 @@ body {
     backdrop-filter: blur(10px);
     line-height: 1.6;
     opacity: 0.9;
-    margin: 0 auto;
-    box-sizing: border-box;
     
 }
 
@@ -486,7 +482,6 @@ body {
     gap: 0.1rem;
     margin-top: 1rem; 
     border-left: 2px solid var(--glow);
-    margin-left: -0.8rem; 
     padding-left: 1rem;
     
 }
@@ -552,7 +547,6 @@ body {
 /* ============== SKILLS ============== */
 
 .skills-section {
-    max-width: 900px;
     width: 100%;
     margin: 0 auto;
     max-width: clamp(150px, 90%, 1100px);
@@ -569,8 +563,9 @@ body {
     font-weight: 900;
 }
 .skills-wrapper {
-    width: 100%;
+    max-width: 900px;
     margin: 0 auto;
+    width: 100%;
 }
 .skills-card {
     background: rgba(255,255,255,0.03);
@@ -582,8 +577,6 @@ body {
     max-width: clamp(350px, 90%, 900px);
     line-height: 1.65;
     opacity: 0.95;
-    margin: 0 auto;
-    box-sizing: border-box;
 }
 
 /* Ikoner */
@@ -652,9 +645,8 @@ body {
 /* ============== PORTFOLIO ============== */
 .sectionproject {
     text-align: center;              
-    max-width: 900px;
-    width: 100%;
-    margin: 0 auto;                 
+    max-width: clamp(350px, 90%, 900px);                
+    margin: 0 auto;                  
     font-size: clamp(0.9rem, 2vw, 1.1rem); 
     line-height: 1.6;                
     opacity: 0.85;                   
@@ -674,7 +666,6 @@ body {
     backdrop-filter: blur(10px);     /* blur bakom */
     max-width: clamp(150px, 90%, 900px);
     margin: 0 auto;
-    box-sizing: border-box;
     line-height: 1.6;
     opacity: 0.9;
     display: flex;
@@ -684,8 +675,9 @@ body {
 }
 
 .portfolio-wrapper {
-    width: 100%;
+    max-width: 900px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .sectionproject .accent {
@@ -856,9 +848,9 @@ body:not(.light) .icon-img.dark {
 
 /* ============== CONTACT ============== */
 .sectioncontact {
-    max-width: 900px;
     width: 100%;
     margin: 0 auto;
+    max-width: clamp(350px, 90%, 900px);
     text-align: center;
     font-size: clamp(0.65rem, 1.6vw, 0.85rem);
     line-height: 1.6;
@@ -882,14 +874,14 @@ body:not(.light) .icon-img.dark {
     max-width: clamp(350px, 90%, 900px);
     width: 100%;
     margin: 0 auto;
-    box-sizing: border-box;
     line-height: 1.6;
     opacity: 0.9;
 }
 
 .contact-wrapper {
-    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
 }
 
 
