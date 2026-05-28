@@ -21,10 +21,6 @@
     
 }
 
-html, body {
-    overflow-x: hidden;
-}
-
 
 /* GLOBAL WRAPPER */
 .page-wrapper {
@@ -90,7 +86,6 @@ body {
 }
 
 
-
 /* ============== NAVBAR ============== */
 
 /* NAVBAR WRAPPER */
@@ -100,6 +95,7 @@ body {
     z-index: 9999;
     background: rgba(0,0,0,0.3);
     backdrop-filter: blur(10px);
+    will-change: top;
 }
 
 /* NAVBAR CONTENT */
@@ -108,6 +104,8 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 1rem 1.2rem;
+    position: relative;
+    z-index: 10000;
 }
 
 /* VÄDER – alltid vänster */
@@ -947,28 +945,41 @@ body:not(.light) .icon-img.dark {
 /* SKICKA KNAPP */
 .contact-card button {
     width: fit-content;
-    padding: 0.6rem 1.3rem;
+    padding: 0.65rem 1.35rem;
     margin: 0 auto;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 12px;
     border: none;
-    background: var(--purple);
+    background: var(--text-dark);
     color: var(--text);
     font-size: clamp(0.8rem, 1.2vw, 0.95rem);
-    font-weight: 600;
-    letter-spacing: 0.25px;
+    font-weight: 100;
+    letter-spacing: 1.6px;
     cursor: pointer;
     box-shadow:
-        0 0 6px var(--purple),
-        0 0 12px rgba(140, 0, 255, 0.35);
+        0 0 2px var(--purple),
+        0 0 8px rgba(140, 0, 255, 0.38);
 
-    /* smooth animation */
     transition: 0.25s ease, transform 0.2s ease;
 }
 
 .contact-card button:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 10px var(--glow);
+    transform: scale(1.04);
+    box-shadow:
+        0 0 10px var(--glow),
+        0 0 18px rgba(140, 0, 255, 0.45);
+}
+
+/* IKON – perfekt centrerad */
+.send-btn {
+    filter: brightness(0) invert(1);
+    height: 1.15em;       
+    width: auto;
+    margin-left: 0.32rem;
+    flex-shrink: 0;
+    vertical-align: -1px; 
 }
 
 
