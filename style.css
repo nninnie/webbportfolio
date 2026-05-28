@@ -661,19 +661,35 @@ body {
 .projects-card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255,255,255,0.06);
-    padding: clamp(2rem, 4vw, 5rem)
-             clamp(1rem, 3vw, 2rem);
+    padding:
+        clamp(2rem, 4vw, 5rem)
+        clamp(1rem, 3vw, 2rem);
     border-radius: 1rem;
     backdrop-filter: blur(10px);
     max-width: 900px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
-    justify-items: center;
+    grid-template-columns:  repeat(3, 220px);
+    justify-content: center;
     gap: 1.5rem;
 }
 
+
+/* Tablet */
+@media (max-width: 900px) {
+    .projects-card {
+        grid-template-columns:
+            repeat(2, 220px);
+    }
+}
+
+/* Mobil */
+@media (max-width: 620px) {
+    .projects-card {
+        grid-template-columns:
+            220px;
+    }
+}
 
 .portfolio-wrapper {
     max-width: 900px;
@@ -689,6 +705,7 @@ body {
 
 /* PORTFOLIO CARD */
 .project-card {
+    box-sizing: border-box;
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.06);
     backdrop-filter: blur(12px);
@@ -696,8 +713,8 @@ body {
     border-radius: 1rem;
     text-align: left;
     width: 100%;
-    max-width: 180px;
-    min-height: 120px;
+    max-width: 220px;
+    min-height: 320px;
     transition: 0.25s ease;
     cursor: pointer;
     box-shadow:
