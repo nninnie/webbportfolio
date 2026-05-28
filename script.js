@@ -137,7 +137,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
 const projects = {
     "Kassasystem App": {
     description:
-        "Modernt kassasystem byggt i .NET och SQL.",
+        "Modernt kassasystem byggt i .NET med C# och SQL.",
 
     fullDescription:
         "Ett kassasystem utvecklat i C# med fokus på tydlig mappstruktur, OOP och ren kod. Projektet gav praktisk erfarenhet av DRY- och SOLID-principer för att skapa en mer strukturerad och underhållbar applikation.",
@@ -150,8 +150,7 @@ const projects = {
 
     tech: [
         "C#",
-        ".NET",
-        "SQL Server"
+        ".NET"
     ],
 
     features: [
@@ -164,7 +163,7 @@ const projects = {
 
 "Hotell App": {
     description:
-        "Modern Hotellbokningssystem byggt i .NET och SQL Server.",
+        "Modernt hotellbokningssystem byggt i .NET och SQL Server.",
 
     fullDescription:
          "Ett hotellbokningssystem utvecklat i C# och SQL Server med Code First som grund för databashantering och datamodellering. Projektet fokuserade på OOP, strukturerad mappstruktur och SOLID-principer för att skapa en skalbar och underhållbar applikation.",
@@ -177,7 +176,7 @@ const projects = {
     tech: [
         "C#",
         ".NET",
-        "SQL Server"
+        "SQL"
     ],
 
     features: [
@@ -190,7 +189,7 @@ const projects = {
 
 "Webbportfolio": {
     description:
-        "Modern portfolio med glow UI och responsiv design.",
+        "Modern UI/UX-portfolio byggd i HTML, CSS och JavaScript.",
 
     fullDescription:
         "En egenutvecklad portfolio skapad med HTML5, CSS3 och JavaScript med fokus på modern frontend-utveckling, responsiv design och interaktiva komponenter. Projektet innehåller bland annat dark/light mode, API-integrationer och UI/UX-inspirerad design.",
