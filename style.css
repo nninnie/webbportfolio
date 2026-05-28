@@ -550,7 +550,7 @@ body {
 .skills-section {
     width: 100%;
     margin: 0 auto;
-    max-width: clamp(350px, 90%, 900px);
+    max-width: clamp(150px, 90%, 1100px);
     font-size: clamp(0.85rem, 1.4vw, 1rem);
     line-height: 1.5;
     opacity: 0.85;
@@ -584,31 +584,38 @@ body {
 .skills-list.icons {
     list-style: none;
     padding: 0;
-    margin: 2.2rem auto 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    margin: 1rem auto 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: clamp(1rem, 2vw, 2rem);
     justify-items: center;
+    justify-content: center;
     text-align: center;
-    gap: clamp(0.8rem, 2.5vw, 2rem);
-
-}
-
-
-@media (max-width: 768px) {
-    .skills-list.icons {
-        grid-template-columns: repeat(auto-fit, minmax(55px, 1fr));
-        gap: clamp(0.7rem, 2vw, 1rem);
-        padding: 0.5rem;
-    }
 }
 
 
 .skills-list.icons li {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    width: clamp(70px, 12vw, 90px);
+    aspect-ratio: 1 / 1; /* gör boxen kvadratisk */
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    color: var(--text);
+    padding: 0.6rem;
+    transition: 0.25s ease;
 }
+
+
+.skills-list.icons li:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 0 10px var(--glow);
+}
+
 
 .skills-list.icons i {
     font-size: clamp(30px, 4vw, 50px);
@@ -617,19 +624,16 @@ body {
     transition: 0.25s ease;
 }
 
-.skills-list.icons i:hover {
-    transform: translateY(-3px) scale(1.08);
-    filter: drop-shadow(0 0 8px var(--glow));
+.skills-card p {
+    text-align: center;
+    opacity: 0.7;
 }
-
-
 .skills-list.icons span {
     font-size: clamp(0.7rem, 1.1vw, 0.85rem);
     opacity: 0.75;
     font-weight: 400;
     margin-top: 0.2rem;
 }
-
 
 .github-icon {
     font-size: clamp(28px, 4vw, 52px);
