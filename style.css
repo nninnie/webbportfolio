@@ -27,6 +27,7 @@
     max-width: 1400px; 
     margin: 0 auto;
     padding: 0 2rem;
+    flex: 1;
 }
 
 /* AVSTÅND MELLAN SEKTIONER – RESPONSIVE */
@@ -83,6 +84,8 @@ body {
     font-family: "Poppins", sans-serif;
     margin: 0;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 
 }
 
