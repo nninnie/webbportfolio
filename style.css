@@ -429,7 +429,7 @@ body {
     line-height: 1.6;
     opacity: 0.85;
     scroll-margin-top: clamp(80px, 15vw, 250px);
-
+    min-height: 100vh;
 }
 
 .sectionabout .accent {
