@@ -251,6 +251,10 @@ Object.entries(projects).forEach(([title, data]) => {
         <p>${data.description}</p>
         
 
+<div class="project-tags">
+    ${data.tech.map(t => `<span class="tag">${t}</span>`).join("")}
+</div>
+
 
         
         

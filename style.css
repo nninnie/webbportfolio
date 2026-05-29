@@ -773,11 +773,27 @@ body {
     min-height: 50px; 
 }
 
+.modalProjectTech {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    background: linear-gradient(135deg, var(--orange), var(--pink));
+    box-shadow:
+    0 0 10px rgba(255,140,66,0.3),
+    0 0 20px rgba(255,0,128,0.15);
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
 
-/* Skills ikoner på card*/
+/* Skills ikoner på modal card*/
 .project-tech {
     display: flex;
-    gap: 0.6rem;
+    gap: 1rem;
     flex-wrap: wrap;
     opacity: 0.9;
     margin-top: auto;   
@@ -789,10 +805,29 @@ body {
 
 
 .project-tech i {
-    font-size: 22px;
+    font-size: clamp(2rem, 1.5vw, 3rem);
     opacity: 0.9;
     transition: 0.25s ease;
     margin: 0;
+}
+
+
+.project-tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-top: auto; /* trycker ner till botten av kortet */
+}
+
+.project-tags .tag {
+    background: rgba(255,255,255,0.08);
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.15);
+    opacity: 0.9;
 }
 
 
@@ -883,7 +918,7 @@ body {
     margin-top: 1.5rem;
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 0.5rem;
 }
 
 .project-links a {
