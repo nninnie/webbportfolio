@@ -270,6 +270,7 @@ const descEl = document.getElementById("projectDescription");
 const githubEl = document.getElementById("githubLink");
 const demoEl = document.getElementById("demoLink");
 const techEl = document.getElementById("projectTech");
+const features = document.getElementById("features");
 
 // Öppna modal
 document.querySelectorAll(".folder-item").forEach(folder => {
@@ -281,6 +282,9 @@ document.querySelectorAll(".folder-item").forEach(folder => {
         const project = projects[name];
 
         titleEl.textContent = name;
+        
+        document.getElementById("modalImg").src = project.img;
+
         descEl.innerHTML = project.fullDescription
         .replace(/SOLID-principer/g, '<span class="pink-tech">SOLID-principer</span>')
         .replace(/Code First/g, '<span class="blue-tech">Code First</span>')
@@ -289,7 +293,12 @@ document.querySelectorAll(".folder-item").forEach(folder => {
         .replace(/frontend-utveckling/gi, '<span class="purple-tech">frontend-utveckling</span>')
         .replace(/UI\/UX/gi, '<span class="blue-tech">UI/UX</span>');
 
-        document.getElementById("modalImg").src = project.img;
+        features.innerHTML = project.features
+    .map(f => `<li>${f}</li>`)
+    .join("");
+
+
+       
 
         techEl.innerHTML = `
             <div class="card-tech">
