@@ -734,10 +734,18 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 1rem;
-    background: rgba(168, 168, 168, 0.03);
-    border: 1px solid rgba(255,255,255,0.06);
+    background: linear-gradient(135deg, var(--orange), var(--pink));
+    box-shadow:
+    0 0 10px rgba(255,140,66,0.3),
+    0 0 20px rgba(255,0,128,0.15);
     border-radius: 50%;
     margin-bottom: 1rem;
+}
+
+.folder-icon {
+    filter: brightness(0) invert(1);
+    width: 20px;
+    height: 20px;
 }
 
 .folder-title {
@@ -1316,4 +1324,8 @@ body:not(.light) .github.dark {
 
 body.light .github.light {
     display: inline-block !important;
+}
+
+body.light .folder-ikon {
+    filter: brightness(1) invert(0);
 }
