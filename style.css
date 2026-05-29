@@ -775,17 +775,20 @@ body {
 
 
 /* Skills ikoner på card*/
-.card-tech {
+.project-tech {
     display: flex;
     gap: 0.6rem;
     flex-wrap: wrap;
     opacity: 0.9;
     margin-top: auto;   
-    padding-top: 0.4rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    justify-content: center;   
+    align-items: center;  
 }
 
 
-.card-tech i {
+.project-tech i {
     font-size: 22px;
     opacity: 0.9;
     transition: 0.25s ease;

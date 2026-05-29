@@ -155,9 +155,8 @@ const projects = {
 
     features: [
         "CRUD-operationer",
-        "Databashantering",
         "OOP-struktur",
-        "Responsiv design"
+        "SOLID"
     ],
 
     img: "image/portfolio/cashregistersystem.png"
@@ -185,12 +184,13 @@ const projects = {
 
     features: [
         "CRUD-operationer",
+        "OOP-struktur",
         "Code First",
         "Databashantering",
-        "Bokningssystem"
+        "SOLID"
     ],
 
-    img: "image/portfolio/cashregistersystem.png"
+    img: "image/portfolio/hotelbooking.png"
 },
 
 "Webbportfolio": {
@@ -215,6 +215,7 @@ const projects = {
 
     features: [
         "Responsiv design",
+        "Glow Color Picker",
         "Dark/Light mode",
         "Weather API",
         "Interaktiva komponenter"
@@ -251,11 +252,7 @@ Object.entries(projects).forEach(([title, data]) => {
         
 
 
-        <div class="card-tech">
-            ${data.tech
-                .map(t => `<i class="${techIcons[t] || ''}"></i>`)
-                .join("")}
-        </div>
+        
         
     `;
 
@@ -290,6 +287,14 @@ document.querySelectorAll(".folder-item").forEach(folder => {
 
         document.getElementById("modalImg").src = project.img;
 
+        techEl.innerHTML = `
+            <div class="card-tech">
+                ${project.tech
+                    .map(t => `<i class="${techIcons[t] || ''}"></i>`)
+                    .join("")}
+            </div>
+        `;
+
 
         githubEl.href = project.github;
         demoEl.href = project.demo;
@@ -322,11 +327,17 @@ document.querySelector(".close-modal").addEventListener("click", () => {
 });
 
 // Stäng när man klickar utanför
+const modalContent = document.querySelector(".project-modal-content");
+
 document.addEventListener("click", (e) => {
-    if (!modal.contains(e.target) && !e.target.closest(".folder-item")) {
+    if (modal.style.display === "flex" &&
+        !modalContent.contains(e.target) &&
+        !e.target.closest(".folder-item")) 
+    {
         modal.style.display = "none";
     }
 });
+
 
 // Stäng med ESC
 document.addEventListener("keydown", (e) => {
