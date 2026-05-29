@@ -135,7 +135,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
    📁 Mappar Portfolio: popover-kort
 ----------------------------------------- */
 const projects = {
-    "Kassasystem App": {
+    "Kassasystem": {
     description:
         "Modernt kassasystem byggt i .NET med C# och SQL.",
 
