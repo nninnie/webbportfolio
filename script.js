@@ -158,7 +158,11 @@ const projects = {
         "Databashantering",
         "OOP-struktur",
         "Responsiv design"
-    ]
+    ],
+
+    img: "image/portfolio/cashregistersystem.png"
+
+
 },
 
 "Hotell App": {
@@ -184,7 +188,9 @@ const projects = {
         "Code First",
         "Databashantering",
         "Bokningssystem"
-    ]
+    ],
+
+    img: "image/portfolio/cashregistersystem.png"
 },
 
 "Webbportfolio": {
@@ -212,7 +218,9 @@ const projects = {
         "Dark/Light mode",
         "Weather API",
         "Interaktiva komponenter"
-    ]
+    ],
+
+    img: "image/portfolio/webbportfolio.png"
 }
 };
 
@@ -237,8 +245,10 @@ Object.entries(projects).forEach(([title, data]) => {
 
     card.innerHTML = `
         <div class="project-icon"><img src="image/icons/folder.png" alt="folder" class="folder-icon"></div>
+        
         <span class="folder-title">${title}</span>
         <p>${data.description}</p>
+        
 
 
         <div class="card-tech">
@@ -278,6 +288,8 @@ document.querySelectorAll(".folder-item").forEach(folder => {
         .replace(/frontend-utveckling/gi, '<span class="purple-tech">frontend-utveckling</span>')
         .replace(/UI\/UX/gi, '<span class="blue-tech">UI/UX</span>');
 
+        document.getElementById("modalImg").src = project.img;
+
 
         githubEl.href = project.github;
         demoEl.href = project.demo;
@@ -287,6 +299,22 @@ document.querySelectorAll(".folder-item").forEach(folder => {
         modal.style.display = "flex";
     });
 });
+
+const modalImg = document.getElementById("modalImg");
+const lightbox = document.getElementById("imgLightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+
+// Klicka på bilden i modalen → förstora
+modalImg.addEventListener("click", () => {
+    lightboxImg.src = modalImg.src;
+    lightbox.style.display = "flex";
+});
+
+// Klicka på lightbox → stäng
+lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+});
+
 
 // Stäng med X
 document.querySelector(".close-modal").addEventListener("click", () => {
