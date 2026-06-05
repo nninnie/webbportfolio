@@ -12,7 +12,6 @@
 
 <body>
 
-
 <header class="navbar">
     <nav>
 
@@ -20,7 +19,9 @@
         <span id="weather" class="weather">--°C</span>
 
         <!-- Hamburgarmeny (mobil) -->
-        <button class="hamburger" id="hamburgerBtn">☰</button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Öppna meny" aria-expanded="false">
+            ☰
+        </button>
 
         <!-- Menylänkar -->
         <ul class="nav-links" id="navLinks">
@@ -31,11 +32,10 @@
             <li><a href="cv-ninniedahlstrom.pdf" download>Ladda ner CV</a></li>
         </ul>
 
-
         <!-- Ikoner längst till höger -->
         <div class="nav-controls">
-            <button id="themeToggle" class="icon-btn">🌕</button>
-            <button id="languageToggle" class="icon-btn">🌐</button>
+            <button id="themeToggle" class="icon-btn" aria-label="Byt tema">🌕</button>
+            <button id="languageToggle" class="icon-btn" aria-label="Byt språk">🌐</button>
 
             <!-- Dold select språk -->
             <select id="languageSelect" class="hidden-select">
@@ -47,221 +47,206 @@
     </nav>
 
     <!-- Mobilmeny som glider ner -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#about">Om mig</a>
-        <a href="#skills">Kunskaper</a>
-        <a href="#contact">Kontakt</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="cv-ninniedahlstrom.pdf" download>Ladda ner CV</a>
+    <div class="mobile-menu" id="mobileMenu" role="menu">
+        <a href="#about" role="menuitem">Om mig</a>
+        <a href="#skills" role="menuitem">Kunskaper</a>
+        <a href="#contact" role="menuitem">Kontakt</a>
+        <a href="#portfolio" role="menuitem">Portfolio</a>
+        <a href="cv-ninniedahlstrom.pdf" download role="menuitem">Ladda ner CV</a>
     </div>
 
 </header>
 
-<div class="page-wrapper">
+<!-- MAIN START -->
+<main class="page-wrapper">
 
 <!-- HERO -->
 <section class="hero">
     <div class="hero-image-wrapper">
-        <img src="image/portrait-ninniedahlstrom.jpg" class="portrait">
+        <img src="image/portrait-ninniedahlstrom.jpg" class="portrait" alt="Porträtt av Ninnie Dahlström">
 
-            <label class="color-icon">
+        <label class="color-icon">
             🎨
             <input type="color" id="glowPicker">
-            </label>
+        </label>
     </div>
 
-        <h1>Ninnie Dahlström</h1>
+    <h1>Ninnie Dahlström</h1>
+    <h3>Junior Systemutvecklare .NET</h3>
 
-        <h3>Junior Systemutvecklare .NET</h3>
-
-        <br>
-        <p>Fullstack • API-utveckling • Modern webbutveckling</p>
+    <p>Fullstack • API-utveckling • Modern webbutveckling</p>
 
     <div class="hero-buttons">
         <a class="btn orb orange" href="cv-ninniedahlstrom.pdf" download>
-            <i class="fa-solid fa-download"></i>
-            <span>Ladda ner CV</span>
+            <span><img src="image/icons/download.png" alt="download" class="btn-icon">Ladda ner CV</span>
         </a>
 
         <a class="btn orb pink" href="#portfolio">
-            <i class="fa-solid fa-folder-open"></i>
-            <span>Se Portfolio</span>
+            <span><img src="image/icons/folder.png" alt="folder" class="btn-icon">Se Portfolio</span>
         </a>
     </div>
 </section>
-
 
 <!-- ABOUT -->
 <section id="about" class="sectionabout">
     <h2><span class="accent">/</span> Om mig</h2>
-<div class="about-wrapper">
-    <div class="about-card">
-<p>
-Jag är en junior systemutvecklare inom <span class="key-pink">.NET</span>  
-under utbildning med fokus på backend, API-utveckling och fullstack.
-Jag arbetar med <span class="key-orange">C#</span>, SQL, CRUD och SOLID 
-för att bygga strukturerade och skalbara lösningar, och kombinerar det 
-med modern frontend för att skapa tydliga och användarvänliga gränssnitt.
-<br><br>
-Som <span class="key-purple">problemlösare</span> drivs jag av ren kod, 
-smart arkitektur och att förstå hur system hänger ihop. Med intresse för 
-<span class="key-blue">UX/UI</span>, AI och webbutveckling strävar jag 
-efter att skapa lösningar som är både logiska, moderna och intuitiva.
-</p>
 
-</div>
+    <div class="about-wrapper">
 
-    <div class="about-education">
-        <h3>Utbildning</h3>
+        <div class="about-card">
+            <p>
+                Jag är en junior systemutvecklare inom <span class="key-pink">.NET</span>  
+                under utbildning med fokus på backend, API-utveckling och fullstack.
+                Jag arbetar med <span class="key-orange">C#</span>, SQL, CRUD och SOLID 
+                för att bygga strukturerade och skalbara lösningar, och kombinerar det 
+                med modern frontend för att skapa tydliga och användarvänliga gränssnitt.
+                <br><br>
+                Som <span class="key-purple">problemlösare</span> drivs jag av ren kod, 
+                smart arkitektur och att förstå hur system hänger ihop. Med intresse för 
+                <span class="key-blue">UX/UI</span>, AI och webbutveckling strävar jag 
+                efter att skapa lösningar som är både logiska, moderna och intuitiva.
+            </p>
+        </div>
+
+        <div class="about-education">
+            <h3>Utbildning</h3>
 
             <div class="edu-item">
                 <strong>Systemutvecklare .NET</strong>
-                    <span class="edu-school">YH Akademin</span>
-                    <span class="edu-year">2026-2027</span>
+                <span class="edu-school">YH Akademin</span>
+                <span class="edu-year">2026-2027</span>
             </div>
+        </div>
+
     </div>
 </section>
-
-
-
 
 <!-- SKILLS -->
 <section id="skills" class="section skills-section">
     <h2><span class="accent">/</span> Kunskaper</h2>
 
     <div class="skills-wrapper">
-    <div class="skills-card">
-        <p>Här är de tekniker och verktyg jag arbetar mest med inom <span class="key-pink">.NET</span>, webbutveckling och <span class="key-blue">UX/UI</span>.</p>
+        <div class="skills-card">
+            <p>Här är de tekniker och verktyg jag arbetar mest med inom <span class="key-pink">.NET</span>, webbutveckling och <span class="key-blue">UX/UI</span>.</p>
 
+            <ul class="skills-list icons">
 
-    <ul class="skills-list icons">
+                <!-- BACKEND & DATABAS -->
+                <li><i class="devicon-csharp-plain colored"></i><span>C# / .NET</span></li>
+                <li><i class="devicon-microsoftsqlserver-plain colored"></i><span>SQL Server</span></li>
+                <li><i class="devicon-postman-plain colored"></i><span>REST API</span></li>
 
-    <!-- BACKEND & DATABAS -->
-<li><i class="devicon-csharp-plain colored"></i><span>C# / .NET</span></li>
-<li><i class="devicon-microsoftsqlserver-plain colored"></i><span>SQL Server</span></li>
-<li><i class="devicon-postman-plain colored"></i><span>REST API</span></li>
+                <!-- FRONTEND -->
+                <li><i class="devicon-html5-plain colored"></i><span>HTML5</span></li>
+                <li><i class="devicon-css3-plain colored"></i><span>CSS3</span></li>
+                <li><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></li>
 
-<!-- FRONTEND -->
-<li><i class="devicon-html5-plain colored"></i><span>HTML5</span></li>
-<li><i class="devicon-css3-plain colored"></i><span>CSS3</span></li>
-<li><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></li>
+                <!-- VERKTYG -->
+                <li><i class="devicon-git-plain colored"></i><span>Git</span></li>
+                <li><i class="devicon-github-original github-icon"></i><span>GitHub</span></li>
+                <li><i class="devicon-visualstudio-plain colored"></i><span>Visual Studio</span></li>
+                <li><i class="devicon-vscode-plain colored"></i><span>VS Code</span></li>
 
-<!-- VERKTYG -->
-<li><i class="devicon-git-plain colored"></i><span>Git</span></li>
-<li><i class="devicon-github-original github-icon"></i><span>GitHub</span></li>
-<li><i class="devicon-visualstudio-plain colored"></i><span>Visual Studio</span></li>
-<li><i class="devicon-vscode-plain colored"></i><span>VS Code</span></li>
-
-<!--<li><i class="devicon-postman-plain colored"></i><span>Postman</span></li>-->
-
-
-    </ul>
-    </div>
+            </ul>
+        </div>
     </div>
 </section>
-
 
 <!-- PORTFOLIO -->
 <section id="portfolio" class="sectionproject">
     <h2><span class="accent">/</span> Portfolio</h2>
 
     <div class="portfolio-wrapper">
-    <div class="projects-card" id="projectsGrid"></div>
-</div>
+        <div class="projects-card" id="projectsGrid"></div>
+    </div>
 
+    <!-- PROJECT MODAL -->
+    <div id="projectModal" class="project-modal">
+        <div class="project-modal-content" role="dialog" aria-modal="true">
 
-    <!-- PROJECT MODAL  -->
-<div id="projectModal" class="project-modal">
-    <div class="project-modal-content">
-        <button class="close-modal">✕</button>
+            <button class="close-modal" aria-label="Stäng projektfönster">✕</button>
 
+            <img id="modalImg" class="modal-img" alt="">
+            <h3 id="projectTitle"></h3>
+            <p id="projectDescription"></p>
 
-        <img id="modalImg" class="modal-img" alt="">
-        <h3 id="projectTitle"></h3>
-        
-        <p id="projectDescription"></p>
-        
-        
+            <ul id="features"></ul>
 
-        <ul id="features"></ul>
-        
-        <div id="projectTech" class="project-tech"></div>
+            <div id="projectTech" class="project-tech"></div>
 
-        <div class="project-tags"></div>
+            <div class="project-tags"></div>
 
+            <div class="project-links">
+                <a id="githubLink" href="#" target="_blank">
+                    <img class="icon-img dark" src="image/GitHub-darkmode.png" alt="GitHub">
+                    <img class="icon-img light" src="image/GitHub.png" alt="GitHub">
+                    GitHub
+                </a>
 
-        <div class="project-links">
-            <a id="githubLink" href="#" target="_blank">
-                <img class="icon-img dark" src="image/GitHub-darkmode.png" alt="GitHub">
-                <img class="icon-img light" src="image/GitHub.png" alt="GitHub">
-                GitHub
-            </a>
-
-            <a id="demoLink" href="#" target="_blank">
-                <img class="icon-img dark" src="image/GitHub-darkmode.png" alt="ReadMe">
-                <img class="icon-img light" src="image/GitHub.png" alt="ReadMe">
-                ReadMe
-            </a>
+                <a id="demoLink" href="#" target="_blank">
+                    <img class="icon-img dark" src="image/GitHub-darkmode.png" alt="ReadMe">
+                    <img class="icon-img light" src="image/GitHub.png" alt="ReadMe">
+                    ReadMe
+                </a>
+            </div>
         </div>
     </div>
-</div>
 </section>
-
-
-
-
 
 <!-- CONTACT -->
 <section id="contact" class="sectioncontact">
     <h2><span class="accent">/</span> Kontakt</h2>
 
     <div class="contact-wrapper">
-    <div class="contact-card">
+        <div class="contact-card">
 
-        <form id="contactForm" action="https://formsubmit.co/ninnie_dahlstrom@hotmail.com" method="POST">
+            <form id="contactForm" action="https://formsubmit.co/ninnie_dahlstrom@hotmail.com" method="POST">
 
-            <div class="input-group">
-                <label>
-                    <img src="image/icons/user-round.png" alt="User" class="input-icon icon-rosa">
-                    Namn
-                </label>
-                <input type="text" name="name" placeholder="Ditt namn" required>
-            </div>
+                <div class="input-group">
+                    <label>
+                        <img src="image/icons/user-round.png" alt="User" class="input-icon icon-rosa">
+                        Namn
+                    </label>
+                    <input type="text" name="name" placeholder="Ditt namn" required>
+                </div>
 
-            <div class="input-group">
-                <label>
-                    <img src="image/icons/mail.png" alt="Email" class="input-icon icon-orange">
-                    Email
-                </label>
-                <input type="email" name="email" placeholder="din.email@example.com" required>
-            </div>
+                <div class="input-group">
+                    <label>
+                        <img src="image/icons/mail.png" alt="Email" class="input-icon icon-orange">
+                        Email
+                    </label>
+                    <input type="email" name="email" placeholder="din.email@example.com" required>
+                </div>
 
-            <div class="input-group">
-                <label>
-                    <img src="image/icons/message.png" alt="Meddelande" class="input-icon icon-bla">
-                    Meddelande
-                </label>
-                <textarea name="message" placeholder="Ditt meddelande" required></textarea>
-            </div>
+                <div class="input-group">
+                    <label>
+                        <img src="image/icons/message.png" alt="Meddelande" class="input-icon icon-bla">
+                        Meddelande
+                    </label>
+                    <textarea name="message" placeholder="Ditt meddelande" required></textarea>
+                </div>
 
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_origin" value="https://nninnie.github.io">
-            <input type="hidden" name="_redirect" value="https://nninnie.github.io/#contact">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_origin" value="https://nninnie.github.io">
+                <input type="hidden" name="_redirect" value="https://nninnie.github.io/#contact">
 
-            <button type="submit" class="btn-send">
-                Skicka
-                <img src="image/icons/send.png" alt="send" class="send-btn">
-            </button>
+                <button type="submit" class="btn-send">
+                    Skicka
+                    <img src="image/icons/send.png" alt="send" class="send-btn">
+                </button>
 
+                <div id="successPopup" class="popup">
+                    <p>Tack! Ditt meddelande är nu på väg till Ninnie Dahlström.</p>
+                </div>
 
-        <div id="successPopup" class="popup">
-            <p>Tack! Ditt meddelande är nu på väg till Ninnie Dahlström.</p>
+            </form>
+
         </div>
-    </div>
     </div>
 </section>
 
-
+</main>
+<!-- MAIN END -->
 
 <!-- FOOTER -->
 <footer>
@@ -286,8 +271,6 @@ efter att skapa lösningar som är både logiska, moderna och intuitiva.
         </a>
     </div>
 </footer>
-
-</div> 
 
 <div id="imgLightbox" class="lightbox">
     <img id="lightboxImg">
