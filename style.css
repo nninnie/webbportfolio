@@ -473,8 +473,8 @@ body {
     flex: 2;
     padding: clamp(1rem, 3vw, 2rem);
     border-radius: 1rem;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
     backdrop-filter: blur(10px);
     line-height: 1.6;
     opacity: 0.9;
@@ -485,8 +485,8 @@ body {
     flex: 1;
     padding: clamp(1rem, 3vw, 2rem);
     border-radius: 1rem;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
     backdrop-filter: blur(10px);
     line-height: 1.6;
     opacity: 0.9;
@@ -584,8 +584,8 @@ body {
     width: 100%;
 }
 .skills-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
     width: 100%;
     padding: clamp(1.8rem, 4vw, 3rem) clamp(1.2rem, 3vw, 2.2rem);
     border-radius: 1.1rem;
@@ -611,8 +611,8 @@ body {
 
 
 .skills-list.icons li {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
     backdrop-filter: blur(10px);
     border-radius: 12px;
     width: clamp(70px, 12vw, 90px);
@@ -675,8 +675,8 @@ body {
 
 /* PORTFOLIO GRID */
 .projects-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255,255,255,0.12);
     padding:
         clamp(2rem, 4vw, 5rem)
         clamp(1rem, 3vw, 2rem);
@@ -722,8 +722,8 @@ body {
 /* PORTFOLIO CARD */
 .project-card {
     box-sizing: border-box;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
     backdrop-filter: blur(12px);
     padding: 2rem;
     border-radius: 1rem;
@@ -1059,8 +1059,8 @@ body:not(.light) .icon-img.dark {
 }
 
 .contact-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
     padding: clamp(1rem, 3vw, 2rem);
     border-radius: 1rem;
     backdrop-filter: blur(10px);
