@@ -282,9 +282,15 @@ document.querySelectorAll(".folder-item").forEach(folder => {
         const project = projects[name];
 
         titleEl.textContent = name;
+    
+techEl.innerHTML = `
+            <div class="card-tech">
+                ${project.tech
+                    .map(t => `<i class="${techIcons[t] || ''}"></i>`)
+                    .join("")}
+            </div>
+        `;
         
-        document.getElementById("modalImg").src = project.img;
-
         descEl.innerHTML = project.fullDescription
         .replace(/SOLID-principer/g, '<span class="pink-tech">SOLID-principer</span>')
         .replace(/Code First/g, '<span class="blue-tech">Code First</span>')
@@ -300,39 +306,16 @@ document.querySelectorAll(".folder-item").forEach(folder => {
 
        
 
-        techEl.innerHTML = `
-            <div class="card-tech">
-                ${project.tech
-                    .map(t => `<i class="${techIcons[t] || ''}"></i>`)
-                    .join("")}
-            </div>
-        `;
+        
 
 
         githubEl.href = project.github;
         demoEl.href = project.demo;
 
-        
-
         modal.style.display = "flex";
+
     });
 });
-
-const modalImg = document.getElementById("modalImg");
-const lightbox = document.getElementById("imgLightbox");
-const lightboxImg = document.getElementById("lightboxImg");
-
-// Klicka på bilden i modalen → förstora
-modalImg.addEventListener("click", () => {
-    lightboxImg.src = modalImg.src;
-    lightbox.style.display = "flex";
-});
-
-// Klicka på lightbox → stäng
-lightbox.addEventListener("click", () => {
-    lightbox.style.display = "none";
-});
-
 
 // Stäng med X
 document.querySelector(".close-modal").addEventListener("click", () => {

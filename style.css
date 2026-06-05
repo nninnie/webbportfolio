@@ -218,7 +218,7 @@ body {
 .mobile-menu {
     display: none;
     flex-direction: column;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.3);
     backdrop-filter: blur(10px);
     padding: 1rem;
 }
@@ -440,7 +440,7 @@ body {
 
 /* ============== ABOUT ============== */
 .sectionabout {
-    max-width: 900px;
+    max-width: clamp(350px, 90%, 900px);
     margin: 0 auto;
     font-size: clamp(0.9rem, 1.8vw, 1.1rem);
     line-height: 1.6;
@@ -682,7 +682,7 @@ body {
         clamp(1rem, 3vw, 2rem);
     border-radius: 1rem;
     backdrop-filter: blur(10px);
-    max-width: 900px;
+    max-width: clamp(350px, 90%, 900px);
     margin: 0 auto;
     display: grid;
     grid-template-columns:  repeat(3, 220px);
@@ -789,32 +789,13 @@ body {
     min-height: 50px; 
 }
 
-.modalProjectTech {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    background: linear-gradient(135deg, var(--orange), var(--pink));
-    box-shadow:
-    0 0 10px rgba(255,140,66,0.3),
-    0 0 20px rgba(255,0,128,0.15);
-    border-radius: 50%;
-    margin-bottom: 1.5rem;
-    display: flex;
-    flex-direction: column;
-}
-
-
-
 
 /* skills inte ikoner utan som text */
 .project-tags {
     display: flex;
     gap: 0.4rem;
     flex-wrap: wrap;
-    margin-top: auto; /* trycker ner till botten av kortet */
+    margin-top: 1rem;
 }
 
 .project-tags .tag {
@@ -847,24 +828,27 @@ body {
 
 /* SJÄLVA KORTET */
 .project-modal-content {
-    position: relative; 
-    width: clamp(220px, 50vw, 550px);
-    background: rgba(20, 20, 20, 0.952);
-    border-radius: 25px;
-    padding: 1.5rem 2rem;
-    box-shadow: 0 0 5px var(--glow);
-    animation: pop 0.15s ease-out;
+    width: 92%;
+    max-width: 420px;
+    padding: 1.2rem 1.4rem;
+    border-radius: 20px;
+    background: rgba(20, 20, 20, 0.92);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
 
 
 /* FÄRGADE ORD I MODAL */ 
 .pink-tech {
     color: var(--pink);
+    opacity: 0.85;
     font-weight: 600;
 }
 
 .purple-tech {
     color: var(--purple);
+    opacity: 0.85;
     font-weight: 600;
 }
 
@@ -884,13 +868,14 @@ body {
     font-size: clamp(1.4rem, 2.2vw, 1.6rem);
     font-weight: 700;
     color: var(--text);
+    padding-top: -1rem;
 }
 
 #projectDescription, 
 #demoLink {
     font-size: clamp(0.75rem, 1.2vw, 1rem);
     line-height: 1.6;
-    padding-bottom: 0.6rem;
+    padding-bottom: 0.5rem;
 }
 
 
@@ -913,7 +898,7 @@ body {
 
 /* LINKS */
 .project-links {
-    margin-top: 1.5rem;
+    margin-top: 0.6rem;
     display: flex;
     justify-content: center;
     gap: 0.5rem;
@@ -974,9 +959,10 @@ body:not(.light) .icon-img.dark {
 }
 
 .card-tech i {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     opacity: 0.9;
     transition: 0.25s ease;
+    padding-top: 0.6rem;
 }
 
 
@@ -985,11 +971,11 @@ body:not(.light) .icon-img.dark {
     text-align: left;
     padding-left: 1rem;
     margin-top: 1rem;
-    padding-bottom: 0.6rem;
+    padding-bottom: -1rem;
 }
 
 #features li {
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.3rem;
     opacity: 0.85;
     list-style: none;
     position: relative;
@@ -1003,39 +989,6 @@ body:not(.light) .icon-img.dark {
     left: 0;
     font-size: 1rem;
     text-shadow: 0 0 6px var(--glow);
-}
-
-
-
-/* Bild på mina projekt */
-.modal-img {
-    width: 100%;
-    max-height: 220px;
-    object-fit: cover;
-    border-radius: 0.8rem;
-    box-shadow: 0 0 12px rgba(255,255,255,0.08);
-    cursor: pointer;
-}
-
-
-.lightbox {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    cursor: pointer;
-}
-/* Öppna stor Bild på mina projekt */
-.lightbox img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 1rem;
-    box-shadow: 0 0 20px rgba(255,255,255,0.2);
-    cursor: zoom-out;
-    
 }
 
 
@@ -1428,18 +1381,6 @@ body.light .github-icon {
 /* Light mode – visa ljusa GitHub-ikonen */
 body.light .github.light {
     display: inline-block;
-}
-
-body:not(.light) .github.dark {
-    display: inline-block !important;
-}
-
-body.light .github.light {
-    display: inline-block !important;
-}
-
-body.light .folder-ikon {
-    filter: brightness(1) invert(0);
 }
 
 /* LIGHT MODE – gör ikonen mörk */
