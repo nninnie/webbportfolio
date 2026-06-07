@@ -839,36 +839,11 @@ body {
 }
 
 
-/* FÄRGADE ORD I MODAL */ 
-.pink-tech {
-    color: var(--pink);
-    opacity: 0.85;
-    font-weight: 600;
-}
-
-.purple-tech {
-    color: var(--purple);
-    opacity: 0.85;
-    font-weight: 600;
-}
-
-.orange-tech {
-    color: var(--orange);
-    font-weight: 600;
-}
-
-.blue-tech {
-    color: var(--blue);
-    font-weight: 600;
-}
-
-
-
 #projectTitle {
     font-size: clamp(1.4rem, 2.2vw, 1.6rem);
     font-weight: 700;
     color: var(--text);
-    padding-top: -1rem;
+    margin-top: -0.3rem; /* eller -0.5rem om du vill mer */
 }
 
 #projectDescription, 
@@ -964,6 +939,15 @@ body:not(.light) .icon-img.dark {
     transition: 0.25s ease;
     padding-top: 0.6rem;
 }
+
+.modal-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 10px 0 14px 0;
+    
+}
+
 
 
 /* Features text */

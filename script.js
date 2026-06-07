@@ -290,23 +290,13 @@ techEl.innerHTML = `
                     .join("")}
             </div>
         `;
-        
-        descEl.innerHTML = project.fullDescription
-        .replace(/SOLID-principer/g, '<span class="pink-tech">SOLID-principer</span>')
-        .replace(/Code First/g, '<span class="blue-tech">Code First</span>')
-        .replace(/SQL/g, '<span class="orange-tech">SQL</span>')
-        .replace(/OOP/gi, '<span class="purple-tech">OOP</span>')
-        .replace(/frontend-utveckling/gi, '<span class="purple-tech">frontend-utveckling</span>')
-        .replace(/UI\/UX/gi, '<span class="blue-tech">UI/UX</span>');
+
+        descEl.innerHTML = project.fullDescription;
+
 
         features.innerHTML = project.features
     .map(f => `<li>${f}</li>`)
     .join("");
-
-
-       
-
-        
 
 
         githubEl.href = project.github;
