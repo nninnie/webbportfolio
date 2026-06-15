@@ -463,7 +463,7 @@ body {
     grid-template-columns: 2fr 1fr;
     gap: 2rem;
     align-items: stretch; /* gör att båda korten synkas i höjd */
-    width: 90%;
+    width: 100%;
     max-width: 900px;
     margin: 0 auto;
 }
@@ -587,13 +587,12 @@ body {
 .skills-wrapper {
     max-width: 900px;
     margin: 0 auto;
-    width: 90%;
+    width: 100%;
 }
 .skills-card {
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.12);
     width: 100%;
-    max-width: 200px;
     padding: clamp(1.8rem, 4vw, 3rem) clamp(1.2rem, 3vw, 2.2rem);
     border-radius: 1.1rem;
     backdrop-filter: blur(12px);
@@ -672,10 +671,10 @@ body {
 /* ============== PORTFOLIO ============== */
 .sectionproject {
     text-align: center;              
-       max-width: none;
-    width: 100%;
-    margin: 0;
-    padding: 0 clamp(2rem, 4vw, 4rem);      
+    max-width: 900px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0 1rem;      
     font-size: clamp(0.9rem, 2vw, 1.1rem); 
     line-height: 1.6;                
     opacity: 0.9;                   
@@ -689,15 +688,15 @@ body {
 .projects-card {
     display: grid;
     gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    justify-content: start; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    justify-content: center; 
 }
 
 
 .portfolio-wrapper {
-    max-width: 1400px;
+    max-width: 900px;
     margin: 0 auto;
-    width: 90%;
+    width: 100%;
 }
 
 .sectionproject .accent {
@@ -712,12 +711,11 @@ body {
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.12);
     backdrop-filter: blur(12px);
-    padding: 1.5rem;
+    padding: 1.5em;
     border-radius: 1rem;
     text-align: left;
     width: 100%;
-    max-width: 220px;
-    min-height: 200px;
+    max-width: 350px;
     transition: 0.25s ease;
     cursor: pointer;
     box-shadow:
@@ -777,23 +775,29 @@ body {
 }
 
 
-/* skills inte ikoner utan som text */
+/* skills blå egna ikoner */
 .project-tags {
     display: flex;
-    gap: 0.4rem;
-    flex-wrap: wrap;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
     margin-top: 1rem;
+    padding-bottom: 1rem;
+    overflow-x: auto;
+    scrollbar-width: thin;              /* Firefox */
+    scrollbar-color: var(--text-dark) transparent;
 }
 
 .project-tags .tag {
     background: rgba(255,255,255,0.08);
-    padding: 2px 6px;
+    padding: clamp(1px, 0.2vw, 2px) clamp(3px, 0.5vw, 6px);
     border-radius: 12px;
-    font-size: 0.7rem;
+    font-size: clamp(0.5rem, 1vw, 0.7rem);
     letter-spacing: 0.5px;
     color: var(--blue);
     border: 1px solid var(--blue);
     opacity: 0.9;
+    white-space: nowrap;
+    flex-shrink: 1;
 }
 
 
@@ -996,7 +1000,7 @@ body:not(.light) .icon-img.dark {
 
 .contact-wrapper {
     max-width: 900px;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;  
 }
 
