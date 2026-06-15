@@ -733,17 +733,17 @@ body {
 
 /* Bakgrund på map ikoenen */
 .project-icon {
-    width: 40px;
-    height: 40px;
+    width: 28px;
+    height: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1rem;
-    background: linear-gradient(135deg, var(--orange), var(--pink));
+    background: linear-gradient(135deg, #77138b, #053275);
     box-shadow:
-    0 0 10px rgba(255,140,66,0.3),
-    0 0 20px rgba(255,0,128,0.15);
-    border-radius: 50%;
+        0 0 10px rgba(106,47,191,0.45),
+        0 0 8px rgba(10,108,255,0.35);
+    border-radius: 10px;
     margin-bottom: 1.5rem;
     display: flex;
     flex-direction: column;
@@ -752,8 +752,8 @@ body {
 /* Map icon */
 .folder-icon {
     filter: brightness(0) invert(1);
-    width: 20px;
-    height: 20px;
+    width: 14px;
+    height: 14px;
 }
 
 /* Titel på card */
@@ -783,15 +783,16 @@ body {
     margin-top: 1rem;
     padding-bottom: 1rem;
     overflow-x: auto;
-    scrollbar-width: thin;              /* Firefox */
+    scrollbar-width: thin;             
     scrollbar-color: var(--text-dark) transparent;
 }
 
 .project-tags .tag {
     background: rgba(255,255,255,0.08);
-    padding: clamp(1px, 0.2vw, 2px) clamp(3px, 0.5vw, 6px);
+    padding: clamp(1.5px, 0.3vw, 3px)
+             clamp(3px, 0.6vw, 8px);
     border-radius: 12px;
-    font-size: clamp(0.5rem, 1vw, 0.7rem);
+    font-size: clamp(0.6rem, 0.9vw, 0.75rem);
     letter-spacing: 0.5px;
     color: var(--blue);
     border: 1px solid var(--blue);
