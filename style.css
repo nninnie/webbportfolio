@@ -740,7 +740,7 @@ body {
 .portfolio-wrapper {
     max-width: 1200px;
     margin: 0 auto;
-    width: 90%;
+    width: 100%;
 }
 
 .sectionproject .accent {
@@ -760,8 +760,7 @@ body {
     padding: 1.5em;
     border-radius: 1rem;
     text-align: left;
-    width: 100%;
-    max-width: 350px;
+    width: 90%;
     transition: 0.25s ease;
     cursor: pointer;
     box-shadow:
@@ -1301,12 +1300,7 @@ body:not(.light) .icon-img.dark {
     filter: invert(57%) sepia(94%) saturate(2470%) hue-rotate(180deg) brightness(103%) contrast(102%);
 }
 
-/* felmedelande */
-input:invalid:not(:focus):not(:placeholder-shown),
-textarea:invalid:not(:focus):not(:placeholder-shown) {
-    border: 1px solid var(--pink);
-    box-shadow: 0 0 6px var(--pink);
-}
+
 
 
 /* SKICKA KNAPP */
