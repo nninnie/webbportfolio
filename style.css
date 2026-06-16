@@ -1151,15 +1151,12 @@ body:not(.light) .icon-img.dark {
 .reference-signature {
     margin-top: 1rem;
     font-style: italic;
-    opacity: 0.75;
+    opacity: 0.85;
     font-size: clamp(0.7rem, 1vw, 0.85rem);
 }
 
 .reference-signature strong {
     font-weight: 700;
-    text-shadow:
-        0 0 2px var(--glow),
-        0 0 2px var(--glow-halo);
 }
 
 .reference-card:nth-child(1) .reference-signature strong {
@@ -1445,7 +1442,7 @@ footer {
 .footer-credit .name {
     color: var(--orange);
     font-weight: 600;
-    text-shadow: 0 0 2px var(--glow);
+    text-shadow: 0 0 1px var(--glow);
     font-size: clamp(0.6rem, 1vw, 1rem);
 }
 
@@ -1474,14 +1471,42 @@ footer {
 }
 
 
-
 /* ============== LIGHT MODE ============== */
-/* WHITE MODE */
+
 body.light {
     background: var(--bg-light);
     color: var(--text-dark);
+    --glow-halo: rgba(20,40,160,0.35); /* starkare glow i light mode */
 }
-/* WHITE MODE TEXT COLORS */
+
+/* TEXT  */
+body.light p,
+body.light li,
+body.light span {
+    color: #2a2a2a;
+    opacity: 0.92;
+}
+
+body.light strong,
+body.light b {
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+/* Rubriker */
+body.light h2 {
+    color: #111;
+    opacity: 1;
+    font-weight: 800;
+}
+
+body.light h3 {
+    color: #222;
+    opacity: 1;
+    font-weight: 700;
+}
+
+/* Behåll dina befintliga overrides */
 body.light footer,
 body.light .nav-links a,
 body.light .mobile-menu a,
@@ -1495,11 +1520,20 @@ body.light .folder-title {
     color: var(--text-dark);
 }
 
-/* White mode navbar */
+/* Accent och copyright */
+body.light .accent,
+body.light .copy-symbol {
+    color: var(--glow) ;
+    text-shadow:
+        0 0 4px var(--glow),
+        0 0 4px var(--glow-halo);
+}
+
+/* NAVBAR */
 body.light .navbar {
     background: rgba(225, 210, 214, 0.38);
     backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(210, 195, 198, 0.55); 
+    border-bottom: 1px solid rgba(210, 195, 198, 0.55);
 }
 
 /* CV-länk alltid rosa */
@@ -1509,7 +1543,6 @@ body.light .mobile-menu a[href$="cv-ninniedahlstrom.pdf"] {
     font-weight: 500;
 }
 
-
 /* Portfolio-länk alltid orange */
 body.light .nav-links a[href*="portfolio"],
 body.light .mobile-menu a[href*="portfolio"] {
@@ -1517,82 +1550,69 @@ body.light .mobile-menu a[href*="portfolio"] {
     font-weight: 500;
 }
 
-/* HOVER PÅ ALLA LÄNKAR */
+/* Hover */
 body.light .nav-links a:hover,
 body.light .mobile-menu a:hover {
     color: var(--glow);
-    text-decoration: none;
 }
 
-/* Accent och copyright ska ALLTID vara glow */
-body.light .accent,
-body.light .copy-symbol {
-    color: var(--glow) !important; /* important - regeln gäller alltid! */
-    text-shadow: 0 0 3px var(--glow),
-    0 0 3px var(--glow-halo);
-} 
-
-/* Orb-knappar i white mode CV & Portfolio*/
-body.light .btn.orb {
-    color: #e8dddd;
+/* Hamburger */
+body.light #hamburgerBtn {
+    color: rgba(172, 91, 117, 0.85);
 }
 
-/* WHITE MODE - ABOUT EDUCATION */
-body.light .about-education li {
-    color: var(--text-dark);
-}
-
-/* White mode cards */
+/* CARDS  */
 body.light .about-card,
 body.light .skills-card,
 body.light .project-card,
 body.light .reference-card,
 body.light .contact-card,
 body.light .about-education {
-    background: rgba(225, 210, 214, 0.38); 
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(210, 195, 198, 0.55); 
+    background: rgba(255,255,255,0.65);
+    border: 1px solid rgba(180, 160, 165, 0.45);
+    backdrop-filter: blur(18px) saturate(160%);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
 }
 
 
-/* White mode inputs CONTACT CARD */
-body.light .contact-card input,
-body.light .contact-card textarea {
-    background: rgba(0,0,0,0.05); 
-    color: var(--text-dark);      
-    border: 1px solid rgba(0,0,0,0.15);
-}
-/* White mode knapp CONTACT CARD */
-body.light .contact-card button {
-    background: rgba(0,0,0,0.20);
-    border: 1px solid rgba(0,0,0,0.25);
-    color: #fff;
+body.light .reference-card:hover {
+    transform: scale(0.94) translateY(-1px);
+    box-shadow:
+        0 0 12px var(--glow),
+        0 0 18px var(--glow-halo);
 }
 
-
-/* White mode hamburger menu background */
-body.light .mobile-menu {
-    background: rgba(238, 223, 227, 0.32);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(210, 195, 198, 0.55);
+body.light .project-card:hover {
+    transform: translateY(-4px) scale(1.015) rotateX(1deg) rotateY(1deg);
+    box-shadow: 0 0 12px var(--glow);
 }
 
-body.light #hamburgerBtn {
-    color: rgba(172, 91, 117, 0.85);
+/* ABOUT EDUCATION titel */
+body.light .about-education h3 {
+    color: var(--purple);
+    opacity: 1;
+    font-weight: 700;
 }
 
-/* White mode - textfärg skills */
+/* SKILLS */
+body.light .skills-list.icons li {
+    background: rgba(255,255,255,0.85);
+    border: 1px solid rgba(180,160,165,0.45);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+body.light .skills-list.icons i {
+    opacity: 1;
+}
+
 body.light .skills-list.icons span {
     color: var(--text-dark);
-    font-size: clamp(0.8rem, 1.4vw, 1rem);
-    margin-top: 0.1rem;
-    opacity: 0.9;
+    opacity: 1;
+    font-weight: 600;
     padding-bottom: 2rem;
-    font-weight: 500;
-
 }
 
-/* White mode - portfolio modal - öppna mappen kortet */
+/* PORTFOLIO MODAL */
 body.light .project-modal-content {
     background: rgba(253, 242, 247, 0.904);
     backdrop-filter: blur(14px);
@@ -1600,46 +1620,106 @@ body.light .project-modal-content {
     border: 1px solid rgba(210, 195, 198, 0.35);
 }
 
-/* White mode – modalens knappar */
+/* Modal knappar */
 body.light .project-links a {
     background: rgba(240, 233, 234, 0.24);
-    backdrop-filter: blur(10px);
     border: 1px solid rgba(158, 141, 144, 0.45);
     color: var(--text-dark);
 }
 
 body.light .project-links a:hover {
-    transform: scale(1.08);
     box-shadow: 0 0 6px var(--glow);
 }
 
-
-/* White mode – stäng‑krysset */
+/* Stäng-kryss */
 body.light .close-modal {
-    color: var(--text-dark); 
-    text-shadow: 0 0 4px rgba(0,0,0,0.15),
-    0 0 4px var(--glow-halo);
+    color: var(--text-dark);
+    text-shadow:
+        0 0 4px rgba(0,0,0,0.15),
+        0 0 4px var(--glow-halo);
 }
 
 body.light .close-modal:hover {
-    color: var(--glow); /* glow-färg vid hover */
-    text-shadow:
-    0 0 6px var(--glow),
-    0 0 6px var(--glow-halo);
-
+    color: var(--glow);
 }
 
-/* Light mode – svart ikon */
+body.light .section-references .section-title,
+body.light .section-references .reference-title {
+    color: var(--text-dark);
+    opacity: 1;
+    font-weight: 700;
+}
+
+body.light .references-track::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #7aa7ff, #d28bff);
+    box-shadow: 0 0 6px rgba(0,0,0,0.15);
+}
+
+body.light .references-track {
+    scrollbar-color: #7aa7ff rgba(240,230,233,0.4);
+}
+
+body.light .contact-card {
+    background: rgba(255,255,255,0.9);
+    border: 1px solid rgba(210,195,198,0.7);
+}
+
+body.light .contact-card input,
+body.light .contact-card textarea {
+    background: rgba(255,255,255,0.85);
+    border: 1px solid rgba(180,160,165,0.45);
+    color: var(--text-dark);
+}
+
+body.light .contact-card input:focus,
+body.light .contact-card textarea:focus {
+    border: 1px solid var(--glow);
+    box-shadow:
+        0 0 4px var(--glow),
+        0 0 8px rgba(0,0,0,0.08);
+}
+
+/* Knapp */
+body.light .contact-card button {
+    background: linear-gradient(135deg, #444, #222);
+    border: none;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
+
+/* Ikoner */
+body.light .btn-icon {
+    filter: brightness(0) invert(0);
+}
+
 body.light .github-icon {
     filter: invert(1);
 }
 
-/* Light mode – visa ljusa GitHub-ikonen */
 body.light .github.light {
     display: inline-block;
 }
 
-/* LIGHT MODE – gör ikonen mörk */
-body.light .btn-icon {
-    filter: brightness(0) invert(0);
+/* Behåll färgade ord i light mode */
+body.light .key-purple { color: var(--purple) !important; }
+body.light .key-orange { color: var(--orange) !important; }
+body.light .key-pink   { color: var(--pink) !important; }
+body.light .key-blue   { color: var(--blue) !important; }
+
+/* Skills ikoner – behåll färger i light mode */
+body.light .skills-list.icons i {
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+/* Skills text – behåll färgstyrka */
+body.light .skills-list.icons span {
+    opacity: 1 !important;
+    color: var(--text-dark);
+}
+
+/* Skills hover */
+body.light .skills-list.icons li:hover {
+    box-shadow: 0 0 10px var(--glow);
+    transform: translateY(-4px) scale(1.05);
 }
