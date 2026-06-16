@@ -11,8 +11,8 @@
 
     --pink: #FF4FD8;
     --orange: #FF7A00;
-    --blue: #4AB3FF;
-    --purple: #C17CFF;
+    --blue: #2A8CFF;
+    --purple: #9F4DFF;
 
 
     --console-bg: #000;
@@ -968,6 +968,88 @@ body:not(.light) .icon-img.dark {
 }
 
 
+/* ============== REFERENCES ============== */
+
+.section-references {
+    margin: 0 auto;
+    max-width: 900px;
+    width: 90%;
+    line-height: 1.5;
+    opacity: 0.9;
+    scroll-margin-top: clamp(80px, 12vw, 180px);
+    min-height: 100vh;
+}
+
+/* Accent */
+.section-references .accent {
+    color: var(--glow);
+    text-shadow: 0 0 6px var(--glow);
+    font-weight: 900;
+}
+
+/* wrapper */
+.references-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Grid card*/
+.references-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: clamp(1.8rem, 4vw, 3rem) clamp(1.2rem, 3vw, 2.2rem);
+    border-radius: 1.1rem;
+    backdrop-filter: blur(12px);
+    line-height: 1.65;
+    opacity: 0.9;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* INNER CARDS  */
+.reference-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+    border-radius: 1rem;
+    padding: clamp(1rem, 3vw, 2rem);
+    opacity: 0.9;
+    transition: 0.25s ease;
+}
+
+.reference-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 10px var(--glow);
+}
+
+/* TITEL */
+.reference-title {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: var(--text);
+}
+
+/* TEXT */
+.reference-text {
+    opacity: 0.85;
+    line-height: 1.6;
+    font-size: clamp(0.8rem, 1.4vw, 1rem);
+}
+
+/* SIGNATURE */
+.reference-signature {
+    margin-top: 1rem;
+    font-style: italic;
+    opacity: 0.75;
+    font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+}
+
+
+
+
 /* ============== CONTACT ============== */
 .sectioncontact {
     max-width: 900px;
@@ -1195,10 +1277,41 @@ footer {
     filter: drop-shadow(0 0 10px var(--glow));
 }
 
+.footer-credit {
+    opacity: 0.85;
+    letter-spacing: 0.5px;
+}
+
+.footer-credit .name {
+    color: var(--pink);
+    font-weight: 600;
+    text-shadow: 0 0 4px var(--glow);
+}
+
+
 /* Dölj båda GitHub-ikoner som standard */
 .github {
     display: none;
 }
+/* instagram lite gegnomskinlig för att matcha de andra*/
+.instagram-footer{
+    opacity: 0.95;
+}
+
+/* Linje mellan ikoner och text */
+.footer-divider {
+    width: 100%;
+    height: 1px;
+    margin: 1.4rem auto 1.2rem;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--glow),
+        transparent
+    );
+    opacity: 0.8;
+}
+
 
 
 /* ============== WHITE MODE ============== */
