@@ -5,7 +5,6 @@
     --bg: #000000;
     --bg-light: #f7f2f3;
 ;
-
     --text: #ececec;
     --text-dark: #3a3a3a;
 
@@ -13,7 +12,6 @@
     --orange: #FF7A00;
     --blue: #4DA3FF;
     --purple: #9F4DFF;
-
 
     --console-bg: #000;
     --console-border: #333;
@@ -1547,8 +1545,10 @@ body.light .about-education li {
 /* White mode cards */
 body.light .about-card,
 body.light .skills-card,
-body.light .projects-card,
-body.light .contact-card {
+body.light .project-card,
+body.light .reference-card,
+body.light .contact-card,
+body.light .about-education {
     background: rgba(225, 210, 214, 0.38); 
     backdrop-filter: blur(12px);
     border: 1px solid rgba(210, 195, 198, 0.55); 

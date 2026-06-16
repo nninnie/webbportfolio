@@ -29,16 +29,12 @@ glowPicker.addEventListener("input", (e) => {
     localStorage.setItem("glowColor", color);
 });
 
-// Ladda sparad glow vid start
+// Glow vid start
 const savedGlow = localStorage.getItem("glowColor");
-if (savedGlow) {
-    document.documentElement.style.setProperty("--glow", savedGlow);
-    glowPicker.value = savedGlow;
-} else {
-    // Standard Samsung-blå glow
-    document.documentElement.style.setProperty("--glow", "#003B73");
-    glowPicker.value = "#003B73";
-}
+
+    document.documentElement.style.setProperty("--glow", "#1429a056");
+    glowPicker.value = "#1429a0c0";
+
 
 
 /* -----------------------------------------
@@ -106,12 +102,12 @@ window.addEventListener("scroll", () => {
    📩 Kontaktformulär: skicka utan redirect + visa popup
 ----------------------------------------- */
 document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault(); // Stoppar FormSubmit från att ladda om sidan
+    e.preventDefault(); // stoppar från att ladda om sidan
 
     const form = this;
     const formData = new FormData(form);
 
-    // Skicka formuläret via fetch (AJAX)
+    // skickar formuläret via fetch (AJAX)
     fetch(form.action, {
         method: "POST",
         body: formData
@@ -120,19 +116,19 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
         // Visa popup
         document.getElementById("successPopup").style.display = "block";
 
-        // Dölj popup efter 4 sekunder
+        // döljer popup efter 4 sek
         setTimeout(() => {
             document.getElementById("successPopup").style.display = "none";
         }, 4000);
 
-        // Rensa formuläret
+        // rensar
         form.reset();
     })
     .catch(error => console.log("FormSubmit error:", error));
 });
 
 /* -----------------------------------------
-   📁 Mappar Portfolio: popover-kort
+   📁 Portfolio Mappar - öppna/stänga
 ----------------------------------------- */
 const projects = {
     "Kassasystem": {
@@ -253,10 +249,7 @@ Object.entries(projects).forEach(([title, data]) => {
 
 <div class="project-tags">
     ${data.tech.map(t => `<span class="tag">${t}</span>`).join("")}
-</div>
-
-
-        
+</div> 
         
     `;
 
@@ -307,12 +300,12 @@ techEl.innerHTML = `
     });
 });
 
-// Stäng med X
+// stänger med x
 document.querySelector(".close-modal").addEventListener("click", () => {
     modal.style.display = "none";
 });
 
-// Stäng när man klickar utanför
+// stänger när man klickar utanför
 const modalContent = document.querySelector(".project-modal-content");
 
 document.addEventListener("click", (e) => {
@@ -324,8 +317,7 @@ document.addEventListener("click", (e) => {
     }
 });
 
-
-// Stäng med ESC
+// stänga med ESC
 document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
         modal.style.display = "none";
