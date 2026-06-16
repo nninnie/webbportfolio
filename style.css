@@ -970,15 +970,89 @@ body:not(.light) .icon-img.dark {
 
 /* ============== REFERENCES ============== */
 
-.section-references {
+.references-slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
     margin: 0 auto;
     max-width: 900px;
-    width: 90%;
-    line-height: 1.5;
-    opacity: 0.9;
-    scroll-margin-top: clamp(80px, 12vw, 180px);
-    min-height: 100vh;
 }
+
+.references-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+/* Horisontell scroll + snap */
+.references-track {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; /* gör att sliden “fastnar” perfekt på varje kort */
+    scroll-behavior: smooth; /* animeras mjukt */ 
+    padding-bottom: 1rem;
+    
+}
+
+/* scrool bar */
+.references-track::-webkit-scrollbar {
+    height: 4px; 
+
+}
+
+.references-track::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05); /* diskret glasbakgrund */
+    border-radius: 10px;
+}
+
+.references-track::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, var(--pink), var(--blue));
+    border-radius: 10px;
+    box-shadow: 0 0 8px var(--glow);
+    transition: 0.2s ease;
+
+}
+
+.references-track::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(90deg, var(--blue), var(--pink));
+
+}
+
+/* Firefox */
+.references-track {
+    scrollbar-width: thin;
+    scrollbar-color: var(--glow) rgba(255,255,255,0.05);
+}
+
+
+.reference-card {
+    flex: 0 0 100%;
+    max-width: 600px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    scroll-snap-align: center;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+    border-radius: 1rem;
+    padding: clamp(1rem, 3vw, 2rem);
+    opacity: 0.9;
+    transition: 0.25s ease;
+    margin-right: 1.5rem;
+}
+
+.reference-card:last-child {
+    margin-right: 0;
+}
+
+/* Hover-effekt */
+.reference-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 12px var(--glow);
+}
+
 
 /* Accent */
 .section-references .accent {
@@ -987,42 +1061,6 @@ body:not(.light) .icon-img.dark {
     font-weight: 900;
 }
 
-/* wrapper */
-.references-wrapper {
-    max-width: 900px;
-    margin: 0 auto;
-    width: 100%;
-}
-
-/* Grid card*/
-.references-card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.12);
-    padding: clamp(1.8rem, 4vw, 3rem) clamp(1.2rem, 3vw, 2.2rem);
-    border-radius: 1.1rem;
-    backdrop-filter: blur(12px);
-    line-height: 1.65;
-    opacity: 0.9;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-/* INNER CARDS  */
-.reference-card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.12);
-    backdrop-filter: blur(12px);
-    border-radius: 1rem;
-    padding: clamp(1rem, 3vw, 2rem);
-    opacity: 0.9;
-    transition: 0.25s ease;
-}
-
-.reference-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 10px var(--glow);
-}
 
 /* TITEL */
 .reference-title {
