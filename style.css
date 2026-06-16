@@ -466,7 +466,7 @@ body {
 
 /* ============== ABOUT ============== */
 .sectionabout {
-    max-width: 900px;
+    max-width: 1200px;
     width: 90%;
     margin: 0 auto;  
     font-size: clamp(0.9rem, 1.8vw, 1.1rem);
@@ -489,7 +489,7 @@ body {
     gap: 2rem;
     align-items: stretch; /* gör att båda korten synkas i höjd */
     width: 100%;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -610,9 +610,8 @@ body {
 /* ============== SKILLS ============== */
 
 .skills-section {
-    width: 100%;
     margin: 0 auto;
-    max-width: 900px;
+    max-width: 1200px;
     width: 90%;
     line-height: 1.5;
     opacity: 0.9;
@@ -628,18 +627,17 @@ body {
     font-weight: 900;
 }
 .skills-wrapper {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
     width: 100%;
 }
 .skills-card {
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.12);
-    width: 100%;
+    width: 90%;
     padding: clamp(1.8rem, 4vw, 3rem) clamp(1.2rem, 3vw, 2.2rem);
     border-radius: 1.1rem;
     backdrop-filter: blur(12px);
-    width: 90%;
     line-height: 1.65;
     opacity: 0.9;
 }
@@ -720,8 +718,8 @@ body {
 /* ============== PORTFOLIO ============== */
 .sectionproject {
     text-align: center;              
-    max-width: 900px;
-    width: 100%;
+    max-width: 1200px;
+    width: 90%;
     margin: 0 auto;
     padding: 0 1rem;      
     font-size: clamp(0.9rem, 2vw, 1.1rem); 
@@ -743,7 +741,7 @@ body {
 
 
 .portfolio-wrapper {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
     width: 90%;
 }
@@ -1027,18 +1025,19 @@ body:not(.light) .icon-img.dark {
 /* ============== REFERENCES ============== */
 
 .section-references {
-    max-width: 900px;
+    max-width: 1200px;
     width: 90%;
     margin: 0 auto;
     text-align: left;
     scroll-margin-top: clamp(80px, 15vw, 250px);
+    min-height: 100vh;
 }
 
 /* YTTRE WRAPPER */
 .references-slider {
     position: relative;
     width: 100%;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
     overflow: hidden; /* STOPPAR overflow */
 }
@@ -1046,7 +1045,7 @@ body:not(.light) .icon-img.dark {
 /* INRE WRAPPER */
 .references-wrapper {
     width: 100%;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
     overflow: hidden; /* STOPPAR overflow */
 }
@@ -1070,9 +1069,9 @@ body:not(.light) .icon-img.dark {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    flex: 0 0 min(900px, 100%); 
-    width: min(900px, 100%);   
-    max-width: 900px;
+    flex: 0 0 min(1200px, 100%); 
+    width: min(1200px, 100%);   
+    max-width: 1200px;
     margin-right: 1rem;
     margin-bottom: 1rem;
     scroll-snap-align: center;
@@ -1183,8 +1182,8 @@ body:not(.light) .icon-img.dark {
 
 /* ============== CONTACT ============== */
 .sectioncontact {
-    max-width: 900px;
-    width: 100%;
+    max-width: 1200px;
+    width: 90%;
     margin: 0 auto;  
     text-align: center;
     font-size: clamp(0.65rem, 1.6vw, 0.85rem);
@@ -1208,15 +1207,15 @@ body:not(.light) .icon-img.dark {
     padding: clamp(1rem, 3vw, 2rem);
     border-radius: 1rem;
     backdrop-filter: blur(10px);
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
     line-height: 1.6;
     opacity: 0.9;
 }
 
 .contact-wrapper {
-    max-width: 900px;
-    width: 90%;
+    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;  
 }
 
@@ -1229,7 +1228,6 @@ body:not(.light) .icon-img.dark {
     align-items: stretch; 
     box-sizing: border-box;
     padding: clamp(0.5rem, 2vw, 1.2rem);
-
 }
 
 
