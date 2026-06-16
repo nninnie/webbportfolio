@@ -390,7 +390,9 @@ body {
     box-shadow:
         0 0 8px var(--glow),
         0 0 16px color-mix(in srgb, var(--glow) 50%, transparent),
-        0 0 24px color-mix(in srgb, var(--glow) 20%, transparent);
+        0 0 24px color-mix(in srgb, var(--glow) 20%, transparent),
+        0 0 12px rgba(255,255,255,0.35); /* fallback glow, så det syns även om använder väljer mörk*/
+    filter: drop-shadow(0 0 6px var(--glow)) brightness(1.2);
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .portrait:hover {
@@ -1028,7 +1030,7 @@ body:not(.light) .icon-img.dark {
 
 .reference-card {
     flex: 0 0 100%;
-    max-width: 600px;
+    max-width: 700px;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -1229,8 +1231,8 @@ body:not(.light) .icon-img.dark {
     letter-spacing: 1.6px;
     cursor: pointer;
     box-shadow:
-        0 0 2px var(--purple),
-        0 0 8px rgba(140, 0, 255, 0.38);
+        0 0 2px var(--glow),
+        0 0 6px var(--glow);
 
     transition: 0.25s ease, transform 0.2s ease;
 }
@@ -1238,8 +1240,8 @@ body:not(.light) .icon-img.dark {
 .contact-card button:hover {
     transform: scale(1.04);
     box-shadow:
-        0 0 10px var(--glow),
-        0 0 18px rgba(140, 0, 255, 0.45);
+        0 0 8px var(--glow),
+        0 0 12px var(--glow);
 }
 
 /* IKON – perfekt centrerad */
@@ -1339,7 +1341,7 @@ footer {
 .footer-credit .name {
     color: var(--pink);
     font-weight: 600;
-    text-shadow: 0 0 4px var(--glow);
+    text-shadow: 0 0 2px var(--glow);
 }
 
 
