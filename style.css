@@ -1034,9 +1034,8 @@ body:not(.light) .icon-img.dark {
 
 /* TEXT */
 .reference-text {
-    opacity: 0.85;
+    opacity: 0.8;
     line-height: 1.6;
-    font-size: clamp(0.8rem, 1.4vw, 1rem);
 }
 
 /* SIGNATURE */
@@ -1045,6 +1044,23 @@ body:not(.light) .icon-img.dark {
     font-style: italic;
     opacity: 0.75;
     font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+}
+
+.reference-signature strong {
+    font-weight: 700;
+    text-shadow: 0 0 4px var(--glow);
+}
+
+.reference-card:nth-child(1) .reference-signature strong {
+    color: var(--orange);
+}
+
+.reference-card:nth-child(2) .reference-signature strong {
+    color: var(--pink);
+}
+
+.reference-card:nth-child(3) .reference-signature strong {
+    color: var(--blue);
 }
 
 
