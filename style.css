@@ -23,11 +23,13 @@
 }
 
 
+
+
 /* ===== GLOBAL WRAPPER =======*/
 .page-wrapper {
     max-width: 1400px; 
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1rem;
     flex: 1;
 }
 
@@ -97,6 +99,7 @@ a, li, span {
 
 
 /* ============== BODY ============== */
+
 
 body {
     background: var(--bg);
@@ -718,7 +721,7 @@ body {
 .sectionproject {
     text-align: center;              
     max-width: 900px;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     padding: 0 1rem;      
     font-size: clamp(0.9rem, 2vw, 1.1rem); 
@@ -733,8 +736,8 @@ body {
 /* PORTFOLIO GRID */
 .projects-card {
     display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     justify-content: center; 
 }
 
@@ -742,7 +745,7 @@ body {
 .portfolio-wrapper {
     max-width: 900px;
     margin: 0 auto;
-    width: 100%;
+    width: 90%;
 }
 
 .sectionproject .accent {
@@ -1042,6 +1045,7 @@ body:not(.light) .icon-img.dark {
     display: flex;
     gap: 0;
     overflow-x: auto;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory; /* gör att sliden “fastnar” perfekt på varje kort */
     scroll-behavior: smooth; /* animeras mjukt */ 
     padding-bottom: 1rem;
@@ -1082,10 +1086,10 @@ body:not(.light) .icon-img.dark {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    flex: 0 0 85%;                 
-    width: 100%;
-    max-width: 350px;               
-    margin: 0 auto;
+    flex: 0 0 min(700px, 100%);
+    width: min(700px, 100%);
+    max-width: 700px;
+    margin-right: 1rem; /* EN margin, inte två */
     scroll-snap-align: center;
     padding: clamp(1rem, 2.5vw, 1.6rem);
     background: rgba(255,255,255,0.06);
@@ -1094,8 +1098,9 @@ body:not(.light) .icon-img.dark {
     border-radius: 1rem;
     opacity: 0.9;
     transition: 0.25s ease;
-    margin-right: 1.5rem;
+    box-sizing: border-box;
 }
+
 
 
 
@@ -1175,7 +1180,7 @@ body:not(.light) .icon-img.dark {
 /* ============== CONTACT ============== */
 .sectioncontact {
     max-width: 900px;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;  
     text-align: center;
     font-size: clamp(0.65rem, 1.6vw, 0.85rem);
@@ -1199,7 +1204,7 @@ body:not(.light) .icon-img.dark {
     padding: clamp(1rem, 3vw, 2rem);
     border-radius: 1rem;
     backdrop-filter: blur(10px);
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     line-height: 1.6;
     opacity: 0.9;
@@ -1207,7 +1212,7 @@ body:not(.light) .icon-img.dark {
 
 .contact-wrapper {
     max-width: 900px;
-    width: 100%;
+    width: 90%;
     margin: 0 auto;  
 }
 
@@ -1464,7 +1469,6 @@ footer {
         transparent
     );
     opacity: 0.8;
-    box-shadow: 0 0 6px var(--glow);
 }
 
 
