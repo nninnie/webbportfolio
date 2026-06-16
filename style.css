@@ -11,13 +11,14 @@
 
     --pink: #FF4FD8;
     --orange: #FF7A00;
-    --blue: #2A8CFF;
+    --blue: #4DA3FF;
     --purple: #9F4DFF;
 
 
     --console-bg: #000;
     --console-border: #333;
-    --glow: #07308aa2;
+    --glow: #1428A0;
+    --glow-halo: rgba(255,255,255,0.35); /* fallback glow */
     
 }
 
@@ -76,6 +77,23 @@ a, li, span {
     font-size: clamp(0.8rem, 1.2vw, 0.95rem);
     line-height: 1.6;
 }
+
+/* slide in 3 sek*/
+.hero h1,
+.hero h3,
+.hero p {
+    opacity: 0;
+    transform: translateY(6px);
+    animation: heroSlide 0.3s ease-out forwards;
+}
+
+@keyframes heroSlide {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 
 /* ============== BODY ============== */
@@ -399,7 +417,8 @@ body {
     box-shadow:
         0 0 10px var(--glow),
         0 0 20px color-mix(in srgb, var(--glow) 50%, transparent),
-        0 0 28px color-mix(in srgb, var(--glow) 20%, transparent);
+        0 0 28px color-mix(in srgb, var(--glow) 20%, transparent),
+        0 0 12px rgba(255,255,255,0.35); /* fallback glow, så det syns även om använder väljer mörk*/
     transform: scale(1.01);
 }
 
@@ -456,7 +475,8 @@ body {
 
 .sectionabout .accent {
     color: var(--glow);
-    text-shadow: 0 0 6px var(--glow);
+    text-shadow: 0 0 6px var(--glow),
+    0 0 6px var(--glow-halo);
     font-weight: 900;
 }
 
@@ -500,6 +520,14 @@ body {
     padding-bottom: 2rem;
 }
 
+@media (max-width: 768px) {
+    .about-card,
+    .about-education {
+        margin-bottom: 0.5rem;
+    }
+}
+
+
 .edu-item {
     display: flex;
     flex-direction: column;
@@ -536,6 +564,14 @@ body {
 .about-card p {
     margin-top: 1rem; 
 }
+
+@media (max-width: 768px) {
+    .about-card p,
+    .sectionabout p {
+        margin-bottom: 1.2rem;
+    }
+}
+
 
 @media (max-width: 768px) {
     .sectionabout {
@@ -583,7 +619,9 @@ body {
 
 .skills-section .accent {
     color: var(--glow);
-    text-shadow: 0 0 6px var(--glow);
+    text-shadow:
+    0 0 6px var(--glow),
+    0 0 6px var(--glow-halo);
     font-weight: 900;
 }
 .skills-wrapper {
@@ -631,9 +669,15 @@ body {
     justify-content: center;
     align-items: center;
     padding: 0.6rem;
-    transition: 0.25s ease;
+    opacity: 0;
+    transform: scale(0.92);
+    animation: iconPop 0.35s ease-out forwards;
 }
 
+@keyframes iconPop {
+    0% { opacity: 0; transform: scale(0.92); }
+    100% { opacity: 1; transform: scale(1); }
+}
 
 
 
@@ -703,7 +747,9 @@ body {
 
 .sectionproject .accent {
     color: var(--glow);              
-    text-shadow: 0 0 6px var(--glow);
+    text-shadow:
+    0 0 6px var(--glow),
+    0 0 6px var(--glow-halo);
     font-weight: 900;
 }
 
@@ -729,7 +775,7 @@ body {
 }
 
 .project-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-4px) scale(1.015) rotateX(1deg) rotateY(1deg);
     box-shadow: 0 0 12px var(--glow);
 }
 
@@ -741,7 +787,7 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 1rem;
-    background: linear-gradient(135deg, #77138b, #053275);
+    background: linear-gradient(135deg, #77138b, #1428A0);
     box-shadow:
         0 0 10px rgba(106,47,191,0.45),
         0 0 8px rgba(10,108,255,0.35);
@@ -862,7 +908,10 @@ body {
 
 .close-modal:hover {
     color: var(--glow); 
-    text-shadow: 0 0 6px var(--glow);
+    text-shadow:
+    0 0 6px var(--glow),
+    0 0 6px var(--glow-halo);
+
 }
 
 /* Knappar Github & Readme */
@@ -966,7 +1015,9 @@ body:not(.light) .icon-img.dark {
     position: absolute;
     left: 0;
     font-size: 1rem;
-    text-shadow: 0 0 6px var(--glow);
+    text-shadow:
+    0 0 6px var(--glow),
+    0 0 6px var(--glow-halo);
 }
 
 
@@ -1029,12 +1080,12 @@ body:not(.light) .icon-img.dark {
 
 
 .reference-card {
-    flex: 0 0 100%;
-    max-width: 700px;
+    flex: 0 0 85%;                 
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 350px;               
+    margin: 0 auto;
     scroll-snap-align: center;
+
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.12);
     backdrop-filter: blur(12px);
@@ -1045,21 +1096,26 @@ body:not(.light) .icon-img.dark {
     margin-right: 1.5rem;
 }
 
+
+
 .reference-card:last-child {
     margin-right: 0;
 }
 
 /* Hover-effekt */
 .reference-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 0 12px var(--glow);
+    transform: scale(0.92) translateY(-1px);
+    box-shadow:
+        0 0 12px var(--glow),
+        0 0 18px var(--glow-halo);
 }
-
 
 /* Accent */
 .section-references .accent {
     color: var(--glow);
-    text-shadow: 0 0 6px var(--glow);
+    text-shadow:
+    0 0 6px var(--glow),
+    0 0 6px var(--glow-halo);
     font-weight: 900;
 }
 
@@ -1088,7 +1144,10 @@ body:not(.light) .icon-img.dark {
 
 .reference-signature strong {
     font-weight: 700;
-    text-shadow: 0 0 4px var(--glow);
+    text-shadow:
+    0 0 2px var(--glow),
+    0 0 2px var(--glow-halo);
+
 }
 
 .reference-card:nth-child(1) .reference-signature strong {
@@ -1121,7 +1180,9 @@ body:not(.light) .icon-img.dark {
 
 .sectioncontact .accent {
     color: var(--glow);
-    text-shadow: 0 0 6px var(--glow);
+    text-shadow:
+    0 0 6px var(--glow),
+    0 0 6px var(--glow-halo);
     font-weight: 900;
 }
 
@@ -1168,6 +1229,21 @@ body:not(.light) .icon-img.dark {
     background: rgba(255,255,255,0.08);
     color: var(--text);
 }
+
+/* glow när man trycker på inputs/textarea */ 
+.contact-card input:focus,
+.contact-card textarea:focus {
+    outline: none;
+    border: 1px solid var(--glow);
+    background: rgba(255,255,255,0.18);
+    box-shadow:
+        0 0 4px var(--glow),
+        0 0 8px var(--glow-halo),
+        inset 0 0 6px rgba(255,255,255,0.15);
+    transition: 0.25s ease;
+}
+
+
 
 
 .contact-card textarea {
@@ -1270,14 +1346,20 @@ body:not(.light) .icon-img.dark {
     color: var(--glow);
     font-weight: 600;
     box-shadow: 0 0 20px rgba(0, 140, 255, 0.4);
-    animation: fadeIn 0.3s ease;
+    animation: popupPop 0.35s ease-out forwards;
     z-index: 9999;
 }
 
 /* Animation: fade-in för bekräftelse-popup */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes popupPop {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.92);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
 }
 
 
@@ -1295,9 +1377,18 @@ footer {
 
 /* Copyright-symbol */
 .copy-symbol {
-    color: var(--glow);
+    color: var(--blue);
+    text-shadow:
+        0 0 4px var(--glow),
+        0 0 6px var(--glow-halo);
     font-size: 1.05rem;
     letter-spacing: 0.5px;
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% { text-shadow: 0 0 4px var(--glow); }
+    50% { text-shadow: 0 0 8px var(--glow); }
 }
 
 /* Ikoncontainer */
@@ -1329,7 +1420,7 @@ footer {
 /* Hover-effekt */
 .footer-icons a:hover img {
     opacity: 1;
-    transform: translateY(-3px) scale(1.12);
+    transform: translateY(-2px) scale(1.08);
     filter: drop-shadow(0 0 10px var(--glow));
 }
 
@@ -1339,7 +1430,7 @@ footer {
 }
 
 .footer-credit .name {
-    color: var(--pink);
+    color: var(--orange);
     font-weight: 600;
     text-shadow: 0 0 2px var(--glow);
 }
@@ -1366,11 +1457,12 @@ footer {
         transparent
     );
     opacity: 0.8;
+    box-shadow: 0 0 6px var(--glow);
 }
 
 
 
-/* ============== WHITE MODE ============== */
+/* ============== LIGHT MODE ============== */
 /* WHITE MODE */
 body.light {
     background: var(--bg-light);
@@ -1393,7 +1485,7 @@ body.light .folder-title {
 /* White mode navbar */
 body.light .navbar {
     background: rgba(225, 210, 214, 0.38);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(210, 195, 198, 0.55); 
 }
 
@@ -1423,7 +1515,8 @@ body.light .mobile-menu a:hover {
 body.light .accent,
 body.light .copy-symbol {
     color: var(--glow) !important; /* important - regeln gäller alltid! */
-    text-shadow: 0 0 3px var(--glow);
+    text-shadow: 0 0 3px var(--glow),
+    0 0 3px var(--glow-halo);
 } 
 
 /* Orb-knappar i white mode CV & Portfolio*/
@@ -1509,12 +1602,16 @@ body.light .project-links a:hover {
 /* White mode – stäng‑krysset */
 body.light .close-modal {
     color: var(--text-dark); 
-    text-shadow: 0 0 4px rgba(0,0,0,0.15);
+    text-shadow: 0 0 4px rgba(0,0,0,0.15),
+    0 0 4px var(--glow-halo);
 }
 
 body.light .close-modal:hover {
     color: var(--glow); /* glow-färg vid hover */
-    text-shadow: 0 0 6px var(--glow);
+    text-shadow:
+    0 0 6px var(--glow),
+    0 0 6px var(--glow-halo);
+
 }
 
 /* Light mode – svart ikon */
