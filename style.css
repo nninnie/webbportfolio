@@ -1048,7 +1048,7 @@ body:not(.light) .icon-img.dark {
     
 }
 
-/* scrool bar */
+/* SCROLL BAR */
 .references-track::-webkit-scrollbar {
     height: 4px; 
 
@@ -1060,37 +1060,38 @@ body:not(.light) .icon-img.dark {
 }
 
 .references-track::-webkit-scrollbar-thumb {
-    background: linear-gradient(90deg, var(--pink), var(--blue));
+    background: linear-gradient(90deg, var(--blue), var(--purple));
     border-radius: 10px;
     box-shadow: 0 0 8px var(--glow);
-    transition: 0.2s ease;
-
 }
+
 
 .references-track::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(90deg, var(--blue), var(--pink));
 
 }
-
-/* Firefox */
+/* så det funkar i firefox (som inte stödjer WebKit‑scrollbars) */
 .references-track {
     scrollbar-width: thin;
     scrollbar-color: var(--glow) rgba(255,255,255,0.05);
+    align-items: stretch;
 }
 
 
 .reference-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     flex: 0 0 85%;                 
     width: 100%;
     max-width: 350px;               
     margin: 0 auto;
     scroll-snap-align: center;
-
+    padding: clamp(1rem, 2.5vw, 1.6rem);
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.12);
     backdrop-filter: blur(12px);
     border-radius: 1rem;
-    padding: clamp(1rem, 3vw, 2rem);
     opacity: 0.9;
     transition: 0.25s ease;
     margin-right: 1.5rem;
@@ -1122,16 +1123,22 @@ body:not(.light) .icon-img.dark {
 
 /* TITEL */
 .reference-title {
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-size: clamp(1rem, 1.8vw, 1.25rem);
     font-weight: 600;
     margin-bottom: 0.8rem;
     color: var(--text);
+    opacity: 0.95;
+    letter-spacing: 0.2px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding-bottom: 0.9rem;
 }
 
 /* TEXT */
 .reference-text {
+    flex-grow: 1;
     opacity: 0.8;
     line-height: 1.6;
+    font-size: clamp(0.75rem, 1.3vw, 0.9rem);
 }
 
 /* SIGNATURE */
@@ -1139,7 +1146,7 @@ body:not(.light) .icon-img.dark {
     margin-top: 1rem;
     font-style: italic;
     opacity: 0.75;
-    font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+    font-size: clamp(0.7rem, 1vw, 0.85rem);
 }
 
 .reference-signature strong {
