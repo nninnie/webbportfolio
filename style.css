@@ -22,9 +22,6 @@
     
 }
 
-
-
-
 /* ===== GLOBAL WRAPPER =======*/
 .page-wrapper {
     max-width: 1400px; 
@@ -1304,6 +1301,14 @@ body:not(.light) .icon-img.dark {
     filter: invert(57%) sepia(94%) saturate(2470%) hue-rotate(180deg) brightness(103%) contrast(102%);
 }
 
+/* felmedelande */
+input:invalid:not(:focus):not(:placeholder-shown),
+textarea:invalid:not(:focus):not(:placeholder-shown) {
+    border: 1px solid var(--pink);
+    box-shadow: 0 0 6px var(--pink);
+}
+
+
 /* SKICKA KNAPP */
 .contact-card button {
     width: fit-content;
@@ -1395,7 +1400,8 @@ footer {
     text-shadow:
         0 0 4px var(--glow),
         0 0 6px var(--glow-halo);
-    font-size: 1.05rem;
+    font-size: clamp(0.8rem, 1.4vw, 1.05rem);
+
     letter-spacing: 0.5px;
     animation: glowPulse 3s ease-in-out infinite;
 }
@@ -1441,12 +1447,14 @@ footer {
 .footer-credit {
     opacity: 0.85;
     letter-spacing: 0.5px;
+    font-size: clamp(0.6rem, 1vw, 1rem);
 }
 
 .footer-credit .name {
     color: var(--orange);
     font-weight: 600;
     text-shadow: 0 0 2px var(--glow);
+    font-size: clamp(0.6rem, 1vw, 1rem);
 }
 
 

@@ -287,7 +287,8 @@
                         <img src="image/icons/user-round.png" alt="User" class="input-icon icon-rosa">
                         Namn
                     </label>
-                    <input type="text" name="name" placeholder="Ditt namn" required>
+                    <input type="text" id="name" required oninvalid="this.setCustomValidity('Fyll i ditt namn')" oninput="this.setCustomValidity('')">
+
                 </div>
 
                 <div class="input-group">
@@ -295,7 +296,8 @@
                         <img src="image/icons/mail.png" alt="Email" class="input-icon icon-orange">
                         Email
                     </label>
-                    <input type="email" name="email" placeholder="din.email@example.com" required>
+                    <input type="email" id="email" required oninvalid="this.setCustomValidity('Ange en giltig e‑postadress')" oninput="this.setCustomValidity('')">
+
                 </div>
 
                 <div class="input-group">
@@ -303,7 +305,8 @@
                         <img src="image/icons/message.png" alt="Meddelande" class="input-icon icon-bla">
                         Meddelande
                     </label>
-                    <textarea name="message" placeholder="Ditt meddelande" required></textarea>
+                    <textarea id="message" required minlength="5" oninvalid="this.setCustomValidity('Skriv ett meddelande')" oninput="this.setCustomValidity('')"></textarea>
+
                 </div>
 
                 <input type="hidden" name="_captcha" value="false">
