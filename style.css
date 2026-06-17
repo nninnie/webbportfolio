@@ -41,7 +41,7 @@ section {
 /* ============== TEXT - FONT ============== */
 h1 {
     font-family: "Montserrat", sans-serif;
-    font-size: clamp(2.4rem, 6vw, 4.5rem);
+    font-size: clamp(2.8rem, 7vw, 5rem);
     font-weight: 900;
     text-align: center;
     letter-spacing: -1px;
@@ -54,24 +54,24 @@ h2 {
     font-weight: 700;
     letter-spacing: -1px;
     margin-bottom: 1rem;
-    font-size: clamp(1.8rem, 4vw, 3rem); 
+    font-size: clamp(2rem, 5vw, 3.5rem); 
     text-align: left;
 }
 
 h3 {
     font-family: "Poppins", sans-serif;
     font-weight: 300;
-    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-size: clamp(1.4rem, 3vw, 2rem);
 }
 p {
     font-family: "Poppins", sans-serif;
-    font-size: clamp(0.75rem, 1.4vw, 1rem);
+    font-size: clamp(0.9rem, 1.6vw, 1.2rem);
     line-height: 1.6;
 }
 
 a, li, span {
     font-family: "Poppins", sans-serif;
-    font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+    font-size: clamp(0.9rem, 1.4vw, 1.1rem);
     line-height: 1.6;
 }
 
@@ -227,10 +227,39 @@ body {
     color: var(--text);
 }
 
-.weather,
+/* ikoner nav bar */
 .icon-btn {
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
+/* vädewr ikon nav bar */
+.weather {
+    font-size: 1rem;
+}
+
+/* Väder - locatiion */
+.weather-box {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.weather-location {
+    font-size: 0.7rem;
+    opacity: 0.8;
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+}
+
+/* flagga */
+#langFlag {
+    width: 1rem;
+    height: 1rem; 
+    object-fit: cover;
+    border-radius: 6px; 
+    display: inline-block;
+    vertical-align: middle;
+}
+
 
 
 /* DOLD SELECT */
@@ -415,7 +444,7 @@ body {
 
 /* HERO - PORTRÄTT BILD*/
 .portrait {
-    width: 7rem;
+    width: clamp(6rem, 20vw, 10rem);
     border-radius: 20rem;
     border: 0.1px solid var(--glow);
     box-shadow:

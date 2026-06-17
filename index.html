@@ -18,7 +18,11 @@
     <nav>
 
         <!-- Väder till väsnter -->
+        <div class="weather-box">
         <span id="weather" class="weather">--°C</span>
+        <span id="weatherLocation" class="weather-location">Stockholm</span>
+        </div>
+
 
         <!-- Hamburgarmeny (mobil) -->
         <button class="hamburger" id="hamburgerBtn" aria-label="Öppna meny" aria-expanded="false" aria-controls="mobileMenu">
@@ -36,8 +40,12 @@
 
         <!-- Dark/Light Mode & Språk längst till höger -->
         <div class="nav-controls">
-            <button id="themeToggle" class="icon-btn" aria-label="Byt tema">🌕</button>
-            <button id="languageToggle" class="icon-btn" aria-label="Byt språk">🌐</button>
+            <button id="themeToggle" class="icon-btn" aria-label="Byt tema">☀️</button>
+            <button id="languageToggle" class="icon-btn" aria-label="Byt språk">
+            <img id="langFlag" src="https://flagcdn.com/gb.svg" alt="Svenska" >
+            </button>
+
+
 
             <!-- Dold select språk - måste ha -->
             <select id="languageSelect" class="hidden-select">
@@ -75,9 +83,10 @@
     </div>
 
     <h1>Ninnie Dahlström</h1>
-    <h3>Junior Systemutvecklare .NET</h3>
+<h3>Junior Systemutvecklare .NET</h3>
+<p>Baserad i Stockholm</p>
+<p>Fullstack • API-utveckling • Modern webbutveckling </p>
 
-    <p>Fullstack • API-utveckling • Modern webbutveckling</p>
 
     <div class="hero-buttons">
         <a class="btn orb orange" href="cv-ninniedahlstrom.pdf" download>
@@ -285,7 +294,7 @@
             <form id="contactForm" action="https://formsubmit.co/ninnie_dahlstrom@hotmail.com" method="POST">
 
                 <div class="input-group">
-                    <label>
+                    <label for="name">
                         <img src="image/icons/user-round.png" alt="User" class="input-icon icon-rosa">
                         Namn
                     </label>
@@ -294,7 +303,7 @@
                 </div>
 
                 <div class="input-group">
-                    <label>
+                    <label for="email">
                         <img src="image/icons/mail.png" alt="Email" class="input-icon icon-orange">
                         Email
                     </label>
@@ -303,7 +312,7 @@
                 </div>
 
                 <div class="input-group">
-                    <label>
+                    <label for="message">
                         <img src="image/icons/message.png" alt="Meddelande" class="input-icon icon-bla">
                         Meddelande
                     </label>

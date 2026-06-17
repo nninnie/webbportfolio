@@ -1,18 +1,33 @@
 /* -----------------------------------------
-   🌕 / 🌑  TEMA-TOGGLE (sol i light mode, måne i dark mode)
+   ☀️ / 🌙  TEMA-TOGGLE (sol i light mode, måne i dark mode)
 ----------------------------------------- */
-const themeToggle = document.getElementById("themeToggle");
+// Tema-knapp (dark - light)
+const themeBtn = document.getElementById("themeToggle");
 
-themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("light");
+themeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
 
-    // Light mode → visa måne
-    if (document.body.classList.contains("light")) {
-        themeToggle.textContent = "🌑";
-    } 
-    // Dark mode → visa sol
-    else {
-        themeToggle.textContent = "🌕";
+    if (document.body.classList.contains("light-mode")) {
+        themeBtn.textContent = "🌙"; // Light mode aktiv → visa måne
+    } else {
+        themeBtn.textContent = "☀️"; // Dark mode aktiv → visa sol
+    }
+});
+
+
+// Språk-knapp (SE - EN)
+const langBtn = document.getElementById("languageToggle");
+const langFlag = document.getElementById("langFlag");
+
+langBtn.addEventListener("click", () => {
+    if (langFlag.src.includes("se.svg")) {
+        langFlag.src = "https://flagcdn.com/gb.svg";
+        langFlag.alt = "English";
+        // här kan du lägga till funktion för att byta text till engelska
+    } else {
+        langFlag.src = "https://flagcdn.com/se.svg";
+        langFlag.alt = "Svenska";
+        // här kan du lägga till funktion för att byta text till svenska
     }
 });
 
