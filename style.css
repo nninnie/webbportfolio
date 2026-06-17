@@ -95,7 +95,6 @@ a, li, span {
 
 /* ============== BODY ============== */
 
-
 body {
     background: var(--bg);
     color: var(--text);
@@ -104,7 +103,23 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+}
+/* Skipp link för tab / WCAG osynlig*/
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 1rem;
+    background: var(--glow);
+    color: #fff;
+    padding: 0.6rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    z-index: 9999;
+    transition: top 0.25s ease;
+}
 
+.skip-link:focus {
+    top: 1rem;
 }
 
 
@@ -197,7 +212,7 @@ body {
     text-decoration: none;
 }
 
-/* IKONER / SPRÅK - LIGHT MODE */
+/* IKONER / SPRÅK */
 .nav-controls {
     display: flex;
     align-items: center;
@@ -407,7 +422,7 @@ body {
         0 0 8px var(--glow),
         0 0 16px color-mix(in srgb, var(--glow) 50%, transparent),
         0 0 24px color-mix(in srgb, var(--glow) 20%, transparent),
-        0 0 12px rgba(255,255,255,0.35); /* fallback glow, så det syns även om använder väljer mörk*/
+        0 0 12px rgba(255,255,255,0.35); 
     filter: drop-shadow(0 0 6px var(--glow)) brightness(1.2);
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
@@ -416,7 +431,7 @@ body {
         0 0 10px var(--glow),
         0 0 20px color-mix(in srgb, var(--glow) 50%, transparent),
         0 0 28px color-mix(in srgb, var(--glow) 20%, transparent),
-        0 0 12px rgba(255,255,255,0.35); /* fallback glow, så det syns även om använder väljer mörk*/
+        0 0 12px rgba(255,255,255,0.35); 
     transform: scale(1.01);
 }
 
@@ -847,7 +862,7 @@ body {
 
 
 
-/* MODAL WRAPPER - öppna nytt card */
+/* MODAL WRAPPER - öppnar nytt card */
 
 /* OVERLAY */
 .project-modal {
@@ -878,7 +893,7 @@ body {
     font-size: clamp(1.4rem, 2.2vw, 1.6rem);
     font-weight: 700;
     color: var(--text);
-    margin-top: -0.2rem; /* eller -0.5rem om du vill mer */
+    margin-top: -0.2rem; 
 }
 
 #projectDescription, 
@@ -891,14 +906,14 @@ body {
 
 /* CLOSE BUTTON */
 .close-modal {
-    position: absolute;                   /* placerad ovanpå kortet */
+    position: absolute; /* ligger ovan på kortet */                  
     top: 10px;                            
     right: 12px;                          
     background: none;                     
     border: none;                         
     color: var(--text);                   
     font-size: 1rem;                    
-    cursor: pointer;                      /* visar klickbar */
+    cursor: pointer;                   
 }
 
 .close-modal:hover {
@@ -924,11 +939,10 @@ body {
     padding: 0.5rem 1rem;
     border-radius: 8px;
     background: rgba(39, 39, 39, 0.801);   
-    color: var(--text);                   /* textfärg följer tema */
+    color: var(--text);                   
     border: 1px solid rgba(36, 36, 36, 0.15);
     text-decoration: none;
-    font-weight: 600;
-    box-shadow: none;                     /* ingen glow */
+    font-weight: 600;                
     transition: 0.25s ease;
 }
 
@@ -952,17 +966,12 @@ body {
     display: none;
 }
 
-
-body.light .icon-img.light {
-    display: inline-block;                /* visa ljusa ikoner i light mode */
-}
-
-
+/* visa mörka ikoner i dark mode */
 body:not(.light) .icon-img.dark {
-    display: inline-block;                /* visa mörka ikoner i dark mode */
+    display: inline-block;                
 }
 
-/* Skills ikoner */
+/* SKIILLLS ikoner */
 .card-tech {
     display: flex;
     gap: 0.5rem;
@@ -986,9 +995,7 @@ body:not(.light) .icon-img.dark {
     
 }
 
-
-
-/* Features text */
+/* FEATURES text */
 #features {
     text-align: left;
     padding-left: 1rem;
@@ -1033,7 +1040,6 @@ body:not(.light) .icon-img.dark {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    overflow: hidden; /* STOPPAR overflow */
 }
 
 /* INRE WRAPPER */
@@ -1041,19 +1047,16 @@ body:not(.light) .icon-img.dark {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    overflow: hidden; /* STOPPAR overflow */
 }
 
 .references-track {
     display: flex;
     gap: 0;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
+    overflow-x: auto;        /* horisontell scroll */
+    overflow-y: hidden;      /* ingen vertikal scroll */
+    scroll-snap-type: x mandatory;  /* snappar korten */
+    scroll-behavior: smooth; /* mjuk scroll */
     padding-bottom: 1rem;
-    
-    /* Tvinga komponenten att hålla sig till tillgänglig bredd */
     width: 100%;
     max-width: 100vw; 
     box-sizing: border-box;
@@ -1087,7 +1090,7 @@ body:not(.light) .icon-img.dark {
 }
 
 .references-track::-webkit-scrollbar-track {
-    background: rgba(255,255,255,0.05); /* diskret glasbakgrund */
+    background: rgba(255,255,255,0.05); 
     border-radius: 10px;
 }
 
@@ -1248,9 +1251,6 @@ body:not(.light) .icon-img.dark {
     transition: 0.25s ease;
 }
 
-
-
-
 .contact-card textarea {
     min-height: clamp(2rem, 12vw, 8rem);
     margin-bottom: 1rem;
@@ -1296,8 +1296,6 @@ body:not(.light) .icon-img.dark {
 }
 
 
-
-
 /* SKICKA KNAPP */
 .contact-card button {
     width: fit-content;
@@ -1316,7 +1314,7 @@ body:not(.light) .icon-img.dark {
     cursor: pointer;
     box-shadow:
         0 0 2px var(--glow),
-        0 0 6px var(--glow);
+        0 0 2px var(--glow);
 
     transition: 0.25s ease, transform 0.2s ease;
 }
@@ -1342,21 +1340,26 @@ body:not(.light) .icon-img.dark {
 /* Popup: bekräftelse att meddelandet skickats */
 .popup {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(255,255,255,0.1);
-    padding: 1.2rem 1.6rem;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
-    color: var(--glow);
+    width: auto;
+    max-width: 320px;
+    padding: 1.2rem 1.4rem;
+    border-radius: 20px;
+    background: rgba(20, 20, 20, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 0 10px var(--glow);
+    color: var(--text);
     font-weight: 600;
-    box-shadow: 0 0 20px rgba(0, 140, 255, 0.4);
+    text-align: left;
     animation: popupPop 0.35s ease-out forwards;
-    z-index: 9999;
+    z-index: 99999;
 }
+
 
 /* Animation: fade-in för bekräftelse-popup */
 @keyframes popupPop {
@@ -1476,7 +1479,7 @@ footer {
 body.light {
     background: var(--bg-light);
     color: var(--text-dark);
-    --glow-halo: rgba(20,40,160,0.35); /* starkare glow i light mode */
+    --glow-halo: rgba(20,40,160,0.35); 
 }
 
 /* TEXT  */
@@ -1722,4 +1725,9 @@ body.light .skills-list.icons span {
 body.light .skills-list.icons li:hover {
     box-shadow: 0 0 10px var(--glow);
     transform: translateY(-4px) scale(1.05);
+}
+
+/* visa ljusa ikoner i light mode */
+body.light .icon-img.light {
+    display: inline-block;               
 }

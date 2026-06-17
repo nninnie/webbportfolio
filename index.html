@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio av Ninnie Dahlström - junior systemutvecklare inom .NET, C#, SQL, API och modern webbutveckling.">
     <title>Ninnie Dahlström - Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -11,15 +12,16 @@
 </head>
 
 <body>
+<a href="#main" class="skip-link">Hoppa till innehåll</a>
 
 <header class="navbar">
     <nav>
 
-        <!-- Väder längst till vänster -->
+        <!-- Väder till väsnter -->
         <span id="weather" class="weather">--°C</span>
 
         <!-- Hamburgarmeny (mobil) -->
-        <button class="hamburger" id="hamburgerBtn" aria-label="Öppna meny" aria-expanded="false">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Öppna meny" aria-expanded="false" aria-controls="mobileMenu">
             ☰
         </button>
 
@@ -32,12 +34,12 @@
             <li><a href="cv-ninniedahlstrom.pdf" download>Ladda ner CV</a></li>
         </ul>
 
-        <!-- Ikoner längst till höger -->
+        <!-- Dark/Light Mode & Språk längst till höger -->
         <div class="nav-controls">
             <button id="themeToggle" class="icon-btn" aria-label="Byt tema">🌕</button>
             <button id="languageToggle" class="icon-btn" aria-label="Byt språk">🌐</button>
 
-            <!-- Dold select språk -->
+            <!-- Dold select språk - måste ha -->
             <select id="languageSelect" class="hidden-select">
                 <option value="sv">SV</option>
                 <option value="en">EN</option>
@@ -58,7 +60,8 @@
 </header>
 
 <!-- MAIN START -->
-<main class="page-wrapper">
+<main id="main" class="page-wrapper">
+
 
 <!-- HERO -->
 <section class="hero">
@@ -86,6 +89,8 @@
         </a>
     </div>
 </section>
+
+
 
 <!-- ABOUT -->
 <section id="about" class="sectionabout">
@@ -121,6 +126,8 @@
     </div>
 </section>
 
+
+
 <!-- SKILLS -->
 <section id="skills" class="section skills-section">
     
@@ -133,26 +140,26 @@
 
             <ul class="skills-list icons">
 
-                <!-- BACKEND & DATABAS -->
-                <li><i class="devicon-csharp-plain colored"></i><span>C# / .NET</span></li>
-                <li><i class="devicon-microsoftsqlserver-plain colored"></i><span>SQL Server</span></li>
-                <li><i class="devicon-postman-plain colored"></i><span>REST API</span></li>
+                <!-- DEVIOCN - IKONER -->
+                <li><i class="devicon-csharp-plain colored" aria-label="C# / .NET ikon"></i><span>C# / .NET</span></li>
+                <li><i class="devicon-microsoftsqlserver-plain colored" aria-label="SQL Server ikon"></i><span>SQL Server</span></li>
+                <li><i class="devicon-postman-plain colored" aria-label="Postman / REST API ikon"></i><span>REST API</span></li>
 
-                <!-- FRONTEND -->
-                <li><i class="devicon-html5-plain colored"></i><span>HTML5</span></li>
-                <li><i class="devicon-css3-plain colored"></i><span>CSS3</span></li>
-                <li><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></li>
+                <li><i class="devicon-html5-plain colored" aria-label="HTML5 ikon"></i><span>HTML5</span></li>
+                <li><i class="devicon-css3-plain colored" aria-label="CSS3 ikon"></i><span>CSS3</span></li>
+                <li><i class="devicon-javascript-plain colored" aria-label="JavaScript ikon"></i><span>JavaScript</span></li>
 
-                <!-- VERKTYG -->
-                <li><i class="devicon-git-plain colored"></i><span>Git</span></li>
-                <li><i class="devicon-github-original github-icon"></i><span>GitHub</span></li>
-                <li><i class="devicon-visualstudio-plain colored"></i><span>Visual Studio</span></li>
-                <li><i class="devicon-vscode-plain colored"></i><span>VS Code</span></li>
+                <li><i class="devicon-git-plain colored" aria-label="Git ikon"></i><span>Git</span></li>
+                <li><i class="devicon-github-original github-icon" aria-label="GitHub ikon"></i><span>GitHub</span></li>
+                <li><i class="devicon-visualstudio-plain colored" aria-label="Visual Studio ikon"></i><span>Visual Studio</span></li>
+                <li><i class="devicon-vscode-plain colored" aria-label="VS Code ikon"></i><span>VS Code</span></li>
 
             </ul>
         </div>
     </div>
 </section>
+
+
 
 <!-- PORTFOLIO -->
 <section id="portfolio" class="sectionproject">
@@ -165,8 +172,9 @@
         <div class="projects-card" id="projectsGrid"></div>
 
     <!-- PROJECT MODAL -->
-    <div id="projectModal" class="project-modal">
-        <div class="project-modal-content" role="dialog" aria-modal="true">
+    <div id="projectModal" class="project-modal" role="dialog" aria-modal="true">
+
+        <div class="project-modal-content">
 
             <button class="close-modal" aria-label="Stäng projektfönster">✕</button>
             
@@ -227,8 +235,6 @@
         </p>
       </div>
 
-
-
       <div class="reference-card">
         <h3 class="reference-title">Kevin Jammeh - Studiekamrat</h3>
         <p class="reference-text">
@@ -245,7 +251,7 @@
         </p>
       </div>
 
-            <div class="reference-card">
+      <div class="reference-card">
         <h3 class="reference-title">David Marténg - VD, Qualified Sales Sweden AB </h3>
         <p class="reference-text">
           "Jag var VD för bolaget där Ninnie arbetade administrativt, och jag kan
@@ -267,9 +273,6 @@
 </section>
 
 
-
-
-
 <!-- CONTACT -->
 <section id="contact" class="sectioncontact">
  
@@ -286,7 +289,7 @@
                         <img src="image/icons/user-round.png" alt="User" class="input-icon icon-rosa">
                         Namn
                     </label>
-                    <input type="text" id="name" required oninvalid="this.setCustomValidity('Fyll i ditt namn')" oninput="this.setCustomValidity('')">
+                    <input type="text" id="name" required oninvalid="this.setCustomValidity('Fyll i ditt namn')" oninput="this.setCustomValidity('')" aria-invalid="false">
 
                 </div>
 
@@ -295,7 +298,7 @@
                         <img src="image/icons/mail.png" alt="Email" class="input-icon icon-orange">
                         Email
                     </label>
-                    <input type="email" id="email" required oninvalid="this.setCustomValidity('Ange en giltig e-postadress')" oninput="this.setCustomValidity('')">
+                    <input type="email" id="email" required oninvalid="this.setCustomValidity('Ange en giltig e-postadress')" oninput="this.setCustomValidity('')" aria-invalid="false">
 
                 </div>
 
@@ -304,7 +307,7 @@
                         <img src="image/icons/message.png" alt="Meddelande" class="input-icon icon-bla">
                         Meddelande
                     </label>
-                    <textarea id="message" required minlength="5" oninvalid="this.setCustomValidity('Skriv ett meddelande')" oninput="this.setCustomValidity('')"></textarea>
+                    <textarea id="message" required minlength="5" oninvalid="this.setCustomValidity('Skriv ett meddelande')" oninput="this.setCustomValidity('')" aria-invalid="false"></textarea>
 
                 </div>
 
@@ -318,7 +321,9 @@
                 </button>
 
                 <div id="successPopup" class="popup">
-                    <p>Tack! Ditt meddelande är nu på väg till Ninnie Dahlström.</p>
+                    <p>Tack!✨ Jag återkommer så snart jag kan. 
+                        - Ninnie Dahlström
+                    </p>
                 </div>
 
             </form>
@@ -356,7 +361,7 @@
 
     
     <p class="footer-credit">
-    <span class="copy-symbol">©</span> Designed & developed by <span class="name">Ninnie Dahlström</span>
+    <span class="copy-symbol">©</span> Designad & utvecklad av <span class="name">Ninnie Dahlström</span>
     </p>
 
 
