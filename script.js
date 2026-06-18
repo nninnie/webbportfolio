@@ -1,16 +1,16 @@
 /* -----------------------------------------
-   ☀️ / 🌙  TEMA-TOGGLE (sol i light mode, måne i dark mode)
+   🔆 / 🌙  TEMA-TOGGLE / Språk-knapp (SE - EN)
 ----------------------------------------- */
 // Tema-knapp (dark - light)
 const themeBtn = document.getElementById("themeToggle");
 
 themeBtn.addEventListener("click", () => {
-    document.body.classList.toggle("light-mode");
+    document.body.classList.toggle("light");
 
-    if (document.body.classList.contains("light-mode")) {
+    if (document.body.classList.contains("light")) {
         themeBtn.textContent = "🌙"; // Light mode aktiv → visa måne
     } else {
-        themeBtn.textContent = "☀️"; // Dark mode aktiv → visa sol
+        themeBtn.textContent = "🔆"; // Dark mode aktiv → visa sol
     }
 });
 

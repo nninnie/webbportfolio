@@ -224,14 +224,11 @@ body {
     border: none;
     padding: 0;
     cursor: pointer;
-    color: var(--text);
-}
-
-/* ikoner nav bar */
-.icon-btn {
+    color: var(--text) !important;
     font-size: 1rem;
 }
-/* vädewr ikon nav bar */
+
+/* väder ikon nav bar */
 .weather {
     font-size: 1rem;
 }
@@ -365,7 +362,7 @@ body {
     border-radius: 50%;          
     overflow: hidden;
     transition: 0.3s ease;
-    color: #ececec;
+    color: var(--text) !important;
     position: relative;
 }
 
@@ -374,6 +371,7 @@ body {
     font-size: clamp(0.6rem, 1vw, 0.8rem);
     font-weight: 500;
     transition: opacity 0.25s ease;
+    color: var(--text) !important;
 }
 
 .btn.orb:hover {
@@ -395,7 +393,7 @@ body {
     margin-right: 4px;
     vertical-align: middle;
     transition: 0.25s ease;
-    filter: brightness(0) invert(1);
+    filter: brightness(0) invert(1) !important;
 }
 
 .btn.orb,
@@ -1542,7 +1540,6 @@ body.light h3 {
 body.light footer,
 body.light .nav-links a,
 body.light .mobile-menu a,
-body.light .icon-btn,
 body.light .hero,
 body.light .sectionabout,
 body.light .skills-section,
@@ -1717,11 +1714,6 @@ body.light .contact-card button {
     border: none;
     color: #fff;
     box-shadow: 0 4px 14px rgba(0,0,0,0.25);
-}
-
-/* Ikoner */
-body.light .btn-icon {
-    filter: brightness(0) invert(0);
 }
 
 body.light .github-icon {
