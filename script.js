@@ -1,18 +1,37 @@
 /* -----------------------------------------
-   🔆 / 🌙  TEMA-TOGGLE / Språk-knapp (SE - EN)
+   ☀️ / 🌙  TEMA-TOGGLE / Språk-knapp (SE - EN)
 ----------------------------------------- */
 // Tema-knapp (dark - light)
 const themeBtn = document.getElementById("themeToggle");
+const themeIcon = document.getElementById("themeIcon");
 
 themeBtn.addEventListener("click", () => {
     document.body.classList.toggle("light");
 
     if (document.body.classList.contains("light")) {
-        themeBtn.textContent = "🌙"; // Light mode aktiv → visa måne
+        themeIcon.innerHTML = `
+            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 0111.21 3 
+                         7 7 0 1019 14.79 
+                         9.05 9.05 0 0121 12.79z"/>
+            </svg>
+        `;
     } else {
-        themeBtn.textContent = "🔆"; // Dark mode aktiv → visa sol
+        themeIcon.innerHTML = `
+            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v2m0 16v2m10-10h-2M4 12H2
+                         m15.364-7.364l-1.414 1.414
+                         M6.05 17.95l-1.414 1.414
+                         m0-13.657l1.414 1.414
+                         M17.95 17.95l1.414 1.414"/>
+            </svg>
+        `;
     }
 });
+
 
 
 // Språk-knapp (SE - EN)
