@@ -362,7 +362,7 @@ body {
 
 /* HERO */
 .hero {
-    max-width: 1200px;
+    max-width: 1100px;
     width: 90%;
     margin: 0 auto;  
     text-align: center;
@@ -549,7 +549,7 @@ body {
 
 /* ============== ABOUT ============== */
 .sectionabout {
-    max-width: 1200px;
+    max-width: 1100px;
     width: 80%;
     margin: 0 auto;  
     font-size: clamp(0.9rem, 1.8vw, 1.1rem);
@@ -572,7 +572,7 @@ body {
     gap: 2rem;
     align-items: stretch; /* gör att båda korten synkas i höjd */
     width: 100%;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     box-sizing: border-box;
 }
@@ -700,7 +700,7 @@ body {
 
 .skills-section {
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1100px;
     width: 90%;
     line-height: 1.5;
     opacity: 0.9;
@@ -716,7 +716,7 @@ body {
     font-weight: 900;
 }
 .skills-wrapper {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     width: 90%;
 }
@@ -807,7 +807,7 @@ body {
 /* ============== PORTFOLIO ============== */
 .sectionproject {
     text-align: center;              
-    max-width: 1200px;
+    max-width: 1100px;
     width: 90%;
     margin: 0 auto;    
     font-size: clamp(0.9rem, 2vw, 1.1rem); 
@@ -830,7 +830,7 @@ body {
 
 
 .portfolio-wrapper {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     width: 90%;
 }
@@ -1124,7 +1124,7 @@ body:not(.light) .icon-img.dark {
 /* ============== REFERENCES ============== */
 
 .section-references {
-    max-width: 1200px;
+    max-width: 1100px;
     width: 90%;
     margin: 0 auto;
     text-align: left;
@@ -1136,14 +1136,14 @@ body:not(.light) .icon-img.dark {
 .references-slider {
     position: relative;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
 /* INRE WRAPPER */
 .references-wrapper {
     width: 90%;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
@@ -1267,7 +1267,7 @@ body:not(.light) .icon-img.dark {
 
 /* ============== CONTACT ============== */
 .sectioncontact {
-    max-width: 1200px;
+    max-width: 1100px;
     width: 90%;
     margin: 0 auto;  
     text-align: center;
@@ -1299,7 +1299,7 @@ body:not(.light) .icon-img.dark {
 }
 
 .contact-wrapper {
-    max-width: 1200px;
+    max-width: 1100px;
     width: 90%;
     margin: 0 auto;  
 }
