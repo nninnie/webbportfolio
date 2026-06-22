@@ -110,17 +110,21 @@ body {
     top: -40px;
     left: 1rem;
     background: var(--glow);
-    color: #fff;
     padding: 0.6rem 1rem;
     border-radius: 0.5rem;
     font-weight: 600;
     z-index: 9999;
     transition: top 0.25s ease;
+    opacity: 0; /* gömd skip link*/
+    pointer-events: none;
 }
 
 .skip-link:focus {
     top: 1rem;
+    opacity: 1;            
+    pointer-events: auto;  
 }
+
 
 
 /* ============== NAVBAR ============== */
@@ -790,7 +794,7 @@ body {
 .projects-card {
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     justify-content: center; 
 }
 
@@ -812,13 +816,13 @@ body {
 /* PORTFOLIO CARD */
 .project-card {
     box-sizing: border-box;
+    width: 100%;
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.12);
     backdrop-filter: blur(12px);
-    padding: 1.5em;
+    padding: 1.5rem 2rem 0.2rem; 
     border-radius: 1rem;
     text-align: left;
-    width: 90%;
     transition: 0.25s ease;
     cursor: pointer;
     box-shadow:
@@ -826,7 +830,6 @@ body {
         0 0 12px rgba(0,0,0,0.15);
     display: flex;
     flex-direction: column;
-
 }
 
 .project-card:hover {
@@ -872,8 +875,7 @@ body {
 /* Text på card */
 .project-card p {
     opacity: 0.8;
-    font-size: clamp(0.78rem, 1.3vw, 0.9rem);
-    margin-bottom: 1rem;
+    font-size: clamp(0.8rem, 1.3vw, 0.9rem);
     min-height: 50px; 
 }
 
@@ -881,33 +883,64 @@ body {
 /* skills blå egna ikoner */
 .project-tags {
     display: flex;
-    gap: 0.5rem;
-    flex-wrap: nowrap;
-    margin-top: 1rem;
-    padding-bottom: 1rem;
+    gap: 0.4rem;
+    flex-wrap: nowrap;       
     overflow-x: auto;
-    scrollbar-width: thin;             
-    scrollbar-color: var(--text-dark) transparent;
+    margin-top: 1rem;
+    overflow: visible;    
 }
+
 
 .project-tags .tag {
     background: rgba(255,255,255,0.08);
     padding: clamp(1.5px, 0.3vw, 3px)
              clamp(3px, 0.6vw, 8px);
     border-radius: 12px;
-    font-size: clamp(0.6rem, 0.9vw, 0.75rem);
+    font-size: clamp(0.6rem, 0.8vw, 0.70rem);
     letter-spacing: 0.5px;
     color: var(--blue);
     border: 1px solid var(--blue);
     opacity: 0.9;
     white-space: nowrap;
-    flex-shrink: 1;
+    flex-shrink: 0;
+}
+
+/* klicka på projekten */
+.project-click {
+    margin-top: 1rem;      
+    opacity: 0.6 !important;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.65rem !important;
+    letter-spacing: 0.3px;
+    padding: 0;
+    transition: opacity 0.35s ease, color 0.35s ease, text-shadow 0.35s ease;
 }
 
 
 
+.project-card:hover .project-click {
+    opacity: 1;
+    color: var(--text);
+    text-shadow: 0 0 8px var(--glow), 0 0 14px var(--glow);
+}
 
-/* MODAL WRAPPER - öppnar nytt card */
+.arrow {
+    display: inline-block;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                text-shadow 0.35s ease;
+}
+
+.project-card:hover .arrow {
+    transform: translateX(6px);
+    text-shadow: 0 0 10px var(--glow), 0 0 18px var(--glow);
+}
+
+
+
+/* MODAL WRAPPER - öppnar projekt card */
 
 /* OVERLAY */
 .project-modal {
@@ -1306,8 +1339,15 @@ body:not(.light) .icon-img.dark {
     flex-direction: column;
     gap: 0.5rem;
     align-items: flex-start;
+    
 
 }
+
+/* medelande ruta, samma font som resten av conttakt form */
+textarea {
+    font-family: inherit; /* använd samma font som parent*/
+}
+
 
 /* Label med ikon */
 .input-label {
