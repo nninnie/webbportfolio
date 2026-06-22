@@ -288,7 +288,9 @@ Object.entries(projects).forEach(([title, data]) => {
     ${data.tech.map(t => `<span class="tag">${t}</span>`).join("")}
 </div> 
         
-<p class="project-click">Se projekt <span class="arrow">→</span></p>
+<p class="project-click">Se projekt <span class="arrow">→</span></p><div class="ui-card-accent"></div>
+
+
 
     `;
 
