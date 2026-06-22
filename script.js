@@ -275,7 +275,10 @@ Object.entries(projects).forEach(([title, data]) => {
     card.className = "folder-item project-card";
 
     card.innerHTML = `
-        <div class="project-icon"><img src="image/icons/folder.png" alt="folder" class="folder-icon"></div>
+        <div class="ui-card-accent"></div>
+        <div class="project-icon">
+        <img src="image/icons/folder.png" alt="folder" class="folder-icon">
+        </div>
         
         <span class="folder-title">${title}</span>
         <p>${data.description}</p>

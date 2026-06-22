@@ -37,6 +37,23 @@ section {
     scroll-margin-top: 6rem;
 }
 
+/* ACCENT I CARD */
+.ui-card-accent {
+    width: 100%;
+    height: 3px;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg,
+        #1428A0,
+        var(--purple),
+        var(--pink)
+    );
+    box-shadow:
+        0 0 6px var(--glow),
+        0 0 12px rgba(255,255,255,0.25);
+    opacity: 0.85;
+}
+
 
 /* ============== TEXT - FONT ============== */
 h1 {
@@ -916,27 +933,16 @@ body {
     font-size: 0.65rem !important;
     letter-spacing: 0.3px;
     padding: 0;
-    transition: opacity 0.35s ease, color 0.35s ease, text-shadow 0.35s ease;
+    transition:
+        opacity 0.35s ease,
+        color 0.35s ease,
+        text-shadow 0.35s ease,
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    transform-origin: right center; 
+
 }
 
 
-
-.project-card:hover .project-click {
-    opacity: 1;
-    color: var(--text);
-    text-shadow: 0 0 8px var(--glow), 0 0 14px var(--glow);
-}
-
-.arrow {
-    display: inline-block;
-    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-                text-shadow 0.35s ease;
-}
-
-.project-card:hover .arrow {
-    transform: translateX(6px);
-    text-shadow: 0 0 10px var(--glow), 0 0 18px var(--glow);
-}
 
 
 
