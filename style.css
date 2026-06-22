@@ -22,9 +22,8 @@
 
 /* ===== GLOBAL WRAPPER =======*/
 .page-wrapper {
-    max-width: 1400px; 
+    max-width: 100%; 
     margin: 0 auto;
-    padding: 0 1rem;
     flex: 1;
 }
 
@@ -58,7 +57,8 @@ section {
 /* ============== TEXT - FONT ============== */
 h1 {
     font-family: "Montserrat", sans-serif;
-    font-size: clamp(2.8rem, 7vw, 5rem);
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    word-break: break-word;
     font-weight: 900;
     text-align: center;
     letter-spacing: -1px;
@@ -71,24 +71,24 @@ h2 {
     font-weight: 700;
     letter-spacing: -1px;
     margin-bottom: 1rem;
-    font-size: clamp(2rem, 5vw, 3.5rem); 
+    font-size: clamp(2rem, 5vw, 3rem); 
     text-align: left;
 }
 
 h3 {
     font-family: "Poppins", sans-serif;
     font-weight: 300;
-    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-size: clamp(1.4rem, 3vw, 1.6rem);
 }
 p {
     font-family: "Poppins", sans-serif;
-    font-size: clamp(0.9rem, 1.4vw, 1.2rem);
+    font-size: clamp(0.9rem, 1.4vw, 1.1rem);
     line-height: 1.6;
 }
 
 a, li, span {
     font-family: "Poppins", sans-serif;
-    font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+    font-size: clamp(0.8rem, 1.4vw, 1rem);
     line-height: 1.6;
 }
 
@@ -156,6 +156,7 @@ body {
     will-change: top;
 }
 
+
 /* NAVBAR CONTENT */
 .navbar nav {
     display: flex;
@@ -169,7 +170,7 @@ body {
 /* VÄDER – alltid vänster */
 .weather {
     opacity: 0.9;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 1.4vw, 1.1rem);
 }
 
 /* Väder - locatiion */
@@ -361,17 +362,17 @@ body {
 
 /* HERO */
 .hero {
-    max-width: 900px;
-    width: 100%;
+    max-width: 1200px;
+    width: 90%;
     margin: 0 auto;  
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center; 
-    padding: 0 0 3rem 0;
-    box-sizing: border-box; /* Gör att padding och border räknas in i elementets totala bredd*/
-    min-height: 100vh;
+    padding: 0 0 5rem 0;
+    box-sizing: border-box; 
+    height: 100dvh;
 }
 
 .hero h1 {
@@ -386,8 +387,8 @@ body {
 .hero p {
     margin-top: 0;        
     line-height: 1.4;      
-    margin-bottom: 2rem;
-    font-size: clamp(0.75rem, 1.6vw, 1.1rem);    
+    margin-bottom: 1rem;
+    font-size: clamp(0.8rem, 1.6vw, 1.1rem);    
 }
 
 /* HERO - KNAPPAR*/
@@ -487,7 +488,7 @@ body {
 
 /* HERO - PORTRÄTT BILD*/
 .portrait {
-    width: clamp(6rem, 20vw, 10rem);
+    width: clamp(6.5rem, 20vw, 8.5rem);
     border-radius: 20rem;
     border: 0.1px solid var(--glow);
     box-shadow:
@@ -567,11 +568,11 @@ body {
 
 .about-wrapper {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
     gap: 2rem;
     align-items: stretch; /* gör att båda korten synkas i höjd */
-    width: 100%;
-    max-width: 1400px;
+    width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -590,6 +591,8 @@ body {
     backdrop-filter: blur(10px);
     line-height: 1.6;
     opacity: 0.9;
+    box-sizing: border-box;
+    max-width: 100%;
     
 }
 
@@ -603,6 +606,8 @@ body {
     line-height: 1.6;
     opacity: 0.9;
     padding-bottom: 2rem;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -710,11 +715,12 @@ body {
     font-weight: 900;
 }
 .skills-wrapper {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
-    width: 100%;
+    width: 90%;
 }
 .skills-card {
+    box-sizing: border-box;
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.12);
     width: 90%;
@@ -800,10 +806,9 @@ body {
 /* ============== PORTFOLIO ============== */
 .sectionproject {
     text-align: center;              
-    max-width: 1400px;
+    max-width: 1200px;
     width: 90%;
-    margin: 0 auto;
-    padding: 0 1rem;      
+    margin: 0 auto;    
     font-size: clamp(0.9rem, 2vw, 1.1rem); 
     line-height: 1.6;                
     opacity: 0.9;                   
@@ -817,15 +822,16 @@ body {
 .projects-card {
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     justify-content: center; 
 }
 
 
+
 .portfolio-wrapper {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
-    width: 100%;
+    width: 90%;
 }
 
 .sectionproject .accent {
@@ -839,11 +845,10 @@ body {
 /* PORTFOLIO CARD */
 .project-card {
     box-sizing: border-box;
-    width: 100%;
+    width: 100%; 
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.12);
     backdrop-filter: blur(12px);
-    padding: 1.5rem 2rem 0.2rem; 
     border-radius: 1rem;
     text-align: left;
     transition: 0.25s ease;
@@ -853,6 +858,7 @@ body {
         0 0 12px rgba(0,0,0,0.15);
     display: flex;
     flex-direction: column;
+    padding: clamp(0.8rem, 2vw, 1.2rem);
 }
 
 .project-card:hover {
@@ -862,8 +868,8 @@ body {
 
 /* Bakgrund på map ikoenen */
 .project-icon {
-    width: 28px;
-    height: 28px;
+    width: clamp(28px, 3vw, 40px);
+    height: clamp(28px, 3vw, 40px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -908,11 +914,10 @@ body {
 .project-tags {
     display: flex;
     gap: 0.4rem;
-    flex-wrap: nowrap;       
-    overflow-x: auto;
+    flex-wrap: wrap;       
     margin-top: 1rem;
-    overflow: visible;    
 }
+
 
 
 .project-tags .tag {
@@ -925,8 +930,8 @@ body {
     color: var(--blue);
     border: 1px solid var(--blue);
     opacity: 0.9;
-    white-space: nowrap;
-    flex-shrink: 0;
+    white-space: normal;
+    flex-shrink: 1;
 }
 
 /* klicka på projekten */
@@ -969,8 +974,9 @@ body {
 
 /* SJÄLVA KORTET */
 .project-modal-content {
-    width: 92%;
-    max-width: 420px;
+    width: min(90%, 380px);
+    padding: clamp(0.8rem, 3vw, 1.2rem);
+    box-sizing: border-box;
     padding: 1.2rem 1.4rem;
     border-radius: 20px;
     background: rgba(20, 20, 20, 0.92);
@@ -1122,21 +1128,21 @@ body:not(.light) .icon-img.dark {
     margin: 0 auto;
     text-align: left;
     scroll-margin-top: clamp(80px, 15vw, 250px);
-    min-height: 100vh;
+    min-height: 100dvh;
 }
 
 /* YTTRE WRAPPER */
 .references-slider {
     position: relative;
-    width: 100%;
-    max-width: 1400px;
+    width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 /* INRE WRAPPER */
 .references-wrapper {
-    width: 100%;
-    max-width: 1400px;
+    width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -1149,25 +1155,25 @@ body:not(.light) .icon-img.dark {
     scroll-behavior: smooth; /* mjuk scroll */
     padding-bottom: 1rem;
     width: 100%;
-    max-width: 100vw; 
+    max-width: 100%;
     box-sizing: border-box;
 }
 
 .reference-card {
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: space-between;
-    flex: 0 0 min(1200px, 90%); 
-    width: min(1200px, 100%);   
-    max-width: 1200px;
-    margin-right: 1rem;
+    flex: 0 0 90%;
+    max-width: 90%;
+    box-sizing: border-box;
     margin-bottom: 1rem;
     scroll-snap-align: center;
     padding: clamp(1rem, 2.5vw, 1.6rem);
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.12);
     backdrop-filter: blur(12px);
-    border-radius: 1rem;
+    border-radius: 2rem;
     opacity: 0.9;
     transition: 0.25s ease;
     box-sizing: border-box;
@@ -1264,6 +1270,7 @@ body:not(.light) .icon-img.dark {
     color: var(--blue);
 }
 
+
 /* ============== CONTACT ============== */
 .sectioncontact {
     max-width: 1200px;
@@ -1298,8 +1305,8 @@ body:not(.light) .icon-img.dark {
 }
 
 .contact-wrapper {
-    max-width: 1400px;
-    width: 100%;
+    max-width: 1200px;
+    width: 90%;
     margin: 0 auto;  
 }
 
