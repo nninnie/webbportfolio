@@ -952,6 +952,7 @@ body {
         text-shadow 0.35s ease,
         transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     transform-origin: right center; 
+    margin-top: auto;
 
 }
 
