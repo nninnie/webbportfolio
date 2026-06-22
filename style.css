@@ -779,7 +779,7 @@ body {
 
 
 .skills-list.icons i {
-    font-size: clamp(30px, 4vw, 50px);
+    font-size: clamp(25px, 3vw, 45px);
     margin-bottom: 0.2rem;
     opacity: 0.95;
     transition: 0.25s ease;
@@ -791,7 +791,7 @@ body {
     padding-bottom: 1rem;
 }
 .skills-list.icons span {
-    font-size: clamp(0.7rem, 1.1vw, 0.85rem);
+    font-size: clamp(0.6rem, 1vw, 0.85rem);
     opacity: 0.75;
     font-weight: 400;
     margin-top: 0.2rem;
@@ -823,7 +823,7 @@ body {
 .projects-card {
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(clamp(180px, 25vw, 260px), 1fr));
     justify-content: center; 
 }
 
@@ -906,7 +906,7 @@ body {
 /* Text på card */
 .project-card p {
     opacity: 0.8;
-    font-size: clamp(0.8rem, 1.3vw, 0.9rem);
+    font-size: clamp(0.8rem, 1.3vw, 1rem);
     min-height: 50px; 
 }
 
@@ -926,7 +926,7 @@ body {
     padding: clamp(1.5px, 0.3vw, 3px)
              clamp(3px, 0.6vw, 8px);
     border-radius: 12px;
-    font-size: clamp(0.6rem, 0.8vw, 0.70rem);
+    font-size: clamp(0.55rem, 0.6vw, 0.65rem);
     letter-spacing: 0.5px;
     color: var(--blue);
     border: 1px solid var(--blue);
