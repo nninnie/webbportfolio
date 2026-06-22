@@ -550,7 +550,7 @@ body {
 /* ============== ABOUT ============== */
 .sectionabout {
     max-width: 1200px;
-    width: 90%;
+    width: 80%;
     margin: 0 auto;  
     font-size: clamp(0.9rem, 1.8vw, 1.1rem);
     line-height: 1.6;
@@ -571,9 +571,10 @@ body {
     grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
     gap: 2rem;
     align-items: stretch; /* gör att båda korten synkas i höjd */
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
@@ -723,7 +724,7 @@ body {
     box-sizing: border-box;
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.12);
-    width: 90%;
+    width: 100%;
     padding: clamp(1.8rem, 4vw, 3rem) clamp(1.2rem, 3vw, 2.2rem);
     border-radius: 1.1rem;
     backdrop-filter: blur(12px);
@@ -1134,7 +1135,7 @@ body:not(.light) .icon-img.dark {
 /* YTTRE WRAPPER */
 .references-slider {
     position: relative;
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -1207,6 +1208,7 @@ body:not(.light) .icon-img.dark {
     scrollbar-width: thin;
     scrollbar-color: var(--glow) rgba(255,255,255,0.05);
     align-items: stretch;
+    gap: 0.8rem;
 }
 
 
@@ -1258,17 +1260,10 @@ body:not(.light) .icon-img.dark {
     font-weight: 700;
 }
 
-.reference-card:nth-child(1) .reference-signature strong {
-    color: var(--orange);
-}
-
-.reference-card:nth-child(2) .reference-signature strong {
-    color: var(--pink);
-}
-
-.reference-card:nth-child(3) .reference-signature strong {
+.reference-card .reference-signature strong {
     color: var(--blue);
 }
+
 
 
 /* ============== CONTACT ============== */
