@@ -65,7 +65,7 @@ h3 {
 }
 p {
     font-family: "Poppins", sans-serif;
-    font-size: clamp(0.9rem, 1.6vw, 1.2rem);
+    font-size: clamp(0.9rem, 1.4vw, 1.2rem);
     line-height: 1.6;
 }
 
@@ -522,7 +522,7 @@ body {
 
 /* ============== ABOUT ============== */
 .sectionabout {
-    max-width: 1400px;
+    max-width: 1200px;
     width: 90%;
     margin: 0 auto;  
     font-size: clamp(0.9rem, 1.8vw, 1.1rem);
@@ -667,7 +667,7 @@ body {
 
 .skills-section {
     margin: 0 auto;
-    max-width: 1400px;
+    max-width: 1200px;
     width: 90%;
     line-height: 1.5;
     opacity: 0.9;
@@ -754,7 +754,6 @@ body {
 .skills-card p {
     text-align: center;
     opacity: 0.7;
-    font-size: clamp(0.75rem, 1.4vw, 0.9rem);
     padding-bottom: 1rem;
 }
 .skills-list.icons span {
@@ -1072,7 +1071,7 @@ body:not(.light) .icon-img.dark {
 /* ============== REFERENCES ============== */
 
 .section-references {
-    max-width: 1400px;
+    max-width: 1200px;
     width: 90%;
     margin: 0 auto;
     text-align: left;
@@ -1112,9 +1111,9 @@ body:not(.light) .icon-img.dark {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    flex: 0 0 min(1400px, 100%); 
-    width: min(1400px, 100%);   
-    max-width: 1400px;
+    flex: 0 0 min(1200px, 90%); 
+    width: min(1200px, 100%);   
+    max-width: 1200px;
     margin-right: 1rem;
     margin-bottom: 1rem;
     scroll-snap-align: center;
@@ -1199,7 +1198,6 @@ body:not(.light) .icon-img.dark {
 /* SIGNATURE */
 .reference-signature {
     margin-top: 1rem;
-    font-style: italic;
     opacity: 0.85;
     font-size: clamp(0.7rem, 1vw, 0.85rem);
 }
@@ -1222,7 +1220,7 @@ body:not(.light) .icon-img.dark {
 
 /* ============== CONTACT ============== */
 .sectioncontact {
-    max-width: 1400px;
+    max-width: 1200px;
     width: 90%;
     margin: 0 auto;  
     text-align: center;
