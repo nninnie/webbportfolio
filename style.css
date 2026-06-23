@@ -173,7 +173,7 @@ body {
 /* VÄDER – alltid vänster */
 .weather {
     opacity: 0.9;
-    font-size: clamp(0.7rem, 1.4vw, 1.1rem);
+    font-size: clamp(0.7rem, 0.8vw, 0.8rem);
     align-self: start;
 }
 
@@ -187,7 +187,7 @@ body {
 
 
 .weather-location {
-    font-size: clamp(0.7rem, 1.4vw, 1rem);
+    font-size: clamp(0.6rem, 0.8vw, 0.8rem);
     opacity: 0.8;
     letter-spacing: 0.5px;
 }
@@ -264,7 +264,7 @@ body {
 .nav-controls {
     display: flex;
     align-items: center;
-    gap: clamp(0.3rem, 1vw, 0.8rem);
+    gap: clamp(0.3rem, 0.8vw, 0.6rem);
 }
 
 
