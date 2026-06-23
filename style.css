@@ -4,9 +4,11 @@
 :root {
     --bg: #000000;
     --bg-light: #f7f2f3;
-;
+
+    --contact-form: rgba(255, 255, 255, 0.4);
+
     --text: #ececec;
-    --text-dark: #3a3a3a;
+    --text-dark: #1a1a1a;
 
     --pink: #FF4FD8;
     --orange: #FF7A00;
@@ -224,7 +226,7 @@ body {
 
 /* DESKTOP */
 .nav-links a {
-    font-size: 1rem;
+    font-size: clamp(0.8rem, 1.4vw, 1rem);
 }
 
 /* MOBILMENY */
@@ -292,8 +294,6 @@ body {
 }
 
 
-
-
 /* flagga */
 #langFlag {
     width: 1rem;
@@ -303,8 +303,6 @@ body {
     display: inline-block;
     vertical-align: middle;
 }
-
-
 
 /* DOLD SELECT */
 .hidden-select {
@@ -568,7 +566,9 @@ body {
 
 /* HERO - PORTRÄTT BILD*/
 .portrait {
-    width: clamp(6.5rem, 20vw, 20rem);
+    width: clamp(7rem, 20vw, 20rem);
+    height: auto; 
+    object-fit: cover;
     border-radius: 14rem;
     border: 0.1px solid var(--glow);
     box-shadow:
@@ -753,22 +753,22 @@ body {
 
 /* FÄRGADE ORD i texten */
 .key-purple {
-    color: var(--purple);
+    color: var(--purple) !important;
     font-weight: 600;
     font-size: clamp(1em, 1.1em, 1.25em);
 }
 .key-orange {
-    color: var(--orange);
+    color: var(--orange) !important;
     font-weight: 600;
     font-size: clamp(1em, 1.1em, 1.25em);
 }
 .key-pink {
-    color: var(--pink);
+    color: var(--pink) !important;
     font-weight: 600;
     font-size: clamp(1em, 1.1em, 1.25em);
 }
 .key-blue {
-    color: var(--blue);
+    color: var(--blue) !important;
     font-weight: 600;
     font-size: clamp(1em, 1.1em, 1.225em);
 
@@ -777,7 +777,6 @@ body {
 
 
 /* ============== SKILLS ============== */
-
 .skills-section {
     margin: 0 auto;
     max-width: 1100px;
@@ -812,7 +811,7 @@ body {
     opacity: 0.9;
 }
 
-/* Ikoner */
+/* Ikoner - Container */
 .skills-list.icons {
     list-style: none;
     padding: 0;
@@ -820,29 +819,34 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: clamp(1rem, 2vw, 2rem);
-    justify-items: center;
+    gap: clamp(0.8rem, 2vw, 1.5rem); /* Något tätare gap för bättre flöde på mobil */
     justify-content: center;
     text-align: center;
+    align-items: center;
 }
 
-
+/* Kortet - RESPONSIV  */
 .skills-list.icons li {
     background: rgba(145, 145, 145, 0.041); 
     border: 1px solid rgba(100, 100, 100, 0.28);
     backdrop-filter: blur(18px) saturate(160%); 
     border-radius: 16px;
     box-shadow: 0 0 20px rgba(255,255,255,0.08);
-    width: clamp(40px, 18vw, 90px);
-    aspect-ratio: 1 / 1;
+    width: clamp(75px, 18vw, 100px); 
+    height: auto;
+    min-height: clamp(75px, 18vw, 100px); 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0.6rem;
+    text-align: center;
+    line-height: 1.2;
+    padding: 0.8rem 0.4rem; /* Mer balanserad padding */
+    
     opacity: 0;
     transform: scale(0.92);
     animation: iconPop 0.35s ease-out forwards;
+    transition: transform 0.25s ease, box-shadow 0.25s ease; /* Smidig hover */
 }
 
 @keyframes iconPop {
@@ -850,19 +854,20 @@ body {
     100% { opacity: 1; transform: scale(1); }
 }
 
-
-
+/* HOVER - Flyttad transition till li för bättre flyt */
 .skills-list.icons li:hover {
     transform: translateY(-4px) scale(1.05);
     box-shadow: 0 0 10px var(--glow);
 }
 
-
 .skills-list.icons i {
-    font-size: clamp(25px, 3vw, 45px);
-    margin-bottom: 0.2rem;
+    font-size: clamp(24px, 3vw, 38px); /* Optimerad ikonstorlek för att matcha kortet */
+    margin-bottom: 0.3rem;
     opacity: 0.95;
     transition: 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .skills-card p {
@@ -870,15 +875,20 @@ body {
     opacity: 0.7;
     padding-bottom: 1rem;
 }
+
+/* TEXTEN UNDER IKONEN - CENTRERINGSFIX */
 .skills-list.icons span {
-    font-size: clamp(0.75rem, 1vw, 0.85rem);
+    font-size: clamp(0.68rem, 1vw, 0.8rem); /* Något mer kompakt på mobil */
     opacity: 0.75;
-    font-weight: 400;
-    margin-top: 0.2rem;
+    font-weight: 500;
+    margin-top: 0.1rem;
+    word-break: break-word; /* Bryter långa ord (t.ex. JavaScript) så de inte kraschar kortet */
+    display: block;
+    width: 100%;
 }
 
 .github-icon {
-    font-size: clamp(28px, 4vw, 52px);
+    font-size: clamp(26px, 3.5vw, 44px);
     transition: 0.25s ease;
     filter: invert(0);
 }
@@ -1473,17 +1483,16 @@ textarea {
     align-items: center;
     justify-content: center;
     border-radius: 12px;
-    border: none;
-    background: var(--text-dark);
+    border: 1px solid transparent;
+    background:
+        linear-gradient(var(--text-dark), var(--text-dark)) padding-box,
+        linear-gradient(90deg, #1428A0, var(--purple), var(--pink)) border-box;
     color: var(--text);
     font-size: clamp(0.8rem, 1.2vw, 0.95rem);
     font-weight: 100;
     letter-spacing: 1.6px;
     cursor: pointer;
-    box-shadow:
-        0 0 2px var(--glow),
-        0 0 2px var(--glow);
-
+    box-shadow: none;
     transition: 0.25s ease, transform 0.2s ease;
 }
 
@@ -1647,37 +1656,37 @@ footer {
 body.light {
     background: var(--bg-light);
     color: var(--text-dark);
-    --glow-halo: rgba(20,40,160,0.35); 
+    --glow-halo: rgba(20,40,160,0.35);
 }
 
-/* TEXT  */
+/* TEXT */
 body.light p,
 body.light li,
 body.light span {
-    color: #2a2a2a;
-    opacity: 0.92;
+    color: var(--text-dark);
+    opacity: 0.95;
 }
 
 body.light strong,
 body.light b {
-    color: #1a1a1a;
+    color: var(--text-dark);
     font-weight: 600;
 }
 
 /* Rubriker */
 body.light h2 {
-    color: #111;
+    color: var(--text-dark);
     opacity: 1;
     font-weight: 800;
 }
 
 body.light h3 {
-    color: #222;
+    color: #333;
     opacity: 1;
     font-weight: 700;
 }
 
-/* Behåll dina befintliga overrides */
+/* Globala sektioner */
 body.light footer,
 body.light .nav-links a,
 body.light .mobile-menu a,
@@ -1690,10 +1699,10 @@ body.light .folder-title {
     color: var(--text-dark);
 }
 
-/* Accent och copyright */
+/* Accent */
 body.light .accent,
 body.light .copy-symbol {
-    color: var(--glow) ;
+    color: var(--glow);
     text-shadow:
         0 0 4px var(--glow),
         0 0 4px var(--glow-halo);
@@ -1706,14 +1715,14 @@ body.light .navbar {
     border-bottom: 1px solid rgba(210, 195, 198, 0.55);
 }
 
-/* CV-länk alltid rosa */
+/* CV-länk */
 body.light .nav-links a[href$="cv-ninniedahlstrom.pdf"],
 body.light .mobile-menu a[href$="cv-ninniedahlstrom.pdf"] {
     color: var(--pink);
     font-weight: 500;
 }
 
-/* Portfolio-länk alltid orange */
+/* Portfolio-länk */
 body.light .nav-links a[href*="portfolio"],
 body.light .mobile-menu a[href*="portfolio"] {
     color: var(--orange);
@@ -1728,32 +1737,31 @@ body.light .mobile-menu a:hover {
 
 /* Hamburger */
 body.light #hamburgerBtn {
-    color: rgba(172, 91, 117, 0.85);
+    color: var(--text-dark);
+    opacity: 0.85;
 }
 
-/* CARDS  */
+body.light #hamburgerBtn:hover {
+    color: var(--glow);
+    opacity: 1;
+}
+
+/* CARDS */
 body.light .about-card,
 body.light .skills-card,
 body.light .project-card,
 body.light .reference-card,
 body.light .contact-card,
 body.light .about-education {
-    background: rgba(255,255,255,0.65);
-    border: 1px solid rgba(180, 160, 165, 0.45);
-    backdrop-filter: blur(18px) saturate(160%);
-    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    background: rgba(255, 255, 255, 0.22);
+    border: 1px solid rgba(218, 207, 207, 0.829);
+    backdrop-filter: blur(16px) saturate(140%);
+    box-shadow: 0 8px 32px rgba(20, 40, 160, 0.04);
 }
 
-
-body.light .reference-card:hover {
-    transform: scale(0.94) translateY(-1px);
-    box-shadow:
-        0 0 12px var(--glow),
-        0 0 18px var(--glow-halo);
-}
-
+/* Hover-effekter */
+body.light .reference-card:hover,
 body.light .project-card:hover {
-    transform: translateY(-4px) scale(1.015) rotateX(1deg) rotateY(1deg);
     box-shadow: 0 0 12px var(--glow);
 }
 
@@ -1764,80 +1772,84 @@ body.light .about-education h3 {
     font-weight: 700;
 }
 
-/* SKILLS */
+/* ============== SKILLS ============== */
+
 body.light .skills-list.icons li {
-    background: rgba(255,255,255,0.85);
-    border: 1px solid rgba(180,160,165,0.45);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    background: rgba(255, 255, 255, 0.22);
+    border: 1px solid rgba(218, 207, 207, 0.829);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    height: auto;
+    padding: 0.8rem 0.4rem; /* samma som dark mode */
+    min-height: clamp(75px, 18vw, 100px);
+    aspect-ratio: 1 / 1; /* gör dem kvadratiska igen */
 }
 
 body.light .skills-list.icons i {
-    opacity: 1;
+    filter: none !important;
+    opacity: 1 !important;
 }
 
 body.light .skills-list.icons span {
     color: var(--text-dark);
+}
+
+body.light .skills-list.icons li:hover {
+    box-shadow: 0 0 10px var(--glow);
+    transform: translateY(-4px) scale(1.05);
+}
+
+/* GITHUB ikoner */
+body.light .github-icon {
+    filter: invert(1);
+}
+
+body.light .icon-img.light {
+    display: inline-block;
+}
+
+/* ACCENT I CARD */
+body.light .ui-card-accent {
+    background: linear-gradient(90deg,
+        #1428A0,
+        var(--pink),
+        var(--orange)
+    );
+    box-shadow:
+        0 0 6px var(--glow),
+        0 0 12px rgba(255,255,255,0.25);
     opacity: 1;
-    font-weight: 600;
-    padding-bottom: 2rem;
+}
+
+body.light .reference-title {
+    border-bottom: 1px solid rgba(172, 91, 117, 0.15);
 }
 
 /* PORTFOLIO MODAL */
 body.light .project-modal-content {
     background: rgba(253, 242, 247, 0.904);
-    backdrop-filter: blur(14px);
-    color: var(--text-dark);
     border: 1px solid rgba(210, 195, 198, 0.35);
+    color: var(--text-dark);
 }
 
-/* Modal knappar */
 body.light .project-links a {
     background: rgba(240, 233, 234, 0.24);
     border: 1px solid rgba(158, 141, 144, 0.45);
     color: var(--text-dark);
 }
 
-body.light .project-links a:hover {
-    box-shadow: 0 0 6px var(--glow);
-}
-
-/* Stäng-kryss */
 body.light .close-modal {
     color: var(--text-dark);
-    text-shadow:
-        0 0 4px rgba(0,0,0,0.15),
-        0 0 4px var(--glow-halo);
 }
 
 body.light .close-modal:hover {
     color: var(--glow);
 }
 
-body.light .section-references .section-title,
-body.light .section-references .reference-title {
-    color: var(--text-dark);
-    opacity: 1;
-    font-weight: 700;
-}
-
-body.light .references-track::-webkit-scrollbar-thumb {
-    background: linear-gradient(90deg, #7aa7ff, #d28bff);
-    box-shadow: 0 0 6px rgba(0,0,0,0.15);
-}
-
-body.light .references-track {
-    scrollbar-color: #7aa7ff rgba(240,230,233,0.4);
-}
-
-body.light .contact-card {
-    background: rgba(255,255,255,0.9);
-    border: 1px solid rgba(210,195,198,0.7);
-}
-
+/* CONTACT */
 body.light .contact-card input,
 body.light .contact-card textarea {
-    background: rgba(255,255,255,0.85);
-    border: 1px solid rgba(180,160,165,0.45);
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(218, 207, 207, 0.829);
     color: var(--text-dark);
 }
 
@@ -1849,47 +1861,15 @@ body.light .contact-card textarea:focus {
         0 0 8px rgba(0,0,0,0.08);
 }
 
-/* Knapp */
 body.light .contact-card button {
-    background: linear-gradient(135deg, #444, #222);
-    border: none;
-    color: #fff;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
-}
-
-body.light .github-icon {
-    filter: invert(1);
-}
-
-body.light .github.light {
-    display: inline-block;
-}
-
-/* Behåll färgade ord i light mode */
-body.light .key-purple { color: var(--purple) !important; }
-body.light .key-orange { color: var(--orange) !important; }
-body.light .key-pink   { color: var(--pink) !important; }
-body.light .key-blue   { color: var(--blue) !important; }
-
-/* Skills ikoner – behåll färger i light mode */
-body.light .skills-list.icons i {
-    filter: none !important;
-    opacity: 1 !important;
-}
-
-/* Skills text – behåll färgstyrka */
-body.light .skills-list.icons span {
-    opacity: 1 !important;
+    border: 1px solid transparent;
+    border-radius: 12px;
     color: var(--text-dark);
+    background:
+        linear-gradient(rgb(255, 253, 253), rgb(255, 253, 253)) padding-box,
+        linear-gradient(90deg, #1428A0, var(--pink), var(--orange)) border-box;
 }
 
-/* Skills hover */
-body.light .skills-list.icons li:hover {
-    box-shadow: 0 0 10px var(--glow);
-    transform: translateY(-4px) scale(1.05);
-}
-
-/* visa ljusa ikoner i light mode */
-body.light .icon-img.light {
-    display: inline-block;               
+body.light .send-btn {
+    filter: brightness(1) invert(0);
 }
