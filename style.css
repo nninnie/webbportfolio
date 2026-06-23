@@ -374,6 +374,13 @@ body {
     overflow-x: hidden; 
 }
 
+@media (max-width: 768px) {
+    .hero {
+        transform: translateY(-8vh);
+    }
+}
+
+
 
 .hero-card {
     display: flex;
@@ -852,9 +859,10 @@ body {
     backdrop-filter: blur(18px) saturate(160%); 
     border-radius: 16px;
     box-shadow: 0 0 20px rgba(255,255,255,0.08);
-    width: clamp(45px, 12vw, 80px); 
+    width: clamp(60px, 14vw, 90px);
+    min-height: clamp(60px, 14vw, 90px);
+    padding: clamp(0.4rem, 1.2vw, 0.8rem); 
     height: auto;
-    min-height: clamp(45px, 12vw, 80px); 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1497,24 +1505,25 @@ textarea {
 /* SKICKA KNAPP */
 .contact-card button {
     width: fit-content;
-    padding: 0.65rem 1.35rem;
+    padding: clamp(0.45rem, 1.2vw, 0.75rem) clamp(0.8rem, 2vw, 1.4rem);
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
+    border-radius: clamp(8px, 2vw, 12px);
     border: 1px solid transparent;
     background:
         linear-gradient(var(--text-dark), var(--text-dark)) padding-box,
         linear-gradient(90deg, #1429a0c0, #a04dff85, #ff4fd98e) border-box;
     color: var(--text);
-    font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+    font-size: clamp(0.7rem, 1.4vw, 0.9rem);
     font-weight: 100;
-    letter-spacing: 1.6px;
+    letter-spacing: clamp(0.8px, 0.4vw, 1.6px);
     cursor: pointer;
     box-shadow: none;
     transition: 0.25s ease, transform 0.2s ease;
 }
+
 
 .contact-card button:hover {
     transform: scale(1.04);
@@ -1525,13 +1534,13 @@ textarea {
 
 /* IKON – perfekt centrerad */
 .send-btn {
+    width: clamp(0.7rem, 1.2vw, 1rem);
+    height: clamp(0.7rem, 1.2vw, 1rem);
+    margin-left: 0.35rem;
     filter: brightness(0) invert(1);
-    height: 1.15em;       
-    width: auto;
-    margin-left: 0.32rem;
-    flex-shrink: 0;
-    vertical-align: -1px; 
+    vertical-align: -1px;
 }
+
 
 
 /* Popup: bekräftelse att meddelandet skickats */
