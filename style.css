@@ -1600,10 +1600,12 @@ footer {
     text-shadow:
         0 0 4px var(--glow),
         0 0 6px var(--glow-halo);
-    font-size: clamp(0.8rem, 1.4vw, 1.05rem);
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
+    font-family: "Great Vibes", cursive;
     align-self: center;
     letter-spacing: 0.5px;
     animation: glowPulse 3s ease-in-out infinite;
+    margin-right: 0.2rem;
 }
 
 @keyframes glowPulse {
@@ -1656,9 +1658,11 @@ footer {
 
 .footer-credit .name {
     color: var(--blue);
-    font-weight: 600;
+    font-family: "Great Vibes", cursive;
+    font-weight: 100;
     text-shadow: 0 0 1px var(--glow);
-    font-size: clamp(0.6rem, 1vw, 1rem);
+    font-size: clamp(0.8rem, 2vw, 2.5rem);
+    margin-left: 0.3rem;
 }
 
 
