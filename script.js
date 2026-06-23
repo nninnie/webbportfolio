@@ -121,7 +121,7 @@ hamburgerBtn.addEventListener("click", () => {
 
 
 /* -----------------------------------------
-   📜 NAVBAR SCROLL-EFFEKT
+   📜 NAVBAR SCROLL-EFFEKT - ger navbaren en skugga
 ----------------------------------------- */
 window.addEventListener("scroll", () => {
     const nav = document.querySelector(".navbar");
@@ -177,7 +177,6 @@ const techIcons = {
     ".NET": "devicon-dotnetcore-plain colored",
     "SQL": "devicon-microsoftsqlserver-plain colored",
     "OOP": "devicon-code-plain colored"
-
 };
 
 const projectsGrid = document.getElementById("projectsGrid");
@@ -195,12 +194,9 @@ Object.entries(projects).forEach(([title, data]) => {
         <span class="folder-title">${title}</span>
         <p>${data.description}</p>
         
+        <p class="project-click">Se projekt <span class="arrow">→</span></p>
 
-<p class="project-click">Se projekt <span class="arrow">→</span></p>
-
-
-<div class="ui-card-accent"></div>
-
+        <div class="ui-card-accent"></div>
 
     `;
 
@@ -216,11 +212,10 @@ const demoEl = document.getElementById("demoLink");
 const techEl = document.getElementById("projectTech");
 const features = document.getElementById("features");
 
-// Öppna modal
+// öppna modal
 document.querySelectorAll(".folder-item").forEach(folder => {
     folder.addEventListener("click", (e) => {
         e.stopPropagation();
-        
 
         const name = folder.querySelector(".folder-title").textContent;
         const project = projects[name];
@@ -228,6 +223,7 @@ document.querySelectorAll(".folder-item").forEach(folder => {
         titleEl.textContent = name;
     
 techEl.innerHTML = `
+
             <div class="card-tech">
                 ${project.tech
                     .map(t => `<i class="${techIcons[t] || ''}"></i>`)
@@ -237,11 +233,9 @@ techEl.innerHTML = `
 
         descEl.innerHTML = project.fullDescription;
 
-
         features.innerHTML = project.features
-    .map(f => `<li>${f}</li>`)
-    .join("");
-
+            .map(f => `<li>${f}</li>`)
+            .join("");
 
         githubEl.href = project.github;
         demoEl.href = project.demo;
@@ -251,10 +245,12 @@ techEl.innerHTML = `
     });
 });
 
+
 // stänger med x
 document.querySelector(".close-modal").addEventListener("click", () => {
     modal.style.display = "none";
 });
+
 
 // stänger när man klickar utanför
 const modalContent = document.querySelector(".project-modal-content");
