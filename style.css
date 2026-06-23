@@ -90,7 +90,7 @@ p {
 
 a, li, span {
     font-family: "Poppins", sans-serif;
-    font-size: clamp(0.8rem, 1.4vw, 1rem);
+    font-size: clamp(0.6rem, 1.4vw, 1rem);
     line-height: 1.6;
 }
 
@@ -913,7 +913,7 @@ body {
 .projects-card {
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 280px));
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
     justify-content: center; 
 }
 
@@ -1001,15 +1001,6 @@ body {
 }
 
 
-/* skills blå egna ikoner */
-.project-tags {
-    display: flex;
-    gap: 0.4rem;
-    flex-wrap: wrap; 
-    padding-top: 1.5rem;      
-    margin-top: auto;
-}
-
 
 
 /* klicka på projekten */
@@ -1043,20 +1034,30 @@ body {
 .project-modal {
     position: fixed;
     inset: 0;
-    z-index: 9999;
-    background: rgba(0,0,0,0.3);
+    z-index: 99999;
+    background: rgba(0, 0, 0, 0.484);
     backdrop-filter: blur(4px);
     display: none; 
     justify-content: center;
     align-items: center;
+    padding: 1rem;
 }
+
+@media (max-width: 600px) {
+    .project-modal {
+        align-items: flex-start;
+        padding-top: 6.5rem; /* perfekt för din navbar */
+    }
+}
+
 
 /* SJÄLVA KORTET */
 .project-modal-content {
     width: min(90%, 380px);
+    max-height: 80dvh; /* modal får aldrig bli högre än skärmen */
+    overflow-y: auto;
     padding: clamp(0.8rem, 3vw, 1.2rem);
     box-sizing: border-box;
-    padding: 1.2rem 1.4rem;
     border-radius: 20px;
     background: rgba(20, 20, 20, 0.92);
     backdrop-filter: blur(12px);
@@ -1074,7 +1075,7 @@ body {
 
 #projectDescription, 
 #demoLink {
-    font-size: clamp(0.75rem, 1.2vw, 1rem);
+    font-size: clamp(0.65rem, 1.2vw, 1rem);
     line-height: 1.6;
     padding-bottom: 0.5rem;
 }
@@ -1102,7 +1103,7 @@ body {
 
 /* Knappar Github & Readme */
 .project-links {
-    margin-top: 0.6rem;
+    margin-top: 0.8rem;
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -1112,7 +1113,7 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.5rem 1rem;
+    padding: clamp(0.4rem, 1.2vw, 0.6rem) clamp(0.8rem, 2vw, 1.2rem);
     border-radius: 8px;
     background: rgba(39, 39, 39, 0.801);   
     color: var(--text);                   
@@ -1176,15 +1177,17 @@ body:not(.light) .icon-img.dark {
     text-align: left;
     padding-left: 1rem;
     margin-top: 1rem;
-    padding-bottom: -1rem;
+    margin-bottom: 1rem;
+    font-size: 0.6rem; 
+    line-height: 1.35;  
 }
 
 #features li {
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.25rem;
     opacity: 0.85;
     list-style: none;
     position: relative;
-    padding-left: 1rem;
+    padding-left: 0.8rem; 
 }
 
 #features li::before {
@@ -1192,10 +1195,12 @@ body:not(.light) .icon-img.dark {
     color: var(--glow);
     position: absolute;
     left: 0;
-    font-size: 1rem;
+    font-size: 0.6rem; 
+    line-height: 1;
+    top: 0.2rem;
     text-shadow:
-    0 0 6px var(--glow),
-    0 0 6px var(--glow-halo);
+        0 0 4px var(--glow),
+        0 0 4px var(--glow-halo);
 }
 
 
@@ -1292,9 +1297,7 @@ body:not(.light) .icon-img.dark {
 /* Hover-effekt */
 .reference-card:hover {
     transform: scale(0.97) translateY(-1px);
-    box-shadow:
-        0 0 12px var(--glow),
-        0 0 18px var(--glow-halo);
+    box-shadow: 0 0 12px var(--glow);
 }
 
 /* Accent */
@@ -1710,10 +1713,17 @@ body.light .copy-symbol {
 
 /* NAVBAR */
 body.light .navbar {
-    background: rgba(225, 210, 214, 0.38);
+    background: rgba(255, 235, 240, 0.22);
     backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(210, 195, 198, 0.55);
+    border-bottom: 1px solid rgba(210, 200, 202, 0.45);
 }
+body.light .mobile-menu {
+    background: rgba(255, 235, 240, 0.22);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(210, 200, 202, 0.45);
+}
+
+
 
 /* CV-länk */
 body.light .nav-links a[href$="cv-ninniedahlstrom.pdf"],
@@ -1836,6 +1846,9 @@ body.light .project-links a {
     border: 1px solid rgba(158, 141, 144, 0.45);
     color: var(--text-dark);
 }
+body.light #projectTitle {
+    color: var(--text-dark); 
+}
 
 body.light .close-modal {
     color: var(--text-dark);
@@ -1872,4 +1885,8 @@ body.light .contact-card button {
 
 body.light .send-btn {
     filter: brightness(1) invert(0);
+}
+
+body.light .modal-divider {
+    background: rgba(0, 0, 0, 0.12); 
 }
