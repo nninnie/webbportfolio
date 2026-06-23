@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio by Ninnie Dahlström - junior .NET developer specializing in C#, SQL, API development and modern web development.">
+    <title>Ninnie Dahlström - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.16.0/devicon.min.css">
+</head>
+
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header class="navbar">
+    <nav>
+
+        <!-- Weather -->
+        <div class="weather-box">
+            <span id="weather" class="weather">--°C</span>
+            <span id="weatherLocation" class="weather-location">Stockholm</span>
+        </div>
+
+        <!-- Hamburger menu -->
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+            ☰
+        </button>
+
+        <!-- Menu links -->
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About me</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="cv-ninniedahlstrom.pdf" download>Download CV</a></li>
+        </ul>
+
+        <!-- Theme & Language -->
+        <div class="nav-controls">
+
+            <!-- THEME BUTTON -->
+            <button id="themeToggle" class="icon-btn" aria-label="Switch theme">
+                <span id="themeIcon">
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" 
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="4"/>
+                        <path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-7.364l-1.414 1.414
+                                M6.05 17.95l-1.414 1.414m0-13.657l1.414 1.414
+                                M17.95 17.95l1.414 1.414"/>
+                    </svg>
+                </span>
+            </button>
+
+            <!-- LANGUAGE BUTTON -->
+            <button id="languageToggle" class="icon-btn" aria-label="Switch language">
+                <img id="langFlag" src="https://flagcdn.com/se.svg" alt="Swedish">
+            </button>
+
+        </div>
+
+        <!-- Hidden select -->
+        <select id="languageSelect" class="hidden-select">
+            <option value="sv">SV</option>
+            <option value="en" selected>EN</option>
+        </select>
+
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu" role="menu">
+        <a href="#about" role="menuitem">About me</a>
+        <a href="#skills" role="menuitem">Skills</a>
+        <a href="#contact" role="menuitem">Contact</a>
+        <a href="#portfolio" role="menuitem">Portfolio</a>
+        <a href="cv-ninniedahlstrom.pdf" download role="menuitem">Download CV</a>
+    </div>
+
+</header>
+
+<!-- MAIN -->
+<main id="main" class="page-wrapper">
+
+<!-- HERO -->
+<section class="hero">
+
+    <div class="hero-card">
+        <div class="hero-image-wrapper">
+            <img src="image/portrait-ninniedahlstroem.png" class="portrait" alt="Portrait of Ninnie Dahlström">
+            <label class="color-icon">
+                🎨
+                <input type="color" id="glowPicker">
+            </label>
+        </div>
+
+        <div class="hero-text">
+            <h1>Ninnie Dahlström</h1>
+            <h3>Junior .NET Developer</h3>
+            <p>Based in Stockholm</p>
+            <p>Backend • C# • .NET • SQL • API Development</p>
+        </div>
+    </div>
+
+    <div class="ui-card-accent"></div>
+
+    <div class="hero-buttons">
+        <a class="btn orb orange" href="cv-ninniedahlstrom.pdf" download>
+            <span><img src="image/icons/download.png" class="btn-icon">Download CV</span>
+        </a>
+
+        <a class="btn orb pink" href="#portfolio">
+            <span><img src="image/icons/folder.png" class="btn-icon">View Portfolio</span>
+        </a>
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="sectionabout">
+    <h2><span class="accent">/</span> About me</h2>
+
+    <div class="about-wrapper">
+
+        <div class="about-card">
+            <div class="ui-card-accent"></div>
+
+            <p>
+                I am a junior <span class="key-pink">.NET</span> developer in training, 
+                focusing on backend, API development and fullstack. I work with 
+                <span class="key-orange">C#</span>, SQL, CRUD and SOLID to build structured 
+                and scalable solutions, combined with modern frontend to create clear 
+                and user‑friendly interfaces.
+                <br><br>
+                As a <span class="key-purple">problem solver</span>, I am driven by clean code, 
+                smart architecture and understanding how systems connect. With an interest 
+                in <span class="key-blue">UX/UI</span>, AI and web development, I aim to create 
+                solutions that are logical, modern and intuitive.
+            </p>
+        </div>
+
+        <div class="about-education">
+            <div class="ui-card-accent"></div>
+
+            <h3>Education</h3>
+
+            <div class="edu-item">
+                <strong>.NET System Developer</strong>
+                <span class="edu-school">YH Akademin</span>
+                <span class="edu-year">2026–2027</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section skills-section">
+
+    <div class="skills-wrapper">
+        <h2><span class="accent">/</span> Skills</h2>
+        
+        <div class="skills-card">
+            <div class="ui-card-accent"></div>
+
+            <p>Here are the technologies and tools I work with the most within <span class="key-pink">.NET</span>, web development and <span class="key-blue">UX/UI</span>.</p>
+
+            <ul class="skills-list icons">
+
+                <li><i class="devicon-csharp-plain colored"></i><span>C# / .NET</span></li>
+                <li><i class="devicon-microsoftsqlserver-plain colored"></i><span>SQL Server</span></li>
+                <li><i class="devicon-postman-plain colored"></i><span>REST API</span></li>
+
+                <li><i class="devicon-html5-plain colored"></i><span>HTML5</span></li>
+                <li><i class="devicon-css3-plain colored"></i><span>CSS3</span></li>
+                <li><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></li>
+
+                <li><i class="devicon-git-plain colored"></i><span>Git</span></li>
+                <li><i class="devicon-github-original github-icon"></i><span>GitHub</span></li>
+                <li><i class="devicon-visualstudio-plain colored"></i><span>Visual Studio</span></li>
+                <li><i class="devicon-vscode-plain colored"></i><span>VS Code</span></li>
+
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="sectionproject">
+    
+    <div class="portfolio-wrapper">
+
+        <h2><span class="accent">/</span> Portfolio</h2>
+
+        <div class="projects-card" id="projectsGrid"></div>
+
+    </div> 
+
+    <!-- PROJECT MODAL -->
+    <div id="projectModal" class="project-modal" role="dialog" aria-modal="true">
+        <div class="project-modal-content">
+
+            <button class="close-modal" aria-label="Close project window">✕</button>
+            
+            <div id="projectTech" class="project-tech"></div>
+
+            <div class="modal-divider"></div>
+
+            <h3 id="projectTitle"></h3>
+
+            <p id="projectDescription"></p>
+
+            <ul id="features"></ul>
+
+            <div class="project-tags"></div>
+
+            <div class="project-links">
+                <a id="githubLink" href="#" target="_blank">
+                    <img class="icon-img dark" src="image/GitHub-darkmode.png" alt="GitHub">
+                    <img class="icon-img light" src="image/GitHub.png" alt="GitHub">
+                    GitHub
+                </a>
+
+                <a id="demoLink" href="#" target="_blank">
+                    <img class="icon-img dark" src="image/GitHub-darkmode.png" alt="ReadMe">
+                    <img class="icon-img light" src="image/GitHub.png" alt="ReadMe">
+                    ReadMe
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<!-- REFERENCES -->
+<section id="reference" class="section-references">
+
+    <div class="references-wrapper">
+        <h2 class="section-title"><span class="accent">/</span> References</h2>
+
+        <div class="references-slider">
+            <div class="references-track">
+
+                <div class="reference-card">
+                    <div class="ui-card-accent"></div>
+                    <h3 class="reference-title">Robin Ollenberg – Store Manager, ICA</h3>
+                    <p class="reference-text">
+                        “I was Ninnie’s store manager at ICA and can highly recommend her.
+                        She handled great responsibility and always managed many tasks at once.
+                        She has a natural sense for customer interaction, is fast, solution‑oriented
+                        and very helpful to both colleagues and customers. She is versatile,
+                        reliable and someone you can always count on.”
+                    </p>
+                    <p class="reference-signature">
+                        – <strong>Robin Ollenberg</strong>, Store Manager
+                    </p>
+                </div>
+
+                <div class="reference-card">
+                    <div class="ui-card-accent"></div>
+                    <h3 class="reference-title">Kevin Jammeh – Classmate</h3>
+                    <p class="reference-text">
+                        “I studied together with Ninnie and worked with her in several projects.
+                        She is engaged, creative and very easy to collaborate with. She is fast,
+                        organized and takes responsibility when needed. A natural problem solver
+                        who contributes with both structure and energy.”
+                    </p>
+                    <p class="reference-signature">
+                        – <strong>Kevin Jammeh</strong>, Classmate
+                    </p>
+                </div>
+
+                <div class="reference-card">
+                    <div class="ui-card-accent"></div>
+                    <h3 class="reference-title">David Marténg – CEO, Qualified Sales Sweden AB</h3>
+                    <p class="reference-text">
+                        “I was the CEO at the company where Ninnie worked administratively.
+                        She is highly competent and versatile. She works fast, structured and
+                        learns new systems without any issues. She handled invoices, orders,
+                        customer contact and other administrative tasks with precision and professionalism.”
+                    </p>
+                    <p class="reference-signature">
+                        – <strong>David Marténg</strong>, CEO
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="sectioncontact">
+ 
+    <div class="contact-wrapper">
+
+        <h2><span class="accent">/</span> Contact</h2>
+
+        <div class="contact-card">
+            <div class="ui-card-accent"></div>
+
+            <form id="contactForm" action="https://formsubmit.co/ninnie_dahlstrom@hotmail.com" method="POST">
+
+                <div class="input-group">
+                    <label for="name">
+                        <img src="image/icons/user-round.png" alt="User" class="input-icon icon-rosa">
+                        Name
+                    </label>
+                    <input type="text" id="name" required oninvalid="this.setCustomValidity('Please enter your name')" oninput="this.setCustomValidity('')" aria-invalid="false">
+                </div>
+
+                <div class="input-group">
+                    <label for="email">
+                        <img src="image/icons/mail.png" alt="Email" class="input-icon icon-orange">
+                        Email
+                    </label>
+                    <input type="email" id="email" required oninvalid="this.setCustomValidity('Enter a valid email address')" oninput="this.setCustomValidity('')" aria-invalid="false">
+                </div>
+
+                <div class="input-group">
+                    <label for="message">
+                        <img src="image/icons/message.png" alt="Message" class="input-icon icon-bla">
+                        Message
+                    </label>
+                    <textarea id="message" required minlength="5" oninvalid="this.setCustomValidity('Write a message')" oninput="this.setCustomValidity('')" aria-invalid="false"></textarea>
+                </div>
+
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_origin" value="https://nninnie.github.io">
+                <input type="hidden" name="_redirect" value="https://nninnie.github.io/#contact">
+
+                <button type="submit" class="btn-send">
+                    Send
+                    <img src="image/icons/send.png" alt="send" class="send-btn">
+                </button>
+
+                <div id="successPopup" class="popup">
+                    <p>Thank you!✨ I will get back to you as soon as I can.  
+                        – Ninnie Dahlström
+                    </p>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-icons">
+
+        <a href="https://www.linkedin.com/in/nninnie" target="_blank" aria-label="LinkedIn">
+            <img src="image/linkedin.svg" alt="LinkedIn - Ninnie Dahlström">
+        </a>
+
+        <a href="https://github.com/nninnie" target="_blank" aria-label="GitHub">
+            <img src="image/GitHub.png" alt="Github - Ninnie Dahlström" class="icon-img light github">
+            <img src="image/GitHub-darkmode.png" alt="Github - Ninnie Dahlström" class="icon-img dark github">
+        </a>
+
+        <a href="https://www.instagram.com/nninnie" target="_blank" aria-label="Instagram" class="instagram-footer">
+            <img src="image/instagram.svg" alt="Instagram - Ninnie Dahlström">
+        </a>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <p class="footer-credit">
+        <span class="copy-symbol">©</span> Designed & developed by <span class="name">Ninnie Dahlström</span>
+    </p>
+
+</footer>
+
+<script>
+const projects = {
+    "Cash Register System": {
+        description: "Modern cash register system built in .NET with C# and SQL.",
+        fullDescription: "A cash register system developed in C# with focus on clean structure, OOP and SOLID.",
+        github: "https://github.com/nninnie/CashRegisterSystem",
+        demo: "https://github.com/nninnie/CashRegisterSystem#readme",
+        tech: ["C#", ".NET"],
+        features: ["CRUD operations", "OOP structure", "SOLID principles"],
+        img: "image/portfolio/cashregistersystem.png"
+    },
+
+    "Hotel Booking App": {
+        description: "Modern hotel booking system built in .NET and SQL Server.",
+        fullDescription: "A hotel booking system developed in C# and SQL Server using Code First.",
+        github: "https://github.com/nninnie/HotelBooking",
+        demo: "https://github.com/nninnie/HotelBooking#readme",
+        tech: ["C#", ".NET", "SQL"],
+        features: ["CRUD operations", "OOP structure", "Code First", "Database handling", "SOLID principles"],
+        img: "image/portfolio/hotelbooking.png"
+    },
+
+    "Web Portfolio": {
+        description: "Modern UI/UX portfolio built with HTML, CSS and JavaScript.",
+        fullDescription: "A custom-built portfolio focusing on modern frontend, responsive design and interactive components.",
+        github: "https://github.com/nninnie/webbportfolio",
+        demo: "https://nninnie.github.io/webbportfolio/",
+        tech: ["HTML", "CSS", "JavaScript", "UI/UX", "API"],
+        features: ["Responsive design", "Glow Color Picker", "Dark/Light mode", "Weather API", "Interactive components"],
+        img: "image/portfolio/webbportfolio.png"
+    }
+};
+</script>
+<script defer src="script.js"></script>
+
+</body>
+</html>

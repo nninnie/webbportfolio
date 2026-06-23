@@ -34,19 +34,20 @@ themeBtn.addEventListener("click", () => {
 
 
 
-// Språk-knapp (SE - EN)
+// Språk-knapp (SE ↔ EN)
 const langBtn = document.getElementById("languageToggle");
 const langFlag = document.getElementById("langFlag");
 
+// Kolla vilken sida vi är på
+const isEnglishPage = window.location.pathname.includes("index-en");
+
 langBtn.addEventListener("click", () => {
-    if (langFlag.src.includes("se.svg")) {
-        langFlag.src = "https://flagcdn.com/gb.svg";
-        langFlag.alt = "English";
-        // här kan du lägga till funktion för att byta text till engelska
+    if (isEnglishPage) {
+        // Gå till svenska sidan
+        window.location.href = "index.html";
     } else {
-        langFlag.src = "https://flagcdn.com/se.svg";
-        langFlag.alt = "Svenska";
-        // här kan du lägga till funktion för att byta text till svenska
+        // Gå till engelska sidan
+        window.location.href = "index-en.html";
     }
 });
 
@@ -164,96 +165,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
 /* -----------------------------------------
    📁 Portfolio Mappar - öppna/stänga
 ----------------------------------------- */
-const projects = {
-    "Kassasystem": {
-    description:
-        "Modernt kassasystem byggt i .NET med C# och SQL.",
 
-    fullDescription:
-        "Ett kassasystem utvecklat i C# med fokus på tydlig mappstruktur, OOP och ren kod. Projektet gav praktisk erfarenhet av DRY- och SOLID-principer för att skapa en mer strukturerad och underhållbar applikation.",
-
-    github:
-        "https://github.com/nninnie/CashRegisterSystem",
-
-    demo:
-        "https://github.com/nninnie/CashRegisterSystem#readme",
-
-    tech: [
-        "C#",
-        ".NET"
-    ],
-
-    features: [
-        "CRUD-operationer",
-        "OOP-struktur",
-        "SOLID"
-    ],
-
-    img: "image/portfolio/cashregistersystem.png"
-
-
-},
-
-"Hotell App": {
-    description:
-        "Modernt hotellbokningssystem byggt i .NET och SQL Server.",
-
-    fullDescription:
-         "Ett hotellbokningssystem utvecklat i C# och SQL Server med Code First som grund för databashantering och datamodellering. Projektet fokuserade på OOP, strukturerad mappstruktur och SOLID-principer för att skapa en skalbar och underhållbar applikation.",
-    github:
-        "https://github.com/nninnie/HotelBooking",
-
-    demo:
-        "https://github.com/nninnie/HotelBooking#readme",
-
-    tech: [
-        "C#",
-        ".NET",
-        "SQL"
-    ],
-
-    features: [
-        "CRUD-operationer",
-        "OOP-struktur",
-        "Code First",
-        "Databashantering",
-        "SOLID"
-    ],
-
-    img: "image/portfolio/hotelbooking.png"
-},
-
-"Webbportfolio": {
-    description:
-        "Modern UI/UX-portfolio byggd i HTML, CSS och JavaScript.",
-
-    fullDescription:
-        "En egenutvecklad portfolio skapad med HTML5, CSS3 och JavaScript med fokus på modern frontend-utveckling, responsiv design och interaktiva komponenter. Projektet innehåller bland annat dark/light mode, API-integrationer och UI/UX-inspirerad design.",
-    github:
-        "https://github.com/nninnie/webbportfolio",
-
-    demo:
-        "https://nninnie.github.io/webbportfolio/",
-
-    tech: [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "UI/UX",
-        "API"
-    ],
-
-    features: [
-        "Responsiv design",
-        "Glow Color Picker",
-        "Dark/Light mode",
-        "Weather API",
-        "Interaktiva komponenter"
-    ],
-
-    img: "image/portfolio/webbportfolio.png"
-}
-};
 
 const techIcons = {
     "HTML": "devicon-html5-plain colored",
