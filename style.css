@@ -1038,23 +1038,27 @@ body {
     background: rgba(0, 0, 0, 0.484);
     backdrop-filter: blur(4px);
     display: none; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     justify-content: center;
-    align-items: center;
-    padding: 1rem;
+    align-items: flex-start;
+    padding-top: 7rem;
 }
 
 @media (max-width: 600px) {
     .project-modal {
         align-items: flex-start;
-        padding-top: 6.5rem; /* perfekt för din navbar */
+        padding-top: 5rem; 
     }
 }
 
 
 /* SJÄLVA KORTET */
 .project-modal-content {
-    width: min(90%, 380px);
-    max-height: 80dvh; /* modal får aldrig bli högre än skärmen */
+    width: min(90%, 750px);
+    max-height: 80dvh; 
     overflow-y: auto;
     padding: clamp(0.8rem, 3vw, 1.2rem);
     box-sizing: border-box;
