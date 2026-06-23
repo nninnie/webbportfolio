@@ -56,7 +56,7 @@ section {
 /* ============== TEXT - FONT ============== */
 h1 {
     font-family: "Montserrat", sans-serif;
-    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-size: clamp(2.2rem, 5vw, 4rem);
     word-break: break-word;
     font-weight: 900;
     text-align: center;
@@ -77,7 +77,7 @@ h2 {
 h3 {
     font-family: "Poppins", sans-serif;
     font-weight: 300;
-    font-size: clamp(1.4rem, 3vw, 1.6rem);
+    font-size: clamp(0.9rem, 3vw, 1.4rem);
 }
 p {
     font-family: "Poppins", sans-serif;
@@ -98,6 +98,7 @@ a, li, span {
     opacity: 0;
     transform: translateY(6px);
     animation: heroSlide 0.3s ease-out forwards;
+    text-align: left;
 }
 
 @keyframes heroSlide {
@@ -361,18 +362,81 @@ body {
 
 /* HERO */
 .hero {
-    max-width: 1100px;
+    max-width: 1400px;
     width: 90%;
-    margin: 0 auto;  
+    margin: 0 auto;
     text-align: center;
+    padding: 0;
+    height: 90dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-6vh);
+    overflow-x: hidden; 
+}
+
+
+.hero-card {
+    display: flex;
+    width: 100%;
+    flex-direction: row-reverse;
+    grid-column: 1 / -1;
+    justify-self: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 2rem 2rem;
+    border-radius: 28px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+}
+
+.hero-text {
+    flex: 2.3; 
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 0.4rem;
     justify-content: center; 
-    padding: 0 0 5rem 0;
-    box-sizing: border-box; 
-    height: 100dvh;
 }
+
+.hero-image-wrapper {
+    flex: 1; 
+    max-width: 280px;
+    flex-shrink: 0;
+}
+
+
+@media (max-width: 768px) {
+    .hero-card {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%; 
+        max-width: 100%;
+        box-sizing: border-box; 
+        padding: 2rem 1rem;    
+
+        grid-column: auto;
+        justify-self: auto;
+        margin: 0 auto;        
+    }
+
+    .hero-text {
+        text-align: center;
+        width: 100%;
+    }
+
+    .hero h1,
+    .hero h3,
+    .hero p {
+        opacity: 0;
+        transform: translateY(6px);
+        animation: heroSlide 0.3s ease-out forwards;
+        text-align: center;
+    }
+}
+
 
 .hero h1 {
     margin-bottom: 0.3rem; 
@@ -380,14 +444,20 @@ body {
 
 .hero h3 {
     margin-top: 0.2rem;
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.4rem;
 }
+
+.based-stockholm {
+    opacity: 0.7;
+    font-size: clamp(0.8rem, 1.6vw, 1rem);
+}
+
 
 .hero p {
     margin-top: 0;        
     line-height: 1.4;      
     margin-bottom: 1rem;
-    font-size: clamp(0.8rem, 1.6vw, 1.1rem);    
+    font-size: clamp(0.65rem, 1.6vw, 1.1rem);    
 }
 
 /* HERO - KNAPPAR*/
@@ -395,6 +465,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 1rem;
+    margin-top: 1rem;
     
 }
 
@@ -402,13 +473,21 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 0.9rem;              
-    height: 0.9rem;
-    border-radius: 50%;          
+
+    width: 0.8rem;              
+    height: 0.8rem;
+    border-radius: 50%;   
+
     overflow: hidden;
-    transition: 0.3s ease;
+    transition: 
+        width 0.35s ease,
+        height 0.35s ease,
+        border-radius 0.35s ease,
+        padding 0.35s ease,
+        box-shadow 0.35s ease;
     color: var(--text) !important;
     position: relative;
+    padding: 0;
 }
 
 .btn.orb span {
@@ -470,7 +549,7 @@ body {
     .btn.orb {
         width: auto;
         height: auto;
-        padding: 0.4rem 0.9rem;
+        padding: 0.4rem 0.8rem;
         border-radius: 40px;
         display: inline-flex;
         align-items: center;
@@ -479,7 +558,7 @@ body {
 
     .btn.orb span {
         opacity: 1;
-        font-size: clamp(0.7rem, 2vw, 0.8rem);
+        font-size: clamp(0.6rem, 2vw, 0.8rem);
         white-space: nowrap;
     }
 }
@@ -487,14 +566,13 @@ body {
 
 /* HERO - PORTRÄTT BILD*/
 .portrait {
-    width: clamp(6.5rem, 20vw, 8.5rem);
+    width: clamp(6.5rem, 20vw, 20rem);
     border-radius: 20rem;
     border: 0.1px solid var(--glow);
     box-shadow:
-        0 0 8px var(--glow),
-        0 0 16px color-mix(in srgb, var(--glow) 50%, transparent),
-        0 0 24px color-mix(in srgb, var(--glow) 20%, transparent),
-        0 0 12px rgba(255,255,255,0.35); 
+        0 0 4px var(--glow),
+        0 0 10px color-mix(in srgb, var(--glow) 50%, transparent),
+        0 0 14px color-mix(in srgb, var(--glow) 20%, transparent);
     filter: drop-shadow(0 0 6px var(--glow)) brightness(1.2);
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
@@ -879,7 +957,7 @@ body {
         0 0 10px rgba(106,47,191,0.45),
         0 0 8px rgba(10,108,255,0.35);
     border-radius: 12px;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     margin-bottom: 1.5rem;
     display: flex;
     flex-direction: column;

@@ -362,10 +362,3 @@ document.addEventListener("keydown", (e) => {
         modal.style.display = "none";
     }
 });
-
-[...document.body.querySelectorAll('*')].forEach(el => {
-  if (el.offsetWidth > document.documentElement.clientWidth) {
-    console.log('OVERFLOW:', el);
-    el.style.outline = '3px solid red';
-  }
-});
