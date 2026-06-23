@@ -157,6 +157,7 @@ body {
     background: rgba(0,0,0,0.3);
     backdrop-filter: blur(10px);
     will-change: top;
+    padding-inline: clamp(0.4rem, 0.8vw, 0.8rem);
 }
 
 
