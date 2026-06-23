@@ -33,8 +33,8 @@
 section {
     display: flex;
     flex-direction: column;
-    padding-top: clamp(4rem, 6vw, 6rem);
-    padding-bottom: clamp(3rem, 6vw, 6rem);
+    padding-top: clamp(2.5rem, 4vw, 5rem);
+    padding-bottom: clamp(2rem, 4vw, 5rem);
     scroll-margin-top: 6rem;
 }
 
@@ -362,8 +362,7 @@ body {
 
 /* HERO */
 .hero {
-    max-width: 1800px;
-    width: 90%;
+    width: clamp(78%, 70vw, 1800px);
     margin: 0 auto;
     text-align: center;
     padding: 0;
@@ -371,7 +370,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: translateY(-6vh);
+    transform: translateY(-8vh);
     overflow-x: hidden; 
 }
 
@@ -407,6 +406,7 @@ body {
     max-width: 100%;
     padding-bottom: 0.2rem;
     margin-right: 1.5rem;
+    position: relative;
 }
 
 
@@ -477,36 +477,52 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 0.9rem;              
+    width: 0.9rem;
     height: 0.9rem;
-    border-radius: 50%;   
+    border-radius: 50%;
     overflow: hidden;
-    transition: 
+    padding: 0;
+    transition:
         width 0.3s ease,
         height 0.3s ease,
-        border-radius 0.35s ease,
         padding 0.3s ease,
+        border-radius 0.35s ease,
         box-shadow 0.3s ease;
-    color: var(--text) !important;
     position: relative;
-    padding: 0;
 }
 
+
 .btn.orb span {
-    opacity: 0;
-    font-size: clamp(0.6rem, 1vw, 0.8rem);
+    opacity: 1;
+    font-size: clamp(0.65rem, 1vw, 0.8rem);
     font-weight: 500;
     transition: opacity 0.25s ease;
     color: var(--text) !important;
+    visibility: hidden;
 }
 
-.btn.orb:hover {
-    padding: 0 0.6rem;
+
+@media (max-width: 768px) {
+    .btn.orb span {
+    visibility: visible;
 }
+}
+
+
+.btn.orb:hover {
+    width: clamp(5.2rem, 12vw, 7rem);
+    height: clamp(2rem, 2.5vw, 3rem);
+    padding: 0 0.8rem;
+    border-radius: 20px;
+}
+
+
 
 .btn.orb:hover span {
     opacity: 1;
+    visibility: visible;
 }
+
 
 /* Grundstil för knapparnas ikoner download & Map */
 .btn-icon {
@@ -528,12 +544,12 @@ body {
 
 .btn.orb.pink {
     background: var(--orange);
-    box-shadow: 0 0 5px var(--orange);
+    box-shadow: 0 0 5px var(--glow);
 }
 
 .btn.orb.orange {
     background: var(--pink);
-    box-shadow: 0 0 5px var(--pink);
+    box-shadow: 0 0 5px var(--glow);
 }
 
 .btn.orb.pink:hover {
@@ -612,8 +628,18 @@ body {
     font-size: 0.8rem;
     color: var(--blue);
     opacity: 0;
-    pointer-events: none;
+    pointer-events: auto;
     transition: 0.25s ease;
+    transform: scale(1.1);
+    margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+    .color-icon {
+        bottom: 1.2rem;  
+        right: 1.2rem;   
+        transform: scale(1.05); 
+    }
 }
 
 
@@ -627,8 +653,7 @@ body {
 
 /* ============== ABOUT ============== */
 .sectionabout {
-    max-width: 1100px;
-    width: 80%;
+    width: clamp(80%, 70vw, 1100px);
     margin: 0 auto;  
     font-size: clamp(0.9rem, 1.8vw, 1.1rem);
     line-height: 1.6;
@@ -777,8 +802,7 @@ body {
 /* ============== SKILLS ============== */
 .skills-section {
     margin: 0 auto;
-    max-width: 1100px;
-    width: 90%;
+    width: clamp(80%, 70vw, 1100px);
     line-height: 1.5;
     opacity: 0.9;
     scroll-margin-top: clamp(80px, 12vw, 180px);
@@ -895,8 +919,7 @@ body {
 /* ============== PORTFOLIO ============== */
 .sectionproject {
     text-align: center;              
-    max-width: 1100px;
-    width: 90%;
+    width: clamp(80%, 70vw, 1100px);
     margin: 0 auto;    
     font-size: clamp(0.9rem, 2vw, 1.1rem); 
     line-height: 1.6;                
@@ -1209,8 +1232,7 @@ body:not(.light) .icon-img.dark {
 /* ============== REFERENCES ============== */
 
 .section-references {
-    max-width: 1100px;
-    width: 90%;
+    width: clamp(80%, 70vw, 1100px);
     margin: 0 auto;
     text-align: left;
     scroll-margin-top: clamp(80px, 15vw, 250px);
@@ -1351,8 +1373,7 @@ body:not(.light) .icon-img.dark {
 
 /* ============== CONTACT ============== */
 .sectioncontact {
-    max-width: 1100px;
-    width: 90%;
+    width: clamp(80%, 70vw, 1100px);
     margin: 0 auto;  
     text-align: center;
     font-size: clamp(0.65rem, 1.6vw, 0.85rem);
@@ -1656,12 +1677,10 @@ footer {
     90deg,
     transparent,
     #1428A0,
-    var(--purple),
-    var(--pink),
     transparent
 );
-
-    opacity: 0.8;
+    box-shadow: 0 0 6px var(--glow);
+    opacity: 0.85;
 }
 
 footer a:focus-visible {
