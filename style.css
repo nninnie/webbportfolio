@@ -264,8 +264,9 @@ body {
 .nav-controls {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: clamp(0.3rem, 1vw, 0.8rem);
 }
+
 
 .icon-btn {
     background: none;
@@ -1661,7 +1662,7 @@ footer {
     font-family: "Great Vibes", cursive;
     font-weight: 100;
     text-shadow: 0 0 1px var(--glow);
-    font-size: clamp(0.8rem, 2vw, 2.5rem);
+    font-size: clamp(0.8rem, 1.5vw, 1.5rem);
     margin-left: 0.3rem;
 }
 
