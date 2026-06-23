@@ -275,7 +275,7 @@ Object.entries(projects).forEach(([title, data]) => {
     card.className = "folder-item project-card";
 
     card.innerHTML = `
-        <div class="ui-card-accent"></div>
+
         <div class="project-icon">
         <img src="image/icons/folder.png" alt="folder" class="folder-icon">
         </div>
@@ -284,12 +284,10 @@ Object.entries(projects).forEach(([title, data]) => {
         <p>${data.description}</p>
         
 
-<div class="project-tags">
-    ${data.tech.map(t => `<span class="tag">${t}</span>`).join("")}
-</div> 
-        
-<p class="project-click">Se projekt <span class="arrow">→</span></p><div class="ui-card-accent"></div>
+<p class="project-click">Se projekt <span class="arrow">→</span></p>
 
+
+<div class="ui-card-accent"></div>
 
 
     `;
