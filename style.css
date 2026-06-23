@@ -53,6 +53,7 @@ section {
 }
 
 
+
 /* ============== TEXT - FONT ============== */
 h1 {
     font-family: "Montserrat", sans-serif;
@@ -389,6 +390,7 @@ body {
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(20px);
+    
 }
 
 .hero-text {
@@ -465,7 +467,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     
 }
 
@@ -474,8 +476,8 @@ body {
     align-items: center;
     justify-content: center;
 
-    width: 0.8rem;              
-    height: 0.8rem;
+    width: 0.9rem;              
+    height: 0.9rem;
     border-radius: 50%;   
 
     overflow: hidden;
@@ -566,8 +568,8 @@ body {
 
 /* HERO - PORTRÄTT BILD*/
 .portrait {
-    width: clamp(6.5rem, 20vw, 20rem);
-    border-radius: 20rem;
+    width: clamp(6.5rem, 16vw, 16rem);
+    border-radius: 14rem;
     border: 0.1px solid var(--glow);
     box-shadow:
         0 0 4px var(--glow),
