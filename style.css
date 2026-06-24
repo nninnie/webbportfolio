@@ -517,7 +517,7 @@ body {
 }
 
 .btn.orb:hover {
-    width: clamp(5.2rem, 12vw, 7rem);
+    width: clamp(5.2rem, 12vw, 7.5rem);
     height: clamp(2rem, 2.5vw, 2rem);
     transform: scale(1.01);
     border-radius: 20px;
