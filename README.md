@@ -1,7 +1,7 @@
 # 🌐 WebbPortfolio - Ninnie Dahlström
 
 <p align="center">
-  <img src="readme-image.png" alt="Webbbportfolio" width="1100"/>
+  <img src="image/readme-image.png" alt="Webbbportfolio" width="1100"/>
 </p>
 
 En modern, responsiv och tillgänglig webportfolio byggd med **HTML**, **CSS** och **JavaScript**.  
@@ -17,6 +17,16 @@ Portfolion presenterar mina projekt, erfarenheter och kontaktmöjligheter i ett 
 - Glow‑effekter och glassmorphism  
 - Färgpalett anpassad för båda teman  
 - LocalStorage sparar användarens val  
+
+### 🌐 Språkväxling (Language Toggle)
+- JavaScript som lyssnar på klick på språkknappen
+- Två JSON‑objekt med svensk och engelsk översättning
+- DOM‑uppdatering av alla textnoder i realtid
+- Flagga som byter ikon beroende på valt språk
+- Dold `<select>` för WCAG‑krav och skärmläsare
+- Göra sidan tillgänglig för fler användare
+- Visa hur man arbetar med dynamiskt innehåll
+- Förbättra UX genom att undvika sidladdningar
 
 ### 🌦️ Väder‑API
 - Integration med **Open‑Meteo API**
@@ -42,6 +52,15 @@ Portfolion presenterar mina projekt, erfarenheter och kontaktmöjligheter i ett 
 - Smooth scroll  
 - Skip‑link för tillgänglighet  
 - Ikoner för språk, tema och väder  
+
+### ✨ Glow Color Picker
+- CSS‑variabler för att styra glow‑färgen
+- JavaScript som lyssnar på input‑event
+- Direkt DOM‑uppdatering i realtid
+- LocalStorage för att spara användarens val
+- Skapa en mer levande och personlig UI‑upplevelse
+- Ge användaren kontroll över designen
+- Visa interaktivitet och modern frontend‑teknik
 
 ---
 
