@@ -18,6 +18,22 @@ Portfolion presenterar mina projekt, erfarenheter och kontaktmöjligheter i ett 
 - Färgpalett anpassad för båda teman  
 - LocalStorage sparar användarens val  
 
+### 🌐 Språkväxling (Language Toggle)
+Sidan har stöd för både svenska och engelska, och användaren kan enkelt byta språk via språkikonen i navbaren.
+All text på sidan uppdateras dynamiskt utan att ladda om sidan.
+
+Teknik:
+- JavaScript som lyssnar på klick på språkknappen
+- Två JSON‑objekt med svensk och engelsk översättning
+- DOM‑uppdatering av alla textnoder i realtid
+- Flagga som byter ikon beroende på valt språk
+- Dold <select> för WCAG‑krav och skärmläsare
+
+Syfte:
+- Göra sidan tillgänglig för fler användare
+- Visa hur man arbetar med dynamiskt innehåll
+- Förbättra UX genom att undvika sidladdningar
+
 ### 🌦️ Väder‑API
 - Integration med **Open‑Meteo API**
 - Hämtar temperatur och väderkod baserat på koordinater
