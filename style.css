@@ -170,6 +170,27 @@ body {
     z-index: 10000;
 }
 
+@media (max-width: 768px) {
+    .navbar nav {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+    }
+
+    .weather-box {
+        justify-self: start;
+    }
+
+    .hamburger {
+        justify-self: center;
+    }
+
+    .nav-controls {
+        justify-self: end;
+    }
+}
+
+
 /* VÄDER – alltid vänster */
 .weather {
     opacity: 0.9;
