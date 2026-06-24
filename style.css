@@ -516,14 +516,12 @@ body {
 }
 }
 
-
 .btn.orb:hover {
-    width: clamp(5.2rem, 12vw, 7rem);
-    height: clamp(2rem, 2.5vw, 3rem);
-    padding: 0 0.8rem;
+    width: clamp(5.2rem, 12vw, rem);
+    height: clamp(2rem, 2.5vw, 2rem);
+    transform: scale(1.01);
     border-radius: 20px;
 }
-
 
 
 .btn.orb:hover span {
@@ -862,7 +860,6 @@ body {
     box-shadow: 0 0 20px rgba(255,255,255,0.08);
     width: clamp(60px, 14vw, 90px);
     min-height: clamp(60px, 14vw, 90px);
-    padding: clamp(0.4rem, 1.2vw, 0.8rem); 
     height: auto;
     display: flex;
     flex-direction: column;
@@ -874,7 +871,9 @@ body {
     opacity: 0;
     transform: scale(0.92);
     animation: iconPop 0.35s ease-out forwards;
-    transition: transform 0.25s ease, box-shadow 0.25s ease; /* Smidig hover */
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    aspect-ratio: 1 / 1; 
+    box-sizing: border-box;
 }
 
 @keyframes iconPop {
@@ -889,7 +888,7 @@ body {
 }
 
 .skills-list.icons i {
-    font-size: clamp(24px, 3vw, 38px); /* Optimerad ikonstorlek för att matcha kortet */
+    font-size: clamp(24px, 3vw, 38px);
     margin-bottom: 0.3rem;
     opacity: 0.95;
     transition: 0.25s ease;
@@ -1831,16 +1830,17 @@ body.light .about-education h3 {
     font-weight: 700;
 }
 
-/* ============== SKILLS ============== */
-
+/* SKILLS  */
 body.light .skills-list.icons li {
-    background: rgba(255, 255, 255, 0.22);
-    border: 1px solid rgba(218, 207, 207, 0.829);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    background: rgba(255, 255, 255, 0.18); 
+    border: 1px solid rgba(0, 0, 0, 0.12); 
+    backdrop-filter: blur(10px) saturate(140%); 
+    box-shadow: 0 0 10px rgba(0,0,0,0.06);
     height: auto;
-    padding: 0.8rem 0.4rem; /* samma som dark mode */
-    min-height: clamp(75px, 18vw, 100px);
-    aspect-ratio: 1 / 1; /* gör dem kvadratiska igen */
+    padding: clamp(0.4rem, 1.2vw, 0.8rem); 
+    width: clamp(60px, 14vw, 90px);
+    min-height: clamp(60px, 14vw, 90px);
+    aspect-ratio: 1 / 1; 
 }
 
 body.light .skills-list.icons i {
