@@ -1836,11 +1836,6 @@ body.light .skills-list.icons li {
     border: 1px solid rgba(0, 0, 0, 0.12); 
     backdrop-filter: blur(10px) saturate(140%); 
     box-shadow: 0 0 10px rgba(0,0,0,0.06);
-    height: auto;
-    padding: clamp(0.4rem, 1.2vw, 0.8rem); 
-    width: clamp(60px, 14vw, 90px);
-    min-height: clamp(60px, 14vw, 90px);
-    aspect-ratio: 1 / 1; 
 }
 
 body.light .skills-list.icons i {
