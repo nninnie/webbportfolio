@@ -1026,6 +1026,12 @@ body {
     min-height: 50px; 
 }
 
+.image-project {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-top: auto;
+}
 
 
 
@@ -1046,7 +1052,7 @@ body {
         text-shadow 0.35s ease,
         transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     transform-origin: right center; 
-    margin-top: auto;
+    margin-top: 1rem;
 
 }
 
