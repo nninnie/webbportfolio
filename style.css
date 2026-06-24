@@ -853,28 +853,28 @@ body {
 
 /* Kortet - RESPONSIV  */
 .skills-list.icons li {
-    background: rgba(145, 145, 145, 0.041); 
-    border: 1px solid rgba(100, 100, 100, 0.28);
-    backdrop-filter: blur(18px) saturate(160%); 
+    width: clamp(70px, 12vw, 120px);  
+    height: clamp(70px, 12vw, 120px);  
+    aspect-ratio: 1 / 1;              
+
+    padding: 0.5rem;                  
     border-radius: 16px;
+    box-sizing: border-box;
+
+    background: rgba(145, 145, 145, 0.041);
+    border: 1px solid rgba(100, 100, 100, 0.28);
+    backdrop-filter: blur(18px) saturate(160%);
     box-shadow: 0 0 20px rgba(255,255,255,0.08);
-    width: clamp(60px, 14vw, 90px);
-    height: auto;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    line-height: 1.2; 
-    opacity: 0;
-    transform: scale(0.92);
-    animation: iconPop 0.35s ease-out forwards;
+
     transition: transform 0.25s ease, box-shadow 0.25s ease;
-    padding: 0.5rem;
-    aspect-ratio: 1 / 1;
-    min-height: auto;
-    box-sizing: border-box;
 }
+
 
 @keyframes iconPop {
     0% { opacity: 0; transform: scale(0.92); }
