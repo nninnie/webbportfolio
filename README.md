@@ -1,3 +1,5 @@
+<img src="readme-image.png">
+
 # 🌐 Web Portfolio – Frontendprojekt
 
 En modern, responsiv och tillgänglig webportfolio byggd med **HTML**, **CSS** och **JavaScript**.  
