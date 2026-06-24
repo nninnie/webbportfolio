@@ -397,10 +397,6 @@ body {
     overflow-x: hidden; 
 }
 
-
-
-
-
 .hero-card {
     display: flex;
     width: 100%;
@@ -438,23 +434,29 @@ body {
 
 @media (max-width: 768px) {
 
-}
-@media (max-width: 768px) {
-        .hero {
-        transform: translateY(-8vh);
+    .hero {
+        height: auto;
+        transform: none;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
     }
+
     .hero-card {
-        display: flex;
         flex-direction: column;
+        justify-content: center;   
+        align-items: center;       
         text-align: center;
-        align-items: center;
-        gap: 1rem;
-        width: 100%; 
-        max-width: 100%;
-        box-sizing: border-box; 
-        padding: 2rem 1rem;    
-        justify-content: center;
-        margin: 0 auto;        
+        gap: 1.5rem;
+    }
+
+    .hero-image-wrapper {
+        align-self: center !important;  
+        margin-right: 0;
+        margin-top: 0.5rem;
+    }
+
+    .portrait {
+        margin: 0 auto;
     }
 
     .hero-text {
@@ -684,16 +686,17 @@ body {
     margin-top: 2rem;  
 }
 
-/* Ikoner */
+/* Social media Ikoner */
 .social-media-hero  img {
-    width: 20px;
-    height: 20px;
+    width: clamp(7px, 4vw, 20px);
+    height: clamp(7px, 4vw, 20px);
     opacity: 0.75;
     object-fit: contain;
     transition: 0.3s ease;
     filter: drop-shadow(0 0 0 transparent);
     border-radius: 10px;
     justify-content: flex-end;
+    margin-bottom: -2rem;
 }
 
 .social-media-hero  a img {
@@ -708,23 +711,44 @@ body {
 
 /* Se till att GitHub följer dark/light-reglerna */
 .social-media-hero  img.github {
-    width: 22px;
-    height: 22px;
+    width: clamp(16px, 4vw, 22px);
+    height: clamp(16px, 4vw, 20x);
     display: none;
 }
+
 .skills-hero {
-  color: #4400ff41;
+  color: #1429a0ad;
   font-weight: 600;
   font-size: 1.2rem;
   white-space: nowrap;
   overflow: hidden;
-  font-family: "JetBrains Mono", monospace; /* snyggare underscore */
+  font-family: "JetBrains Mono", monospace;
+  padding-top: 0.1rem;
 }
 
 @keyframes blink {
   50% { border-color: transparent; }
 }
 
+
+@media (max-width: 768px) {
+
+    /* Centrera och visa ikonerna */
+    .social-media-hero {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.3rem;
+        margin: 0.5rem auto 0 auto;
+    }
+
+    /* Ikonerna själva */
+    .social-media-hero img {
+        opacity: 0.85;
+        transition: 0.25s ease;
+    }
+
+}
 
 
 
@@ -2005,4 +2029,13 @@ body.light .send-btn {
 
 body.light .modal-divider {
     background: rgba(0, 0, 0, 0.12); 
+}
+
+body.light .skills-hero {
+  color: #1429a0ad;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: "JetBrains Mono", monospace;
+  padding-top: 0.1rem;
 }
