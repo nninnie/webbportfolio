@@ -7,7 +7,7 @@
     <title>Ninnie Dahlström - Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.16.0/devicon.min.css">
 </head>
@@ -110,10 +110,28 @@
 
         <div class="hero-text">
             <h1>Ninnie Dahlström</h1>
-            <h3>Systemutvecklare .NET </h3>
-            <p>Baserad i Stockholm</p>
-            <p>Backend • C# • .NET • SQL • API-utveckling</p>
+            <h3>Systemutvecklare .NET • Stockholm</h3>
+
+            <p id="skills"  class="skills-hero">Backend • C# • .NET • SQL • API-utveckling</p>
+            
+            <div class="social-media-hero">
+                    <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/nninnie" target="_blank" aria-label="LinkedIn">
+            <img src="image/linkedin.svg" alt="LinkedIn - Ninnie Dahlström" width="24" height="24">
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com/nninnie" target="_blank" aria-label="GitHub">
+            <img src="image/GitHub.png" alt="Github - Ninnie Dahlström" class="icon-img light github">
+            <img src="image/GitHub-darkmode.png" alt="Github - Ninnie Dahlström" class="icon-img dark github">
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/nninnie" target="_blank" aria-label="Instagram" class="instagram-footer">
+            <img src="image/instagram.svg" alt="Instagram - Ninnie Dahlström">
+        </a>
         </div>
+    </div>
     </div>
 
     <div class="ui-card-accent"></div>
@@ -127,7 +145,7 @@
             <span><img src="image/icons/folder.png" class="btn-icon">Se Portfolio</span>
         </a>
     </div>
-
+</div>
 </section>
 
 
@@ -421,64 +439,7 @@
 
 
 </footer>
-<script>
-const projects = {
-    "Kassasystem": {
-        description: "Modernt kassasystem byggt i .NET med C# och SQL.",
-        fullDescription:
-            "Ett kassasystem utvecklat i C# med fokus på tydlig mappstruktur, OOP och ren kod. Projektet gav praktisk erfarenhet av DRY- och SOLID-principer för att skapa en mer strukturerad och underhållbar applikation.",
-        github: "https://github.com/nninnie/CashRegisterSystem",
-        demo: "https://github.com/nninnie/CashRegisterSystem#readme",
-        tech: ["C#", ".NET"],
-        features: ["CRUD-operationer", "OOP-struktur", "SOLID"],
-        img: {
-            src: "image/portfolio/cashregistersystem.png",
-            alt: "Kassasystem - projektbild",
-            width: 600,
-            height: 400
-        }
-    },
 
-    "Hotell App": {
-        description: "Modernt hotellbokningssystem byggt i .NET och SQL Server.",
-        fullDescription:
-            "Ett hotellbokningssystem utvecklat i C# och SQL Server med Code First som grund för databashantering och datamodellering.",
-        github: "https://github.com/nninnie/HotelBooking",
-        demo: "https://github.com/nninnie/HotelBooking#readme",
-        tech: ["C#", ".NET", "SQL"],
-        features: ["CRUD-operationer", "OOP-struktur", "Code First", "Databashantering", "SOLID"],
-        img: {
-            src: "image/portfolio/hotelbooking.png",
-            alt: "Hotellbokningssystem - projektbild",
-            width: 600,
-            height: 400
-        }
-    },
-
-    "Webbportfolio": {
-        description: "Modern UI/UX-portfolio byggd i HTML, CSS och JavaScript.",
-        fullDescription:
-            "En egenutvecklad portfolio skapad med HTML5, CSS3 och JavaScript.",
-        github: "https://github.com/nninnie/webbportfolio",
-        demo: "https://nninnie.github.io/webbportfolio/",
-        tech: ["HTML", "CSS", "JavaScript", "UI/UX", "API"],
-        features: [
-            "Responsiv design",
-            "Glow Color Picker",
-            "Dark/Light mode",
-            "Weather API",
-            "Interaktiva komponenter"
-        ],
-        img: {
-            src: "image/portfolio/webbportfolio.png",
-            alt: "Webbportfolio - projektbild",
-            width: 600,
-            height: 400
-        }
-    }
-};
-
-</script>
 
 <script defer src="script.js"></script>
 

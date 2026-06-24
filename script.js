@@ -132,6 +132,75 @@ window.addEventListener("scroll", () => {
     }
 });
 
+/* -----------------------------------------
+   💡 HERO-TEXT ANIMATION - skriver och suddar ord automatiskt
+----------------------------------------- */
+
+const wordsSv = [
+  "Skalbara lösningar",
+  "Backend-utveckling",
+  "Frontend-utveckling",
+  "Fullstack-utveckling",
+  "C# & .NET",
+  "API-utveckling",
+  "SQL & databaser",
+  "HTML, CSS & JavaScript",
+  "UI/UX-design",
+  "Responsiv webbutveckling"
+];
+
+const wordsEn = [
+  "Scalable solutions",
+  "Backend development",
+  "Frontend development",
+  "Fullstack development",
+  "C# & .NET",
+  "API development",
+  "SQL & databases",
+  "HTML, CSS & JavaScript",
+  "UI/UX design",
+  "Responsive web development"
+];
+
+// ⭐ välj språk
+let words = wordsEn;
+
+let i = 0;
+let el = document.getElementById("skills");
+
+function typeWord() {
+  const word = words[i];   // ✔️ rätt variabel
+  let j = 0;
+
+  const typer = setInterval(() => {
+    el.textContent = word.slice(0, j) + "_";
+    j++;
+
+    if (j > word.length) {
+      clearInterval(typer);
+      setTimeout(() => eraseWord(), 900);
+    }
+  }, 120);
+}
+
+function eraseWord() {
+  const word = words[i];   // ✔️ samma fix här
+  let j = word.length;
+
+  const eraser = setInterval(() => {
+    el.textContent = word.slice(0, j) + "_";
+    j--;
+
+    if (j < 0) {
+      clearInterval(eraser);
+      i = (i + 1) % words.length;
+      typeWord();
+    }
+  }, 60);
+}
+
+typeWord();
+
 
 /* -----------------------------------------
    📩 Kontaktformulär: skicka utan redirect + visa popup
@@ -163,9 +232,77 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
 });
 
 /* -----------------------------------------
-   📁 Portfolio Mappar - öppna/stänga
+   📁 Portfolio Mappar - öppna/stänga/språk
 ----------------------------------------- */
 
+const projectsSv = {
+    "Kassasystem": {
+        description: "Modernt kassasystem byggt i .NET med C# och SQL.",
+        fullDescription: "Ett kassasystem utvecklat i C# med fokus på tydlig mappstruktur, OOP och ren kod.",
+        github: "https://github.com/nninnie/CashRegisterSystem",
+        demo: "https://github.com/nninnie/CashRegisterSystem#readme",
+        tech: ["C#", ".NET"],
+        features: ["CRUD-operationer", "OOP-struktur", "SOLID"],
+        img: "image/portfolio/cashregistersystem.png"
+    },
+
+    "Hotell App": {
+        description: "Modernt hotellbokningssystem byggt i .NET och SQL Server.",
+        fullDescription: "Ett hotellbokningssystem utvecklat i C# och SQL Server med Code First.",
+        github: "https://github.com/nninnie/HotelBooking",
+        demo: "https://github.com/nninnie/HotelBooking#readme",
+        tech: ["C#", ".NET", "SQL"],
+        features: ["CRUD-operationer", "OOP-struktur", "Code First", "Databashantering", "SOLID"],
+        img: "image/portfolio/hotelbooking.png"
+    },
+
+    "Webbportfolio": {
+        description: "Modern UI/UX-portfolio byggd i HTML, CSS och JavaScript.",
+        fullDescription: "En egenutvecklad portfolio skapad med HTML5, CSS3 och JavaScript.",
+        github: "https://github.com/nninnie/webbportfolio",
+        demo: "https://nninnie.github.io/webbportfolio/",
+        tech: ["HTML", "CSS", "JavaScript", "UI/UX", "API"],
+        features: ["Responsiv design", "Glow Color Picker", "Dark/Light mode", "Weather API", "Interaktiva komponenter"],
+        img: "image/portfolio/webbportfolio.png"
+    }
+};
+
+const projectsEn = {
+    "Cash Register System": {
+        description: "Modern cash register system built in .NET with C# and SQL.",
+        fullDescription: "A cash register system developed in C# with focus on clean structure, OOP and SOLID.",
+        github: "https://github.com/nninnie/CashRegisterSystem",
+        demo: "https://github.com/nninnie/CashRegisterSystem#readme",
+        tech: ["C#", ".NET"],
+        features: ["CRUD operations", "OOP structure", "SOLID principles"],
+        img: "image/portfolio/cashregistersystem.png"
+    },
+
+    "Hotel Booking App": {
+        description: "Modern hotel booking system built in .NET and SQL Server.",
+        fullDescription: "A hotel booking system developed in C# and SQL Server using Code First.",
+        github: "https://github.com/nninnie/HotelBooking",
+        demo: "https://github.com/nninnie/HotelBooking#readme",
+        tech: ["C#", ".NET", "SQL"],
+        features: ["CRUD operations", "OOP structure", "Code First", "Database handling", "SOLID principles"],
+        img: "image/portfolio/hotelbooking.png"
+    },
+
+    "Web Portfolio": {
+        description: "Modern UI/UX portfolio built with HTML, CSS and JavaScript.",
+        fullDescription: "A custom-built portfolio focusing on modern frontend, responsive design and interactive components.",
+        github: "https://github.com/nninnie/webbportfolio",
+        demo: "https://nninnie.github.io/webbportfolio/",
+        tech: ["HTML", "CSS", "JavaScript", "UI/UX", "API"],
+        features: ["Responsive design", "Glow Color Picker", "Dark/Light mode", "Weather API", "Interactive components"],
+        img: "image/portfolio/webbportfolio.png"
+    }
+};
+
+let lang = "en"; // byt till "sv" om du vill
+
+let projects = lang === "en" ? projectsEn : projectsSv;
+let projectButtonText = lang === "en" ? "View project" : "Se projekt";
 
 const techIcons = {
     "HTML": "devicon-html5-plain colored",
@@ -180,31 +317,29 @@ const techIcons = {
 };
 
 const projectsGrid = document.getElementById("projectsGrid");
+projectsGrid.innerHTML = ""; // rensa först
 
 Object.entries(projects).forEach(([title, data]) => {
     const card = document.createElement("div");
     card.className = "folder-item project-card";
 
     card.innerHTML = `
-
         <div class="project-icon">
-        <img src="image/icons/folder.png" alt="folder" class="folder-icon">
+            <img src="image/icons/folder.png" alt="folder" class="folder-icon">
         </div>
         
         <span class="folder-title">${title}</span>
         <p>${data.description}</p>
 
-        <img src="image/placeholder.jpg" alt="image-project" class="image-project">
+        <img src="${data.img}" alt="${title}" class="image-project">
         
-        <p class="project-click">Se projekt <span class="arrow">→</span></p>
+        <p class="project-click">${projectButtonText} <span class="arrow">→</span></p>
 
         <div class="ui-card-accent"></div>
-
     `;
 
     projectsGrid.appendChild(card);
 });
-
 
 const modal = document.getElementById("projectModal");
 const titleEl = document.getElementById("projectTitle");
@@ -214,7 +349,6 @@ const demoEl = document.getElementById("demoLink");
 const techEl = document.getElementById("projectTech");
 const features = document.getElementById("features");
 
-// öppna modal
 document.querySelectorAll(".folder-item").forEach(folder => {
     folder.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -223,52 +357,36 @@ document.querySelectorAll(".folder-item").forEach(folder => {
         const project = projects[name];
 
         titleEl.textContent = name;
-    
-techEl.innerHTML = `
 
+        techEl.innerHTML = `
             <div class="card-tech">
-                ${project.tech
-                    .map(t => `<i class="${techIcons[t] || ''}"></i>`)
-                    .join("")}
+                ${project.tech.map(t => `<i class="${techIcons[t] || ''}"></i>`).join("")}
             </div>
         `;
 
         descEl.innerHTML = project.fullDescription;
 
-        features.innerHTML = project.features
-            .map(f => `<li>${f}</li>`)
-            .join("");
+        features.innerHTML = project.features.map(f => `<li>${f}</li>`).join("");
 
         githubEl.href = project.github;
         demoEl.href = project.demo;
 
         modal.style.display = "flex";
-
     });
 });
 
-
-// stänger med x
 document.querySelector(".close-modal").addEventListener("click", () => {
     modal.style.display = "none";
 });
 
-
-// stänger när man klickar utanför
-const modalContent = document.querySelector(".project-modal-content");
-
 document.addEventListener("click", (e) => {
     if (modal.style.display === "flex" &&
-        !modalContent.contains(e.target) &&
-        !e.target.closest(".folder-item")) 
-    {
+        !document.querySelector(".project-modal-content").contains(e.target) &&
+        !e.target.closest(".folder-item")) {
         modal.style.display = "none";
     }
 });
 
-// stänga med ESC
 document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-        modal.style.display = "none";
-    }
+    if (e.key === "Escape") modal.style.display = "none";
 });

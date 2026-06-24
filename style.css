@@ -14,6 +14,7 @@
     --orange: #FF7A00;
     --blue: #4DA3FF;
     --purple: #9F4DFF;
+    --dark-blue: #1428A0;
 
     --console-bg: #000;
     --console-border: #333;
@@ -44,7 +45,7 @@ section {
     height: 1px;
     border-radius: 20px;
     background: linear-gradient(90deg,
-        #1428A0,
+        var(--dark-blue),
         var(--purple),
         var(--pink)
     );
@@ -69,7 +70,7 @@ h1 {
 
 
 h2 {
-    font-family: "Poppins", sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 700;
     letter-spacing: -1px;
     margin-bottom: 1rem;
@@ -78,18 +79,18 @@ h2 {
 }
 
 h3 {
-    font-family: "Poppins", sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 300;
     font-size: clamp(0.9rem, 3vw, 1.4rem);
 }
 p {
-    font-family: "Poppins", sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: clamp(0.8rem, 1.2vw, 1rem);
     line-height: 1.6;
 }
 
 a, li, span {
-    font-family: "Poppins", sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: clamp(0.6rem, 1.4vw, 1rem);
     line-height: 1.6;
 }
@@ -118,7 +119,7 @@ a, li, span {
 body {
     background: var(--bg);
     color: var(--text);
-    font-family: "Poppins", sans-serif;
+    font-family: "Inter", sans-serif;
     margin: 0;
     min-height: 100vh;
     display: flex;
@@ -396,11 +397,7 @@ body {
     overflow-x: hidden; 
 }
 
-@media (max-width: 768px) {
-    .hero {
-        transform: translateY(-8vh);
-    }
-}
+
 
 
 
@@ -436,10 +433,16 @@ body {
     padding-bottom: 0.2rem;
     margin-right: 1.5rem;
     position: relative;
+    align-self: center;
 }
 
-
 @media (max-width: 768px) {
+
+}
+@media (max-width: 768px) {
+        .hero {
+        transform: translateY(-8vh);
+    }
     .hero-card {
         display: flex;
         flex-direction: column;
@@ -450,9 +453,7 @@ body {
         max-width: 100%;
         box-sizing: border-box; 
         padding: 2rem 1rem;    
-
-        grid-column: auto;
-        justify-self: auto;
+        justify-content: center;
         margin: 0 auto;        
     }
 
@@ -675,6 +676,56 @@ body {
     pointer-events: auto;
     transform: scale(1.1);
 }
+
+.social-media-hero {
+    display: flex;
+    align-items: center;   
+    gap: 0.5rem;
+    margin-top: 2rem;  
+}
+
+/* Ikoner */
+.social-media-hero  img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.75;
+    object-fit: contain;
+    transition: 0.3s ease;
+    filter: drop-shadow(0 0 0 transparent);
+    border-radius: 10px;
+    justify-content: flex-end;
+}
+
+.social-media-hero  a img {
+    transition: 0.25s ease;
+}
+
+.social-media-hero  a:hover img {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 6px var(--glow));
+}
+
+
+/* Se till att GitHub följer dark/light-reglerna */
+.social-media-hero  img.github {
+    width: 22px;
+    height: 22px;
+    display: none;
+}
+.skills-hero {
+  color: #4400ff41;
+  font-weight: 600;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: "JetBrains Mono", monospace; /* snyggare underscore */
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+
 
 
 
@@ -1885,7 +1936,7 @@ body.light .icon-img.light {
 /* ACCENT I CARD */
 body.light .ui-card-accent {
     background: linear-gradient(90deg,
-        #1428A0,
+        var(--dark-blue),
         var(--pink),
         var(--orange)
     );
@@ -1945,7 +1996,7 @@ body.light .contact-card button {
     color: var(--text-dark);
     background:
         linear-gradient(rgb(255, 253, 253), rgb(255, 253, 253)) padding-box,
-        linear-gradient(90deg, #1428A0, var(--pink), var(--orange)) border-box;
+        linear-gradient(90deg, var(--dark-blue), var(--pink), var(--orange)) border-box;
 }
 
 body.light .send-btn {

@@ -1,0 +1,28 @@
+light house - höja allt till över 95%
+
+- fix från light house på eng html
+det vi gjorde i html svenska
+-selectr språk label
+
+
+-sociala medier i hero ?
+
+-tum navigering ? vad är det istället för hamburgare meny
+
+- google mail till sociala ikoner ?
+
+-email telefon osv i kontakt eller brevid kontakt formuläret man kan klicka på 
+
+- contact forumlär - länkar till emial telefon kontakt uppgifter
+
+-scroll som man kan trycka på för att hamna på nästa section
+
+- brand ? - snurra gör aågot kul 
+
+- skriva ut texxten i hero och suda - se skärmbiild - byta ord osv osv
+
+-stjärnor på testimotals ? 55 stjärnor
+
+- visa commit i github ?
+
+-liten väder symbol i navbaren
