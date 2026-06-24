@@ -193,6 +193,8 @@ Object.entries(projects).forEach(([title, data]) => {
         
         <span class="folder-title">${title}</span>
         <p>${data.description}</p>
+
+        <img src="
         
         <p class="project-click">Se projekt <span class="arrow">→</span></p>
 
