@@ -1,6 +1,8 @@
-<img src="readme-image.png">
-
 # 🌐 Web Portfolio – Frontendprojekt
+
+<p align="center">
+  <img src="readme-image.png" alt="Webbbportfolio" width="600"/>
+</p>
 
 En modern, responsiv och tillgänglig webportfolio byggd med **HTML**, **CSS** och **JavaScript**.  
 Projektet fokuserar på UI/UX‑design, komponentbaserad struktur, API‑integration och en ren, modulär kodbas.  
