@@ -19,10 +19,11 @@ Portfolion presenterar mina projekt, erfarenheter och kontaktmöjligheter i ett 
 - LocalStorage sparar användarens val  
 
 ### 🌦️ Väder‑API
-- Integration med **OpenWeatherMap**  
-- Hämtar temperatur, ikon och plats  
-- Dynamisk uppdatering vid sidladdning  
-- Felhantering om API inte svarar  
+- Integration med **Open‑Meteo API**
+- Hämtar temperatur och väderkod baserat på koordinater
+- Dynamisk ikon baserat på Open‑Meteos weather codes
+- Asynkron hämtning med `fetch()` och JSON‑hantering
+- Felhantering om API inte svarar
 
 ### 📱 Responsiv design
 - `clamp()` för typografi och spacing  
@@ -113,4 +114,57 @@ Varje komponent har ett tydligt ansvar, vilket gör koden lätt att bygga ut och
 
 ## 📁 Projektstruktur
 
+Projektet är enkelt strukturerat och innehåller endast de filer som behövs för portfolion.
 
+/image
+(endast bilder – ikoner, projektbilder, referensbilder)
+
+index.html
+index-en.html
+style.css
+script.js
+README.md
+readme-image.png
+
+---
+
+## 🛠️ Installation
+
+1. Klona projektet  
+2. Öppna projektmappen  
+3. Starta genom att öppna **index.html** i valfri webbläsare  
+
+Ingen installation krävs — projektet är helt statiskt.
+
+---
+
+## 📄 Dokumentation
+
+- Figma‑skisser (internt)  
+- Moodboard (internt)  
+- Komponentplanering  
+- UI‑system (spacing, färger, typografi)  
+
+---
+
+## 🧩 Lärdomar & Arbetssätt
+
+Jag arbetade enligt principer som:
+
+- **Single Responsibility Principle** – varje JS‑funktion gör en sak  
+- **Modulär CSS i en fil** – komponentbaserad styling i sektioner  
+- **Iterativ design** – bygga → testa → förbättra  
+- **Responsiv först** – mobil → tablet → laptop  
+
+Lärdomar:
+
+- Jag hade velat börja i Figma tidigare  
+- Att planera komponenter sparar mycket tid  
+- `clamp()` är extremt kraftfullt för responsivitet  
+- Light mode kräver mer kontrastarbete än dark mode  
+- API‑integration gav bättre förståelse för asynkron JavaScript  
+
+---
+
+## ✍️ Utvecklat av  
+**Ninnie Dahlström – Web Portfolio**
