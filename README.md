@@ -1,4 +1,4 @@
-# 🌐 Web Portfolio – Frontendprojekt
+# 🌐 WebbPortfolio
 
 <p align="center">
   <img src="readme-image.png" alt="Webbbportfolio" width="1100"/>
