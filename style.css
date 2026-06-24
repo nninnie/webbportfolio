@@ -853,8 +853,8 @@ body {
 
 /* Kortet - RESPONSIV  */
 .skills-list.icons li {
-    width: clamp(70px, 12vw, 120px);  
-    height: clamp(70px, 12vw, 120px);  
+    width: clamp(90px, 12vw, 120px);  
+    height: clamp(90px, 12vw, 120px);  
     aspect-ratio: 1 / 1;              
 
     padding: 0.5rem;                  
