@@ -59,7 +59,7 @@ section {
 /* ============== TEXT - FONT ============== */
 h1 {
     font-family: "Montserrat", sans-serif;
-    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-size: clamp(2.2rem, 5vw, 5rem);
     word-break: break-word;
     font-weight: 900;
     text-align: center;
