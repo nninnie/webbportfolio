@@ -19,17 +19,11 @@ Portfolion presenterar mina projekt, erfarenheter och kontaktmöjligheter i ett 
 - LocalStorage sparar användarens val  
 
 ### 🌐 Språkväxling (Language Toggle)
-Sidan har stöd för både svenska och engelska, och användaren kan enkelt byta språk via språkikonen i navbaren.
-All text på sidan uppdateras dynamiskt utan att ladda om sidan.
-
-Teknik:
 - JavaScript som lyssnar på klick på språkknappen
 - Två JSON‑objekt med svensk och engelsk översättning
 - DOM‑uppdatering av alla textnoder i realtid
 - Flagga som byter ikon beroende på valt språk
-- Dold <select> för WCAG‑krav och skärmläsare
-
-Syfte:
+- Dold `<select>` för WCAG‑krav och skärmläsare
 - Göra sidan tillgänglig för fler användare
 - Visa hur man arbetar med dynamiskt innehåll
 - Förbättra UX genom att undvika sidladdningar
@@ -60,16 +54,10 @@ Syfte:
 - Ikoner för språk, tema och väder  
 
 ### ✨ Glow Color Picker
-En interaktiv funktion som låter användaren själv välja glow‑färgen runt min profilbild.
-Det gör sidan mer personlig och engagerande, och visar hur jag kombinerar design och funktionalitet i modern frontend‑utveckling.
-
-Teknik:
 - CSS‑variabler för att styra glow‑färgen
 - JavaScript som lyssnar på input‑event
 - Direkt DOM‑uppdatering i realtid
 - LocalStorage för att spara användarens val
-
-Syfte:
 - Skapa en mer levande och personlig UI‑upplevelse
 - Ge användaren kontroll över designen
 - Visa interaktivitet och modern frontend‑teknik
