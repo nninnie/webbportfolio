@@ -1,7 +1,7 @@
 # 🌐 WebbPortfolio - Ninnie Dahlström
 
 <p align="center">
-  <img src="readme-image.png" alt="Webbbportfolio" width="1100"/>
+  <img src="image/readme-image.png" alt="Webbbportfolio" width="1100"/>
 </p>
 
 En modern, responsiv och tillgänglig webportfolio byggd med **HTML**, **CSS** och **JavaScript**.  
