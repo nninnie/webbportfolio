@@ -39,6 +39,14 @@ section {
     scroll-margin-top: clamp(3rem, 6vh, 5rem);
 }
 
+@media (max-width: 768px) {
+    section {
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
+    }
+}
+
+
 /* ACCENT I CARD */
 .ui-card-accent {
     width: 100%;
@@ -273,7 +281,7 @@ body {
 /* Portfolio-länk alltid orange */
 .nav-links a[href*="portfolio"],
 .mobile-menu a[href*="portfolio"] {
-    color: var(--purple);
+    color: var(--orange);
     font-weight: 500;
 }
 
@@ -580,8 +588,8 @@ body {
 }
 
 .btn.orb.pink {
-    background: var(--purple);
-    box-shadow: 0 0 4px var(--purple);
+    background: var(--orange);
+    box-shadow: 0 0 4px var(--orange);
     border: 1px;
 }
 
@@ -616,7 +624,7 @@ body {
 
     .btn.orb.pink {
     background: var(--console-bg);
-    box-shadow: 0 0 2px var(--purple);
+    box-shadow: 0 0 2px var(--orange);
     border: 1px;
 }
 
@@ -894,12 +902,6 @@ body {
     }
 }
 
-
-@media (max-width: 768px) {
-    .sectionabout {
-        padding-bottom: 40vh;
-    }
-}
 
 /* FÄRGADE ORD i texten */
 .key-purple {
