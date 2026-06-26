@@ -1463,14 +1463,17 @@ body:not(.light) .icon-img.dark {
     margin-top: 1rem;
     opacity: 0.85;
     font-size: clamp(0.7rem, 1vw, 0.85rem);
+    
 }
 
 .reference-signature strong {
-    font-weight: 700;
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(0.8rem, 1.5vw, 1.5rem);
+    font-weight: 100;
 }
 
 .reference-card .reference-signature strong {
-    color: var(--blue);
+    color: var(--pink);
 }
 
 
@@ -1758,7 +1761,7 @@ footer {
 }
 
 .footer-credit .name {
-    color: var(--blue);
+    color: var(--pink);
     font-family: "Great Vibes", cursive;
     font-weight: 100;
     text-shadow: 0 0 1px var(--glow);

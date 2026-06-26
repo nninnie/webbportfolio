@@ -52,6 +52,7 @@ langBtn.addEventListener("click", () => {
 });
 
 
+
 /* -----------------------------------------
    🎨  GLOW COLOR PICKER (sparas i localStorage)
 ----------------------------------------- */
@@ -69,6 +70,7 @@ const savedGlow = localStorage.getItem("glowColor");
 
     document.documentElement.style.setProperty("--glow", "#1429a056");
     glowPicker.value = "#1429a0c0";
+
 
 
 
@@ -108,6 +110,8 @@ async function loadWeather() {
 
 loadWeather();
 
+
+
 /* -----------------------------------------
    🍔  HAMBURGARMENY (öppna/stäng)
 ----------------------------------------- */
@@ -118,6 +122,8 @@ hamburgerBtn.addEventListener("click", () => {
     mobileMenu.style.display =
         mobileMenu.style.display === "flex" ? "none" : "flex";
 });
+
+
 
 
 /* -----------------------------------------
@@ -131,6 +137,8 @@ window.addEventListener("scroll", () => {
         nav.classList.remove("scrolled");
     }
 });
+
+
 
 /* -----------------------------------------
    💡 HERO-TEXT ANIMATION - skriver och suddar ord automatiskt
@@ -162,14 +170,13 @@ const wordsEn = [
   "Responsive web development"
 ];
 
-// ⭐ välj språk
 let words = wordsEn;
 
 let i = 0;
 let el = document.getElementById("skills");
 
 function typeWord() {
-  const word = words[i];   // ✔️ rätt variabel
+  const word = words[i];  
   let j = 0;
 
   const typer = setInterval(() => {
@@ -184,7 +191,7 @@ function typeWord() {
 }
 
 function eraseWord() {
-  const word = words[i];   // ✔️ samma fix här
+  const word = words[i];   
   let j = word.length;
 
   const eraser = setInterval(() => {
@@ -202,11 +209,12 @@ function eraseWord() {
 typeWord();
 
 
+
 /* -----------------------------------------
    📩 Kontaktformulär: skicka utan redirect + visa popup
 ----------------------------------------- */
 document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault(); // stoppar från att ladda om sidan
+    e.preventDefault();
 
     const form = this;
     const formData = new FormData(form);
@@ -217,15 +225,12 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
         body: formData
     })
     .then(() => {
-        // Visa popup
         document.getElementById("successPopup").style.display = "block";
 
-        // döljer popup efter 4 sek
         setTimeout(() => {
             document.getElementById("successPopup").style.display = "none";
         }, 4000);
 
-        // rensar
         form.reset();
     })
     .catch(error => console.log("FormSubmit error:", error));
@@ -275,7 +280,7 @@ const projectsEn = {
         demo: "https://github.com/nninnie/CashRegisterSystem#readme",
         tech: ["C#", ".NET"],
         features: ["CRUD operations", "OOP structure", "SOLID principles"],
-        img: "image/portfolio/cashregistersystem.png"
+        img: "image/portfolio//kassasystermet.png"
     },
 
     "Hotel Booking App": {
@@ -285,7 +290,7 @@ const projectsEn = {
         demo: "https://github.com/nninnie/HotelBooking#readme",
         tech: ["C#", ".NET", "SQL"],
         features: ["CRUD operations", "OOP structure", "Code First", "Database handling", "SOLID principles"],
-        img: "image/portfolio/hotelbooking.png"
+        img: "image/portfolio/hotell-booking.png"
     },
 
     "Web Portfolio": {
@@ -295,11 +300,11 @@ const projectsEn = {
         demo: "https://nninnie.github.io/webbportfolio/",
         tech: ["HTML", "CSS", "JavaScript", "UI/UX", "API"],
         features: ["Responsive design", "Glow Color Picker", "Dark/Light mode", "Weather API", "Interactive components"],
-        img: "image/portfolio/webbportfolio.png"
+        img: "image/portfolio//webbportfolio.png"
     }
 };
 
-let lang = "en"; // byt till "sv" om du vill
+let lang = "en"; 
 
 let projects = lang === "en" ? projectsEn : projectsSv;
 let projectButtonText = lang === "en" ? "View project" : "Se projekt";
@@ -317,7 +322,7 @@ const techIcons = {
 };
 
 const projectsGrid = document.getElementById("projectsGrid");
-projectsGrid.innerHTML = ""; // rensa först
+projectsGrid.innerHTML = ""; 
 
 Object.entries(projects).forEach(([title, data]) => {
     const card = document.createElement("div");
