@@ -65,7 +65,7 @@ section {
 h1 {
     font-family: "Montserrat", sans-serif;
     font-size: clamp(2.2rem, 5vw, 5rem);
-    word-break: break-word;
+    word-break: normal;
     font-weight: 900;
     text-align: center;
     letter-spacing: -1px;
@@ -469,17 +469,10 @@ body {
     .hero h1,
     .hero h3,
     .hero p {
-        opacity: 0;
-        transform: translateY(6px);
-        animation: heroSlide 0.3s ease-out forwards;
         text-align: center;
     }
     .hero-image-wrapper {
-    flex: 1; 
-    max-width: 100%;
-    padding-bottom: 0.2rem;
     margin-right: 0;
-    align-self: center !important;  
     margin-top: 0.5rem;
 }
 }
@@ -753,9 +746,6 @@ body {
 @media (max-width: 768px) {
 
     .social-media-hero {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         gap: 0.3rem;
         margin: 0.1rem auto 0 auto;
     }
@@ -1095,9 +1085,9 @@ body {
     font-size: 1rem;
     background: linear-gradient(135deg, var(--dark-blue), var(--purple), var(--pink));
     box-shadow:
-        0 0 10px var(--glow),
-        0 0 8px var(--pink);
-    border-radius: 14px;
+        0 0 6px var(--glow),
+        0 0 2px var(--pink);
+    border-radius: 20px;
     margin-top: 0.5rem;
     margin-bottom: 1.5rem;
     display: flex;
@@ -1234,8 +1224,7 @@ body {
 .close-modal:hover {
     color: var(--glow); 
     text-shadow:
-    0 0 6px var(--glow),
-    0 0 6px var(--glow-halo);
+    0 0 6px var(--glow);
 
 }
 
@@ -1337,8 +1326,7 @@ body:not(.light) .icon-img.dark {
     line-height: 1;
     top: 0.2rem;
     text-shadow:
-        0 0 4px var(--glow),
-        0 0 4px var(--glow-halo);
+        0 0 4px var(--glow);
 }
 
 
