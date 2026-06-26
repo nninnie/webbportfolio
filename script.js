@@ -300,7 +300,7 @@ const projectsEn = {
         demo: "https://nninnie.github.io/webbportfolio/",
         tech: ["HTML", "CSS", "JavaScript", "UI/UX", "API"],
         features: ["Responsive design", "Glow Color Picker", "Dark/Light mode", "Weather API", "Interactive components"],
-        img: "image/portfolio//webbportfolio.png"
+        img: "image/portfolio/webbportfolio.png"
     }
 };
 
