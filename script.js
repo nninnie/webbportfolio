@@ -1,7 +1,7 @@
 /* -----------------------------------------
-   ☀️ / 🌙  TEMA-TOGGLE / Språk-knapp (SE - EN)
+   ☀️ / 🌙  TEMA-TOGGLE / Språk-knapp 
 ----------------------------------------- */
-// Tema-knapp (dark - light)
+
 const themeBtn = document.getElementById("themeToggle");
 const themeIcon = document.getElementById("themeIcon");
 
@@ -32,40 +32,31 @@ themeBtn.addEventListener("click", () => {
     }
 });
 
-
-
-// Språk-knapp (SE ↔ EN)
+// Språk
 const langBtn = document.getElementById("languageToggle");
 const langFlag = document.getElementById("langFlag");
-
-// Kolla vilken sida vi är på
 const isEnglishPage = window.location.pathname.includes("index-en");
 
 langBtn.addEventListener("click", () => {
     if (isEnglishPage) {
-        // Gå till svenska sidan
         window.location.href = "index.html";
     } else {
-        // Gå till engelska sidan
         window.location.href = "index-en.html";
     }
 });
 
 
-
 /* -----------------------------------------
-   🎨  GLOW COLOR PICKER (sparas i localStorage)
+   🎨  GLOW COLOR PICKER 
 ----------------------------------------- */
 const glowPicker = document.getElementById("glowPicker");
 
-// När användaren väljer färg
 glowPicker.addEventListener("input", (e) => {
     const color = e.target.value;
     document.documentElement.style.setProperty("--glow", color);
     localStorage.setItem("glowColor", color);
 });
 
-// Glow vid start
 const savedGlow = localStorage.getItem("glowColor");
 
 if (savedGlow) {
@@ -115,9 +106,8 @@ async function loadWeather() {
 loadWeather();
 
 
-
 /* -----------------------------------------
-   🍔  HAMBURGARMENY (öppna/stäng)
+   🍔  HAMBURGARMENY 
 ----------------------------------------- */
 const hamburgerBtn = document.getElementById("hamburgerBtn");
 const mobileMenu = document.getElementById("mobileMenu");
@@ -128,10 +118,8 @@ hamburgerBtn.addEventListener("click", () => {
 });
 
 
-
-
 /* -----------------------------------------
-   📜 NAVBAR SCROLL-EFFEKT - ger navbaren en skugga
+   📜 NAVBAR SCROLL-EFFEKT 
 ----------------------------------------- */
 window.addEventListener("scroll", () => {
     const nav = document.querySelector(".navbar");
@@ -143,9 +131,8 @@ window.addEventListener("scroll", () => {
 });
 
 
-
 /* -----------------------------------------
-   💡 HERO-TEXT ANIMATION - skriver och suddar ord automatiskt
+   💡 HERO-TEXT ANIMATION 
 ----------------------------------------- */
 
 const wordsSv = [
@@ -215,7 +202,7 @@ typeWord();
 
 
 /* -----------------------------------------
-   📩 Kontaktformulär: skicka utan redirect + visa popup
+   📩 Kontaktformulär
 ----------------------------------------- */
 document.getElementById("contactForm").addEventListener("submit", function(e) {
     e.preventDefault();

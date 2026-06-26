@@ -19,8 +19,6 @@
     --console-bg: #000;
     --console-border: #333;
     --glow: #1428A0;
-    --glow-halo: rgba(255,255,255,0.35); /* fallback glow */
-    
 }
 
 /* ===== GLOBAL WRAPPER =======*/
@@ -63,9 +61,6 @@ section {
 }
 
 
-
-
-
 /* ============== TEXT - FONT ============== */
 h1 {
     font-family: "Montserrat", sans-serif;
@@ -76,7 +71,6 @@ h1 {
     letter-spacing: -1px;
     margin-bottom: 1rem;
 }
-
 
 h2 {
     font-family: "Poppins", sans-serif;
@@ -104,7 +98,6 @@ a, li, span {
     line-height: 1.6;
 }
 
-/* slide in 3 sek*/
 .hero h1,
 .hero h3,
 .hero p {
@@ -120,7 +113,6 @@ a, li, span {
         transform: translateY(0);
     }
 }
-
 
 
 /* ============== BODY ============== */
@@ -145,7 +137,7 @@ body {
     font-weight: 600;
     z-index: 9999;
     transition: top 0.25s ease;
-    opacity: 0; /* gömd skip link*/
+    opacity: 0; 
     pointer-events: none;
 }
 
@@ -154,7 +146,6 @@ body {
     opacity: 1;            
     pointer-events: auto;  
 }
-
 
 
 /* ============== NAVBAR ============== */
@@ -201,14 +192,14 @@ body {
 }
 
 
-/* VÄDER – alltid vänster */
+/* VÄDER */
 .weather {
     opacity: 0.9;
     font-size: clamp(0.7rem, 0.8vw, 0.8rem);
     align-self: start;
 }
 
-/* Väder - locatiion */
+/* Väder - location */
 .weather-box {
     display: flex;
     flex-direction: column; 
@@ -223,7 +214,7 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* HAMBURGER – syns bara på mobil */
+/* HAMBURGER MENY*/
 .hamburger {
     background: none;
     border: none;
@@ -247,7 +238,6 @@ body {
     text-align: right;
 }
 
-/* GRUNDSTIL FÖR ALLA LÄNKAR */
 .nav-links a,
 .mobile-menu a {
     color: var(--text);
@@ -327,7 +317,7 @@ body {
 }
 
 
-/* flagga */
+/* FLAGGA */
 #langFlag {
     width: 1rem;
     height: 1rem; 
@@ -439,7 +429,10 @@ body {
     margin-right: 1.5rem;
     position: relative;
     align-self: center;
+    position: relative;
+    display: inline-block;
 }
+
 
 @media (max-width: 768px) {
 
@@ -447,7 +440,6 @@ body {
         height: auto;
         transform: none;
         padding-top: 2rem;
-        padding-bottom: 4rem;
         padding-bottom: 40vh;
     }
 
@@ -457,12 +449,6 @@ body {
         align-items: center;       
         text-align: center;
         gap: 1.5rem;
-    }
-
-    .hero-image-wrapper {
-        align-self: center !important;  
-        margin-right: 0;
-        margin-top: 0.5rem;
     }
 
     .portrait {
@@ -493,6 +479,8 @@ body {
     max-width: 100%;
     padding-bottom: 0.2rem;
     margin-right: 0;
+    align-self: center !important;  
+    margin-top: 0.5rem;
 }
 }
 
@@ -572,7 +560,7 @@ body {
 }
 
 
-/* Grundstil för knapparnas ikoner download & Map */
+/* IKONER - download & Map */
 .btn-icon {
     width: 12px;
     height: 12px;
@@ -676,12 +664,6 @@ body {
     cursor: pointer;
 }
 
-
-.hero-image-wrapper {
-    position: relative;
-    display: inline-block;
-}
-
 .color-icon {
     position: absolute;
     bottom: 0;
@@ -770,7 +752,6 @@ body {
 
 @media (max-width: 768px) {
 
-    /* Centrera och visa ikonerna */
     .social-media-hero {
         display: flex;
         justify-content: center;
@@ -779,11 +760,9 @@ body {
         margin: 0.1rem auto 0 auto;
     }
 
-    /* Ikonerna själva */
     .social-media-hero img {
         opacity: 0.85;
         transition: 0.25s ease;
-        margin-bottom: -2rem;
     }
 
 }
@@ -812,7 +791,7 @@ body {
     display: grid;
     grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
     gap: 2rem;
-    align-items: stretch; /* gör att båda korten synkas i höjd */
+    align-items: stretch; 
     width: 100%;
     max-width: 1100px;
     margin: 0 auto;
@@ -821,7 +800,7 @@ body {
 
 @media (max-width: 768px) {
     .about-wrapper {
-        grid-template-columns: 1fr; /* mobil: stapla */
+        grid-template-columns: 1fr; 
     }
 }
 
@@ -973,7 +952,7 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: clamp(0.8rem, 2vw, 1.5rem); /* Något tätare gap för bättre flöde på mobil */
+    gap: clamp(0.8rem, 2vw, 1.5rem); 
     justify-content: center;
     text-align: center;
     align-items: center;
@@ -984,16 +963,13 @@ body {
     width: clamp(90px, 12vw, 120px);  
     height: clamp(90px, 12vw, 120px);  
     aspect-ratio: 1 / 1;              
-
     padding: 0.5rem;                  
     border-radius: 16px;
     box-sizing: border-box;
-
     background: rgba(145, 145, 145, 0.041);
     border: 1px solid rgba(100, 100, 100, 0.28);
     backdrop-filter: blur(18px) saturate(160%);
     box-shadow: 0 0 20px rgba(255,255,255,0.08);
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1009,7 +985,7 @@ body {
     100% { opacity: 1; transform: scale(1); }
 }
 
-/* HOVER - Flyttad transition till li för bättre flyt */
+
 .skills-list.icons li:hover {
     transform: translateY(-4px) scale(1.05);
     box-shadow: 0 0 10px var(--glow);
@@ -1031,13 +1007,13 @@ body {
     padding-bottom: 1rem;
 }
 
-/* TEXTEN UNDER IKONEN - CENTRERINGSFIX */
+/* TEXTEN UNDER IKONEN  */
 .skills-list.icons span {
-    font-size: clamp(0.68rem, 1vw, 0.8rem); /* Något mer kompakt på mobil */
+    font-size: clamp(0.68rem, 1vw, 0.8rem); 
     opacity: 0.75;
     font-weight: 500;
     margin-top: 0.1rem;
-    word-break: break-word; /* Bryter långa ord (t.ex. JavaScript) så de inte kraschar kortet */
+    word-break: break-word; 
     display: block;
     width: 100%;
 }
@@ -1057,8 +1033,8 @@ body {
     font-size: clamp(0.9rem, 2vw, 1.1rem); 
     line-height: 1.6;                
     opacity: 0.9;                   
-    position: relative;              /* behövs för modalens z-index */
-    z-index: 10;                     /* lägger sektionen över bakgrunden */
+    position: relative;              
+    z-index: 10;                  
     min-height: 100vh;
 }
 
@@ -1066,10 +1042,9 @@ body {
 .projects-card {
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     justify-content: center; 
 }
-
 
 
 .portfolio-wrapper {
@@ -1110,7 +1085,7 @@ body {
     box-shadow: 0 0 12px var(--glow);
 }
 
-/* Bakgrund på map ikoenen */
+/* BBAKGRUND MAP IKONERNA*/
 .project-icon {
     width: clamp(28px, 3vw, 40px);
     height: clamp(28px, 3vw, 40px);
@@ -1118,25 +1093,25 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 1rem;
-    background: linear-gradient(135deg, #77138b, #1428A0);
+    background: linear-gradient(135deg, var(--dark-blue), var(--purple), var(--pink));
     box-shadow:
-        0 0 10px rgba(106,47,191,0.45),
-        0 0 8px rgba(10,108,255,0.35);
-    border-radius: 12px;
+        0 0 10px var(--glow),
+        0 0 8px var(--pink);
+    border-radius: 14px;
     margin-top: 0.5rem;
     margin-bottom: 1.5rem;
     display: flex;
     flex-direction: column;
 }
 
-/* Map icon */
+/* MAP ICON */
 .folder-icon {
     filter: brightness(0) invert(1);
     width: 14px;
     height: 14px;
 }
 
-/* Titel på card */
+/* TITEL */
 .folder-title {
     font-size: clamp(1rem, 2vw, 1.3rem);
     font-weight: 700;
@@ -1146,7 +1121,7 @@ body {
 }
 
 
-/* Text på card */
+/* TEXT*/
 .project-card p {
     opacity: 0.8;
     font-size: clamp(0.8rem, 1.3vw, 1rem);
@@ -1162,7 +1137,7 @@ body {
 
 
 
-/* klicka på projekten */
+/* PROJEKTEN KLICKBARA */
 .project-click {
     margin-top: 1rem;      
     opacity: 0.6 !important;
@@ -1187,7 +1162,7 @@ body {
 
 
 
-/* MODAL WRAPPER - öppnar projekt card */
+/* MODAL WRAPPER - PROJECTS*/
 
 /* OVERLAY */
 .project-modal {
@@ -1214,7 +1189,7 @@ body {
 }
 
 
-/* SJÄLVA KORTET */
+/* CARD  */
 .project-modal-content {
     width: min(90%, 750px);
     max-height: 80dvh; 
@@ -1246,7 +1221,7 @@ body {
 
 /* CLOSE BUTTON */
 .close-modal {
-    position: absolute; /* ligger ovan på kortet */                  
+    position: absolute;                 
     top: 10px;                            
     right: 12px;                          
     background: none;                     
@@ -1264,7 +1239,7 @@ body {
 
 }
 
-/* Knappar Github & Readme */
+/* BUTTONS - Github & Readme */
 .project-links {
     margin-top: 0.8rem;
     display: flex;
@@ -1289,7 +1264,7 @@ body {
 .project-links a img {
     width: 20px;
     height: 20px;
-    object-fit: contain; /* behåll proportioner */
+    object-fit: contain; 
 }
 
 .project-links a:hover {
@@ -1306,12 +1281,12 @@ body {
     display: none;
 }
 
-/* visa mörka ikoner i dark mode */
+/* DARK ICON - DARK MODE */
 body:not(.light) .icon-img.dark {
     display: inline-block;                
 }
 
-/* SKIILLLS ikoner */
+/* SKIILLS ICONS */
 .card-tech {
     display: flex;
     gap: 0.5rem;
@@ -1335,7 +1310,7 @@ body:not(.light) .icon-img.dark {
     
 }
 
-/* FEATURES text */
+/* FEATURES TEXT */
 #features {
     text-align: left;
     padding-left: 1rem;
@@ -1376,7 +1351,7 @@ body:not(.light) .icon-img.dark {
     min-height: 100dvh;
 }
 
-/* YTTRE WRAPPER */
+/* WRAPPER */
 .references-slider {
     position: relative;
     width: 100%;
@@ -1384,7 +1359,6 @@ body:not(.light) .icon-img.dark {
     margin: 0 auto;
 }
 
-/* INRE WRAPPER */
 .references-wrapper {
     width: 90%;
     max-width: 1100px;
@@ -1394,16 +1368,17 @@ body:not(.light) .icon-img.dark {
 .references-track {
     display: flex;
     gap: 0;
-    overflow-x: auto;        /* horisontell scroll */
-    overflow-y: hidden;      /* ingen vertikal scroll */
-    scroll-snap-type: x mandatory;  /* snappar korten */
-    scroll-behavior: smooth; /* mjuk scroll */
+    overflow-x: auto;        
+    overflow-y: hidden;     
+    scroll-snap-type: x mandatory;  
+    scroll-behavior: smooth; 
     padding-bottom: 1rem;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
 }
 
+/* CARD */
 .reference-card {
     display: flex;
     flex-direction: column;
@@ -1446,7 +1421,7 @@ body:not(.light) .icon-img.dark {
     background: linear-gradient(90deg, var(--blue), var(--pink));
 
 }
-/* så det funkar i firefox (som inte stödjer WebKit‑scrollbars) */
+/* FIREFOX SCROLL */
 .references-track {
     scrollbar-width: thin;
     scrollbar-color: var(--glow) rgba(255,255,255,0.05);
@@ -1455,13 +1430,13 @@ body:not(.light) .icon-img.dark {
 }
 
 
-/* Hover-effekt */
+/* HOVER */
 .reference-card:hover {
     transform: scale(0.97) translateY(-1px);
     box-shadow: 0 0 12px var(--glow);
 }
 
-/* Accent */
+/* ACCENT */
 .section-references .accent {
     color: var(--glow);
     text-shadow:
@@ -1521,7 +1496,7 @@ body:not(.light) .icon-img.dark {
     opacity: 0.9;
 }
 
-
+/* ACENT*/
 .sectioncontact .accent {
     color: var(--glow);
     text-shadow:
@@ -1530,6 +1505,7 @@ body:not(.light) .icon-img.dark {
     font-weight: 900;
 }
 
+/* CARD*/
 .contact-card {
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.12);
@@ -1549,6 +1525,7 @@ body:not(.light) .icon-img.dark {
 }
 
 
+/* FORM*/
 .contact-card form {
     width: 100%;
     display: flex;
@@ -1574,7 +1551,6 @@ body:not(.light) .icon-img.dark {
     color: var(--text);
 }
 
-/* glow när man trycker på inputs/textarea */ 
 .contact-card input:focus,
 .contact-card textarea:focus {
     outline: none;
@@ -1592,7 +1568,7 @@ body:not(.light) .icon-img.dark {
     margin-bottom: 1.3rem;
 }
 
-/* Grupp för label + ikon */
+/* LABBEL + ICON */
 .input-group {
     display: flex;
     flex-direction: column;
@@ -1602,13 +1578,13 @@ body:not(.light) .icon-img.dark {
 
 }
 
-/* medelande ruta, samma font som resten av conttakt form */
+
 textarea {
-    font-family: inherit; /* använd samma font som parent*/
+    font-family: inherit; 
 }
 
 
-/* Label med ikon */
+/* LABEL */
 .input-label {
     display: flex;
     align-items: left;
@@ -1618,7 +1594,7 @@ textarea {
     opacity: 0.85;
 }
 
-/* Gör svarta SVG-ikoner vita */
+/* SVG ICON */
 .input-icon {
     width: clamp(12px, 2vw, 14px);
     height: clamp(12px, 2vw, 14px);
@@ -1626,7 +1602,7 @@ textarea {
     transform: translateY(2px);
 }
 
-/* ikoner brevid namn, email, meddelande */
+/* ICONS  */
 .icon-rosa {
     filter: invert(73%) sepia(93%) saturate(7490%) hue-rotate(295deg) brightness(102%) contrast(101%);
 }
@@ -1639,7 +1615,7 @@ textarea {
 }
 
 
-/* SKICKA KNAPP */
+/* BBUTTON */
 .contact-card button {
     width: fit-content;
     padding: clamp(0.45rem, 1.2vw, 0.75rem) clamp(0.8rem, 2vw, 1.4rem);
@@ -1669,7 +1645,7 @@ textarea {
         0 0 12px var(--glow);
 }
 
-/* IKON – perfekt centrerad */
+/* ICON */
 .send-btn {
     width: clamp(0.7rem, 1.2vw, 1rem);
     height: clamp(0.7rem, 1.2vw, 1rem);
@@ -1678,9 +1654,7 @@ textarea {
     vertical-align: -1px;
 }
 
-
-
-/* Popup: bekräftelse att meddelandet skickats */
+/* POPUP*/
 .popup {
     display: none;
     position: fixed;
@@ -1704,7 +1678,7 @@ textarea {
 }
 
 
-/* Animation: fade-in för bekräftelse-popup */
+/* ANIMATION */
 @keyframes popupPop {
     0% {
         opacity: 0;
@@ -1731,7 +1705,7 @@ footer {
 
 }
 
-/* Copyright-symbol */
+/* COPRIGHT */
 .copy-symbol {
     color: var(--blue);
     text-shadow:
@@ -1750,7 +1724,7 @@ footer {
     50% { text-shadow: 0 0 8px var(--glow); }
 }
 
-/* Ikoncontainer */
+/* ICON CONTAINER */
 .footer-icons {
     display: flex;
     align-items: center;   
@@ -1758,7 +1732,7 @@ footer {
     margin-top: auto; 
 }
 
-/* Ikoner */
+/* ICON */
 .footer-icons img {
     width: 20px;
     height: 20px;
@@ -1779,7 +1753,7 @@ footer {
 }
 
 
-/* Se till att GitHub följer dark/light-reglerna */
+/* GITHUB ICON DARK/LIGHT MODE */
 .footer-icons img.github {
     width: 22px;
     height: 22px;
@@ -1802,17 +1776,15 @@ footer {
     margin-left: 0.3rem;
 }
 
-
-/* Dölj båda GitHub-ikoner som standard */
 .github {
     display: none;
 }
-/* instagram lite gegnomskinlig för att matcha de andra*/
+
 .instagram-footer{
     opacity: 0.95;
 }
 
-/* Linje mellan ikoner och text */
+/* DIVIDER */
 .footer-divider {
     width: 100%;
     height: 1px;
@@ -1868,7 +1840,7 @@ body.light h3 {
     font-weight: 700;
 }
 
-/* Globala sektioner */
+/* GLOBAL */
 body.light footer,
 body.light .nav-links a,
 body.light .mobile-menu a,
@@ -1881,7 +1853,7 @@ body.light .folder-title {
     color: var(--text-dark);
 }
 
-/* Accent */
+/* ACCENT*/
 body.light .accent,
 body.light .copy-symbol {
     color: var(--glow);
@@ -1904,27 +1876,27 @@ body.light .mobile-menu {
 
 
 
-/* CV-länk */
+/* CV */
 body.light .nav-links a[href$="cv-ninniedahlstrom.pdf"],
 body.light .mobile-menu a[href$="cv-ninniedahlstrom.pdf"] {
     color: var(--pink);
     font-weight: 500;
 }
 
-/* Portfolio-länk */
+/* PORTFOLIO */
 body.light .nav-links a[href*="portfolio"],
 body.light .mobile-menu a[href*="portfolio"] {
     color: var(--orange);
     font-weight: 500;
 }
 
-/* Hover */
+/* HOVER NAVBAR */
 body.light .nav-links a:hover,
 body.light .mobile-menu a:hover {
     color: var(--glow);
 }
 
-/* Hamburger */
+/* HAMBURGER */
 body.light #hamburgerBtn {
     color: var(--text-dark);
     opacity: 0.85;
@@ -1948,7 +1920,7 @@ body.light .about-education {
     box-shadow: 0 8px 32px rgba(20, 40, 160, 0.04);
 }
 
-/* Hover-effekter */
+/* HOVER */
 body.light .reference-card:hover,
 body.light .project-card:hover {
     box-shadow: 0 0 12px var(--glow);
@@ -1983,7 +1955,7 @@ body.light .skills-list.icons li:hover {
     transform: translateY(-4px) scale(1.05);
 }
 
-/* GITHUB ikoner */
+/* GITHUB */
 body.light .github-icon {
     filter: invert(1);
 }
