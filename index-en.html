@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio by Ninnie Dahlström - junior .NET developer specializing in C#, SQL, API development and modern web development.">
+    <meta name="description" content="Portfolio by Ninnie Dahlström - System developer in .NET, C#, SQL, API and modern web development.">
     <title>Ninnie Dahlström - Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.16.0/devicon.min.css">
 </head>
 
@@ -17,13 +18,14 @@
 <header class="navbar">
     <nav>
 
-        <!-- Weather -->
+        <!-- Weather to the left -->
         <div class="weather-box">
-            <span id="weather" class="weather">--°C</span>
-            <span id="weatherLocation" class="weather-location">Stockholm</span>
+        <span id="weather" class="weather">--°C</span>
+        <span id="weatherLocation" class="weather-location">Stockholm</span>
         </div>
 
-        <!-- Hamburger menu -->
+
+        <!-- Hamburger menu (mobile) -->
         <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
             ☰
         </button>
@@ -37,38 +39,41 @@
             <li><a href="cv-ninniedahlstrom.pdf" download>Download CV</a></li>
         </ul>
 
-        <!-- Theme & Language -->
+        <!-- Dark/Light Mode & Language to the right -->
         <div class="nav-controls">
 
-            <!-- THEME BUTTON -->
-            <button id="themeToggle" class="icon-btn" aria-label="Switch theme">
-                <span id="themeIcon">
-                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" 
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="4"/>
-                        <path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-7.364l-1.414 1.414
-                                M6.05 17.95l-1.414 1.414m0-13.657l1.414 1.414
-                                M17.95 17.95l1.414 1.414"/>
-                    </svg>
-                </span>
-            </button>
+    <!-- THEME BUTTON -->
+    <button id="themeToggle" class="icon-btn" aria-label="Switch theme">
+        <span id="themeIcon">
+            <!-- Start: sun icon -->
+            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" 
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-7.364l-1.414 1.414
+                         M6.05 17.95l-1.414 1.414m0-13.657l1.414 1.414
+                         M17.95 17.95l1.414 1.414"/>
+            </svg>
+        </span>
+    </button>
 
-            <!-- LANGUAGE BUTTON -->
-            <button id="languageToggle" class="icon-btn" aria-label="Switch language">
-                <img id="langFlag" src="https://flagcdn.com/se.svg" alt="Swedish" width="16" height="16">
-            </button>
+    <!-- LANGUAGE BUTTON -->
+    <button id="languageToggle" class="icon-btn" aria-label="Switch language">
+        <img id="langFlag" src="https://flagcdn.com/se.svg" alt="Swedish" width="16" height="16">
+    </button>
 
-        </div>
+</div>
 
-        <!-- Hidden select -->
-        <select id="languageSelect" class="hidden-select">
-            <option value="sv">SV</option>
-            <option value="en" selected>EN</option>
-        </select>
+
+
+            <!-- Hidden select language - required -->
+            <select id="languageSelect" class="hidden-select">
+                <option value="sv">SV</option>
+                <option value="en" selected>EN</option>
+            </select>
 
     </nav>
 
-    <!-- Mobile menu -->
+    <!-- Mobile menu sliding down -->
     <div class="mobile-menu" id="mobileMenu" role="menu">
         <a href="#about" role="menuitem">About me</a>
         <a href="#skills" role="menuitem">Skills</a>
@@ -79,26 +84,54 @@
 
 </header>
 
-<!-- MAIN -->
+<!-- MAIN START -->
 <main id="main" class="page-wrapper">
+
 
 <!-- HERO -->
 <section class="hero">
 
     <div class="hero-card">
         <div class="hero-image-wrapper">
-            <img src="image/portrait-ninniedahlstroem.png" class="portrait" alt="Portrait of Ninnie Dahlström">
+
+            <img 
+    src="image/portrait-ninniedahlstroem.jpeg" 
+    class="portrait"
+    alt="Portrait of Ninnie Dahlström"
+    width="400"
+    height="400">
+
             <label class="color-icon">
-                🎨
-                <input type="color" id="glowPicker">
-            </label>
+    🎨
+    <input type="color" id="glowPicker">
+</label>
+
         </div>
 
         <div class="hero-text">
             <h1>Ninnie Dahlström</h1>
-            <h3>.NET Developer • Stockholm</h3>
-            <p>Backend • C# • .NET • SQL • API Development</p>
+            <h3>.NET System Developer • Stockholm</h3>
+
+            <p id="skills-hero-text" class="skills-hero">Backend • C# • .NET • SQL • API development</p>
+            
+            <div class="social-media-hero">
+                    <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/nninnie" target="_blank" aria-label="LinkedIn">
+            <img src="image/linkedin.svg" alt="LinkedIn - Ninnie Dahlström" width="24" height="24">
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com/nninnie" target="_blank" aria-label="GitHub">
+            <img src="image/GitHub.png" alt="Github - Ninnie Dahlström" class="icon-img light github">
+            <img src="image/GitHub-darkmode.png" alt="Github - Ninnie Dahlström" class="icon-img dark github">
+        </a>
+
+        <!-- Outlook -->
+        <a href="mailto:ninnie_dahlstrom@hotmail.com" target="_blank" rel="noopener noreferrer" aria-label="Send email to Ninnie" class="social-link"
+>           <img src="image/outlook.svg" alt="Outlook - Ninnie Dahlström" width="24" height="24">
+        </a>
         </div>
+    </div>
     </div>
 
     <div class="ui-card-accent"></div>
@@ -112,8 +145,9 @@
             <span><img src="image/icons/folder.png" class="btn-icon">View Portfolio</span>
         </a>
     </div>
-
 </section>
+
+
 
 <!-- ABOUT -->
 <section id="about" class="sectionabout">
@@ -125,15 +159,15 @@
             <div class="ui-card-accent"></div>
 
             <p>
-                I am a junior <span class="key-pink">.NET</span> developer in training, 
-                focusing on backend, API development and fullstack. I work with 
-                <span class="key-orange">C#</span>, SQL, CRUD and SOLID to build structured 
-                and scalable solutions, combined with modern frontend to create clear 
-                and user-friendly interfaces.
+                I am a junior system developer within <span class="key-pink">.NET</span>  
+                currently studying with a focus on backend, API development and fullstack.
+                I work with <span class="key-orange">C#</span>, SQL, CRUD and SOLID 
+                to build structured and scalable solutions, combined with modern frontend 
+                to create clear and user-friendly interfaces.
                 <br><br>
                 As a <span class="key-purple">problem solver</span>, I am driven by clean code, 
-                smart architecture and understanding how systems connect. With an interest 
-                in <span class="key-blue">UX/UI</span>, AI and web development, I aim to create 
+                smart architecture and understanding how systems connect. With an interest in 
+                <span class="key-blue">UX/UI</span>, AI and web development, I aim to create 
                 solutions that are logical, modern and intuitive.
             </p>
         </div>
@@ -155,6 +189,7 @@
 
 <!-- SKILLS -->
 <section id="skills" class="section skills-section">
+    
 
     <div class="skills-wrapper">
         <h2><span class="accent">/</span> Skills</h2>
@@ -166,23 +201,26 @@
 
             <ul class="skills-list icons">
 
-                <li><i class="devicon-csharp-plain colored"></i><span>C# / .NET</span></li>
-                <li><i class="devicon-microsoftsqlserver-plain colored"></i><span>SQL Server</span></li>
-                <li><i class="devicon-postman-plain colored"></i><span>REST API</span></li>
+                <!-- DEVICON - ICONS -->
+                <li><i class="devicon-csharp-plain colored" aria-label="C# / .NET icon"></i><span>C# / .NET</span></li>
+                <li><i class="devicon-microsoftsqlserver-plain colored" aria-label="SQL Server icon"></i><span>SQL Server</span></li>
+                <li><i class="devicon-postman-plain colored" aria-label="Postman / REST API icon"></i><span>REST API</span></li>
 
-                <li><i class="devicon-html5-plain colored"></i><span>HTML5</span></li>
-                <li><i class="devicon-css3-plain colored"></i><span>CSS3</span></li>
-                <li><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></li>
+                <li><i class="devicon-html5-plain colored" aria-label="HTML5 icon"></i><span>HTML5</span></li>
+                <li><i class="devicon-css3-plain colored" aria-label="CSS3 icon"></i><span>CSS3</span></li>
+                <li><i class="devicon-javascript-plain colored" aria-label="JavaScript icon"></i><span>JavaScript</span></li>
 
-                <li><i class="devicon-git-plain colored"></i><span>Git</span></li>
-                <li><i class="devicon-github-original github-icon"></i><span>GitHub</span></li>
-                <li><i class="devicon-visualstudio-plain colored"></i><span>Visual Studio</span></li>
-                <li><i class="devicon-vscode-plain colored"></i><span>VS Code</span></li>
+                <li><i class="devicon-git-plain colored" aria-label="Git icon"></i><span>Git</span></li>
+                <li><i class="devicon-github-original github-icon" aria-label="GitHub icon"></i><span>GitHub</span></li>
+                <li><i class="devicon-visualstudio-plain colored" aria-label="Visual Studio icon"></i><span>Visual Studio</span></li>
+                <li><i class="devicon-vscode-plain colored" aria-label="VS Code icon"></i><span>VS Code</span></li>
 
             </ul>
         </div>
     </div>
 </section>
+
+
 
 <!-- PORTFOLIO -->
 <section id="portfolio" class="sectionproject">
@@ -196,7 +234,7 @@
     </div> 
 
     <!-- PROJECT MODAL -->
-    <div id="projectModal" class="project-modal" role="dialog" aria-modal="true">
+    <div id="projectModal" class="project-modal" role="dialog" aria-modal="true" aria-labelledby="projectTitle" aria-describedby="projectDescription">
         <div class="project-modal-content">
 
             <button class="close-modal" aria-label="Close project window">✕</button>
@@ -214,14 +252,14 @@
             <div class="project-tags"></div>
 
             <div class="project-links">
-                <a id="githubLink" href="#" target="_blank">
-                    <img class="icon-img dark" src="image/GitHub-darkmode.png" alt="GitHub">
-                    <img class="icon-img light" src="image/GitHub.png" alt="GitHub">
+                <a id="githubLink" href="#" target="_blank" aria-label="Open project">
+                    <img class="icon-img dark" src="image/GitHub-darkmode.png" alt="GitHub" width="20" height="20">
+                    <img class="icon-img light" src="image/GitHub.png" alt="GitHub" width="20" height="20">
                     GitHub
                 </a>
 
-                <a id="demoLink" href="#" target="_blank">
-                    <img class="icon-img dark" src="image/GitHub-darkmode.png" alt="ReadMe">
+                <a id="demoLink" href="#" target="_blank" aria-label="Open project">
+                    <img class="icon-img dark" src="image/GitHub-darkmode.png" alt="ReadMe" width="20" height="20">
                     <img class="icon-img light" src="image/GitHub.png" alt="ReadMe">
                     ReadMe
                 </a>
@@ -232,62 +270,68 @@
 
 </section>
 
+
+
+
 <!-- REFERENCES -->
 <section id="reference" class="section-references">
 
-    <div class="references-wrapper">
-        <h2 class="section-title"><span class="accent">/</span> References</h2>
+<div class="references-wrapper">
+    <h2 class="section-title"><span class="accent">/</span> References</h2>
 
         <div class="references-slider">
-            <div class="references-track">
 
-                <div class="reference-card">
-                    <div class="ui-card-accent"></div>
-                    <h3 class="reference-title">Robin Ollenberg - Store Manager, ICA</h3>
-                    <p class="reference-text">
-                        “I was Ninnie’s store manager at ICA and can highly recommend her.
-                        She handled great responsibility and always managed many tasks at once.
-                        She has a natural sense for customer interaction, is fast, solution-oriented
-                        and very helpful to both colleagues and customers. She is versatile,
-                        reliable and someone you can always count on.”
-                    </p>
-                    <p class="reference-signature">
-                        - <strong>Robin Ollenberg</strong>, Store Manager
-                    </p>
-                </div>
+        <div class="references-track">
 
-                <div class="reference-card">
-                    <div class="ui-card-accent"></div>
-                    <h3 class="reference-title">Kevin Jammeh - Classmate</h3>
-                    <p class="reference-text">
-                        “I studied together with Ninnie and worked with her in several projects.
-                        She is engaged, creative and very easy to collaborate with. She is fast,
-                        organized and takes responsibility when needed. A natural problem solver
-                        who contributes with both structure and energy.”
-                    </p>
-                    <p class="reference-signature">
-                        - <strong>Kevin Jammeh</strong>, Classmate
-                    </p>
-                </div>
+      <div class="reference-card">
+        <div class="ui-card-accent"></div>
+        <h3 class="reference-title">Robin Ollenberg - Store Manager, ICA</h3>
+        <p class="reference-text">
+          “I was Ninnie’s store manager at ICA and can highly recommend her.
+          She handled great responsibility and always managed many tasks at once.
+          Ninnie has a natural sense for customer interaction, is fast, solution-oriented
+          and very helpful to both colleagues and customers. She is versatile,
+          reliable and someone you can always count on.”
+        </p>
+        <p class="reference-signature">
+          - <strong>Robin Ollenberg</strong>, Store Manager
+        </p>
+      </div>
 
-                <div class="reference-card">
-                    <div class="ui-card-accent"></div>
-                    <h3 class="reference-title">David Marténg - CEO, Qualified Sales Sweden AB</h3>
-                    <p class="reference-text">
-                        “I was the CEO at the company where Ninnie worked administratively.
-                        She is highly competent and versatile. She works fast, structured and
-                        learns new systems without any issues. She handled invoices, orders,
-                        customer contact and other administrative tasks with precision and professionalism.”
-                    </p>
-                    <p class="reference-signature">
-                        - <strong>David Marténg</strong>, CEO
-                    </p>
-                </div>
+      <div class="reference-card">
+        <div class="ui-card-accent"></div>
+        <h3 class="reference-title">Kevin Jammeh - Classmate</h3>
+        <p class="reference-text">
+          “I studied together with Ninnie and worked with her in several
+          projects. She is engaged, creative and very easy to collaborate with.
+          Ninnie is fast, organized and takes responsibility when needed.
+          A natural problem solver who contributes with both structure and energy.”
+        </p>
+        <p class="reference-signature">
+          - <strong>Kevin Jammeh</strong>, Classmate
+        </p>
+      </div>
 
-            </div>
-        </div>
-    </div>
+      <div class="reference-card">
+        <div class="ui-card-accent"></div>
+        <h3 class="reference-title">David Marténg - CEO, Qualified Sales Sweden AB </h3>
+        <p class="reference-text">
+          “I was the CEO at the company where Ninnie worked administratively,
+          and I can confirm that she is a very competent and versatile employee.
+          She works fast, structured and learns new systems without any issues.
+          Ninnie handled invoices, orders, customer contact and other
+          administrative tasks with high precision and professionalism.
+          She is a natural problem solver who takes initiative and gets things done.”
+        </p>
+        <p class="reference-signature">
+          - <strong>David Marténg</strong>, CEO
+        </p>
+      </div>
+      </div>
+      </div>
+  </div>
 </section>
+
 
 <!-- CONTACT -->
 <section id="contact" class="sectioncontact">
@@ -299,6 +343,7 @@
         <div class="contact-card">
             <div class="ui-card-accent"></div>
 
+
             <form id="contactForm" action="https://formsubmit.co/ninnie_dahlstrom@hotmail.com" method="POST">
 
                 <div class="input-group">
@@ -307,6 +352,7 @@
                         Name
                     </label>
                     <input type="text" id="name" required oninvalid="this.setCustomValidity('Please enter your name')" oninput="this.setCustomValidity('')" aria-invalid="false">
+
                 </div>
 
                 <div class="input-group">
@@ -315,6 +361,7 @@
                         Email
                     </label>
                     <input type="email" id="email" required oninvalid="this.setCustomValidity('Enter a valid email address')" oninput="this.setCustomValidity('')" aria-invalid="false">
+
                 </div>
 
                 <div class="input-group">
@@ -323,6 +370,7 @@
                         Message
                     </label>
                     <textarea id="message" required minlength="5" oninvalid="this.setCustomValidity('Write a message')" oninput="this.setCustomValidity('')" aria-invalid="false"></textarea>
+
                 </div>
 
                 <input type="hidden" name="_captcha" value="false">
@@ -334,8 +382,8 @@
                     <img src="image/icons/send.png" alt="send" class="send-btn">
                 </button>
 
-                <div id="successPopup" class="popup">
-                    <p>Thank you!✨ I will get back to you as soon as I can.  
+                <div id="successPopup" class="popup" aria-live="polite">
+                    <p>Thank you!✨ I will get back to you as soon as I can. 
                         - Ninnie Dahlström
                     </p>
                 </div>
@@ -348,35 +396,41 @@
 
 </main>
 
+
 <!-- FOOTER -->
 <footer>
 
-    
+
 
     <div class="footer-divider"></div>
 
+    
     <p class="footer-credit">
-        <span class="copy-symbol">©</span> Designed & developed by <span class="name">Ninnie Dahlström</span>
+    <span class="copy-symbol">©</span> Designed & developed by <span class="name">Ninnie Dahlström</span>
     </p>
 
-    <div class="footer-icons">
+        <div class="footer-icons">
 
+        <!-- LinkedIn -->
         <a href="https://www.linkedin.com/in/nninnie" target="_blank" aria-label="LinkedIn">
-            <img src="image/linkedin.svg" alt="LinkedIn - Ninnie Dahlström">
+            <img src="image/linkedin.svg" alt="LinkedIn - Ninnie Dahlström" width="24" height="24">
         </a>
 
+        <!-- GitHub -->
         <a href="https://github.com/nninnie" target="_blank" aria-label="GitHub">
             <img src="image/GitHub.png" alt="Github - Ninnie Dahlström" class="icon-img light github">
             <img src="image/GitHub-darkmode.png" alt="Github - Ninnie Dahlström" class="icon-img dark github">
         </a>
 
-        <a href="https://www.instagram.com/nninnie" target="_blank" aria-label="Instagram" class="instagram-footer">
-            <img src="image/instagram.svg" alt="Instagram - Ninnie Dahlström">
+        <!-- Outlook -->
+        <a href="mailto:ninnie_dahlstrom@hotmail.com" target="_blank" rel="noopener noreferrer" aria-label="Send email to Ninnie" class="social-link"
+>           <img src="image/outlook.svg" alt="Outlook - Ninnie Dahlström" width="24" height="24">
         </a>
+
     </div>
 
-</footer>
 
+</footer>
 
 <script defer src="script.js"></script>
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio av Ninnie Dahlström - junior systemutvecklare inom .NET, C#, SQL, API och modern webbutveckling.">
+    <meta name="description" content="Portfolio av Ninnie Dahlström - Systemutvecklare inom .NET, C#, SQL, API och modern webbutveckling.">
     <title>Ninnie Dahlström - Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -95,7 +95,7 @@
         <div class="hero-image-wrapper">
 
             <img 
-    src="image/portrait-ninniedahlstroem.png" 
+    src="image/portrait-ninniedahlstroem.jpeg" 
     class="portrait"
     alt="Porträttbild på Ninnie Dahlström"
     width="400"
@@ -112,7 +112,7 @@
             <h1>Ninnie Dahlström</h1>
             <h3>Systemutvecklare .NET • Stockholm</h3>
 
-            <p id="skills"  class="skills-hero">Backend • C# • .NET • SQL • API-utveckling</p>
+            <p id="skills-hero-text" class="skills-hero">Backend • C# • .NET • SQL • API-utveckling</p>
             
             <div class="social-media-hero">
                     <!-- LinkedIn -->
@@ -235,7 +235,7 @@
     </div> 
 
     <!-- PROJECT MODAL -->
-    <div id="projectModal" class="project-modal" role="dialog" aria-modal="true">
+    <div id="projectModal" class="project-modal" role="dialog" aria-modal="true" aria-labelledby="projectTitle" aria-describedby="projectDescription">
         <div class="project-modal-content">
 
             <button class="close-modal" aria-label="Stäng projektfönster">✕</button>
@@ -390,7 +390,7 @@
                     <img src="image/icons/send.png" alt="send" class="send-btn">
                 </button>
 
-                <div id="successPopup" class="popup">
+                <div id="successPopup" class="popup" aria-live="polite">
                     <p>Tack!✨ Jag återkommer så snart jag kan. 
                         - Ninnie Dahlström
                     </p>

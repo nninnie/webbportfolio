@@ -68,9 +68,13 @@ glowPicker.addEventListener("input", (e) => {
 // Glow vid start
 const savedGlow = localStorage.getItem("glowColor");
 
+if (savedGlow) {
+    document.documentElement.style.setProperty("--glow", savedGlow);
+    glowPicker.value = savedGlow;
+} else {
     document.documentElement.style.setProperty("--glow", "#1429a056");
     glowPicker.value = "#1429a0c0";
-
+}
 
 
 
@@ -170,10 +174,10 @@ const wordsEn = [
   "Responsive web development"
 ];
 
-let words = wordsEn;
+let words = isEnglishPage ? wordsEn : wordsSv;
 
 let i = 0;
-let el = document.getElementById("skills");
+let el = document.getElementById("skills-hero-text");
 
 function typeWord() {
   const word = words[i];  
@@ -248,7 +252,7 @@ const projectsSv = {
         demo: "https://github.com/nninnie/CashRegisterSystem#readme",
         tech: ["C#", ".NET"],
         features: ["CRUD-operationer", "OOP-struktur", "SOLID"],
-        img: "image/portfolio/cashregistersystem.png"
+        img: "image/portfolio/kassa-system.jpeg"
     },
 
     "Hotell App": {
@@ -258,7 +262,7 @@ const projectsSv = {
         demo: "https://github.com/nninnie/HotelBooking#readme",
         tech: ["C#", ".NET", "SQL"],
         features: ["CRUD-operationer", "OOP-struktur", "Code First", "Databashantering", "SOLID"],
-        img: "image/portfolio/hotelbooking.png"
+        img: "image/portfolio/hotel-booking.jpeg"
     },
 
     "Webbportfolio": {
@@ -268,7 +272,7 @@ const projectsSv = {
         demo: "https://nninnie.github.io/webbportfolio/",
         tech: ["HTML", "CSS", "JavaScript", "UI/UX", "API"],
         features: ["Responsiv design", "Glow Color Picker", "Dark/Light mode", "Weather API", "Interaktiva komponenter"],
-        img: "image/portfolio/webbportfolio.png"
+        img: "image/portfolio/webbportfolio.jpeg"
     }
 };
 
@@ -280,7 +284,7 @@ const projectsEn = {
         demo: "https://github.com/nninnie/CashRegisterSystem#readme",
         tech: ["C#", ".NET"],
         features: ["CRUD operations", "OOP structure", "SOLID principles"],
-        img: "image/portfolio//kassasystermet.png"
+        img: "image/portfolio/kassa-system.jpeg"
     },
 
     "Hotel Booking App": {
@@ -290,7 +294,7 @@ const projectsEn = {
         demo: "https://github.com/nninnie/HotelBooking#readme",
         tech: ["C#", ".NET", "SQL"],
         features: ["CRUD operations", "OOP structure", "Code First", "Database handling", "SOLID principles"],
-        img: "image/portfolio/hotell-booking.png"
+        img: "image/portfolio/hotel-booking.jpeg"
     },
 
     "Web Portfolio": {
@@ -300,11 +304,11 @@ const projectsEn = {
         demo: "https://nninnie.github.io/webbportfolio/",
         tech: ["HTML", "CSS", "JavaScript", "UI/UX", "API"],
         features: ["Responsive design", "Glow Color Picker", "Dark/Light mode", "Weather API", "Interactive components"],
-        img: "image/portfolio/webbportfolio.png"
+        img: "image/portfolio/webbportfolio.jpeg"
     }
 };
 
-let lang = "en"; 
+let lang = isEnglishPage ? "en" : "sv";
 
 let projects = lang === "en" ? projectsEn : projectsSv;
 let projectButtonText = lang === "en" ? "View project" : "Se projekt";
