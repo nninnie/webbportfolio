@@ -67,6 +67,7 @@
 
             <!-- Dold select språk - måste ha -->
             <select id="languageSelect" class="hidden-select">
+                <label for="languageSelect" class="visually-hidden">Språk</label>
                 <option value="sv">SV</option>
                 <option value="en">EN</option>
             </select>
@@ -74,12 +75,12 @@
     </nav>
 
     <!-- Mobilmeny som glider ner -->
-    <div class="mobile-menu" id="mobileMenu" role="menu">
-        <a href="#about" role="menuitem">Om mig</a>
-        <a href="#skills" role="menuitem">Kunskaper</a>
-        <a href="#contact" role="menuitem">Kontakt</a>
-        <a href="#portfolio" role="menuitem">Portfolio</a>
-        <a href="cv-ninniedahlstrom.pdf" download role="menuitem">Ladda ner CV</a>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about">Om mig</a>
+        <a href="#skills">Kunskaper</a>
+        <a href="#contact">Kontakt</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="cv-ninniedahlstrom.pdf" download>Ladda ner CV</a>
     </div>
 
 </header>
@@ -123,7 +124,7 @@
         <!-- GitHub -->
         <a href="https://github.com/nninnie" target="_blank" aria-label="GitHub">
             <img src="image/GitHub.png" alt="Github - Ninnie Dahlström" class="icon-img light github">
-            <img src="image/GitHub-darkmode.png" alt="Github - Ninnie Dahlström" class="icon-img dark github">
+            <img src="image/GitHub-darkmode.png" alt="Github - Ninnie Dahlström" class="icon-img dark github" width="24" height="24">
         </a>
 
         <!-- Outlook -->
@@ -138,11 +139,11 @@
 
     <div class="hero-buttons">
         <a class="btn orb orange" href="cv-ninniedahlstrom.pdf" download>
-            <span><img src="image/icons/download.png" class="btn-icon">Ladda ner CV</span>
+            <span><img src="image/icons/download.png" class="btn-icon" width="24" height="24">Ladda ner CV</span>
         </a>
 
         <a class="btn orb pink" href="#portfolio">
-            <span><img src="image/icons/folder.png" class="btn-icon">Se Portfolio</span>
+            <span><img src="image/icons/folder.png" class="btn-icon" width="24" height="24">Se Portfolio</span>
         </a>
     </div>
 </section>
@@ -261,7 +262,7 @@
 
                 <a id="demoLink" href="#" target="_blank" aria-label="Öppna projekt">
                     <img class="icon-img dark" src="image/GitHub-darkmode.png" alt="ReadMe" width="20" height="20">
-                    <img class="icon-img light" src="image/GitHub.png" alt="ReadMe">
+                    <img class="icon-img light" src="image/GitHub.png" alt="ReadMe" width="20" height="20">
                     ReadMe
                 </a>
             </div>
@@ -356,7 +357,7 @@
 
                 <div class="input-group">
                     <label for="name">
-                        <img src="image/icons/user-round.png" alt="User" class="input-icon icon-rosa">
+                        <img src="image/icons/user-round.png" alt="User" class="input-icon icon-rosa" width="20" height="20">
                         Namn
                     </label>
                     <input type="text" id="name" required oninvalid="this.setCustomValidity('Fyll i ditt namn')" oninput="this.setCustomValidity('')" aria-invalid="false">
@@ -365,7 +366,7 @@
 
                 <div class="input-group">
                     <label for="email">
-                        <img src="image/icons/mail.png" alt="Email" class="input-icon icon-orange">
+                        <img src="image/icons/mail.png" alt="Email" class="input-icon icon-orange" width="20" height="20">
                         Email
                     </label>
                     <input type="email" id="email" required oninvalid="this.setCustomValidity('Ange en giltig e-postadress')" oninput="this.setCustomValidity('')" aria-invalid="false">
@@ -374,7 +375,7 @@
 
                 <div class="input-group">
                     <label for="message">
-                        <img src="image/icons/message.png" alt="Meddelande" class="input-icon icon-bla">
+                        <img src="image/icons/message.png" alt="Meddelande" class="input-icon icon-bla" width="20" height="20">
                         Meddelande
                     </label>
                     <textarea id="message" required minlength="5" oninvalid="this.setCustomValidity('Skriv ett meddelande')" oninput="this.setCustomValidity('')" aria-invalid="false"></textarea>
@@ -387,7 +388,7 @@
 
                 <button type="submit" class="btn-send">
                     Skicka
-                    <img src="image/icons/send.png" alt="send" class="send-btn">
+                    <img src="image/icons/send.png" alt="send" class="send-btn" width="20" height="20">
                 </button>
 
                 <div id="successPopup" class="popup" aria-live="polite">
@@ -426,8 +427,8 @@
 
         <!-- GitHub -->
         <a href="https://github.com/nninnie" target="_blank" aria-label="GitHub">
-            <img src="image/GitHub.png" alt="Github - Ninnie Dahlström" class="icon-img light github">
-            <img src="image/GitHub-darkmode.png" alt="Github - Ninnie Dahlström" class="icon-img dark github">
+            <img src="image/GitHub.png" alt="Github - Ninnie Dahlström" class="icon-img light github" width="244" height="24">
+            <img src="image/GitHub-darkmode.png" alt="Github - Ninnie Dahlström" class="icon-img dark github" width="24" height="24">
         </a>
 
         <!-- Outlook -->
