@@ -41,8 +41,7 @@ section {
 
 @media (max-width: 768px) {
     section {
-        padding-top: 5rem;
-        padding-bottom: 5rem;
+        padding-bottom: 40vh;
     }
 }
 
