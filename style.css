@@ -57,6 +57,8 @@ section {
 
 
 
+
+
 /* ============== TEXT - FONT ============== */
 h1 {
     font-family: "Montserrat", sans-serif;
@@ -271,7 +273,7 @@ body {
 /* Portfolio-länk alltid orange */
 .nav-links a[href*="portfolio"],
 .mobile-menu a[href*="portfolio"] {
-    color: var(--orange);
+    color: var(--purple);
     font-weight: 500;
 }
 
@@ -545,6 +547,9 @@ body {
 }
 
 .btn.orb:hover {
+    width: clamp(5rem, 12vw, 6.5rem);
+    height: clamp(2rem, 3vw, 2.4rem);
+    padding: 0 0.4rem;
     transform: scale(1.01);
     border-radius: 20px;
 }
@@ -575,8 +580,8 @@ body {
 }
 
 .btn.orb.pink {
-    background: var(--orange);
-    box-shadow: 0 0 4px var(--orange);
+    background: var(--purple);
+    box-shadow: 0 0 4px var(--purple);
     border: 1px;
 }
 
@@ -611,7 +616,7 @@ body {
 
     .btn.orb.pink {
     background: var(--console-bg);
-    box-shadow: 0 0 2px var(--orange);
+    box-shadow: 0 0 2px var(--purple);
     border: 1px;
 }
 
@@ -648,7 +653,7 @@ body {
         0 0 10px var(--glow),
         0 0 20px color-mix(in srgb, var(--glow) 50%, transparent),
         0 0 28px color-mix(in srgb, var(--glow) 20%, transparent),
-        0 0 12px rgba(255,255,255,0.35); 
+        0 0 12px var(--glow); 
     transform: scale(1.01);
 }
 
