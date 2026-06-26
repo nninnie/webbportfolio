@@ -549,9 +549,6 @@ body {
     visibility: visible;
 }
 
-.hero-buttons {
-    gap: 0.5rem; 
-}
 }
 
 .btn.orb:hover {
