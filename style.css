@@ -729,7 +729,7 @@ body {
 }
 
 .skills-hero {
-  color: #1429a0;
+  color: var(--glow);
   font-weight: 600;
   font-size: 1.2rem;
   white-space: nowrap;
@@ -772,8 +772,7 @@ body {
 
 .sectionabout .accent {
     color: var(--glow);
-    text-shadow: 0 0 6px var(--glow),
-    0 0 6px var(--glow-halo);
+    text-shadow: 0 0 6px var(--glow);
     font-weight: 900;
 }
 
@@ -913,8 +912,7 @@ body {
 .skills-section .accent {
     color: var(--glow);
     text-shadow:
-    0 0 6px var(--glow),
-    0 0 6px var(--glow-halo);
+    0 0 6px var(--glow);
     font-weight: 900;
 }
 .skills-wrapper {
@@ -1046,8 +1044,7 @@ body {
 .sectionproject .accent {
     color: var(--glow);              
     text-shadow:
-    0 0 6px var(--glow),
-    0 0 6px var(--glow-halo);
+    0 0 6px var(--glow);
     font-weight: 900;
 }
 
@@ -1428,8 +1425,7 @@ body:not(.light) .icon-img.dark {
 .section-references .accent {
     color: var(--glow);
     text-shadow:
-        0 0 6px var(--glow),
-        0 0 6px var(--glow-halo);
+        0 0 6px var(--glow);
     font-weight: 900;
 }
 
@@ -1488,8 +1484,7 @@ body:not(.light) .icon-img.dark {
 .sectioncontact .accent {
     color: var(--glow);
     text-shadow:
-    0 0 6px var(--glow),
-    0 0 6px var(--glow-halo);
+    0 0 6px var(--glow);
     font-weight: 900;
 }
 
@@ -1546,7 +1541,6 @@ body:not(.light) .icon-img.dark {
     background: rgba(255,255,255,0.18);
     box-shadow:
         0 0 4px var(--glow),
-        0 0 8px var(--glow-halo),
         inset 0 0 6px rgba(255,255,255,0.15);
     transition: 0.25s ease;
 }
@@ -1697,8 +1691,7 @@ footer {
 .copy-symbol {
     color: var(--blue);
     text-shadow:
-        0 0 4px var(--glow),
-        0 0 6px var(--glow-halo);
+        0 0 4px var(--glow);
     font-size: clamp(1rem, 1.5vw, 1.1rem);
     font-family: "Great Vibes", cursive;
     align-self: center;
@@ -1798,7 +1791,6 @@ footer a:focus-visible {
 body.light {
     background: var(--bg-light);
     color: var(--text-dark);
-    --glow-halo: rgba(20,40,160,0.35);
 }
 
 /* TEXT */
@@ -1846,8 +1838,7 @@ body.light .accent,
 body.light .copy-symbol {
     color: var(--glow);
     text-shadow:
-        0 0 4px var(--glow),
-        0 0 4px var(--glow-halo);
+        0 0 4px var(--glow);
 }
 
 /* NAVBAR */
