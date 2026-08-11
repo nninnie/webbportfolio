@@ -1790,6 +1790,8 @@ footer a:focus-visible {
 
 body.light {
     background: var(--bg-light);
+
+    
     color: var(--text-dark);
 }
 
