@@ -260,8 +260,8 @@ body {
 
 
 /* CV-länk alltid rosa */
-.nav-links a[href$="cv-ninnie-dahlstrom.pdf"],
-.mobile-menu a[href$="cv-ninnie-dahlstrom.pdf"] {
+.nav-links a[href$="image/cv-ninnie-dahlstrom.pdf"],
+.mobile-menu a[href$="image/cv-ninnie-dahlstrom.pdf"] {
     color: var(--blue);
     font-weight: 500;
 }
@@ -1858,8 +1858,8 @@ body.light .mobile-menu {
 
 
 /* CV */
-body.light .nav-links a[href$="cv-ninnie-dahlstrom.pdf"],
-body.light .mobile-menu a[href$="cv-ninnie-dahlstrom.pdf"] {
+body.light .nav-links a[href$="image/cv-ninnie-dahlstrom.pdf"],
+body.light .mobile-menu a[href$="image/cv-ninnie-dahlstrom.pdf"] {
     color: var(--pink);
     font-weight: 500;
 }
