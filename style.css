@@ -262,7 +262,7 @@ body {
 /* CV-länk alltid rosa */
 .nav-links a[href$="cv-ninnie-dahlstrom.pdf"],
 .mobile-menu a[href$="cv-ninnie-dahlstrom.pdf"] {
-    color: var(--pink);
+    color: var(--blue);
     font-weight: 500;
 }
 
@@ -270,7 +270,7 @@ body {
 /* Portfolio-länk alltid orange */
 .nav-links a[href*="portfolio"],
 .mobile-menu a[href*="portfolio"] {
-    color: var(--orange);
+    color: var(--dark-blue);
     font-weight: 500;
 }
 
