@@ -1917,15 +1917,15 @@ body.light .btn.orb:hover {
 }
 
 body.light .btn.orb.pink {
-    background: var(--bg-light);                
-    border: 1px solid var(--orange);    
-    box-shadow: 0 0 3px var(--orange);  
+    background: var(--pink);
+    border: 1px solid var(--pink);
+    box-shadow: 0 0 4px var(--pink);
 }
 
 body.light .btn.orb.orange {
-    background: var(--bg-light);               
-    border: 1px solid var(--pink);     
-    box-shadow: 0 0 3px var(--pink);   
+    background: var(--orange);
+    border: 1px solid var(--orange);
+    box-shadow: 0 0 4px var(--orange);
 }
 
 body.light .btn.orb:hover {
@@ -1936,13 +1936,20 @@ body.light .btn.orb:hover {
 
 @media (max-width: 768px) {
     body.light .btn.orb {
-        width: auto;
-        height: auto;
-        padding: 0.4rem clamp(0.3rem, 1.4vw, 0.7rem);
-        border-radius: 40px;
-        background: var(--bg-light);
-        border: 1px solid var(--glow-light);
-        box-shadow: 0 0 2px var(--glow-light);
+        background: transparent;
+        border: 1px solid currentColor;
+        box-shadow: none;
+        padding: 0.35rem 0.6rem;
+    }
+
+    body.light .btn.orb.pink {
+        color: var(--pink);
+        border-color: var(--pink);
+    }
+
+    body.light .btn.orb.orange {
+        color: var(--orange);
+        border-color: var(--orange);
     }
 
     body.light .btn.orb:hover {
