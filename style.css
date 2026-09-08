@@ -260,12 +260,13 @@ body {
 }
 
 
-/* CV-länk alltid rosa */
-.nav-links a[href$="image/cv-ninnie-dahlstrom.pdf"],
-.mobile-menu a[href$="image/cv-ninnie-dahlstrom.pdf"] {
+/* CV-länk */
+.nav-links a[href*="cv-ninnie-dahlstrom"],
+.mobile-menu a[href*="cv-ninnie-dahlstrom"] {
     color: var(--blue);
     font-weight: 500;
 }
+
 
 
 /* Portfolio-länk alltid orange */
@@ -1872,14 +1873,11 @@ body.light .mobile-menu {
     border: 1px solid rgba(210, 200, 202, 0.45);
 }
 
-
-
 /* CV */
-body.light .nav-links a[href$="image/cv-ninnie-dahlstrom.pdf"],
-body.light .mobile-menu a[href$="image/cv-ninnie-dahlstrom.pdf"] {
+body.light .nav-links a[href$="image/cv-ninnie-dahlstrom"],
+body.light .mobile-menu a[href$="image/cv-ninnie-dahlstrom"] {
     color: var(--pink) !important;
 }
-
 
 /* PORTFOLIO */
 body.light .nav-links a[href*="portfolio"],
