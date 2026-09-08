@@ -300,33 +300,14 @@ body {
     justify-content: center; 
 }
 
-.icon-sun {
-    height: 1.3rem;  
-    width: auto;      
-    color: #ffbb00;
-    transition: 0.25s ease;
-    padding-top: 0.4rem;         
-}
-
-
-.icon-moon {
-    height: 1.3rem;    
-    width: auto;      
-    color: #ffbb00;
-    transition: 0.25s ease;
-    padding-top: 0.7rem;        
-}
-
-
-/* FLAGGA */
-#langFlag {
-    width: 1rem;
-    height: 1rem; 
-    object-fit: cover;
-    border-radius: 6px; 
+/* IKONER / SPRÅK */
+.mode-icon {
+    font-size: clamp(0.8rem, 1.2vw, 1.2rem);
+    line-height: 1;
     display: inline-block;
-    vertical-align: middle;
+    transition: 0.25s ease;
 }
+
 
 /* DOLD SELECT */
 .hidden-select {
@@ -1927,6 +1908,7 @@ body.light #hamburgerBtn:hover {
 body.light .btn.orb.pink {
     background: var(--orange);
     box-shadow: 0 0 2px var(--orange);
+    border: 1px solid var(--orange);
 }
 
 
@@ -1937,19 +1919,57 @@ body.light .btn.orb.pink span {
 body.light .btn.orb.orange {
     background: var(--pink);
     box-shadow: 0 0 2px var(--pink);
+    border: 1px solid var(--pink);
 }
 
 body.light .btn.orb.orange span {
     color: var(--console-bg) !important;
 }
 
+@media (max-width: 768px) {
+    body.light .btn.orb {
+        width: auto;
+        height: auto;
+        padding: 0.4rem clamp(0.3rem, 1.4vw, 0.7rem);
+        border-radius: 40px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    body.light .btn.orb span {
+        opacity: 1;
+        font-size: clamp(0.6rem, 2vw, 0.7rem);
+        white-space: nowrap;
+    }
+
+    body.light .btn.orb.pink {
+        background: var(--bg-light);
+        box-shadow: 0 0 2px var(--pink);
+        border: 1px;
+    }
+
+    body.light .btn.orb.orange {
+        background: var(--bg-light);
+        box-shadow: 0 0 2px var(--orange);
+    }
+
+    body.light .btn.orb.pink:hover {
+        box-shadow: 0 0 4px var(--glow-light);
+    }
+
+    body.light .btn.orb.orange:hover {
+        box-shadow: 0 0 4px var(--glow-light);
+    }
+}
+
+
 
 body.light .btn.orb.pink:hover {
-    box-shadow: 0 0 4px var(--glow-light);
+    box-shadow: 0 0 6px var(--glow-light);
 }
 
 body.light .btn.orb.orange:hover {
-    box-shadow: 0 0 4px var(--glow-light);
+    box-shadow: 0 0 6px var(--glow-light);
 }
 
 body.light .btn-icon {

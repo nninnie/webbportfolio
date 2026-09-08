@@ -1,24 +1,12 @@
 /* -----------------------------------------
-   ☀️ / 🌙  TEMA-TOGGLE / Språk-knapp 
+   🌗 / 🌍  TEMA-TOGGLE / Språk-knapp 
 ----------------------------------------- */
 
 const themeBtn = document.getElementById("themeToggle");
-const themeIcon = document.getElementById("themeIcon");
 
 themeBtn.addEventListener("click", () => {
     document.body.classList.toggle("light");
-
-    if (document.body.classList.contains("light")) {
-        themeIcon.innerHTML = `
-            <img src="image/icons/sun.svg" class="icon-sun" alt="Light mode">
-        `;
-    } else {
-        themeIcon.innerHTML = `
-            <img src="image/icons/moon.svg" class="icon-moon" alt="Dark mode">
-        `;
-    }
 });
-
 
 
 // Språk
@@ -34,6 +22,7 @@ langBtn.addEventListener("click", () => {
     }
 });
 
+const isEnglishPage = window.location.pathname.includes("index-en");
 
 
 /* -----------------------------------------
