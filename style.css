@@ -1874,9 +1874,9 @@ body.light .accent {
         0 0 4px var(--glow-light);
 }
 body.light .copy-symbol {
-    color: var(--pink);
+    color: var(--pink) !important;
     text-shadow:
-        0 0 4px var(--glow-light);
+        0 0 4px var(--glow-light) !important;
 }
 
 /* NAVBAR */
@@ -1925,9 +1925,8 @@ body.light #hamburgerBtn:hover {
 }
 
 body.light .btn.orb.pink {
-    background: var(--bg-light);
+    background: var(--orange);
     box-shadow: 0 0 2px var(--orange);
-    border: 1px solid var(--orange);
 }
 
 
@@ -1936,9 +1935,8 @@ body.light .btn.orb.pink span {
 }
 
 body.light .btn.orb.orange {
-    background: var(--bg-light);
+    background: var(--pink);
     box-shadow: 0 0 2px var(--pink);
-    border: 1px solid var(--pink);
 }
 
 body.light .btn.orb.orange span {
@@ -2120,6 +2118,7 @@ body.light .skills-hero {
 
 body.light .reference-signature strong {
     color: var(--pink) !important;
+    font-weight: 100;
 }
 
 body.light .footer-credit .name {
