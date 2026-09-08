@@ -612,20 +612,22 @@ body {
 /* HERO - PORTRÄTT BILD*/
 .portrait {
     width: clamp(7rem, 20vw, 20rem);
-    height: auto; 
+    height: auto;
     object-fit: cover;
     border-radius: 14rem;
-    border: 0.1px solid color-mix(in srgb, var(--glow) 10%, transparent);
 
-    /* Mer glow, mindre kant */
+    /* Mjukare kant */
+    border: 0.1px solid color-mix(in srgb, var(--glow) 12%, transparent);
+
+    /* Samsung-style glow */
     box-shadow:
-        0 0 6px color-mix(in srgb, var(--glow) 35%, transparent),
-        0 0 12px color-mix(in srgb, var(--glow) 25%, transparent),
-        0 0 18px color-mix(in srgb, var(--glow) 15%, transparent);
+        0 0 14px color-mix(in srgb, var(--glow) 22%, transparent),
+        0 0 28px color-mix(in srgb, var(--glow) 18%, transparent),
+        0 0 42px color-mix(in srgb, var(--glow) 12%, transparent);
 
-    /* Mjukare drop-shadow */
-    filter: drop-shadow(0 0 5px color-mix(in srgb, var(--glow) 40%, transparent))
-            brightness(1.18);
+    /* Mjuk AMOLED drop-shadow */
+    filter: drop-shadow(0 0 12px color-mix(in srgb, var(--glow) 25%, transparent))
+            brightness(1.22);
 
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
@@ -1781,24 +1783,24 @@ footer a:focus-visible {
 /* ============== LIGHT MODE ============== */
 
 body.light .portrait {
-    border: 1px solid var(--purple);
+    border: 0.1px solid color-mix(in srgb, var(--purple) 45%, transparent);
 
     box-shadow:
-        0 0 4px var(--purple),
-        0 0 8px var(--purple),
-        0 0 12px var(--purple);
+        0 0 8px color-mix(in srgb, var(--purple) 65%, transparent),
+        0 0 16px color-mix(in srgb, var(--purple) 55%, transparent),
+        0 0 24px color-mix(in srgb, var(--purple) 45%, transparent);
 
-    filter: drop-shadow(0 0 4px var(--purple))
-            brightness(1.18);
+    filter: drop-shadow(0 0 8px color-mix(in srgb, var(--purple) 65%, transparent))
+            brightness(1.22);
 
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 body.light .portrait:hover {
     box-shadow:
-        0 0 6px var(--purple),
-        0 0 12px var(--purple),
-        0 0 18px var(--purple);
+        0 0 10px color-mix(in srgb, var(--purple) 70%, transparent),
+        0 0 20px color-mix(in srgb, var(--purple) 60%, transparent),
+        0 0 30px color-mix(in srgb, var(--purple) 50%, transparent);
 
     transform: scale(1.01);
 }
