@@ -1874,15 +1874,15 @@ body.light .mobile-menu {
 }
 
 /* CV */
-body.light .nav-links a[href$="image/cv-ninnie-dahlstrom"],
-body.light .mobile-menu a[href$="image/cv-ninnie-dahlstrom"] {
+body.light .nav-links a[href*="cv-ninnie-dahlstrom"],
+body.light .mobile-menu a[href*="cv-ninnie-dahlstrom"] {
     color: var(--pink) !important;
 }
 
 /* PORTFOLIO */
 body.light .nav-links a[href*="portfolio"],
 body.light .mobile-menu a[href*="portfolio"] {
-    color: var(--purple);
+    color: var(--orange);
     font-weight: 500;
 }
 
@@ -2074,6 +2074,15 @@ body.light .project-modal-content {
     border: 1px solid rgba(210, 195, 198, 0.35);
     color: var(--text-dark);
 }
+
+
+body.light .project-icon {
+    background: linear-gradient(135deg, var(--pink), var(--orange));
+    box-shadow:
+        0 0 6px var(--glow-light),
+        0 0 2px var(--pink);
+}
+
 
 body.light .project-links a {
     background: rgba(240, 233, 234, 0.24);
