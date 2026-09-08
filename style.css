@@ -18,8 +18,10 @@
 
     --console-bg: #000;
     --console-border: #333;
-    --glow: #1428A0;
+    --glow: #0C2E6A;
+    --glow-light: #FF4FD8;
 }
+
 
 /* ===== GLOBAL WRAPPER =======*/
 .page-wrapper {
@@ -217,7 +219,7 @@ body {
 .hamburger {
     background: none;
     border: none;
-    font-size: clamp(0.7rem, 1.4vw, 1rem);
+    font-size: clamp(0.8rem, 1.4vw, 1.3rem);
     cursor: pointer;
     color: var(--text);
 }
@@ -525,7 +527,7 @@ body {
     font-size: clamp(0.65rem, 1vw, 0.8rem);
     font-weight: 500;
     transition: opacity 0.25s ease;
-    color: var(--text) !important;
+    color: var(--text);
     visibility: hidden;
 }
 
@@ -631,20 +633,27 @@ body {
     height: auto; 
     object-fit: cover;
     border-radius: 14rem;
-    border: 0.1px solid var(--glow);
+    border: 0.1px solid color-mix(in srgb, var(--glow) 10%, transparent);
+
+    /* Mer glow, mindre kant */
     box-shadow:
-        0 0 4px var(--glow),
-        0 0 10px color-mix(in srgb, var(--glow) 50%, transparent),
-        0 0 14px color-mix(in srgb, var(--glow) 20%, transparent);
-    filter: drop-shadow(0 0 6px var(--glow)) brightness(1.2);
+        0 0 6px color-mix(in srgb, var(--glow) 35%, transparent),
+        0 0 12px color-mix(in srgb, var(--glow) 25%, transparent),
+        0 0 18px color-mix(in srgb, var(--glow) 15%, transparent);
+
+    /* Mjukare drop-shadow */
+    filter: drop-shadow(0 0 5px color-mix(in srgb, var(--glow) 40%, transparent))
+            brightness(1.18);
+
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
+
 .portrait:hover {
     box-shadow:
-        0 0 10px var(--glow),
-        0 0 20px color-mix(in srgb, var(--glow) 50%, transparent),
-        0 0 28px color-mix(in srgb, var(--glow) 20%, transparent),
-        0 0 12px var(--glow); 
+        0 0 8px color-mix(in srgb, var(--glow) 45%, transparent),
+        0 0 16px color-mix(in srgb, var(--glow) 30%, transparent),
+        0 0 22px color-mix(in srgb, var(--glow) 20%, transparent);
+
     transform: scale(1.01);
 }
 
@@ -728,7 +737,7 @@ body {
 }
 
 .skills-hero {
-  color: var(--glow);
+  color: var(--pink);
   font-weight: 600;
   font-size: 1.2rem;
   white-space: nowrap;
@@ -833,7 +842,7 @@ body {
     flex-direction: column;
     gap: 0.1rem;
     margin-top: 1rem; 
-    border-left: 2px solid var(--glow);
+    border-left: 1px solid var(--glow);
     padding-left: 1rem;
     
 }
@@ -1787,6 +1796,30 @@ footer a:focus-visible {
 
 /* ============== LIGHT MODE ============== */
 
+body.light .portrait {
+    border: 0.1px solid color-mix(in srgb, var(--glow-light) 20%, transparent);
+
+    box-shadow:
+        0 0 8px color-mix(in srgb, var(--glow-light) 50%, transparent),
+        0 0 14px color-mix(in srgb, var(--glow-light) 40%, transparent),
+        0 0 20px color-mix(in srgb, var(--glow-light) 30%, transparent);
+
+    filter: drop-shadow(0 0 8px color-mix(in srgb, var(--glow-light) 45%, transparent))
+            brightness(1.22);
+
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+body.light .portrait:hover {
+    box-shadow:
+        0 0 10px color-mix(in srgb, var(--glow-light) 60%, transparent),
+        0 0 18px color-mix(in srgb, var(--glow-light) 45%, transparent),
+        0 0 26px color-mix(in srgb, var(--glow-light) 35%, transparent);
+
+    transform: scale(1.01);
+}
+
+
 body.light {
     background: var(--bg-light);
 
@@ -1835,11 +1868,15 @@ body.light .folder-title {
 }
 
 /* ACCENT*/
-body.light .accent,
-body.light .copy-symbol {
-    color: var(--glow);
+body.light .accent {
+    color: var(--glow-light);
     text-shadow:
-        0 0 4px var(--glow);
+        0 0 4px var(--glow-light);
+}
+body.light .copy-symbol {
+    color: var(--pink);
+    text-shadow:
+        0 0 4px var(--glow-light);
 }
 
 /* NAVBAR */
@@ -1859,21 +1896,21 @@ body.light .mobile-menu {
 /* CV */
 body.light .nav-links a[href$="image/cv-ninnie-dahlstrom.pdf"],
 body.light .mobile-menu a[href$="image/cv-ninnie-dahlstrom.pdf"] {
-    color: var(--blue);
-    font-weight: 500;
+    color: var(--pink) !important;
 }
+
 
 /* PORTFOLIO */
 body.light .nav-links a[href*="portfolio"],
 body.light .mobile-menu a[href*="portfolio"] {
-    color: var(--dark-blue);
+    color: var(--purple);
     font-weight: 500;
 }
 
 /* HOVER NAVBAR */
 body.light .nav-links a:hover,
 body.light .mobile-menu a:hover {
-    color: var(--glow);
+    color: var(--glow-light);
 }
 
 /* HAMBURGER */
@@ -1883,9 +1920,44 @@ body.light #hamburgerBtn {
 }
 
 body.light #hamburgerBtn:hover {
-    color: var(--glow);
+    color: var(--glow-light);
     opacity: 1;
 }
+
+body.light .btn.orb.pink {
+    background: var(--bg-light);
+    box-shadow: 0 0 2px var(--orange);
+    border: 1px solid var(--orange);
+}
+
+
+body.light .btn.orb.pink span {
+    color: var(--console-bg) !important;
+}
+
+body.light .btn.orb.orange {
+    background: var(--bg-light);
+    box-shadow: 0 0 2px var(--pink);
+    border: 1px solid var(--pink);
+}
+
+body.light .btn.orb.orange span {
+    color: var(--console-bg) !important;
+}
+
+
+body.light .btn.orb.pink:hover {
+    box-shadow: 0 0 4px var(--glow-light);
+}
+
+body.light .btn.orb.orange:hover {
+    box-shadow: 0 0 4px var(--glow-light);
+}
+
+body.light .btn-icon {
+    filter: brightness(1) invert(0) !important;
+}
+
 
 /* CARDS */
 body.light .about-card,
@@ -1903,8 +1975,23 @@ body.light .about-education {
 /* HOVER */
 body.light .reference-card:hover,
 body.light .project-card:hover {
-    box-shadow: 0 0 12px var(--glow);
+    box-shadow: 0 0 12px var(--glow-light);
 }
+
+body.light .references-track::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--glow-light) 65%, white);
+    border-radius: 10px;
+
+    box-shadow:
+        0 0 6px color-mix(in srgb, var(--glow-light) 55%, transparent),
+        0 0 10px color-mix(in srgb, var(--glow-light) 35%, transparent);
+}
+
+body.light .references-track {
+    scrollbar-color: color-mix(in srgb, var(--glow-light) 65%, white)
+                     rgba(255,255,255,0.15);
+}
+
 
 /* ABOUT EDUCATION titel */
 body.light .about-education h3 {
@@ -1912,6 +1999,11 @@ body.light .about-education h3 {
     opacity: 1;
     font-weight: 700;
 }
+
+body.light .edu-item {
+    border-left: 2px solid #FF8BEA;
+}
+
 
 /* SKILLS  */
 body.light .skills-list.icons li {
@@ -1931,7 +2023,7 @@ body.light .skills-list.icons span {
 }
 
 body.light .skills-list.icons li:hover {
-    box-shadow: 0 0 10px var(--glow);
+    box-shadow: 0 0 10px var(--glow-light);
     transform: translateY(-4px) scale(1.05);
 }
 
@@ -1947,11 +2039,11 @@ body.light .icon-img.light {
 /* ACCENT I CARD */
 body.light .ui-card-accent {
     background: linear-gradient(90deg,
-        var(--dark-blue),
-        var(--blue)
+        var(--orange),
+        var(--pink)
     );
     box-shadow:
-        0 0 6px var(--glow),
+        0 0 6px var(--glow-light),
         0 0 12px rgba(255,255,255,0.25);
     opacity: 1;
 }
@@ -1981,7 +2073,7 @@ body.light .close-modal {
 }
 
 body.light .close-modal:hover {
-    color: var(--glow);
+    color: var(--glow-light);
 }
 
 /* CONTACT */
@@ -1994,9 +2086,9 @@ body.light .contact-card textarea {
 
 body.light .contact-card input:focus,
 body.light .contact-card textarea:focus {
-    border: 1px solid var(--glow);
+    border: 1px solid var(--glow-light);
     box-shadow:
-        0 0 4px var(--glow),
+        0 0 4px var(--glow-light),
         0 0 8px rgba(0,0,0,0.08);
 }
 
@@ -2006,7 +2098,7 @@ body.light .contact-card button {
     color: var(--text-dark);
     background:
         linear-gradient(rgb(255, 253, 253), rgb(255, 253, 253)) padding-box,
-        linear-gradient(90deg, var(--dark-blue), var(--blue)) border-box;
+        linear-gradient(90deg, var(--orange), var(--pink)) border-box;
 }
 
 body.light .send-btn {
@@ -2019,9 +2111,29 @@ body.light .modal-divider {
 
 body.light .skills-hero {
   color: #1429a0ad;
-  font-weight: 600;
+  font-weight: 700;
   white-space: nowrap;
   overflow: hidden;
   font-family: "JetBrains Mono", monospace;
   padding-top: 0.1rem;
 }
+
+body.light .reference-signature strong {
+    color: var(--pink) !important;
+}
+
+body.light .footer-credit .name {
+    color: var(--pink);
+    text-shadow: 0 0 1px var(--glow-light);
+}
+
+/* DIVIDER FOOTER */
+body.light .footer-divider {
+    background: linear-gradient(
+    90deg,
+    transparent,
+    #FF4FD8,
+    transparent
+);
+    opacity: 0.85;
+} 

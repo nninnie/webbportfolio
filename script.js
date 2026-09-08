@@ -10,40 +10,30 @@ themeBtn.addEventListener("click", () => {
 
     if (document.body.classList.contains("light")) {
         themeIcon.innerHTML = `
-            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg"
-                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 12.79A9 9 0 0111.21 3 
-                         7 7 0 1019 14.79 
-                         9.05 9.05 0 0121 12.79z"/>
-            </svg>
+            <img src="image/icons/sun.svg" class="icon-sun" alt="Light mode">
         `;
     } else {
         themeIcon.innerHTML = `
-            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg"
-                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <circle cx="12" cy="12" r="4"/>
-                <path d="M12 2v2m0 16v2m10-10h-2M4 12H2
-                         m15.364-7.364l-1.414 1.414
-                         M6.05 17.95l-1.414 1.414
-                         m0-13.657l1.414 1.414
-                         M17.95 17.95l1.414 1.414"/>
-            </svg>
+            <img src="image/icons/moon.svg" class="icon-moon" alt="Dark mode">
         `;
     }
 });
 
+
+
 // Språk
 const langBtn = document.getElementById("languageToggle");
-const langFlag = document.getElementById("langFlag");
-const isEnglishPage = window.location.pathname.includes("index-en");
 
 langBtn.addEventListener("click", () => {
-    if (isEnglishPage) {
+    const onEnglishPage = window.location.pathname.includes("index-en");
+
+    if (onEnglishPage) {
         window.location.href = "index.html";
     } else {
         window.location.href = "index-en.html";
     }
 });
+
 
 
 /* -----------------------------------------
