@@ -10,7 +10,7 @@
     --text: #ececec;
     --text-dark: #1a1a1a;
 
-    --pink: #FF4FD8;
+    --pink: #ff00c8;
     --orange: #FF7A00;
     --blue: #4DA3FF;
     --purple: #9F4DFF;
@@ -19,7 +19,7 @@
     --console-bg: #000;
     --console-border: #333;
     --glow: #0C2E6A;
-    --glow-light: #FF4FD8;
+    --glow-light: #9F4DFF;
 }
 
 
@@ -577,7 +577,7 @@ body {
     .btn.orb {
         width: auto;
         height: auto;
-        padding: 0.4rem clamp(0.3rem, 1.4vw, 0.7rem);
+        padding: 0.4rem 0.9rem;
         border-radius: 40px;
         display: inline-flex;
         align-items: center; 
@@ -726,6 +726,8 @@ body {
   overflow: hidden;
   font-family: "JetBrains Mono", monospace;
   padding-top: 0.1rem;
+      opacity: 1; /* Viktigt */
+    text-shadow: none; /* Tar bort suddighet */
 }
 
 @keyframes blink {
@@ -1779,24 +1781,24 @@ footer a:focus-visible {
 /* ============== LIGHT MODE ============== */
 
 body.light .portrait {
-    border: 0.1px solid color-mix(in srgb, var(--glow-light) 20%, transparent);
+    border: 1px solid var(--purple);
 
     box-shadow:
-        0 0 8px color-mix(in srgb, var(--glow-light) 50%, transparent),
-        0 0 14px color-mix(in srgb, var(--glow-light) 40%, transparent),
-        0 0 20px color-mix(in srgb, var(--glow-light) 30%, transparent);
+        0 0 4px var(--purple),
+        0 0 8px var(--purple),
+        0 0 12px var(--purple);
 
-    filter: drop-shadow(0 0 8px color-mix(in srgb, var(--glow-light) 45%, transparent))
-            brightness(1.22);
+    filter: drop-shadow(0 0 4px var(--purple))
+            brightness(1.18);
 
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 body.light .portrait:hover {
     box-shadow:
-        0 0 10px color-mix(in srgb, var(--glow-light) 60%, transparent),
-        0 0 18px color-mix(in srgb, var(--glow-light) 45%, transparent),
-        0 0 26px color-mix(in srgb, var(--glow-light) 35%, transparent);
+        0 0 6px var(--purple),
+        0 0 12px var(--purple),
+        0 0 18px var(--purple);
 
     transform: scale(1.01);
 }
@@ -1804,8 +1806,6 @@ body.light .portrait:hover {
 
 body.light {
     background: var(--bg-light);
-
-    
     color: var(--text-dark);
 }
 
@@ -1858,7 +1858,7 @@ body.light .accent {
 body.light .copy-symbol {
     color: var(--pink) !important;
     text-shadow:
-        0 0 4px var(--glow-light) !important;
+        0 0 4px #ff00c8 !important;
 }
 
 /* NAVBAR */
@@ -1903,26 +1903,34 @@ body.light #hamburgerBtn:hover {
     opacity: 1;
 }
 
-body.light .btn.orb.pink {
-    background: var(--orange);
-    box-shadow: 0 0 2px var(--orange);
-    border: 1px solid var(--orange);
+body.light .btn.orb {
+    background: var(--bg-light);
+    border: 1px solid var(--glow-light);
+    box-shadow: 0 0 2px var(--glow-light);
 }
 
+body.light .btn.orb:hover {
+    box-shadow: 0 0 6px var(--glow-light);
+    transform: scale(1.03);
+}
 
-body.light .btn.orb.pink span {
-    color: var(--console-bg) !important;
+body.light .btn.orb.pink {
+    background: var(--bg-light);                
+    border: 1px solid var(--orange);    
+    box-shadow: 0 0 3px var(--orange);  
 }
 
 body.light .btn.orb.orange {
-    background: var(--pink);
-    box-shadow: 0 0 2px var(--pink);
-    border: 1px solid var(--pink);
+    background: var(--bg-light);               
+    border: 1px solid var(--pink);     
+    box-shadow: 0 0 3px var(--pink);   
 }
 
-body.light .btn.orb.orange span {
-    color: var(--console-bg) !important;
+body.light .btn.orb:hover {
+    box-shadow: 0 0 6px var(--glow-light);
+    transform: scale(1.03);
 }
+
 
 @media (max-width: 768px) {
     body.light .btn.orb {
@@ -1930,44 +1938,18 @@ body.light .btn.orb.orange span {
         height: auto;
         padding: 0.4rem clamp(0.3rem, 1.4vw, 0.7rem);
         border-radius: 40px;
-        display: inline-flex;
-        align-items: center;
-    }
-
-    body.light .btn.orb span {
-        opacity: 1;
-        font-size: clamp(0.6rem, 2vw, 0.7rem);
-        white-space: nowrap;
-    }
-
-    body.light .btn.orb.pink {
         background: var(--bg-light);
-        box-shadow: 0 0 2px var(--pink);
-        border: 1px;
+        border: 1px solid var(--glow-light);
+        box-shadow: 0 0 2px var(--glow-light);
     }
 
-    body.light .btn.orb.orange {
-        background: var(--bg-light);
-        box-shadow: 0 0 2px var(--orange);
-    }
-
-    body.light .btn.orb.pink:hover {
-        box-shadow: 0 0 4px var(--glow-light);
-    }
-
-    body.light .btn.orb.orange:hover {
+    body.light .btn.orb:hover {
         box-shadow: 0 0 4px var(--glow-light);
     }
 }
 
-
-
-body.light .btn.orb.pink:hover {
-    box-shadow: 0 0 6px var(--glow-light);
-}
-
-body.light .btn.orb.orange:hover {
-    box-shadow: 0 0 6px var(--glow-light);
+body.light .btn.orb span {
+    color: var(--console-bg) !important;
 }
 
 body.light .btn-icon {
@@ -2059,8 +2041,7 @@ body.light .ui-card-accent {
         var(--pink)
     );
     box-shadow:
-        0 0 6px var(--glow-light),
-        0 0 12px rgba(255,255,255,0.25);
+        0 0 4px #ff00c8;
     opacity: 1;
 }
 
@@ -2135,12 +2116,8 @@ body.light .modal-divider {
 }
 
 body.light .skills-hero {
-  color: #1429a0ad;
-  font-weight: 700;
-  white-space: nowrap;
-  overflow: hidden;
-  font-family: "JetBrains Mono", monospace;
-  padding-top: 0.1rem;
+    color: var(--orange);
+    font-weight: 700;
 }
 
 body.light .reference-signature strong {
@@ -2150,7 +2127,7 @@ body.light .reference-signature strong {
 
 body.light .footer-credit .name {
     color: var(--pink);
-    text-shadow: 0 0 1px var(--glow-light);
+    text-shadow: 0 0 1px #ff00c8;
 }
 
 /* DIVIDER FOOTER */

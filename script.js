@@ -26,26 +26,39 @@ const isEnglishPage = window.location.pathname.includes("index-en");
 
 
 /* -----------------------------------------
-   🎨  GLOW COLOR PICKER 
+   🎨  DUAL GLOW COLOR PICKER 
 ----------------------------------------- */
-const glowPicker = document.getElementById("glowPicker");
 
-glowPicker.addEventListener("input", (e) => {
+const glowDarkPicker = document.getElementById("glowDarkPicker");
+const glowLightPicker = document.getElementById("glowLightPicker");
+
+/* 🌙 DARK MODE PICKER */
+glowDarkPicker.addEventListener("input", (e) => {
     const color = e.target.value;
     document.documentElement.style.setProperty("--glow", color);
-    localStorage.setItem("glowColor", color);
+    localStorage.setItem("glowDarkColor", color);
 });
 
-const savedGlow = localStorage.getItem("glowColor");
+/* ☀️ LIGHT MODE PICKER */
+glowLightPicker.addEventListener("input", (e) => {
+    const color = e.target.value;
+    document.documentElement.style.setProperty("--glow-light", color);
+    localStorage.setItem("glowLightColor", color);
+});
 
-if (savedGlow) {
-    document.documentElement.style.setProperty("--glow", savedGlow);
-    glowPicker.value = savedGlow;
-} else {
-    document.documentElement.style.setProperty("--glow", "#1429a056");
-    glowPicker.value = "#1429a0c0";
+/* LOAD SAVED COLORS */
+const savedDark = localStorage.getItem("glowDarkColor");
+const savedLight = localStorage.getItem("glowLightColor");
+
+if (savedDark) {
+    document.documentElement.style.setProperty("--glow", savedDark);
+    glowDarkPicker.value = savedDark;
 }
 
+if (savedLight) {
+    document.documentElement.style.setProperty("--glow-light", savedLight);
+    glowLightPicker.value = savedLight;
+}
 
 
 /* -----------------------------------------
@@ -221,7 +234,7 @@ const projectsSv = {
         img: "image/portfolio/kassa-system.jpeg"
     },
 
-    "Hotell App": {
+    "Hotellbokningssystem": {
         description: "Modernt hotellbokningssystem byggt i .NET och SQL Server.",
         fullDescription: "Ett hotellbokningssystem utvecklat i C# och SQL Server med Code First.",
         github: "https://github.com/nninnie/HotelBooking",
@@ -253,7 +266,7 @@ const projectsEn = {
         img: "image/portfolio/kassa-system.jpeg"
     },
 
-    "Hotel Booking App": {
+    "Hotel Booking System": {
         description: "Modern hotel booking system built in .NET and SQL Server.",
         fullDescription: "A hotel booking system developed in C# and SQL Server using Code First.",
         github: "https://github.com/nninnie/HotelBooking",
