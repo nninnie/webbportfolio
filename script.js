@@ -26,7 +26,7 @@ const isEnglishPage = window.location.pathname.includes("index-en");
 
 
 /* -----------------------------------------
-   🎨  DUAL GLOW COLOR PICKER 
+   🎨  DUAL GLOW COLOR PICKER (NO SAVED)
 ----------------------------------------- */
 
 const glowDarkPicker = document.getElementById("glowDarkPicker");
@@ -36,29 +36,24 @@ const glowLightPicker = document.getElementById("glowLightPicker");
 glowDarkPicker.addEventListener("input", (e) => {
     const color = e.target.value;
     document.documentElement.style.setProperty("--glow", color);
-    localStorage.setItem("glowDarkColor", color);
 });
 
 /* ☀️ LIGHT MODE PICKER */
 glowLightPicker.addEventListener("input", (e) => {
     const color = e.target.value;
     document.documentElement.style.setProperty("--glow-light", color);
-    localStorage.setItem("glowLightColor", color);
 });
 
-/* LOAD SAVED COLORS */
-const savedDark = localStorage.getItem("glowDarkColor");
-const savedLight = localStorage.getItem("glowLightColor");
+/* -----------------------------------------
+   🌗 STANDARD GLOW VID START
+----------------------------------------- */
 
-if (savedDark) {
-    document.documentElement.style.setProperty("--glow", savedDark);
-    glowDarkPicker.value = savedDark;
-}
+document.documentElement.style.setProperty("--glow", "#1428A0");       // Dark mode glow
+document.documentElement.style.setProperty("--glow-light", "#9F4DFF"); // Light mode glow
 
-if (savedLight) {
-    document.documentElement.style.setProperty("--glow-light", savedLight);
-    glowLightPicker.value = savedLight;
-}
+// Sätt pickers till standardvärden
+glowDarkPicker.value = "#1428A0";
+glowLightPicker.value = "#9F4DFF";
 
 
 /* -----------------------------------------

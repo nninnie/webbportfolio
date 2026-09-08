@@ -18,7 +18,7 @@
 
     --console-bg: #000;
     --console-border: #333;
-    --glow: #0C2E6A;
+    --glow: #001d50;
     --glow-light: #9F4DFF;
 }
 
@@ -1943,11 +1943,13 @@ body.light .btn.orb:hover {
     }
 
     body.light .btn.orb.pink {
+        background: var(--bg-light);
         color: var(--pink);
         border-color: var(--pink);
     }
 
     body.light .btn.orb.orange {
+        background: var(--bg-light);
         color: var(--orange);
         border-color: var(--orange);
     }
