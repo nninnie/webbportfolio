@@ -19,7 +19,7 @@
     --console-bg: #000;
     --console-border: #333;
     --glow: #001d50;
-    --glow-light: #9F4DFF;
+    
 }
 
 
@@ -1781,16 +1781,19 @@ footer a:focus-visible {
 
 
 /* ============== LIGHT MODE ============== */
+body.light {
+  --glow: #9F4DFF;
+}
 
 body.light .portrait {
-    border: 0.1px solid color-mix(in srgb, var(--purple) 45%, transparent);
+    border: 0.1px solid color-mix(in srgb, var(--glow) 45%, transparent);
 
     box-shadow:
-        0 0 8px color-mix(in srgb, var(--purple) 65%, transparent),
-        0 0 16px color-mix(in srgb, var(--purple) 55%, transparent),
-        0 0 24px color-mix(in srgb, var(--purple) 45%, transparent);
+        0 0 8px color-mix(in srgb, var(--glow) 65%, transparent),
+        0 0 16px color-mix(in srgb, var(--glow) 55%, transparent),
+        0 0 24px color-mix(in srgb, var(--glow) 45%, transparent);
 
-    filter: drop-shadow(0 0 8px color-mix(in srgb, var(--purple) 65%, transparent))
+    filter: drop-shadow(0 0 8px color-mix(in srgb, var(--glow) 65%, transparent))
             brightness(1.22);
 
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
@@ -1798,9 +1801,9 @@ body.light .portrait {
 
 body.light .portrait:hover {
     box-shadow:
-        0 0 10px color-mix(in srgb, var(--purple) 70%, transparent),
-        0 0 20px color-mix(in srgb, var(--purple) 60%, transparent),
-        0 0 30px color-mix(in srgb, var(--purple) 50%, transparent);
+        0 0 10px color-mix(in srgb, var(--glow) 70%, transparent),
+        0 0 20px color-mix(in srgb, var(--glow) 60%, transparent),
+        0 0 30px color-mix(in srgb, var(--glow) 50%, transparent);
 
     transform: scale(1.01);
 }
@@ -1853,9 +1856,9 @@ body.light .folder-title {
 
 /* ACCENT*/
 body.light .accent {
-    color: var(--glow-light);
+    color: var(--glow);
     text-shadow:
-        0 0 4px var(--glow-light);
+        0 0 4px var(--glow);
 }
 body.light .copy-symbol {
     color: var(--pink) !important;
@@ -1891,7 +1894,7 @@ body.light .mobile-menu a[href*="portfolio"] {
 /* HOVER NAVBAR */
 body.light .nav-links a:hover,
 body.light .mobile-menu a:hover {
-    color: var(--glow-light);
+    color: var(--glow);
 }
 
 /* HAMBURGER */
@@ -1901,18 +1904,18 @@ body.light #hamburgerBtn {
 }
 
 body.light #hamburgerBtn:hover {
-    color: var(--glow-light);
+    color: var(--glow);
     opacity: 1;
 }
 
 body.light .btn.orb {
     background: var(--bg-light);
-    border: 1px solid var(--glow-light);
-    box-shadow: 0 0 2px var(--glow-light);
+    border: 1px solid var(--glow);
+    box-shadow: 0 0 2px var(--glow);
 }
 
 body.light .btn.orb:hover {
-    box-shadow: 0 0 6px var(--glow-light);
+    box-shadow: 0 0 6px var(--glow);
     transform: scale(1.03);
 }
 
@@ -1929,7 +1932,7 @@ body.light .btn.orb.orange {
 }
 
 body.light .btn.orb:hover {
-    box-shadow: 0 0 6px var(--glow-light);
+    box-shadow: 0 0 6px var(--glow);
     transform: scale(1.03);
 }
 
@@ -1955,7 +1958,7 @@ body.light .btn.orb:hover {
     }
 
     body.light .btn.orb:hover {
-        box-shadow: 0 0 4px var(--glow-light);
+        box-shadow: 0 0 4px var(--glow);
     }
 }
 
@@ -1984,20 +1987,20 @@ body.light .about-education {
 /* HOVER */
 body.light .reference-card:hover,
 body.light .project-card:hover {
-    box-shadow: 0 0 12px var(--glow-light);
+    box-shadow: 0 0 12px var(--glow);
 }
 
 body.light .references-track::-webkit-scrollbar-thumb {
-    background: color-mix(in srgb, var(--glow-light) 65%, white);
+    background: color-mix(in srgb, var(--glow) 65%, white);
     border-radius: 10px;
 
     box-shadow:
-        0 0 6px color-mix(in srgb, var(--glow-light) 55%, transparent),
-        0 0 10px color-mix(in srgb, var(--glow-light) 35%, transparent);
+        0 0 6px color-mix(in srgb, var(--glow) 55%, transparent),
+        0 0 10px color-mix(in srgb, var(--glow) 35%, transparent);
 }
 
 body.light .references-track {
-    scrollbar-color: color-mix(in srgb, var(--glow-light) 65%, white)
+    scrollbar-color: color-mix(in srgb, var(--glow) 65%, white)
                      rgba(255,255,255,0.15);
 }
 
@@ -2032,7 +2035,7 @@ body.light .skills-list.icons span {
 }
 
 body.light .skills-list.icons li:hover {
-    box-shadow: 0 0 10px var(--glow-light);
+    box-shadow: 0 0 10px var(--glow);
     transform: translateY(-4px) scale(1.05);
 }
 
@@ -2071,7 +2074,7 @@ body.light .project-modal-content {
 body.light .project-icon {
     background: linear-gradient(135deg, var(--pink), var(--orange));
     box-shadow:
-        0 0 6px var(--glow-light),
+        0 0 6px var(--glow),
         0 0 2px var(--pink);
 }
 
@@ -2090,7 +2093,7 @@ body.light .close-modal {
 }
 
 body.light .close-modal:hover {
-    color: var(--glow-light);
+    color: var(--glow);
 }
 
 /* CONTACT */
@@ -2103,9 +2106,9 @@ body.light .contact-card textarea {
 
 body.light .contact-card input:focus,
 body.light .contact-card textarea:focus {
-    border: 1px solid var(--glow-light);
+    border: 1px solid var(--glow);
     box-shadow:
-        0 0 4px var(--glow-light),
+        0 0 4px var(--glow),
         0 0 8px rgba(0,0,0,0.08);
 }
 

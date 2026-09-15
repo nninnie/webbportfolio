@@ -41,7 +41,7 @@ glowDarkPicker.addEventListener("input", (e) => {
 /* ☀️ LIGHT MODE PICKER */
 glowLightPicker.addEventListener("input", (e) => {
     const color = e.target.value;
-    document.documentElement.style.setProperty("--glow-light", color);
+    document.documentElement.style.setProperty("--glow", color);
 });
 
 /* -----------------------------------------
@@ -49,7 +49,7 @@ glowLightPicker.addEventListener("input", (e) => {
 ----------------------------------------- */
 
 document.documentElement.style.setProperty("--glow", "#1428A0");       // Dark mode glow
-document.documentElement.style.setProperty("--glow-light", "#9F4DFF"); // Light mode glow
+document.documentElement.style.setProperty("--glow", "#9F4DFF"); // Light mode glow
 
 // Sätt pickers till standardvärden
 glowDarkPicker.value = "#1428A0";
