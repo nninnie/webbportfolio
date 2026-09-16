@@ -18,7 +18,7 @@
 
     --console-bg: #000;
     --console-border: #333;
-    --glow: #001d50;
+    --glow: #1428A0;
     
 }
 
@@ -617,16 +617,16 @@ body {
     border-radius: 14rem;
 
     /* Mjukare kant */
-    border: 0.1px solid color-mix(in srgb, var(--glow) 12%, transparent);
+    border: 0.1px solid color-mix(in srgb, var(--glow) 45%, transparent);
 
     /* Samsung-style glow */
     box-shadow:
-        0 0 14px color-mix(in srgb, var(--glow) 22%, transparent),
-        0 0 28px color-mix(in srgb, var(--glow) 18%, transparent),
-        0 0 42px color-mix(in srgb, var(--glow) 12%, transparent);
+        0 0 14px color-mix(in srgb, var(--glow) 45%, transparent),
+        0 0 28px color-mix(in srgb, var(--glow) 35%, transparent),
+        0 0 42px color-mix(in srgb, var(--glow) 25%, transparent);
 
     /* Mjuk AMOLED drop-shadow */
-    filter: drop-shadow(0 0 12px color-mix(in srgb, var(--glow) 25%, transparent))
+    filter: drop-shadow(0 0 12px color-mix(in srgb, var(--glow) 35%, transparent))
             brightness(1.22);
 
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
@@ -1781,9 +1781,6 @@ footer a:focus-visible {
 
 
 /* ============== LIGHT MODE ============== */
-body.light {
-  --glow: #9F4DFF;
-}
 
 body.light .portrait {
     border: 0.1px solid color-mix(in srgb, var(--glow) 45%, transparent);

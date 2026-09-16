@@ -6,8 +6,8 @@ const themeBtn = document.getElementById("themeToggle");
 
 themeBtn.addEventListener("click", () => {
     document.body.classList.toggle("light");
+    setDefaultGlow(); 
 });
-
 
 // Språk
 const langBtn = document.getElementById("languageToggle");
@@ -26,11 +26,15 @@ const isEnglishPage = window.location.pathname.includes("index-en");
 
 
 /* -----------------------------------------
-   🎨  DUAL GLOW COLOR PICKER (NO SAVED)
+   🎨  DUAL GLOW COLOR PICKER 
 ----------------------------------------- */
 
 const glowDarkPicker = document.getElementById("glowDarkPicker");
 const glowLightPicker = document.getElementById("glowLightPicker");
+
+// Standardfärger
+const defaultDarkGlow = "#1428A0";   // blå
+const defaultLightGlow = "#9F4DFF";  // lila
 
 /* 🌙 DARK MODE PICKER */
 glowDarkPicker.addEventListener("input", (e) => {
@@ -45,15 +49,26 @@ glowLightPicker.addEventListener("input", (e) => {
 });
 
 /* -----------------------------------------
-   🌗 STANDARD GLOW VID START
+   🌗 STANDARD GLOW VID START + TEMA-BYTE
 ----------------------------------------- */
 
-document.documentElement.style.setProperty("--glow", "#1428A0");       // Dark mode glow
-document.documentElement.style.setProperty("--glow", "#9F4DFF"); // Light mode glow
+function setDefaultGlow() {
+    const isLight = document.body.classList.contains("light");
 
-// Sätt pickers till standardvärden
-glowDarkPicker.value = "#1428A0";
-glowLightPicker.value = "#9F4DFF";
+    if (isLight) {
+        // Light mode standard
+        document.documentElement.style.setProperty("--glow", defaultLightGlow);
+        glowLightPicker.value = defaultLightGlow;
+    } else {
+        // Dark mode standard
+        document.documentElement.style.setProperty("--glow", defaultDarkGlow);
+        glowDarkPicker.value = defaultDarkGlow;
+    }
+}
+
+// Kör vid start
+setDefaultGlow();
+
 
 
 /* -----------------------------------------
