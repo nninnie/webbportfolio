@@ -367,11 +367,11 @@ body {
 
 /* HERO */
 .hero {
-    width: clamp(75%, 62vw, 1600px);
+    width: clamp(85%, 62vw, 1600px);
     margin: 0 auto;
     text-align: center;
     padding: 0;
-    height: 100dvh;
+    height: 95dvh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -617,16 +617,16 @@ body {
     border-radius: 14rem;
 
     /* Mjukare kant */
-    border: 0.1px solid color-mix(in srgb, var(--glow) 45%, transparent);
+    border: 0.1px solid color-mix(in srgb, var(--glow) 40%, transparent);
 
     /* Samsung-style glow */
     box-shadow:
-        0 0 14px color-mix(in srgb, var(--glow) 45%, transparent),
-        0 0 28px color-mix(in srgb, var(--glow) 35%, transparent),
-        0 0 42px color-mix(in srgb, var(--glow) 25%, transparent);
+        0 0 14px color-mix(in srgb, var(--glow) 40%, transparent),
+        0 0 28px color-mix(in srgb, var(--glow) 30%, transparent),
+        0 0 42px color-mix(in srgb, var(--glow) 20%, transparent);
 
     /* Mjuk AMOLED drop-shadow */
-    filter: drop-shadow(0 0 12px color-mix(in srgb, var(--glow) 35%, transparent))
+    filter: drop-shadow(0 0 12px color-mix(in srgb, var(--glow) 30%, transparent))
             brightness(1.22);
 
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
@@ -1783,14 +1783,14 @@ footer a:focus-visible {
 /* ============== LIGHT MODE ============== */
 
 body.light .portrait {
-    border: 0.1px solid color-mix(in srgb, var(--glow) 45%, transparent);
+    border: 0.1px solid color-mix(in srgb, var(--glow) 65%, transparent);
 
     box-shadow:
-        0 0 8px color-mix(in srgb, var(--glow) 65%, transparent),
-        0 0 16px color-mix(in srgb, var(--glow) 55%, transparent),
-        0 0 24px color-mix(in srgb, var(--glow) 45%, transparent);
+        0 0 8px color-mix(in srgb, var(--glow) 75%, transparent),
+        0 0 16px color-mix(in srgb, var(--glow) 65%, transparent),
+        0 0 24px color-mix(in srgb, var(--glow) 55%, transparent);
 
-    filter: drop-shadow(0 0 8px color-mix(in srgb, var(--glow) 65%, transparent))
+    filter: drop-shadow(0 0 8px color-mix(in srgb, var(--glow) 75%, transparent))
             brightness(1.22);
 
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
