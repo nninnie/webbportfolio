@@ -74,6 +74,33 @@ setDefaultGlow();
 /* -----------------------------------------
    🌤️  VÄDER-API (Open-Meteo)
 ----------------------------------------- */
+
+const weatherDescriptionsSv = {
+    0: "Klart",
+    1: "Mest klart",
+    2: "Delvis molnigt",
+    3: "Mulet",
+    45: "Dimma",
+    48: "Dimma",
+    51: "Lätt duggregn",
+    53: "Duggregn",
+    55: "Kraftigt duggregn",
+    61: "Lätt regn",
+    63: "Regn",
+    65: "Kraftigt regn",
+    71: "Lätt snöfall",
+    73: "Snöfall",
+    75: "Kraftigt snöfall",
+    80: "Skurar",
+    81: "Regnskurar",
+    82: "Kraftiga regnskurar",
+    95: "Åska",
+    96: "Åska med lätt hagel",
+    99: "Åska med kraftigt hagel"
+};
+
+
+
 async function loadWeather() {
     try {
         const response = await fetch(
@@ -84,22 +111,29 @@ async function loadWeather() {
         const temp = Math.round(data.current_weather.temperature);
         const code = data.current_weather.weathercode;
 
-        const weatherEl = document.getElementById("weather");
-
+        
+        // Ikon-logik
         let icon = "☀️"; 
+        if (code === 0) icon = "☀️";
+        if (code === 1) icon = "🌤️";
+        if (code === 2) icon = "⛅";
+        if (code === 3) icon = "☁️";
+        if (code >= 45 && code <= 48) icon = "🌫️";
+        if (code >= 51 && code <= 67) icon = "🌧️";
+        if (code >= 71 && code <= 77) icon = "❄️";
+        if (code >= 80 && code <= 82) icon = "🌦️";
+        if (code >= 95) icon = "⛈️";
 
-        if (code === 0) icon = "☀️";        
-        if (code === 1) icon = "🌤️";        
-        if (code === 2) icon = "⛅";         
-        if (code === 3) icon = "☁️";         
+        // Svensk beskrivning
+        const desc = weatherDescriptionsSv[code] || "Okänt väder";
 
-        if (code >= 45 && code <= 48) icon = "🌫️";   
-        if (code >= 51 && code <= 67) icon = "🌧️";   
-        if (code >= 71 && code <= 77) icon = "❄️";   
-        if (code >= 80 && code <= 82) icon = "🌦️";   
-        if (code >= 95) icon = "⛈️";                 
+        // Uppdatera widgeten
+        document.getElementById("weatherIcon").textContent = icon;
+        document.getElementById("weatherTemp").textContent = `${temp}°`;
+        document.getElementById("weatherDesc").textContent = desc;
+        document.getElementById("weatherCity").textContent = "Stockholm";
 
-        weatherEl.textContent = `${temp}°C ${icon}`;
+
     } catch (err) {
         console.log("Weather error:", err);
     }
@@ -109,14 +143,29 @@ loadWeather();
 
 
 /* -----------------------------------------
+   🕒  TID I TELEFONENS STATUSBAR
+----------------------------------------- */
+
+// Uppdatera tiden i telefonen
+const now = new Date();
+const hours = now.getHours().toString().padStart(2, "0");
+const minutes = now.getMinutes().toString().padStart(2, "0");
+
+document.getElementById("phoneTime").textContent = `${hours}:${minutes}`;
+
+
+
+/* -----------------------------------------
    🍔  HAMBURGARMENY 
 ----------------------------------------- */
 const hamburgerBtn = document.getElementById("hamburgerBtn");
 const mobileMenu = document.getElementById("mobileMenu");
 
 hamburgerBtn.addEventListener("click", () => {
-    mobileMenu.style.display =
-        mobileMenu.style.display === "flex" ? "none" : "flex";
+    const isOpen = mobileMenu.style.display === "flex";
+
+    mobileMenu.style.display = isOpen ? "none" : "flex";
+    hamburgerBtn.setAttribute("aria-expanded", !isOpen);
 });
 
 
@@ -168,6 +217,9 @@ let words = isEnglishPage ? wordsEn : wordsSv;
 let i = 0;
 let el = document.getElementById("skills-hero-text");
 
+// Starta bara om elementet finns
+if (el) typeWord();
+
 function typeWord() {
   const word = words[i];  
   let j = 0;
@@ -199,35 +251,85 @@ function eraseWord() {
   }, 60);
 }
 
-typeWord();
-
 
 
 /* -----------------------------------------
-   📩 Kontaktformulär
+   📱 CONTACT PHONE – OPEN POPUP
 ----------------------------------------- */
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault();
 
-    const form = this;
-    const formData = new FormData(form);
+const contactAppBtn = document.querySelector(".contact-app");
+const contactPopup = document.getElementById("contactCard");
+const closePopupBtn = document.querySelector(".close-popup");
 
-    // skickar formuläret via fetch (AJAX)
-    fetch(form.action, {
-        method: "POST",
-        body: formData
-    })
-    .then(() => {
-        document.getElementById("successPopup").style.display = "block";
+if (contactAppBtn) {
+    contactAppBtn.addEventListener("click", () => {
+        contactPopup.style.display = "block";
+    });
+}
 
-        setTimeout(() => {
-            document.getElementById("successPopup").style.display = "none";
-        }, 4000);
+if (closePopupBtn) {
+    closePopupBtn.addEventListener("click", () => {
+        contactPopup.style.display = "none";
+    });
+}
 
-        form.reset();
-    })
-    .catch(error => console.log("FormSubmit error:", error));
+/* -----------------------------------------
+   📩 CONTACT FORM – AJAX SUBMIT
+----------------------------------------- */
+
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(contactForm);
+
+        fetch(contactForm.action, {
+            method: "POST",
+            body: formData
+        })
+        .then(() => {
+            const successPopup = document.getElementById("successPopup");
+
+            if (successPopup) {
+                successPopup.style.display = "block";
+
+                setTimeout(() => {
+                    successPopup.style.display = "none";
+                }, 4000);
+            }
+
+            contactForm.reset();
+        })
+        .catch(err => console.log("FormSubmit error:", err));
+    });
+}
+
+/* -----------------------------------------
+   🖱 CLOSE POPUP ON OUTSIDE CLICK
+----------------------------------------- */
+
+document.addEventListener("click", (e) => {
+    if (
+        contactPopup.style.display === "block" &&
+        !contactPopup.contains(e.target) &&
+        !e.target.closest(".contact-app")
+    ) {
+        contactPopup.style.display = "none";
+    }
 });
+
+/* -----------------------------------------
+   ⌨ ESC KEY CLOSE
+----------------------------------------- */
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        contactPopup.style.display = "none";
+    }
+});
+
 
 /* -----------------------------------------
    📁 Portfolio Mappar - öppna/stänga/språk
@@ -387,4 +489,36 @@ document.addEventListener("click", (e) => {
 
 document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") modal.style.display = "none";
+});
+
+
+
+
+/* -----------------------------------------
+   📁  KONTAKT-FALLBACK (Desktop)
+----------------------------------------- */
+
+// 📱 Kolla om användaren är på mobil
+function isMobile() {
+    return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
+// Telefon-länk fallback
+document.querySelector(".phone-link").addEventListener("click", function (e) {
+    if (!isMobile()) {
+        e.preventDefault();
+
+        alert("📞 Ring: +46 73 570 43 68\n\nNumret är kopierat!");
+        navigator.clipboard.writeText("+46735704368");
+    }
+});
+
+// SMS-länk fallback
+document.querySelector(".sms-link").addEventListener("click", function (e) {
+    if (!isMobile()) {
+        e.preventDefault();
+
+        // Öppna WhatsApp Web
+        window.open("https://wa.me/46735704368", "_blank");
+    }
 });

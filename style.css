@@ -1369,7 +1369,7 @@ body:not(.light) .icon-img.dark {
     scroll-snap-align: center;
     padding: clamp(1rem, 2.5vw, 1.6rem);
     background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.12);
+    border: 1px solid rgba(125, 125, 125, 0.084);
     backdrop-filter: blur(12px);
     border-radius: 2rem;
     opacity: 0.9;
@@ -1380,39 +1380,40 @@ body:not(.light) .icon-img.dark {
 
 /* SCROLL BAR */
 .references-track::-webkit-scrollbar {
-    height: 4px; 
-
+    height: 4px;
 }
 
 .references-track::-webkit-scrollbar-track {
-    background: rgba(255,255,255,0.05); 
+    background: rgba(7, 63, 194, 0.25);
     border-radius: 10px;
 }
 
 .references-track::-webkit-scrollbar-thumb {
-    background: linear-gradient(90deg, var(--dark-blue), var(--blue));
+    background: linear-gradient(90deg, var(--dark-blue), var(--dark-blue));
     border-radius: 10px;
     box-shadow: 0 0 8px var(--glow);
+    background-clip: padding-box; /* FIX */
 }
 
-
-.references-track::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(90deg, var(--dark-blue), var(--blue));
-
-}
-/* FIREFOX SCROLL */
+/* FIREFOX */
 .references-track {
     scrollbar-width: thin;
     scrollbar-color: var(--glow) rgba(255,255,255,0.05);
-    align-items: stretch;
-    gap: 0.8rem;
+
+    /* FIXAR WEBKIT-FÄRG */
+    background: rgba(0,0,0,0.12);
+}
+
+
+.references-track::-webkit-scrollbar {
+    z-index: 9999;
 }
 
 
 /* HOVER */
 .reference-card:hover {
     transform: scale(0.97) translateY(-1px);
-    box-shadow: 0 0 12px var(--glow);
+    box-shadow: 0 0 6px var(--glow);
 }
 
 /* ACCENT */
@@ -1454,14 +1455,13 @@ body:not(.light) .icon-img.dark {
 
 .reference-signature strong {
     font-family: "Great Vibes", cursive;
-    font-size: clamp(0.8rem, 1.5vw, 1.5rem);
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
     font-weight: 100;
 }
 
 .reference-card .reference-signature strong {
-    color: var(--dark-blue);
+    color: var(--blue);
 }
-
 
 
 /* ============== CONTACT ============== */
@@ -1501,7 +1501,6 @@ body:not(.light) .icon-img.dark {
     margin: 0 auto;  
 }
 
-
 /* FORM*/
 .contact-card form {
     width: 100%;
@@ -1513,7 +1512,6 @@ body:not(.light) .icon-img.dark {
     padding: clamp(0.5rem, 2vw, 1.2rem);
     margin-top: 1rem;
 }
-
 
 .contact-card input,
 .contact-card textarea {
@@ -1550,15 +1548,11 @@ body:not(.light) .icon-img.dark {
     flex-direction: column;
     gap: 0.5rem;
     align-items: flex-start;
-    
-
 }
-
 
 textarea {
     font-family: inherit; 
 }
-
 
 /* LABEL */
 .input-label {
@@ -1586,10 +1580,10 @@ textarea {
 .icon-orange {
     filter: invert(53%) sepia(94%) saturate(2470%) hue-rotate(1deg) brightness(103%) contrast(102%);
 }
+
 .icon-bla {
     filter: invert(57%) sepia(94%) saturate(2470%) hue-rotate(180deg) brightness(103%) contrast(102%);
 }
-
 
 /* BBUTTON */
 .contact-card button {
@@ -1612,7 +1606,6 @@ textarea {
     box-shadow: none;
     transition: 0.25s ease, transform 0.2s ease;
 }
-
 
 .contact-card button:hover {
     transform: scale(1.04);
@@ -1653,7 +1646,6 @@ textarea {
     z-index: 99999;
 }
 
-
 /* ANIMATION */
 @keyframes popupPop {
     0% {
@@ -1665,6 +1657,447 @@ textarea {
         transform: translate(-50%, -50%) scale(1);
     }
 }
+
+
+/* ========== MOBIL - STATUSBAR / WIDGET  ========== */
+
+
+/* 📱 OVERRIDE – gör statusbaren mini-mini */
+.status-bar {
+    height: 18px !important;
+    padding: 0 6px !important;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center !important;
+    line-height: 1 !important;
+}
+
+/* kamera cirkel */ 
+.camera-cutout {
+    width: 16px;
+    height: 16px;
+    background: #000;
+    border-radius: 50%;
+    margin: 0 0.rem;
+    box-shadow: 0 0 4px rgba(0,0,0,0.4);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); 
+}
+
+
+/* 🕒 Tiden */
+.status-bar .time {
+    font-size: 0.7rem !important;  /* mini-mini */
+    line-height: 1 !important;
+    font-weight: 600;
+}
+
+/* 📶 Ikoner */
+.status-icons img {
+    height: 8px !important;         /* mini-mini ikoner */
+    width: auto !important;
+    object-fit: contain !important; /* hindrar ihoptryckning */
+    display: inline-block;
+
+}
+
+.status-icons img {
+    filter: brightness(0) invert(1); /* gör ikonerna vita */
+}
+
+
+/* Avstånd mellan ikoner */
+.status-icons {
+    display: flex;
+    gap: 2px !important;            /* mini gap */
+    align-items: center !important;
+}
+
+
+/* ========== VÄDERWIDGET ========== */
+
+.weather-widget {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;  
+    justify-content: center;
+
+    width: 100%;
+    margin: 1rem auto 11rem auto;
+    padding: 0;
+
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+/* Ikon + temperatur centrerat som block */
+.weather-center {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* centrera ikon + temp */
+    gap: 0.4rem;
+
+    width: fit-content; /* blocket blir så litet som möjligt */
+}
+
+/* Ikon */
+.weather-icon {
+    font-size: clamp(3rem, 5vw, 4rem);
+}
+
+/* Temperatur */
+.temp {
+    font-size: clamp(3rem, 5vw, 4rem);
+    font-weight: 700;
+}
+
+/* Texten under */
+.weather-right {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    line-height: 1.1;
+    margin-top: -0.5rem;
+}
+
+/* Beskrivning */
+.desc {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    opacity: 0.85;
+}
+
+/* Stad */
+.city {
+    font-size: clamp(0.75rem, 2vw, 1rem);
+    opacity: 0.75;
+    letter-spacing: 0.5px;
+}
+
+.device-frame {
+    position: relative; /* viktigt */
+}
+
+.page-dots {
+    position: absolute;
+    bottom: 20px;              /* Samsung spacing */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+    margin-bottom: 6.5rem;
+}
+
+.page-dots .dot {
+    width: 5px;
+    height: 5px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 50%;
+}
+
+.page-dots .dot.active {
+    background: rgba(255,255,255,0.9);
+}
+
+
+
+
+/* ========== MOBILE  ========== */
+.device-frame {
+    width: 320px;
+    height: 550px;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 38px;
+    background: url('image/wallpaper.jpg') center/cover no-repeat;
+
+    border: 3px solid rgba(255,255,255,0.35);
+    box-shadow:
+        0 0 18px rgba(0,0,0,0.45),
+        inset 0 0 12px rgba(255,255,255,0.25),
+        inset 0 0 4px rgba(255,255,255,0.15);
+    padding: 1rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+
+.device-glass {
+    position: absolute;
+    inset: 0;
+    border-radius: 38px;
+
+    backdrop-filter: saturate(160%) brightness(1.05);
+    -webkit-backdrop-filter: saturate(160%) brightness(1.05);
+
+    background: rgba(255,255,255,0.03); 
+    pointer-events: none;
+}
+
+.device-frame:hover {
+    transform: scale(1.03); /* 🔥 Kommer rakt emot en */
+    box-shadow:
+        0 0 18px var(--glow),
+        0 0 28px rgba(0,0,0,0.35); /* lite extra djup */
+}
+
+.status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem 0.2rem;
+    font-size: 0.7rem;
+    color: white;
+    opacity: 0.9;
+    margin-bottom: 3rem;
+    
+}
+
+.status-icons img {
+    width: 18px;
+    margin-left: 6px;
+}
+
+
+.weather-icon {
+    width: 42px;
+    margin-right: 1rem;
+}
+
+.temp {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.city {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.app-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.4rem;
+}
+
+.app-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    opacity: 0.95;
+}
+
+/* Cirkeln runt själva appikonen */
+.icon-circle {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Appbilderna */
+.icon-circle img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
+}
+
+/* Hover-effekten gäller endast ikoncirkeln */
+.app-icon:hover .icon-circle {
+    transform: scale(1.08);
+    box-shadow: 0 0 10px var(--glow);
+}
+
+/* Texten under ikonen */
+.app-label {
+    margin-top: 0.3rem;
+    font-size: 0.7rem;
+    opacity: 0.9;
+    text-align: center;
+}
+
+
+
+.nav-bar {
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-dot {
+    width: 60px;
+    height: 5px;
+    background: rgba(255,255,255,0.45);
+    border-radius: 999px;
+}
+/* ========== TABLET (Samsung One UI Landscape, RESPONSIVE CLAMP) ========== */
+@media (min-width: 768px) and (max-width: 1199px) {
+
+    .device-frame {
+        width: 100%;
+        max-width: clamp(320px, 80vw, 700px);   /* RESPONSIV BREDD */
+        height: clamp(260px, 50vw, 400px);      /* RESPONSIV HÖJD */
+        border-radius: clamp(20px, 4vw, 34px);
+        padding: clamp(1rem, 2vw, 1.6rem);
+        background: url('image/wallpaper.jpg') center/cover no-repeat;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;         /* TVÅ KOLUMNER */
+        grid-template-rows: auto 1fr auto;      /* statusbar / content / dots */
+        gap: clamp(0.6rem, 1vw, 1.2rem);
+        margin: 0 auto;
+        position: relative;
+        box-sizing: border-box;
+    }
+
+    /* STATUSBAR */
+    .status-bar {
+        grid-column: 1 / -1;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        padding: 0.4rem;
+        margin-bottom: clamp(0.2rem, 1vw, 0.6rem);
+        align-self: start;
+    }
+
+    /* WEATHER WIDGET – vänster kolumn */
+    .weather-widget {
+        grid-column: 1 / 2;
+        align-self: start;
+        justify-self: center;
+        width: 85%;
+        padding: clamp(0.6rem, 1.4vw, 1.4rem);
+        border-radius: clamp(16px, 3vw, 24px);
+        margin-top: clamp(0.2rem, 1vw, 0.4rem);
+    }
+
+    .weather-icon {
+        width: clamp(30px, 5vw, 50px);
+    }
+
+    .temp {
+        font-size: clamp(1.4rem, 3vw, 2rem);
+    }
+
+    .city {
+        font-size: clamp(0.8rem, 1.4vw, 1rem);
+    }
+
+    /* APP GRID – höger kolumn, 2 rader */
+    .app-grid {
+        grid-column: 2 / 3;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, auto);
+        gap: clamp(0.6rem, 1vw, 1rem);
+        align-self: center;
+        justify-self: center;
+        margin-top: clamp(0.2rem, 1vw, 0.4rem);
+        width: 100%;
+    }
+
+    .app-icon img {
+        width: clamp(30px, 4vw, 48px);
+        height: clamp(30px, 4vw, 48px);
+    }
+
+    /* PAGE DOTS – längst ner */
+    .page-dots {
+        position: absolute;
+        bottom: clamp(8px, 2vw, 14px);
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: clamp(4px, 1vw, 8px);
+        z-index: 10;
+    }
+
+    .page-dots .dot {
+        width: clamp(5px, 1vw, 8px);
+        height: clamp(5px, 1vw, 8px);
+        background: rgba(255,255,255,0.5);
+        border-radius: 50%;
+    }
+
+    .page-dots .dot.active {
+        background: rgba(255,255,255,0.9);
+    }
+}
+
+
+/* ========== DESKTOP / LAPTOP ========== */
+@media (min-width: 1200px) {
+
+    .device-frame {
+        width: 900px;
+        height: 600px;
+        border-radius: 18px;
+        padding: 2rem;
+        background: #0c0c0c url('image/wallpaper.jpg') center/cover no-repeat;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+
+        box-shadow:
+            0 12px 40px rgba(0,0,0,0.35),
+            0 0 30px rgba(0,122,255,0.08);
+    }
+
+    .status-bar {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        background: rgba(255,255,255,0.06);
+        border-radius: 12px;
+        margin-bottom: 1rem;
+    }
+
+    .weather-widget {
+        width: 100%;
+        margin: 0;
+        padding: 2rem;
+        border-radius: 20px;
+        height: fit-content;
+    }
+
+    .app-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        align-self: start;
+    }
+
+    .app-icon img {
+        width: 72px;
+        height: 72px;
+    }
+
+    .nav-bar {
+        display: none;
+    }
+}
+
+
+/* 📱 FLYTTA VÄDER-WIDGET NER */
+.contact-section .weather-widget {
+    margin-top: 14px !important;
+}
+
+/* 📱 FLYTTA APP-IKONERNA NER */
+.contact-section .app-grid {
+    margin-top: 26px !important;
+}
+
+
 
 
 /* ============== FOOTER ============== */

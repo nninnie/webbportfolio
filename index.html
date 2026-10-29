@@ -7,7 +7,7 @@
     <meta property="og:title" content="Ninnie Dahlström - Webbportfolio">
     <meta property="og:description" content="Responsiv frontenddesign med HTML, CSS och JavaScript">
     <meta property="og:image" content="https://nninnie.github.io/webbportfolio/image/readme-image.png">
-    <meta property="og:url" content="https://nninnie.github.io/webbportfolio/">
+    <meta property="og:url" content="https://nninnie.se">
     <meta property="og:type" content="website">
 
     <title>Ninnie Dahlström - Portfolio</title>
@@ -24,7 +24,7 @@
 <header class="navbar">
     <nav>
 
-        <!-- Väder till väsnter -->
+        <!-- Väder till vänster -->
         <div class="weather-box">
         <span id="weather" class="weather">--°C</span>
         <span id="weatherLocation" class="weather-location">Stockholm</span>
@@ -40,8 +40,9 @@
         <ul class="nav-links" id="navLinks">
             <li><a href="#about">Om mig</a></li>
             <li><a href="#skills">Kunskaper</a></li>
-            <li><a href="#contact">Kontakt</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#reference">Referenser</a></li>
+            <li><a href="#contact">Kontakt</a></li>
             <li><a href="image/cv-ninnie-dahlstrom.pdf" download>Ladda ner CV</a></li>
         </ul>
 
@@ -49,12 +50,12 @@
         <div class="nav-controls">
 
     <!-- TEMA-KNAPP -->
-<button id="themeToggle" class="icon-btn" aria-label="Switch theme">
+<button id="themeToggle" class="icon-btn" aria-label="Ändra tema">
     <span class="mode-icon">🌗</span>
 </button>
 
 <!-- SPRÅK BUTTON -->
-<button id="languageToggle" class="icon-btn" aria-label="Switch language">
+<button id="languageToggle" class="icon-btn" aria-label="Ändra språk">
     <span class="mode-icon">🌍</span>
 </button>
 
@@ -65,11 +66,13 @@
 
 
             <!-- Dold select språk - måste ha -->
+            <label for="languageSelect" class="visually-hidden">Språk</label>
+
             <select id="languageSelect" class="hidden-select">
-                <label for="languageSelect" class="visually-hidden">Språk</label>
                 <option value="sv">SV</option>
                 <option value="en">EN</option>
             </select>
+
 
     </nav>
 
@@ -77,8 +80,9 @@
     <div class="mobile-menu" id="mobileMenu">
         <a href="#about">Om mig</a>
         <a href="#skills">Kunskaper</a>
-        <a href="#contact">Kontakt</a>
         <a href="#portfolio">Portfolio</a>
+        <a href="#reference">Referenser</a>
+        <a href="#contact">Kontakt</a>
         <a href="image/cv-ninnie-dahlstrom.pdf" download>Ladda ner CV</a>
     </div>
 
@@ -103,8 +107,8 @@
 
             <label class="color-icon">
     🎨
-    <input type="color" id="glowDarkPicker">
-<input type="color" id="glowLightPicker">
+    <input type="color" id="glowDarkPicker" aria-label="Välj glödfärg för mörkt läge">
+<input type="color" id="glowLightPicker" aria-label="Välj glödfärg för ljust läge">
 
 </label>
 
@@ -118,18 +122,18 @@
             
             <div class="social-media-hero">
                     <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/in/nninnie" target="_blank" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/ninnie-dahlstrom" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <img src="image/icons/linkedin.svg" alt="LinkedIn - Ninnie Dahlström" width="24" height="24">
         </a>
 
         <!-- GitHub -->
-        <a href="https://github.com/nninnie" target="_blank" aria-label="GitHub">
-            <img src="image/icons/GitHub.png" alt="Github - Ninnie Dahlström" class="icon-img light github">
+        <a href="https://github.com/nninnie" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <img src="image/icons/GitHub.png" alt="Github - Ninnie Dahlström" class="icon-img light github" width="24" height="24">
             <img src="image/icons/GitHub-darkmode.png" alt="Github - Ninnie Dahlström" class="icon-img dark github" width="24" height="24">
         </a>
 
         <!-- Outlook -->
-        <a href="mailto:ninnie_dahlstrom@hotmail.com" target="_blank" rel="noopener noreferrer" aria-label="Skicka e-post till Ninnie" class="social-link"
+        <a href="mailto:ninnie_dahlstrom@hotmail.com" rel="noopener noreferrer" aria-label="Skicka e-post till Ninnie" class="social-link"
 >           <img src="image/icons/outlook.svg" alt="Outlook - Ninnie Dahlström" width="24" height="24">
         </a>
         </div>
@@ -140,12 +144,13 @@
 
     <div class="hero-buttons">
         <a class="btn orb orange" href="image/cv-ninnie-dahlstrom.pdf" download>
-            <span><img src="image/icons/download.png" class="btn-icon" width="24" height="24">Ladda ner CV</span>
+            <span><img src="image/icons/download.png" class="btn-icon" width="24" height="24" alt="">Ladda ner CV</span>
         </a>
 
         <a class="btn orb pink" href="#portfolio">
-            <span><img src="image/icons/folder.png" class="btn-icon" width="24" height="24">Se Portfolio</span>
+            <span><img src="image/icons/folder.png" class="btn-icon" width="24" height="24" alt="">Se Portfolio</span>
         </a>
+    </div>
 </section>
 
 
@@ -254,13 +259,13 @@
             <div class="project-tags"></div>
 
             <div class="project-links">
-                <a id="githubLink" href="#" target="_blank" aria-label="Öppna projekt">
+                <a id="githubLink" href="#" target="_blank" rel="noopener noreferrer" aria-label="Öppna projekt GitHub">
                     <img class="icon-img dark" src="image/icons/GitHub-darkmode.png" alt="GitHub" width="20" height="20">
                     <img class="icon-img light" src="image/icons/GitHub.png" alt="GitHub" width="20" height="20">
                     GitHub
                 </a>
 
-                <a id="demoLink" href="#" target="_blank" aria-label="Öppna projekt">
+                <a id="demoLink" href="#" target="_blank" rel="noopener noreferrer" aria-label="Öppna projekt ReadMe">
                     <img class="icon-img dark" src="image/icons/GitHub-darkmode.png" alt="ReadMe" width="20" height="20">
                     <img class="icon-img light" src="image/icons/GitHub.png" alt="ReadMe" width="20" height="20">
                     ReadMe
@@ -343,65 +348,116 @@
 
 
 <!-- CONTACT -->
-<section id="contact" class="sectioncontact">
- 
-    <div class="contact-wrapper">
+<section id="contact" class="contact-section">
 
-        <h2><span class="accent">/</span> Kontakt</h2>
+    <div class="device-frame">
 
-        <div class="contact-card">
-            <div class="ui-card-accent"></div>
+        <div class="device-glass"></div>
 
-
-            <form id="contactForm" action="https://formsubmit.co/ninnie_dahlstrom@hotmail.com" method="POST">
-
-                <div class="input-group">
-                    <label for="name">
-                        <img src="image/icons/user-round.png" alt="User" class="input-icon icon-rosa" width="20" height="20">
-                        Namn
-                    </label>
-                    <input type="text" id="name" required oninvalid="this.setCustomValidity('Fyll i ditt namn')" oninput="this.setCustomValidity('')" aria-invalid="false">
-
-                </div>
-
-                <div class="input-group">
-                    <label for="email">
-                        <img src="image/icons/mail.png" alt="Email" class="input-icon icon-orange" width="20" height="20">
-                        Email
-                    </label>
-                    <input type="email" id="email" required oninvalid="this.setCustomValidity('Ange en giltig e-postadress')" oninput="this.setCustomValidity('')" aria-invalid="false">
-
-                </div>
-
-                <div class="input-group">
-                    <label for="message">
-                        <img src="image/icons/message.png" alt="Meddelande" class="input-icon icon-bla" width="20" height="20">
-                        Meddelande
-                    </label>
-                    <textarea id="message" required minlength="5" oninvalid="this.setCustomValidity('Skriv ett meddelande')" oninput="this.setCustomValidity('')" aria-invalid="false"></textarea>
-
-                </div>
-
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_origin" value="https://nninnie.github.io">
-                <input type="hidden" name="_redirect" value="https://nninnie.github.io/#contact">
-
-                <button type="submit" class="btn-send">
-                    Skicka
-                    <img src="image/icons/send.png" alt="send" class="send-btn" width="20" height="20">
-                </button>
-
-                <div id="successPopup" class="popup" aria-live="polite">
-                    <p>Tack!✨ Jag återkommer så snart jag kan. 
-                        - Ninnie Dahlström
-                    </p>
-                </div>
-
-            </form>
-
+        <!-- STATUS BAR -->
+        <div class="status-bar">
+            <span id="phoneTime" class="time">--:--</span>
+            <div class="camera-cutout"></div>
+            <span class="status-icons">
+                <img src="image/icons/Connection.png" alt="">
+                <img src="image/icons/Wifi.png" alt="">
+                <img src="image/icons/Battery.png" alt="">
+            </span>
         </div>
+
+        <!-- WEATHER WIDGET -->
+        <div class="weather-widget">
+    <div class="weather-center">
+        <span id="weatherIcon" class="weather-icon">☁️</span>
+        <span id="weatherTemp" class="temp">--°</span>
     </div>
+
+    <div class="weather-right">
+        <span id="weatherDesc" class="desc">Klart</span>
+        <span id="weatherCity" class="city">Stockholm</span>
+    </div>
+
+    <div class="page-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+    </div>
+
+</div>
+
+
+        <!-- APP GRID -->
+        
+<div class="app-grid">
+
+    <a href="tel:+46735704368" class="app-icon">
+        <span class="icon-circle">
+            <img src="image/icons/phone.svg" alt="Telefon">
+        </span>
+        <span class="app-label">Telefon</span>
+    </a>
+
+    <a href="sms:+46735704368" class="app-icon">
+        <span class="icon-circle">
+            <img src="image/icons/messages.svg" alt="SMS">
+        </span>
+        <span class="app-label">SMS</span>
+    </a>
+
+    <a href="https://wa.me/46735704368" target="_blank" rel="noopener noreferrer" class="app-icon">
+        <span class="icon-circle">
+            <img src="image/icons/Whatups.svg" alt="WhatsApp">
+        </span>
+        <span class="app-label">WhatsApp</span>
+    </a>
+
+    <a href="https://outlook.live.com/mail/0/" target="_blank" rel="noopener noreferrer" class="app-icon">
+        <span class="icon-circle">
+            <img src="image/icons/Email.svg" alt="Outlook">
+        </span>
+        <span class="app-label">Outlook</span>
+    </a>
+
+    <a href="https://mail.google.com/" target="_blank" rel="noopener noreferrer" class="app-icon">
+        <span class="icon-circle">
+            <img src="image/icons/gmail.svg" alt="Gmail">
+        </span>
+        <span class="app-label">Gmail</span>
+    </a>
+
+    <a href="https://www.linkedin.com/in/ninnie-dahlstrom/" target="_blank" rel="noopener noreferrer" class="app-icon">
+        <span class="icon-circle">
+            <img src="image/icons/linkedin.svg" alt="LinkedIn">
+        </span>
+        <span class="app-label">LinkedIn</span>
+    </a>
+
+    <a href="https://github.com/nninnie" target="_blank" rel="noopener noreferrer" class="app-icon">
+        <span class="icon-circle">
+            <img src="image/icons/GitHub.png" alt="GitHub">
+        </span>
+        <span class="app-label">GitHub</span>
+    </a>
+
+    <a href="#" class="app-icon" onclick="openContactCard(); return false;">
+        <span class="icon-circle">
+            <img src="image/icons/Contact.svg" alt="Kontakt">
+        </span>
+        <span class="app-label">Kontakt</span>
+    </a>
+
+</div>
+
+
+        <!-- NAVIGATION BAR -->
+        <div class="nav-bar">
+            <span class="nav-dot"></span>
+        </div>
+
+    </div>
+
+
 </section>
+
 
 </main>
 
@@ -417,26 +473,6 @@
     <p class="footer-credit">
     <span class="copy-symbol">©</span> Designad & utvecklad av <span class="name">Ninnie Dahlström</span>
     </p>
-
-        <div class="footer-icons">
-
-        <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/in/nninnie" target="_blank" aria-label="LinkedIn">
-            <img src="image/icons/linkedin.svg" alt="LinkedIn - Ninnie Dahlström" width="24" height="24">
-        </a>
-
-        <!-- GitHub -->
-        <a href="https://github.com/nninnie" target="_blank" aria-label="GitHub">
-            <img src="image/icons/GitHub.png" alt="Github - Ninnie Dahlström" class="icon-img light github" width="244" height="24">
-            <img src="image/icons/GitHub-darkmode.png" alt="Github - Ninnie Dahlström" class="icon-img dark github" width="24" height="24">
-        </a>
-
-        <!-- Outlook -->
-        <a href="mailto:ninnie_dahlstrom@hotmail.com" target="_blank" rel="noopener noreferrer" aria-label="Skicka e-post till Ninnie" class="social-link"
->           <img src="image/icons/outlook.svg" alt="Outlook - Ninnie Dahlström" width="24" height="24">
-        </a>
-
-    </div>
 
 
 </footer>
