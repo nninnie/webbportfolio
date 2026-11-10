@@ -1,6 +1,7 @@
 /* -----------------------------------------
    📁 PORTFOLIO – projektdata, projektkort och projekt-popup (modal)
    Lägg till ett projekt = lägg till ett objekt i listan nedan.
+   screenshots = bilderna som visas i popupen (valfritt).
 ----------------------------------------- */
 
 import { isEnglishPage } from "./utils.js";
@@ -13,7 +14,10 @@ const projectsSv = {
         demo: "https://github.com/nninnie/BankApp#readme",
         tech: ["C#", ".NET", "SQL"],
         features: ["ASP.NET Core Razor Pages", "EF Core (Database First)", "Identity med rollerna Admin/Cashier", "Saldo ändras bara via transaktioner", "Lagerindelning + AutoMapper"],
-        img: "image/portfolio/bankapp.webp"
+        img: "image/portfolio/bankapp.webp",
+        screenshots: [
+            { src: "image/portfolio/screens/bankapp-1.webp", alt: "Startsidan med statistik per land" }
+        ]
     },
 
     "Hotellbokningssystem": {
@@ -23,7 +27,12 @@ const projectsSv = {
         demo: "https://github.com/nninnie/HotelBooking#readme",
         tech: ["C#", ".NET", "SQL"],
         features: ["EF Core Code First", "Dependency Injection (Autofac)", "Kontroll av dubbelbokningar", "Fakturor och betalningar", "Inloggning med roller"],
-        img: "image/portfolio/hotel-booking.webp"
+        img: "image/portfolio/hotel-booking.webp",
+        screenshots: [
+            { src: "image/portfolio/screens/hotel-1.webp", alt: "Rumsöversikt med status" },
+            { src: "image/portfolio/screens/hotel-2.webp", alt: "Kalender för in- och utcheckning" },
+            { src: "image/portfolio/screens/hotel-3.webp", alt: "Bokningsbekräftelse med pris" }
+        ]
     },
 
     "Filmregister": {
@@ -33,7 +42,10 @@ const projectsSv = {
         demo: "https://github.com/nninnie/ADONet-MovieRegister#readme",
         tech: ["C#", ".NET", "SQL"],
         features: ["ADO.NET (SqlConnection, SqlCommand)", "Parametriserade SQL-frågor", "Repository-mönster", "Relation Genre (1) → Movie (N)", "Spectre.Console-UI"],
-        img: "image/portfolio/movie-register.webp"
+        img: "image/portfolio/movie-register.webp",
+        screenshots: [
+            { src: "image/portfolio/screens/movie-1.webp", alt: "Huvudmenyn i filmregistret" }
+        ]
     },
 
     "Kassasystem": {
@@ -43,7 +55,11 @@ const projectsSv = {
         demo: "https://github.com/nninnie/CashRegisterSystem",
         tech: ["C#", ".NET"],
         features: ["Inslag med PLU-kod och vikt/antal", "Kampanjer och rabatter", "Kvitto med löpnummer", "Filbaserad lagring", "OOP och lagerindelning"],
-        img: "image/portfolio/kassa-system.webp"
+        img: "image/portfolio/kassa-system.webp",
+        screenshots: [
+            { src: "image/portfolio/screens/kassa-1.webp", alt: "Kassavy med kundvagn" },
+            { src: "image/portfolio/screens/kassa-2.webp", alt: "Kvitto med moms och rabatt" }
+        ]
     },
 
     "Webbportfolio": {
@@ -53,7 +69,12 @@ const projectsSv = {
         demo: "https://nninnie.se/",
         tech: ["HTML", "CSS", "JavaScript", "UI/UX", "API"],
         features: ["Responsiv design", "Glow Color Picker", "Dark/Light mode", "Weather API", "Interaktiva komponenter"],
-        img: "image/portfolio/webbportfolio.webp"
+        img: "image/portfolio/webbportfolio.webp",
+        screenshots: [
+            { src: "image/portfolio/screens/portfolio-1.webp", alt: "Kontaktdelen som laptop" },
+            { src: "image/portfolio/screens/portfolio-2.webp", alt: "Kontaktdelen som surfplatta" },
+            { src: "image/portfolio/screens/portfolio-3.webp", alt: "Kontaktdelen som telefon" }
+        ]
     }
 };
 
@@ -65,7 +86,10 @@ const projectsEn = {
         demo: "https://github.com/nninnie/BankApp#readme",
         tech: ["C#", ".NET", "SQL"],
         features: ["ASP.NET Core Razor Pages", "EF Core (Database First)", "Identity with Admin/Cashier roles", "Balance only changes via transactions", "Layered architecture + AutoMapper"],
-        img: "image/portfolio/bankapp.webp"
+        img: "image/portfolio/bankapp.webp",
+        screenshots: [
+            { src: "image/portfolio/screens/bankapp-1.webp", alt: "Start page with statistics per country" }
+        ]
     },
 
     "Hotel Booking System": {
@@ -75,7 +99,12 @@ const projectsEn = {
         demo: "https://github.com/nninnie/HotelBooking#readme",
         tech: ["C#", ".NET", "SQL"],
         features: ["EF Core Code First", "Dependency Injection (Autofac)", "Double booking checks", "Invoices and payments", "Login with roles"],
-        img: "image/portfolio/hotel-booking.webp"
+        img: "image/portfolio/hotel-booking.webp",
+        screenshots: [
+            { src: "image/portfolio/screens/hotel-1.webp", alt: "Room overview with status" },
+            { src: "image/portfolio/screens/hotel-2.webp", alt: "Calendar for check-in and check-out" },
+            { src: "image/portfolio/screens/hotel-3.webp", alt: "Booking confirmation with price" }
+        ]
     },
 
     "Movie Register": {
@@ -85,7 +114,10 @@ const projectsEn = {
         demo: "https://github.com/nninnie/ADONet-MovieRegister#readme",
         tech: ["C#", ".NET", "SQL"],
         features: ["ADO.NET (SqlConnection, SqlCommand)", "Parameterized SQL queries", "Repository pattern", "Relation Genre (1) → Movie (N)", "Spectre.Console UI"],
-        img: "image/portfolio/movie-register.webp"
+        img: "image/portfolio/movie-register.webp",
+        screenshots: [
+            { src: "image/portfolio/screens/movie-1.webp", alt: "Main menu of the movie register" }
+        ]
     },
 
     "Cash Register System": {
@@ -95,7 +127,11 @@ const projectsEn = {
         demo: "https://github.com/nninnie/CashRegisterSystem",
         tech: ["C#", ".NET"],
         features: ["PLU entry with weight/quantity", "Campaigns and discounts", "Numbered receipts", "File-based storage", "OOP and layered structure"],
-        img: "image/portfolio/kassa-system.webp"
+        img: "image/portfolio/kassa-system.webp",
+        screenshots: [
+            { src: "image/portfolio/screens/kassa-1.webp", alt: "Checkout view with cart" },
+            { src: "image/portfolio/screens/kassa-2.webp", alt: "Receipt with VAT and discount" }
+        ]
     },
 
     "Web Portfolio": {
@@ -105,7 +141,12 @@ const projectsEn = {
         demo: "https://nninnie.se/",
         tech: ["HTML", "CSS", "JavaScript", "UI/UX", "API"],
         features: ["Responsive design", "Glow Color Picker", "Dark/Light mode", "Weather API", "Interactive components"],
-        img: "image/portfolio/webbportfolio.webp"
+        img: "image/portfolio/webbportfolio.webp",
+        screenshots: [
+            { src: "image/portfolio/screens/portfolio-1.webp", alt: "Contact section as laptop" },
+            { src: "image/portfolio/screens/portfolio-2.webp", alt: "Contact section as tablet" },
+            { src: "image/portfolio/screens/portfolio-3.webp", alt: "Contact section as phone" }
+        ]
     }
 };
 
@@ -167,6 +208,7 @@ function initProjectModal(projects) {
     const demoEl = document.getElementById("demoLink");
     const techEl = document.getElementById("projectTech");
     const featuresEl = document.getElementById("features");
+    const galleryEl = document.getElementById("projectGallery");
 
     // Fyll popupen med valt projekt och visa den
     document.querySelectorAll(".folder-item").forEach((folder) => {
@@ -186,6 +228,13 @@ function initProjectModal(projects) {
 
             descEl.innerHTML = project.fullDescription;
             featuresEl.innerHTML = project.features.map((f) => `<li>${f}</li>`).join("");
+
+            // Skärmbilder: klick öppnar bilden i full storlek i en ny flik
+            galleryEl.innerHTML = (project.screenshots || []).map((shot) => `
+                <a href="${shot.src}" target="_blank" rel="noopener noreferrer">
+                    <img src="${shot.src}" alt="${shot.alt}" loading="lazy">
+                </a>
+            `).join("");
 
             githubEl.href = project.github;
             demoEl.href = project.demo;
