@@ -44,7 +44,10 @@ const projectsSv = {
         features: ["ADO.NET (SqlConnection, SqlCommand)", "Parametriserade SQL-frågor", "Repository-mönster", "Relation Genre (1) → Movie (N)", "Spectre.Console-UI"],
         img: "image/portfolio/movie-register.webp",
         screenshots: [
-            { src: "image/portfolio/screens/movie-1.webp", alt: "Huvudmenyn i filmregistret" }
+            { src: "image/portfolio/screens/movie-1.webp", alt: "Huvudmenyn i filmregistret" },
+            { src: "image/portfolio/screens/movie-2.webp", alt: "Alla filmer i en tabell" },
+            { src: "image/portfolio/screens/movie-3.webp", alt: "Sök filmer efter genre" },
+            { src: "image/portfolio/screens/movie-4.webp", alt: "Välj film att uppdatera" }
         ]
     },
 
@@ -71,6 +74,8 @@ const projectsSv = {
         features: ["Responsiv design", "Glow Color Picker", "Dark/Light mode", "Weather API", "Interaktiva komponenter"],
         img: "image/portfolio/webbportfolio.webp",
         screenshots: [
+            { src: "image/portfolio/screens/portfolio-0a.webp", alt: "Startsidan i mörkt läge" },
+            { src: "image/portfolio/screens/portfolio-0b.webp", alt: "Startsidan i ljust läge" },
             { src: "image/portfolio/screens/portfolio-1.webp", alt: "Kontaktdelen som laptop" },
             { src: "image/portfolio/screens/portfolio-2.webp", alt: "Kontaktdelen som surfplatta" },
             { src: "image/portfolio/screens/portfolio-3.webp", alt: "Kontaktdelen som telefon" }
@@ -116,7 +121,10 @@ const projectsEn = {
         features: ["ADO.NET (SqlConnection, SqlCommand)", "Parameterized SQL queries", "Repository pattern", "Relation Genre (1) → Movie (N)", "Spectre.Console UI"],
         img: "image/portfolio/movie-register.webp",
         screenshots: [
-            { src: "image/portfolio/screens/movie-1.webp", alt: "Main menu of the movie register" }
+            { src: "image/portfolio/screens/movie-1.webp", alt: "Main menu of the movie register" },
+            { src: "image/portfolio/screens/movie-2.webp", alt: "All movies in a table" },
+            { src: "image/portfolio/screens/movie-3.webp", alt: "Search movies by genre" },
+            { src: "image/portfolio/screens/movie-4.webp", alt: "Choose a movie to update" }
         ]
     },
 
@@ -143,6 +151,8 @@ const projectsEn = {
         features: ["Responsive design", "Glow Color Picker", "Dark/Light mode", "Weather API", "Interactive components"],
         img: "image/portfolio/webbportfolio.webp",
         screenshots: [
+            { src: "image/portfolio/screens/portfolio-0a.webp", alt: "Start page in dark mode" },
+            { src: "image/portfolio/screens/portfolio-0b.webp", alt: "Start page in light mode" },
             { src: "image/portfolio/screens/portfolio-1.webp", alt: "Contact section as laptop" },
             { src: "image/portfolio/screens/portfolio-2.webp", alt: "Contact section as tablet" },
             { src: "image/portfolio/screens/portfolio-3.webp", alt: "Contact section as phone" }
