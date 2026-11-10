@@ -37,13 +37,13 @@ const projectsSv = {
     },
 
     "Kassasystem": {
-        description: "Modernt kassasystem byggt i .NET med C# och SQL.",
-        fullDescription: "Ett kassasystem utvecklat i C# med fokus på tydlig mappstruktur, OOP och ren kod.",
+        description: "Kassasystem för en frukthandel, byggt i C# och .NET med objektorienterad design.",
+        fullDescription: "Konsolapplikation där kassören slår in varor med PLU-kod och antal/vikt, ser kundvagnen och får ett kvitto med kampanjrabatter. Produkter, kampanjer och kvitton sparas i textfiler, och koden är uppdelad i controllers, services och dataklasser.",
         github: "https://github.com/nninnie/CashRegisterSystem",
-        demo: "https://github.com/nninnie/CashRegisterSystem#readme",
+        demo: "https://github.com/nninnie/CashRegisterSystem",
         tech: ["C#", ".NET"],
-        features: ["CRUD-operationer", "OOP-struktur", "SOLID"],
-        img: "image/portfolio/kassa-system.jpeg"
+        features: ["Inslag med PLU-kod och vikt/antal", "Kampanjer och rabatter", "Kvitto med löpnummer", "Filbaserad lagring", "OOP och lagerindelning"],
+        img: "image/portfolio/kassa-system.webp"
     },
 
     "Webbportfolio": {
@@ -89,13 +89,13 @@ const projectsEn = {
     },
 
     "Cash Register System": {
-        description: "Modern cash register system built in .NET with C# and SQL.",
-        fullDescription: "A cash register system developed in C# with focus on clean structure, OOP and SOLID.",
+        description: "Cash register system for a fruit store, built in C# and .NET with object-oriented design.",
+        fullDescription: "Console application where the cashier enters items by PLU code and quantity/weight, sees the cart and gets a receipt with campaign discounts. Products, campaigns and receipts are stored in text files, and the code is split into controllers, services and data classes.",
         github: "https://github.com/nninnie/CashRegisterSystem",
-        demo: "https://github.com/nninnie/CashRegisterSystem#readme",
+        demo: "https://github.com/nninnie/CashRegisterSystem",
         tech: ["C#", ".NET"],
-        features: ["CRUD operations", "OOP structure", "SOLID principles"],
-        img: "image/portfolio/kassa-system.jpeg"
+        features: ["PLU entry with weight/quantity", "Campaigns and discounts", "Numbered receipts", "File-based storage", "OOP and layered structure"],
+        img: "image/portfolio/kassa-system.webp"
     },
 
     "Web Portfolio": {
