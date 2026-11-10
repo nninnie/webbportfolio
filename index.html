@@ -348,7 +348,9 @@
 
 
 <!-- CONTACT -->
-<section id="contact" class="contact-section">
+<section id="contact" class="contact-section" aria-labelledby="contactTitle">
+
+    <h2 id="contactTitle" class="contact-title"><span class="accent">/</span> Kontakt</h2>
 
     <div class="device-frame">
 
@@ -356,6 +358,8 @@
 
         <!-- STATUS BAR -->
         <div class="status-bar">
+            <span id="taskbarWeather" class="taskbar-weather" aria-hidden="true">--&deg;</span>
+            <span id="deviceDate" class="date"></span>
             <span id="phoneTime" class="time">--:--</span>
             <div class="camera-cutout"></div>
             <span class="status-icons">
@@ -373,13 +377,8 @@
     </div>
 
     <div class="weather-right">
-        <span id="weatherDesc" class="desc">Klart</span>
+        <span id="weatherDesc" class="desc">Laddar väder…</span>
         <span id="weatherCity" class="city">Stockholm</span>
-    </div>
-
-    <div class="page-dots">
-        <span class="dot active"></span>
-        <span class="dot"></span>
     </div>
 
 </div>
@@ -389,14 +388,17 @@
         
 <div class="app-grid">
 
-    <a href="tel:+46735704368" class="app-icon">
+    <!-- Sidindikator (placeras mellan appraden och docken med CSS grid) -->
+    <div class="page-dots" aria-hidden="true"><span class="dot active"></span><span class="dot"></span></div>
+
+    <a href="tel:+46735704368" class="app-icon phone-link">
         <span class="icon-circle">
             <img src="image/icons/phone.svg" alt="Telefon">
         </span>
         <span class="app-label">Telefon</span>
     </a>
 
-    <a href="sms:+46735704368" class="app-icon">
+    <a href="sms:+46735704368" class="app-icon sms-link">
         <span class="icon-circle">
             <img src="image/icons/messages.svg" alt="SMS">
         </span>
@@ -410,14 +412,14 @@
         <span class="app-label">WhatsApp</span>
     </a>
 
-    <a href="https://outlook.live.com/mail/0/" target="_blank" rel="noopener noreferrer" class="app-icon">
+    <a href="https://outlook.live.com/mail/0/deeplink/compose?to=ninnie_dahlstrom@hotmail.com&amp;subject=Kontakt%20via%20nninnie.se" target="_blank" rel="noopener noreferrer" class="app-icon">
         <span class="icon-circle">
             <img src="image/icons/Email.svg" alt="Outlook">
         </span>
         <span class="app-label">Outlook</span>
     </a>
 
-    <a href="https://mail.google.com/" target="_blank" rel="noopener noreferrer" class="app-icon">
+    <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=ninnie_dahlstrom@hotmail.com&amp;su=Kontakt%20via%20nninnie.se" target="_blank" rel="noopener noreferrer" class="app-icon">
         <span class="icon-circle">
             <img src="image/icons/gmail.svg" alt="Gmail">
         </span>
@@ -433,28 +435,86 @@
 
     <a href="https://github.com/nninnie" target="_blank" rel="noopener noreferrer" class="app-icon">
         <span class="icon-circle">
-            <img src="image/icons/GitHub.png" alt="GitHub">
+            <img class="icon-img dark" src="image/icons/GitHub-darkmode.png" alt="GitHub">
+            <img class="icon-img light" src="image/icons/GitHub.png" alt="GitHub">
         </span>
         <span class="app-label">GitHub</span>
     </a>
 
-    <a href="#" class="app-icon" onclick="openContactCard(); return false;">
+    <button type="button" class="app-icon contact-app" aria-haspopup="dialog" aria-controls="contactCard">
         <span class="icon-circle">
-            <img src="image/icons/Contact.svg" alt="Kontakt">
+            <img src="image/icons/Contact.svg" alt="">
         </span>
         <span class="app-label">Kontakt</span>
-    </a>
+    </button>
 
 </div>
 
 
         <!-- NAVIGATION BAR -->
-        <div class="nav-bar">
-            <span class="nav-dot"></span>
+        <div class="nav-bar" aria-hidden="true">
+            <span class="nav-btn nav-recent"></span>
+            <span class="nav-btn nav-home"></span>
+            <span class="nav-btn nav-back"></span>
         </div>
 
     </div>
 
+    <!-- POPUP: KONTAKTFORMULÄR -->
+    <div id="contactCard" class="contact-popup" role="dialog" aria-modal="true" aria-labelledby="contactCardTitle" hidden>
+        <div class="contact-card">
+
+            <button type="button" class="close-popup" aria-label="Stäng formuläret">✕</button>
+
+            <h3 id="contactCardTitle">Skicka ett meddelande</h3>
+
+            <form id="contactForm" action="https://formsubmit.co/ajax/ninnie_dahlstrom@hotmail.com" method="POST" novalidate>
+
+                <div class="input-group">
+                    <label for="name" class="input-label">
+                        <img src="image/icons/user-round.png" alt="" class="input-icon icon-rosa" width="20" height="20">
+                        Namn
+                    </label>
+                    <input type="text" id="name" name="name" autocomplete="name" required minlength="2" maxlength="80" aria-describedby="nameError" aria-invalid="false">
+                    <span id="nameError" class="field-error"></span>
+                </div>
+
+                <div class="input-group">
+                    <label for="email" class="input-label">
+                        <img src="image/icons/mail.png" alt="" class="input-icon icon-orange" width="20" height="20">
+                        E-post
+                    </label>
+                    <input type="email" id="email" name="email" autocomplete="email" required maxlength="254" aria-describedby="emailError" aria-invalid="false">
+                    <span id="emailError" class="field-error"></span>
+                </div>
+
+                <div class="input-group">
+                    <label for="message" class="input-label">
+                        <img src="image/icons/message.png" alt="" class="input-icon icon-bla" width="20" height="20">
+                        Meddelande
+                    </label>
+                    <textarea id="message" name="message" required minlength="10" maxlength="2000" aria-describedby="messageError" aria-invalid="false"></textarea>
+                    <span id="messageError" class="field-error"></span>
+                </div>
+
+                <!-- Spamskydd: dolt fält som bara botar fyller i -->
+                <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <input type="hidden" name="_subject" value="Nytt meddelande via nninnie.se">
+                <input type="hidden" name="_template" value="table">
+
+                <button type="submit" class="btn-send">
+                    Skicka
+                    <img src="image/icons/send.png" alt="" class="send-btn" width="20" height="20">
+                </button>
+
+                <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- TOAST (kort notis, t.ex. "Numret är kopierat") -->
+    <div id="toast" class="popup" role="status" aria-live="polite"></div>
 
 </section>
 

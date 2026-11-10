@@ -115,12 +115,12 @@
             
             <div class="social-media-hero">
                     <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/in/ninnie-dahlstrom" target="_blank" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/ninnie-dahlstrom" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <img src="image/icons/linkedin.svg" alt="LinkedIn - Ninnie Dahlström" width="24" height="24">
         </a>
 
         <!-- GitHub -->
-        <a href="https://github.com/nninnie" target="_blank" aria-label="GitHub">
+        <a href="https://github.com/nninnie" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <img src="image/icons/GitHub.png" alt="Github - Ninnie Dahlström" class="icon-img light github">
             <img src="image/icons/GitHub-darkmode.png" alt="Github - Ninnie Dahlström" class="icon-img dark github" width="24" height="24">
         </a>
@@ -334,108 +334,171 @@
 
 
 <!-- CONTACT -->
-<section id="contact" class="sectioncontact">
- 
-    <div class="contact-wrapper">
+<section id="contact" class="contact-section" aria-labelledby="contactTitle">
 
-        <h2><span class="accent">/</span> Contact</h2>
+    <h2 id="contactTitle" class="contact-title"><span class="accent">/</span> Contact</h2>
 
-        <!-- SAMSUNG GALAXY S24 - CONTACT PHONE -->
-        <div class="contact-phone">
-            <div class="phone-frame">
+    <div class="device-frame">
 
-                <div class="phone-notch"></div>
+        <div class="device-glass"></div>
 
-                <div class="phone-screen">
+        <!-- STATUS BAR -->
+        <div class="status-bar">
+            <span id="taskbarWeather" class="taskbar-weather" aria-hidden="true">--&deg;</span>
+            <span id="deviceDate" class="date"></span>
+            <span id="phoneTime" class="time">--:--</span>
+            <div class="camera-cutout"></div>
+            <span class="status-icons">
+                <img src="image/icons/Connection.png" alt="">
+                <img src="image/icons/Wifi.png" alt="">
+                <img src="image/icons/Battery.png" alt="">
+            </span>
+        </div>
 
-                    <!-- Outlook -->
-                    <a href="mailto:ninnie_dahlstrom@hotmail.com" class="app-icon">
-                        <img src="image/icons/outlook.svg" alt="Mail">
-                        <span>Mail</span>
-                    </a>
+        <!-- WEATHER WIDGET -->
+        <div class="weather-widget">
+            <div class="weather-center">
+                <span id="weatherIcon" class="weather-icon">&#9729;&#65039;</span>
+                <span id="weatherTemp" class="temp">--&deg;</span>
+            </div>
 
-                    <!-- Gmail -->
-                    <a href="mailto:ninnie_dahlstrom@hotmail.com" class="app-icon">
-                        <img src="image/icons/gmail.png" alt="Mail">
-                        <span>Mail</span>
-                    </a>
-
-                    <!-- SMS -->
-                    <a href="sms:0735704368" class="app-icon">
-                        <img src="image/icons/message.png" alt="SMS">
-                        <span>SMS</span>
-                    </a>
-
-                    <!-- LinkedIn -->
-                    <a href="https://www.linkedin.com/in/ninnie-dahlstrom/" target="_blank" class="app-icon">
-                        <img src="image/icons/linkedin.svg" alt="LinkedIn">
-                        <span>LinkedIn</span>
-                    </a>
-
-                    <!-- GitHub -->
-                    <a href="https://github.com/nninnie" target="_blank" class="app-icon">
-                        <img src="image/icons/GitHub-darkmode.png" alt="GitHub">
-                        <span>GitHub</span>
-                    </a>
-
-                    <!-- Contact Me (popup) -->
-                    <a href="#" class="app-icon" onclick="openContactCard()">
-                        <img src="image/icons/user-round.png" alt="Contact">
-                        <span>Contact Me</span>
-                    </a>
-
-                </div>
+            <div class="weather-right">
+                <span id="weatherDesc" class="desc">Loading weather&hellip;</span>
+                <span id="weatherCity" class="city">Stockholm</span>
             </div>
         </div>
 
-        <!-- POPUP CONTACT FORM -->
-        <div id="contactCard" class="contact-popup">
+        <!-- APP GRID -->
+        <div class="app-grid">
 
-            <button class="close-popup" onclick="closeContactCard()">✕</button>
+    <!-- Sidindikator (placeras mellan appraden och docken med CSS grid) -->
+    <div class="page-dots" aria-hidden="true"><span class="dot active"></span><span class="dot"></span></div>
 
-            <div class="contact-card">
-                <form id="contactForm" action="https://formsubmit.co/ninnie_dahlstrom@hotmail.com" method="POST">
+            <a href="tel:+46735704368" class="app-icon phone-link">
+                <span class="icon-circle">
+                    <img src="image/icons/phone.svg" alt="Phone">
+                </span>
+                <span class="app-label">Phone</span>
+            </a>
 
-                    <div class="input-group">
-                        <label for="name">
-                            <img src="image/icons/user-round.png" class="input-icon icon-rosa">
-                            Name
-                        </label>
-                        <input type="text" id="name" required>
-                    </div>
+            <a href="sms:+46735704368" class="app-icon sms-link">
+                <span class="icon-circle">
+                    <img src="image/icons/messages.svg" alt="SMS">
+                </span>
+                <span class="app-label">SMS</span>
+            </a>
 
-                    <div class="input-group">
-                        <label for="email">
-                            <img src="image/icons/mail.png" class="input-icon icon-orange">
-                            Email
-                        </label>
-                        <input type="email" id="email" required>
-                    </div>
+            <a href="https://wa.me/46735704368" target="_blank" rel="noopener noreferrer" class="app-icon">
+                <span class="icon-circle">
+                    <img src="image/icons/Whatups.svg" alt="WhatsApp">
+                </span>
+                <span class="app-label">WhatsApp</span>
+            </a>
 
-                    <div class="input-group">
-                        <label for="message">
-                            <img src="image/icons/message.png" class="input-icon icon-bla">
-                            Message
-                        </label>
-                        <textarea id="message" required minlength="5"></textarea>
-                    </div>
+            <a href="https://outlook.live.com/mail/0/deeplink/compose?to=ninnie_dahlstrom@hotmail.com&amp;subject=Contact%20via%20nninnie.se" target="_blank" rel="noopener noreferrer" class="app-icon">
+                <span class="icon-circle">
+                    <img src="image/icons/Email.svg" alt="Outlook">
+                </span>
+                <span class="app-label">Outlook</span>
+            </a>
 
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_origin" value="https://nninnie.github.io">
-                    <input type="hidden" name="_redirect" value="https://nninnie.github.io/#contact">
+            <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=ninnie_dahlstrom@hotmail.com&amp;su=Contact%20via%20nninnie.se" target="_blank" rel="noopener noreferrer" class="app-icon">
+                <span class="icon-circle">
+                    <img src="image/icons/gmail.svg" alt="Gmail">
+                </span>
+                <span class="app-label">Gmail</span>
+            </a>
 
-                    <button type="submit" class="btn-send">
-                        Send
-                        <img src="image/icons/send.png" class="send-btn">
-                    </button>
+            <a href="https://www.linkedin.com/in/ninnie-dahlstrom/" target="_blank" rel="noopener noreferrer" class="app-icon">
+                <span class="icon-circle">
+                    <img src="image/icons/linkedin.svg" alt="LinkedIn">
+                </span>
+                <span class="app-label">LinkedIn</span>
+            </a>
 
-                </form>
-            </div>
+            <a href="https://github.com/nninnie" target="_blank" rel="noopener noreferrer" class="app-icon">
+                <span class="icon-circle">
+                    <img class="icon-img dark" src="image/icons/GitHub-darkmode.png" alt="GitHub">
+                    <img class="icon-img light" src="image/icons/GitHub.png" alt="GitHub">
+                </span>
+                <span class="app-label">GitHub</span>
+            </a>
+
+            <button type="button" class="app-icon contact-app" aria-haspopup="dialog" aria-controls="contactCard">
+                <span class="icon-circle">
+                    <img src="image/icons/Contact.svg" alt="">
+                </span>
+                <span class="app-label">Contact</span>
+            </button>
+
+        </div>
+
+        <!-- NAVIGATION BAR -->
+        <div class="nav-bar" aria-hidden="true">
+            <span class="nav-btn nav-recent"></span>
+            <span class="nav-btn nav-home"></span>
+            <span class="nav-btn nav-back"></span>
         </div>
 
     </div>
-</section>
 
+    <!-- POPUP: CONTACT FORM -->
+    <div id="contactCard" class="contact-popup" role="dialog" aria-modal="true" aria-labelledby="contactCardTitle" hidden>
+        <div class="contact-card">
+
+            <button type="button" class="close-popup" aria-label="Close the form">&#10005;</button>
+
+            <h3 id="contactCardTitle">Send a message</h3>
+
+            <form id="contactForm" action="https://formsubmit.co/ajax/ninnie_dahlstrom@hotmail.com" method="POST" novalidate>
+
+                <div class="input-group">
+                    <label for="name" class="input-label">
+                        <img src="image/icons/user-round.png" alt="" class="input-icon icon-rosa" width="20" height="20">
+                        Name
+                    </label>
+                    <input type="text" id="name" name="name" autocomplete="name" required minlength="2" maxlength="80" aria-describedby="nameError" aria-invalid="false">
+                    <span id="nameError" class="field-error"></span>
+                </div>
+
+                <div class="input-group">
+                    <label for="email" class="input-label">
+                        <img src="image/icons/mail.png" alt="" class="input-icon icon-orange" width="20" height="20">
+                        Email
+                    </label>
+                    <input type="email" id="email" name="email" autocomplete="email" required maxlength="254" aria-describedby="emailError" aria-invalid="false">
+                    <span id="emailError" class="field-error"></span>
+                </div>
+
+                <div class="input-group">
+                    <label for="message" class="input-label">
+                        <img src="image/icons/message.png" alt="" class="input-icon icon-bla" width="20" height="20">
+                        Message
+                    </label>
+                    <textarea id="message" name="message" required minlength="10" maxlength="2000" aria-describedby="messageError" aria-invalid="false"></textarea>
+                    <span id="messageError" class="field-error"></span>
+                </div>
+
+                <!-- Spam protection: hidden field that only bots fill in -->
+                <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <input type="hidden" name="_subject" value="New message via nninnie.se (EN)">
+                <input type="hidden" name="_template" value="table">
+
+                <button type="submit" class="btn-send">
+                    Send
+                    <img src="image/icons/send.png" alt="" class="send-btn" width="20" height="20">
+                </button>
+
+                <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div id="toast" class="popup" role="status" aria-live="polite"></div>
+
+</section>
 
 </main>
 
@@ -455,12 +518,12 @@
         <div class="footer-icons">
 
         <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/in/ninnie-dahlstrom" target="_blank" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/ninnie-dahlstrom" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <img src="image/icons/linkedin.svg" alt="LinkedIn - Ninnie Dahlström" width="24" height="24">
         </a>
 
         <!-- GitHub -->
-        <a href="https://github.com/nninnie" target="_blank" aria-label="GitHub">
+        <a href="https://github.com/nninnie" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <img src="image/icons/GitHub.png" alt="Github - Ninnie Dahlström" class="icon-img light github" width="24" height="24">
             <img src="image/icons/GitHub-darkmode.png" alt="Github - Ninnie Dahlström" class="icon-img dark github" width="24" height="24">
         </a>
