@@ -53,7 +53,7 @@ const projectsSv = {
         demo: "https://nninnie.se/",
         tech: ["HTML", "CSS", "JavaScript", "UI/UX", "API"],
         features: ["Responsiv design", "Glow Color Picker", "Dark/Light mode", "Weather API", "Interaktiva komponenter"],
-        img: "image/portfolio/webbportfolio.jpeg"
+        img: "image/portfolio/webbportfolio.webp"
     }
 };
 
@@ -105,7 +105,7 @@ const projectsEn = {
         demo: "https://nninnie.se/",
         tech: ["HTML", "CSS", "JavaScript", "UI/UX", "API"],
         features: ["Responsive design", "Glow Color Picker", "Dark/Light mode", "Weather API", "Interactive components"],
-        img: "image/portfolio/webbportfolio.jpeg"
+        img: "image/portfolio/webbportfolio.webp"
     }
 };
 
