@@ -374,8 +374,3 @@ body.light .footer-divider {
 );
     opacity: 0.85;
 }
-
-/* Skärmbilder i projekt-popupen */
-body.light .project-gallery img {
-    border-color: rgba(0, 0, 0, 0.12);
-}

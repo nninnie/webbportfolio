@@ -248,41 +248,6 @@
     box-shadow: 0 0 6px var(--glow);
 }
 
-/* SKÄRMBILDER I POPUPEN – scrolla i sidled, snäpper fast vid varje bild */
-.project-gallery {
-    display: flex;
-    gap: 0.75rem;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding: 0.25rem 0.1rem 0.6rem;
-    margin: 0.5rem 0 0.25rem;
-}
-
-.project-gallery:empty {
-    display: none; /* inga bilder = ingen tom yta */
-}
-
-.project-gallery a {
-    flex: 0 0 auto;
-    scroll-snap-align: start;
-    border-radius: 12px;
-    line-height: 0;
-}
-
-.project-gallery img {
-    height: clamp(140px, 28vw, 220px);
-    width: auto;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.project-gallery a:hover img,
-.project-gallery a:focus-visible img {
-    transform: scale(1.03);
-    box-shadow: 0 0 10px var(--glow);
-}
-
 /* GITHUB DARK/LIGHT MODE IKONER */
 .icon-img.dark,
 .icon-img.light {
