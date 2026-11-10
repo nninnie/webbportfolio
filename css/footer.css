@@ -1,0 +1,113 @@
+/* =========================================================
+   footer.css
+   Footer: copyright, avdelare och sociala ikoner.
+   ========================================================= */
+
+/* ============== FOOTER ============== */
+
+footer {
+    margin-top: 2rem;
+    padding-bottom: 0.5rem;
+    text-align: center;
+    color: var(--text);
+    opacity: 0.9;
+    display: flex;               
+    flex-direction: column;     
+    align-items: center;       
+
+}
+
+/* COPRIGHT */
+.copy-symbol {
+    color: var(--blue);
+    text-shadow:
+        0 0 4px var(--glow);
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
+    font-family: "Great Vibes", cursive;
+    align-self: center;
+    letter-spacing: 0.5px;
+    animation: glowPulse 3s ease-in-out infinite;
+    margin-right: 0.2rem;
+}
+
+@keyframes glowPulse {
+    0%, 100% { text-shadow: 0 0 4px var(--glow); }
+    50% { text-shadow: 0 0 8px var(--glow); }
+}
+
+/* ICON CONTAINER */
+.footer-icons {
+    display: flex;
+    align-items: center;   
+    gap: 0.5rem;
+    margin-top: auto; 
+}
+
+/* ICON */
+.footer-icons img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.75;
+    object-fit: contain;
+    transition: 0.3s ease;
+    filter: drop-shadow(0 0 0 transparent);
+    border-radius: 10px;
+}
+
+.footer-icons a img {
+    transition: 0.25s ease;
+}
+
+.footer-icons a:hover img {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 6px var(--glow));
+}
+
+
+/* GITHUB ICON DARK/LIGHT MODE */
+.footer-icons img.github {
+    width: 22px;
+    height: 22px;
+    display: none;
+}
+
+
+.footer-credit {
+    opacity: 0.8;
+    letter-spacing: 0.5px;
+    font-size: clamp(0.6rem, 1.2vw, 0.9rem);
+}
+
+.footer-credit .name {
+    color: var(--blue);
+    font-family: "Great Vibes", cursive;
+    font-weight: 100;
+    text-shadow: 0 0 1px var(--glow);
+    font-size: clamp(0.8rem, 1.5vw, 1.5rem);
+    margin-left: 0.3rem;
+}
+
+.github {
+    display: none;
+}
+
+
+/* DIVIDER */
+.footer-divider {
+    width: 100%;
+    height: 1px;
+    margin: 5rem auto 1.2rem;
+    background: linear-gradient(
+    90deg,
+    transparent,
+    #1429a091,
+    transparent
+);
+    opacity: 0.85;
+}
+
+footer a:focus-visible {
+    outline: 2px solid var(--glow);
+    outline-offset: 4px;
+    border-radius: 6px;
+}

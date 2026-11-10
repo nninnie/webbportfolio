@@ -1,0 +1,142 @@
+/* =========================================================
+   about.css
+   Om mig: presentationskortet och utbildningskortet.
+   ========================================================= */
+
+/* ============== ABOUT ============== */
+.sectionabout {
+    width: clamp(80%, 70vw, 1100px);
+    margin: 0 auto;  
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+    line-height: 1.6;
+    opacity: 0.85;
+    min-height: 100vh;
+}
+
+.sectionabout .accent {
+    color: var(--glow);
+    text-shadow: 0 0 6px var(--glow);
+    font-weight: 900;
+}
+
+.about-wrapper {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: stretch; 
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .about-wrapper {
+        grid-template-columns: 1fr; 
+    }
+}
+
+.about-card {
+    flex: 2;
+    padding: clamp(1rem, 3vw, 2rem);
+    border-radius: 1rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    line-height: 1.6;
+    opacity: 0.9;
+    box-sizing: border-box;
+    max-width: 100%;
+    padding: clamp(2rem, 3vw, 2rem); 
+}
+
+.about-education {
+    flex: 1;
+    padding: clamp(2rem, 3vw, 2rem);
+    border-radius: 1rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    line-height: 1.6;
+    opacity: 0.9;
+    padding-bottom: 2rem;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .about-card,
+    .about-education {
+        margin-bottom: 0.5rem;
+    }
+}
+
+
+.edu-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    margin-top: 1rem; 
+    border-left: 1px solid var(--glow);
+    padding-left: 1rem;
+    
+}
+
+.edu-item strong {
+    font-size: clamp(0.8rem, 1.4vw, 1.1rem);
+    font-weight: 600;
+    color: var(--text);
+}
+
+.edu-school {
+    font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+    opacity: 0.85;
+}
+
+.edu-year {
+    font-size: clamp(0.7rem, 1.1vw, 0.9rem);
+    opacity: 0.6;
+}
+
+.about-education h3 {
+    text-align: left;
+    font-weight: 600;
+    color: var(--purple);
+    letter-spacing: 0.5px;
+    margin-top: 1rem;
+}
+
+.about-card p {
+    margin-top: 1rem; 
+}
+
+@media (max-width: 768px) {
+    .about-card p,
+    .sectionabout p {
+        margin-bottom: 1.2rem;
+    }
+}
+
+
+/* FÄRGADE ORD i texten */
+.key-purple {
+    color: var(--purple) !important;
+    font-weight: 600;
+    font-size: clamp(1em, 1.1em, 1.25em);
+}
+.key-orange {
+    color: var(--orange) !important;
+    font-weight: 600;
+    font-size: clamp(1em, 1.1em, 1.25em);
+}
+.key-pink {
+    color: var(--pink) !important;
+    font-weight: 600;
+    font-size: clamp(1em, 1.1em, 1.25em);
+}
+.key-blue {
+    color: var(--blue) !important;
+    font-weight: 600;
+    font-size: clamp(1em, 1.1em, 1.225em);
+
+}

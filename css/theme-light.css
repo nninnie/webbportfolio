@@ -1,0 +1,376 @@
+/* =========================================================
+   theme-light.css
+   Ljust tema: allt som ändras när <body> får klassen .light (togglas i js/theme.js).
+   Laddas sist så att reglerna här vinner över grundstilen (kaskaden).
+   ========================================================= */
+
+/* ============== LIGHT MODE ============== */
+
+body.light .portrait {
+    border: 0.1px solid color-mix(in srgb, var(--glow) 65%, transparent);
+
+    box-shadow:
+        0 0 8px color-mix(in srgb, var(--glow) 75%, transparent),
+        0 0 16px color-mix(in srgb, var(--glow) 65%, transparent),
+        0 0 24px color-mix(in srgb, var(--glow) 55%, transparent);
+
+    filter: drop-shadow(0 0 8px color-mix(in srgb, var(--glow) 75%, transparent))
+            brightness(1.22);
+
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+body.light .portrait:hover {
+    box-shadow:
+        0 0 10px color-mix(in srgb, var(--glow) 70%, transparent),
+        0 0 20px color-mix(in srgb, var(--glow) 60%, transparent),
+        0 0 30px color-mix(in srgb, var(--glow) 50%, transparent);
+
+    transform: scale(1.01);
+}
+
+
+body.light {
+    background: var(--bg-light);
+    color: var(--text-dark);
+}
+
+/* TEXT */
+body.light p,
+body.light li,
+body.light span {
+    color: var(--text-dark);
+    opacity: 0.95;
+}
+
+body.light strong,
+body.light b {
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+/* Rubriker */
+body.light h2 {
+    color: var(--text-dark);
+    opacity: 1;
+    font-weight: 800;
+}
+
+body.light h3 {
+    color: #333;
+    opacity: 1;
+    font-weight: 700;
+}
+
+/* GLOBAL */
+body.light footer,
+body.light .nav-links a,
+body.light .mobile-menu a,
+body.light .hero,
+body.light .sectionabout,
+body.light .skills-section,
+body.light .sectionproject,
+body.light .folder-title {
+    color: var(--text-dark);
+}
+
+/* ACCENT*/
+body.light .accent {
+    color: var(--glow);
+    text-shadow:
+        0 0 4px var(--glow);
+}
+body.light .copy-symbol {
+    color: var(--pink) !important;
+    text-shadow:
+        0 0 4px #ff00c8 !important;
+}
+
+/* NAVBAR */
+body.light .navbar {
+    background: rgba(255, 235, 240, 0.22);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(210, 200, 202, 0.45);
+}
+body.light .mobile-menu {
+    background: rgba(255, 235, 240, 0.22);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(210, 200, 202, 0.45);
+}
+
+/* CV */
+body.light .nav-links a[href*="cv-ninnie-dahlstrom"],
+body.light .mobile-menu a[href*="cv-ninnie-dahlstrom"] {
+    color: var(--pink) !important;
+}
+
+/* PORTFOLIO */
+body.light .nav-links a[href*="portfolio"],
+body.light .mobile-menu a[href*="portfolio"] {
+    color: var(--orange);
+    font-weight: 500;
+}
+
+/* HOVER NAVBAR */
+body.light .nav-links a:hover,
+body.light .mobile-menu a:hover {
+    color: var(--glow);
+}
+
+/* HAMBURGER */
+body.light #hamburgerBtn {
+    color: var(--text-dark);
+    opacity: 0.85;
+}
+
+body.light #hamburgerBtn:hover {
+    color: var(--glow);
+    opacity: 1;
+}
+
+body.light .btn.orb {
+    background: var(--bg-light);
+    border: 1px solid var(--glow);
+    box-shadow: 0 0 2px var(--glow);
+}
+
+body.light .btn.orb:hover {
+    box-shadow: 0 0 6px var(--glow);
+    transform: scale(1.03);
+}
+
+body.light .btn.orb.pink {
+    background: var(--pink);
+    border: 1px solid var(--pink);
+    box-shadow: 0 0 4px var(--pink);
+}
+
+body.light .btn.orb.orange {
+    background: var(--orange);
+    border: 1px solid var(--orange);
+    box-shadow: 0 0 4px var(--orange);
+}
+
+body.light .btn.orb:hover {
+    box-shadow: 0 0 6px var(--glow);
+    transform: scale(1.03);
+}
+
+
+@media (max-width: 768px) {
+    body.light .btn.orb {
+        background: transparent;
+        border: 1px solid currentColor;
+        box-shadow: none;
+        padding: 0.35rem 0.6rem;
+    }
+
+    body.light .btn.orb.pink {
+        background: var(--bg-light);
+        color: var(--pink);
+        border-color: var(--pink);
+    }
+
+    body.light .btn.orb.orange {
+        background: var(--bg-light);
+        color: var(--orange);
+        border-color: var(--orange);
+    }
+
+    body.light .btn.orb:hover {
+        box-shadow: 0 0 4px var(--glow);
+    }
+}
+
+body.light .btn.orb span {
+    color: var(--console-bg) !important;
+}
+
+body.light .btn-icon {
+    filter: brightness(1) invert(0) !important;
+}
+
+
+/* CARDS */
+body.light .about-card,
+body.light .skills-card,
+body.light .project-card,
+body.light .reference-card,
+body.light .contact-card,
+body.light .about-education {
+    background: rgba(255, 255, 255, 0.22);
+    border: 1px solid rgba(218, 207, 207, 0.829);
+    backdrop-filter: blur(16px) saturate(140%);
+    box-shadow: 0 8px 32px rgba(20, 40, 160, 0.04);
+}
+
+/* HOVER */
+body.light .reference-card:hover,
+body.light .project-card:hover {
+    box-shadow: 0 0 12px var(--glow);
+}
+
+body.light .references-track::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--glow) 65%, white);
+    border-radius: 10px;
+
+    box-shadow:
+        0 0 6px color-mix(in srgb, var(--glow) 55%, transparent),
+        0 0 10px color-mix(in srgb, var(--glow) 35%, transparent);
+}
+
+body.light .references-track {
+    scrollbar-color: color-mix(in srgb, var(--glow) 65%, white)
+                     rgba(255,255,255,0.15);
+}
+
+
+/* ABOUT EDUCATION titel */
+body.light .about-education h3 {
+    color: var(--purple);
+    opacity: 1;
+    font-weight: 700;
+}
+
+body.light .edu-item {
+    border-left: 2px solid #FF8BEA;
+}
+
+
+/* SKILLS  */
+body.light .skills-list.icons li {
+    background: rgba(255, 255, 255, 0.18); 
+    border: 1px solid rgba(0, 0, 0, 0.12); 
+    backdrop-filter: blur(10px) saturate(140%); 
+    box-shadow: 0 0 10px rgba(0,0,0,0.06);
+}
+
+body.light .skills-list.icons i {
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+body.light .skills-list.icons span {
+    color: var(--text-dark);
+}
+
+body.light .skills-list.icons li:hover {
+    box-shadow: 0 0 10px var(--glow);
+    transform: translateY(-4px) scale(1.05);
+}
+
+/* GITHUB */
+body.light .github-icon {
+    filter: invert(1);
+}
+
+body.light .icon-img.light {
+    display: inline-block;
+}
+
+/* ACCENT I CARD */
+body.light .ui-card-accent {
+    background: linear-gradient(90deg,
+        var(--orange),
+        var(--pink)
+    );
+    box-shadow:
+        0 0 4px #ff00c8;
+    opacity: 1;
+}
+
+body.light .reference-title {
+    border-bottom: 1px solid rgba(172, 91, 117, 0.15);
+}
+
+/* PORTFOLIO MODAL */
+body.light .project-modal-content {
+    background: rgba(253, 242, 247, 0.904);
+    border: 1px solid rgba(210, 195, 198, 0.35);
+    color: var(--text-dark);
+}
+
+
+body.light .project-icon {
+    background: linear-gradient(135deg, var(--pink), var(--orange));
+    box-shadow:
+        0 0 6px var(--glow),
+        0 0 2px var(--pink);
+}
+
+
+body.light .project-links a {
+    background: rgba(240, 233, 234, 0.24);
+    border: 1px solid rgba(158, 141, 144, 0.45);
+    color: var(--text-dark);
+}
+body.light #projectTitle {
+    color: var(--text-dark); 
+}
+
+body.light .close-modal {
+    color: var(--text-dark);
+}
+
+body.light .close-modal:hover {
+    color: var(--glow);
+}
+
+/* CONTACT */
+body.light .contact-card input,
+body.light .contact-card textarea {
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(218, 207, 207, 0.829);
+    color: var(--text-dark);
+}
+
+body.light .contact-card input:focus,
+body.light .contact-card textarea:focus {
+    border: 1px solid var(--glow);
+    box-shadow:
+        0 0 4px var(--glow),
+        0 0 8px rgba(0,0,0,0.08);
+}
+
+body.light .contact-card button {
+    border: 1px solid transparent;
+    border-radius: 12px;
+    color: var(--text-dark);
+    background:
+        linear-gradient(rgb(255, 253, 253), rgb(255, 253, 253)) padding-box,
+        linear-gradient(90deg, var(--orange), var(--pink)) border-box;
+}
+
+body.light .send-btn {
+    filter: brightness(1) invert(0);
+}
+
+body.light .modal-divider {
+    background: rgba(0, 0, 0, 0.12); 
+}
+
+body.light .skills-hero {
+    color: var(--orange);
+    font-weight: 700;
+}
+
+body.light .reference-signature strong {
+    color: var(--pink) !important;
+    font-weight: 100;
+}
+
+body.light .footer-credit .name {
+    color: var(--pink);
+    text-shadow: 0 0 1px #ff00c8;
+}
+
+/* DIVIDER FOOTER */
+body.light .footer-divider {
+    background: linear-gradient(
+    90deg,
+    transparent,
+    #FF4FD8,
+    transparent
+);
+    opacity: 0.85;
+} 

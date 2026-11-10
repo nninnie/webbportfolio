@@ -1,0 +1,392 @@
+/* =========================================================
+   hero.css
+   Hero: namn, titel, skrivmaskinstext, porträtt och knapparna (CV/Portfolio).
+   ========================================================= */
+
+/* ============== HERO ============== */
+
+/* HERO */
+.hero {
+    width: clamp(85%, 62vw, 1600px);
+    margin: 0 auto;
+    text-align: center;
+    padding: 0;
+    height: 95dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-4vh);
+    overflow-x: hidden; 
+}
+
+.hero-card {
+    display: flex;
+    width: 100%;
+    flex-direction: row-reverse;
+    grid-column: 1 / -1;
+    justify-self: center;
+    align-items: flex-end;
+    gap: 3rem;
+    padding: 2rem 2rem;
+    border-radius: 28px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    margin-bottom: 1.5rem;
+    
+}
+
+.hero-text {
+    flex: 2.3; 
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    justify-content: center; 
+    padding-bottom: 0.2rem;
+}
+
+.hero-image-wrapper {
+    flex: 1; 
+    max-width: 100%;
+    padding-bottom: 0.2rem;
+    margin-right: 1.5rem;
+    position: relative;
+    align-self: center;
+    position: relative;
+    display: inline-block;
+}
+
+
+@media (max-width: 768px) {
+
+    .hero {
+        height: auto;
+        transform: none;
+        padding-top: 2rem;
+        padding-bottom: 40vh;
+    }
+
+    .hero-card {
+        flex-direction: column;
+        justify-content: center;   
+        align-items: center;       
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .portrait {
+        margin: 0 auto;
+    }
+
+    .hero-text {
+        text-align: center;
+        width: 100%;
+    }
+
+        .hero h1 {
+        font-size: clamp(1.6rem, 6vw, 2.2rem);
+        line-height: 1.1;
+        margin-bottom: 0.4rem;
+    }
+
+    .hero h1,
+    .hero h3,
+    .hero p {
+        text-align: center;
+    }
+    .hero-image-wrapper {
+    margin-right: 0;
+    margin-top: 0.5rem;
+}
+}
+
+
+.hero h1 {
+    margin-bottom: 0.3rem; 
+}
+
+.hero h3 {
+    margin-top: 0.2rem;
+    margin-bottom: 0.4rem;
+}
+
+.hero p {
+    margin-top: 0;        
+    line-height: 1.4;      
+    font-size: clamp(0.65rem, 1.6vw, 1.1rem);    
+}
+
+/* HERO - KNAPPAR*/
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    
+}
+
+.btn.orb {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 0;
+    transition:
+        width 0.3s ease,
+        height 0.3s ease,
+        padding 0.3s ease,
+        border-radius 0.35s ease,
+        box-shadow 0.3s ease;
+    position: relative;
+}
+
+
+.btn.orb span {
+    opacity: 1;
+    font-size: clamp(0.65rem, 1vw, 0.8rem);
+    font-weight: 500;
+    transition: opacity 0.25s ease;
+    color: var(--text);
+    visibility: hidden;
+}
+
+
+@media (max-width: 768px) {
+    .btn.orb span {
+    visibility: visible;
+}
+
+}
+
+.btn.orb:hover {
+    width: clamp(5rem, 12vw, 6.5rem);
+    height: clamp(2rem, 3vw, 2.4rem);
+    padding: 0 0.4rem;
+    transform: scale(1.01);
+    border-radius: 20px;
+}
+
+
+.btn.orb:hover span {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* IKONER - download & Map */
+.btn-icon {
+    width: 12px;
+    height: 12px;
+    object-fit: contain;
+    margin-right: 4px;
+    vertical-align: middle;
+    transition: 0.25s ease;
+    filter: brightness(0) invert(1) !important;
+}
+
+.btn.orb,
+.btn.orb:visited,
+.btn.orb:active,
+.btn.orb:focus {
+    text-decoration: none;
+}
+
+.btn.orb.pink {
+    background: var(--dark-blue);
+    box-shadow: 0 0 4px var(--dark-blue);
+    border: 1px;
+}
+
+.btn.orb.orange {
+    background: var(--blue);
+    box-shadow: 0 0 4px var(--blue);
+}
+
+.btn.orb.pink:hover {
+    box-shadow: 0 0 5px var(--glow);
+}
+
+.btn.orb.orange:hover {
+    box-shadow: 0 0 5px var(--glow);
+}
+
+@media (max-width: 768px) {
+    .btn.orb {
+        width: auto;
+        height: auto;
+        padding: 0.4rem 0.9rem;
+        border-radius: 40px;
+        display: inline-flex;
+        align-items: center; 
+    }
+
+    .btn.orb span {
+        opacity: 1;
+        font-size: clamp(0.6rem, 2vw, 0.7rem);
+        white-space: nowrap;
+    }
+
+    .btn.orb.pink {
+    background: var(--console-bg);
+    box-shadow: 0 0 2px var(--blue);
+    border: 1px;
+}
+
+.btn.orb.orange {
+    background: var(--console-bg);
+    box-shadow: 0 0 2px var(--blue);
+}
+
+.btn.orb.pink:hover {
+    box-shadow: 0 0 4px var(--glow);
+}
+
+.btn.orb.orange:hover {
+    box-shadow: 0 0 4px var(--glow);
+}
+}
+
+/* HERO - PORTRÄTT BILD*/
+.portrait {
+    width: clamp(7rem, 20vw, 20rem);
+    height: auto;
+    object-fit: cover;
+    border-radius: 14rem;
+
+    /* Mjukare kant */
+    border: 0.1px solid color-mix(in srgb, var(--glow) 40%, transparent);
+
+    /* Samsung-style glow */
+    box-shadow:
+        0 0 14px color-mix(in srgb, var(--glow) 40%, transparent),
+        0 0 28px color-mix(in srgb, var(--glow) 30%, transparent),
+        0 0 42px color-mix(in srgb, var(--glow) 20%, transparent);
+
+    /* Mjuk AMOLED drop-shadow */
+    filter: drop-shadow(0 0 12px color-mix(in srgb, var(--glow) 30%, transparent))
+            brightness(1.22);
+
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.portrait:hover {
+    box-shadow:
+        0 0 8px color-mix(in srgb, var(--glow) 45%, transparent),
+        0 0 16px color-mix(in srgb, var(--glow) 30%, transparent),
+        0 0 22px color-mix(in srgb, var(--glow) 20%, transparent);
+
+    transform: scale(1.01);
+}
+
+.color-icon input[type="color"] {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.color-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(6px);
+    border: none;
+    border-radius: 50%;
+    padding: 0.4rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: var(--blue);
+    opacity: 0;
+    pointer-events: auto;
+    transition: 0.25s ease;
+    transform: scale(1.1);
+    margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+    .color-icon {
+        bottom: 1.2rem;  
+        right: 1.2rem;   
+        transform: scale(1.05); 
+    }
+}
+
+
+.hero-image-wrapper:hover .color-icon {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1.1);
+}
+
+.social-media-hero {
+    display: flex;
+    align-items: center;   
+    gap: 0.5rem;
+    margin-top: 2rem;  
+    box-sizing: border-box;
+}
+
+/* Social media Ikoner */
+.social-media-hero  img {
+    width: clamp(7px, 4vw, 20px);
+    height: clamp(7px, 4vw, 20px);
+    opacity: 0.75;
+    object-fit: contain;
+    transition: 0.3s ease;
+    filter: drop-shadow(0 0 0 transparent);
+    border-radius: 10px;
+    justify-content: flex-end;
+}
+
+.social-media-hero  a img {
+    transition: 0.25s ease;
+}
+
+.social-media-hero  a:hover img {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 6px var(--glow));
+}
+
+
+/* Se till att GitHub följer dark/light-reglerna */
+.social-media-hero  img.github {
+    width: clamp(16px, 4vw, 22px);
+    height: clamp(16px, 4vw, 20x);
+    display: none;
+}
+
+.skills-hero {
+  color: var(--pink);
+  font-weight: 600;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: "JetBrains Mono", monospace;
+  padding-top: 0.1rem;
+      opacity: 1; /* Viktigt */
+    text-shadow: none; /* Tar bort suddighet */
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+
+@media (max-width: 768px) {
+
+    .social-media-hero {
+        gap: 0.3rem;
+        margin: 0.1rem auto 0 auto;
+    }
+
+    .social-media-hero img {
+        opacity: 0.85;
+        transition: 0.25s ease;
+    }
+
+}

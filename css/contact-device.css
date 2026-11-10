@@ -1,0 +1,651 @@
+/* =========================================================
+   contact-device.css
+   Kontaktdelen som enhet: telefon (mobil), surfplatta och laptop i Samsung/One UI-stil.
+   Samma HTML – olika "skal" via media queries (mobile first).
+   ========================================================= */
+
+/* =========================================================
+   📱💻 KONTAKT-ENHET – Samsung / One UI-stil
+   Samma HTML byter "skal" beroende på skärmstorlek:
+   - Mobil      (< 768px):     Galaxy-telefon
+   - Surfplatta (768–1199px):  Galaxy Tab (liggande)
+   - Desktop    (≥ 1200px):    Galaxy Book-laptop
+   Gemensamt: widgetkort, ikoner, sidprickar och navknappar.
+   ========================================================= */
+
+/* ---------- 🎨 BAKGRUNDSBILD ----------
+   Ren CSS: 0 KB, inga licensfrågor.
+   Följer temat (mörkt/ljust) och glödfärgen (--glow) från färgväljaren. */
+
+/* Mörkt läge: sidans svart + blå/lila palett (--glow, --blue, --purple) */
+.device-frame {
+    --wallpaper:
+        radial-gradient(60% 50% at 18% 20%, color-mix(in srgb, var(--glow) 90%, transparent) 0%, transparent 70%),
+        radial-gradient(55% 45% at 88% 28%, color-mix(in srgb, var(--blue) 35%, transparent) 0%, transparent 70%),
+        radial-gradient(60% 50% at 72% 100%, color-mix(in srgb, var(--purple) 35%, transparent) 0%, transparent 70%),
+        radial-gradient(40% 35% at 28% 82%, color-mix(in srgb, var(--glow) 45%, transparent) 0%, transparent 70%),
+        linear-gradient(160deg, #05081f 0%, #020310 50%, var(--bg) 100%);
+}
+
+/* Ljust läge: sidans ljusa bakgrund + lila/rosa/orange (--glow, --pink, --orange) */
+body.light .device-frame {
+    --frame-edge: #c4c5cc;   /* ljus metallkant i ljust läge */
+    --wallpaper:
+        radial-gradient(60% 50% at 18% 20%, color-mix(in srgb, var(--glow) 45%, transparent) 0%, transparent 70%),
+        radial-gradient(55% 45% at 88% 28%, color-mix(in srgb, var(--pink) 30%, transparent) 0%, transparent 70%),
+        radial-gradient(65% 50% at 55% 105%, color-mix(in srgb, var(--orange) 35%, transparent) 0%, transparent 70%),
+        linear-gradient(160deg, var(--bg-light) 0%, #f3e6f0 55%, #fbeee4 100%);
+}
+
+/* GitHub: ljus/mörk ikon byts med temat (samma .icon-img-klasser som i hero) */
+.icon-circle .icon-img {
+    width: 100%;
+    height: 100%;
+}
+
+/* ---------- ☀️ LJUST LÄGE (One UI Light) ----------
+   Ljus bakgrund → mörk text, ljusa glaskort och mörka ikoner. */
+
+body.light .device-frame,
+body.light .device-frame .app-icon {
+    color: #1b1b22;
+}
+
+body.light .device-frame .status-bar,
+body.light .device-frame .weather-widget,
+body.light .device-frame .app-label {
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+body.light .device-frame .status-icons img {
+    filter: brightness(0);           /* mörka statusikoner */
+}
+
+body.light .device-frame .weather-widget {
+    background: rgba(255, 255, 255, 0.45);
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+body.light .device-frame .page-dots .dot        { background: rgba(0, 0, 0, 0.25); }
+body.light .device-frame .page-dots .dot.active { background: #1b1b22; }
+
+body.light .device-frame .nav-recent {
+    background: linear-gradient(90deg,
+        #1b1b22 0 2px, transparent 2px 6px,
+        #1b1b22 6px 8px, transparent 8px 12px,
+        #1b1b22 12px 14px);
+}
+
+body.light .device-frame .nav-home,
+body.light .device-frame .nav-back {
+    border-color: #1b1b22;
+}
+
+@media (min-width: 1200px) {
+    /* Ljust aktivitetsfält på laptopen */
+    body.light .device-frame .status-bar {
+        background: rgba(246, 246, 250, 0.9);
+        border-top-color: rgba(0, 0, 0, 0.08);
+    }
+
+
+    body.light .device-frame .app-icon:hover,
+    body.light .device-frame .app-icon:focus-visible {
+        background: rgba(0, 0, 0, 0.06);
+    }
+
+    /* Tooltip behåller mörk bakgrund och vit text */
+    body.light .device-frame .app-label {
+        color: #fff;
+        text-shadow: none;
+    }
+}
+
+
+/* ---------- GEMENSAMT ---------- */
+
+.device-frame {
+    --bezel: #111113;
+    --frame-edge: #3a3b40;
+
+    position: relative;
+    margin: 0 auto;
+    box-sizing: border-box;
+    color: #fff;
+    background: var(--wallpaper);
+    box-shadow:
+        0 0 0 2px var(--frame-edge),            /* metallkant */
+        0 24px 60px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.device-frame:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 0 0 2px var(--frame-edge),
+        0 28px 70px rgba(0, 0, 0, 0.55),
+        0 0 22px var(--glow);
+}
+
+/* Glasreflex över skärmen */
+.device-glass {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(125deg, rgba(255, 255, 255, 0.10) 0%, transparent 35%);
+    pointer-events: none;
+}
+
+/* Statusrad: tid (+datum) till vänster, ikoner till höger – som One UI */
+.status-bar {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+.status-bar .time { order: 1; }
+.status-bar .date { order: 2; font-weight: 500; opacity: 0.9; }
+.status-bar .status-icons { order: 3; margin-left: auto; }
+
+.taskbar-weather,
+.status-bar .date {
+    display: none; /* visas bara på surfplatta/laptop */
+}
+
+.status-icons {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.status-icons img {
+    height: 10px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+/* Hålkamera (punch-hole) */
+.camera-cutout {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #2b3150 0 22%, #040404 28%);
+    box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.05);
+}
+
+/* Väderwidget – One UI-kort */
+.weather-widget {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 1.15rem;
+    border-radius: 26px;
+    background: rgba(18, 18, 24, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+    box-sizing: border-box;
+}
+
+.weather-center {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.weather-icon { font-size: 2.3rem; line-height: 1; }
+.temp         { font-size: 2.3rem; font-weight: 600; line-height: 1; }
+
+.weather-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    gap: 0.2rem;
+    line-height: 1.2;
+}
+
+.city { order: -1; font-size: 0.95rem; font-weight: 600; }
+.desc { font-size: 0.8rem; opacity: 0.85; }
+
+/* Appar */
+.app-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.9rem 0.5rem;
+}
+
+.app-icon {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* One UI "squircle"-ikoner */
+.icon-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 30%;
+    transition: transform 0.2s ease;
+}
+
+.icon-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
+}
+
+.app-icon:hover .icon-circle,
+.app-icon:focus-visible .icon-circle {
+    transform: scale(1.1);
+}
+
+.app-icon:active .icon-circle {
+    transform: scale(0.92); /* "tryck"-känsla */
+}
+
+.app-label {
+    margin-top: 0.35rem;
+    font-size: 0.7rem;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* Sidprickar – ligger i app-griden, på egen rad */
+.page-dots {
+    grid-column: 1 / -1;
+    grid-row: 2;              /* mellan första appraden och docken */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 0.2rem 0;
+}
+
+.page-dots .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.45);
+}
+
+.page-dots .dot.active {
+    width: 14px;              /* One UI: aktiv sida blir en liten "pill" */
+    border-radius: 999px;
+    background: #fff;
+}
+
+/* Samsung-navigering: ||| ▢ < */
+.nav-bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 40px;
+    padding: 0 2.5rem;
+    opacity: 0.9;
+}
+
+.nav-btn { display: block; }
+
+.nav-recent {
+    width: 14px;
+    height: 12px;
+    background: linear-gradient(90deg,
+        #fff 0 2px, transparent 2px 6px,
+        #fff 6px 8px, transparent 8px 12px,
+        #fff 12px 14px);
+}
+
+.nav-home {
+    width: 13px;
+    height: 13px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+}
+
+.nav-back {
+    width: 8px;
+    height: 8px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(45deg);
+}
+
+
+/* ---------- 📱 MOBIL: GALAXY-TELEFON ---------- */
+
+.device-frame {
+    width: min(320px, 100%);
+    aspect-ratio: 9 / 19.5;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    padding: 12px 14px 46px;
+    border: 7px solid var(--bezel);
+    border-radius: 40px;
+}
+
+/* Sidoknappar: volym + ström på höger sida */
+.device-frame::before,
+.device-frame::after {
+    content: "";
+    position: absolute;
+    right: -11px;
+    width: 3px;
+    border-radius: 0 3px 3px 0;
+    background: linear-gradient(90deg, #2a2b30, #4a4b52);
+}
+
+.device-frame::before { top: 18%; height: 64px; }  /* volym */
+.device-frame::after  { top: 33%; height: 38px; }  /* ström */
+
+.status-bar {
+    height: 22px;
+    padding: 0 10px;
+}
+
+.camera-cutout {
+    top: 4px;
+    width: 12px;
+    height: 12px;
+}
+
+.weather-widget {
+    width: 100%;
+}
+
+.app-grid {
+    margin-top: auto;   /* apparna längst ner, som på en riktig telefon */
+}
+
+/* Dockraden (sista 4 apparna) har inga namn i One UI */
+.app-grid > .app-icon:nth-child(n+6) .app-label {
+    display: none;
+}
+
+
+/* ---------- 📲 SURFPLATTA: GALAXY TAB (LIGGANDE) ---------- */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+
+    .device-frame {
+        width: min(92%, 840px);
+        aspect-ratio: 16 / 10;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+            "status"
+            "widget"
+            "apps";
+        gap: 0;
+        padding: 10px 26px 48px;
+        border: 14px solid var(--bezel);
+        border-radius: 30px;
+    }
+
+    /* Knappar på ovansidan i liggande läge */
+    .device-frame::before,
+    .device-frame::after {
+        right: auto;
+        top: -17px;
+        height: 3px;
+        border-radius: 3px 3px 0 0;
+        background: linear-gradient(180deg, #4a4b52, #2a2b30);
+    }
+
+    .device-frame::before { left: 70%; width: 70px; }  /* volym */
+    .device-frame::after  { left: 82%; width: 40px; }  /* ström */
+
+    .status-bar {
+        grid-area: status;
+        height: 24px;
+        padding: 0 4px;
+        font-size: 0.8rem;
+    }
+
+    .status-bar .date { display: inline; }
+
+    /* Kameran sitter i ramen */
+    .camera-cutout {
+        top: -21px;
+        width: 8px;
+        height: 8px;
+    }
+
+    .weather-widget {
+        grid-area: widget;
+        justify-self: end;     /* uppe till höger */
+        align-self: start;
+        width: 260px;
+        margin-top: 1rem;
+    }
+
+    .app-grid {
+        grid-area: apps;
+        justify-self: center;
+        width: min(100%, 520px);
+        margin-top: 0;
+        gap: 1.1rem 1rem;
+    }
+
+    /* Prickarna under apparna */
+    .page-dots { grid-row: 3; padding-top: 0.4rem; }
+
+    .app-grid > .app-icon:nth-child(n+6) .app-label { display: block; }
+
+    .icon-circle {
+        width: 60px;
+        height: 60px;
+    }
+
+    .app-label { font-size: 0.8rem; }
+
+    .nav-bar {
+        justify-content: center;
+        gap: 5rem;
+        height: 44px;
+    }
+}
+
+
+/* ---------- 💻 DESKTOP: GALAXY BOOK-LAPTOP ---------- */
+
+@media (min-width: 1200px) {
+
+    .device-frame {
+        --bezel: #18181b;
+
+        width: 900px;
+        aspect-ratio: 16 / 10;
+        display: grid;
+        grid-template-rows: 1fr auto;
+        grid-template-areas:
+            "desk"
+            "taskbar";
+        gap: 0;
+        padding: 0;
+        margin-bottom: 40px;   /* plats för tangentbordsdelen */
+        border: 12px solid var(--bezel);
+        border-top-width: 18px;
+        border-radius: 16px 16px 6px 6px;
+        box-shadow:
+            0 0 0 1.5px #55565c,
+            0 24px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .device-frame:hover {
+        transform: translateY(-3px);
+        box-shadow:
+            0 0 0 1.5px #55565c,
+            0 28px 70px rgba(0, 0, 0, 0.55),
+            0 0 22px var(--glow);
+    }
+
+    .device-glass { display: none; }
+
+    /* Tangentbordsdel (underrede) */
+    .device-frame::after {
+        top: auto;
+        right: auto;
+        left: -11%;
+        width: 122%;
+        bottom: -28px;          /* -12px ram + -16px höjd */
+        height: 16px;
+        border-radius: 2px 2px 16px 16px / 2px 2px 12px 12px;
+        background: linear-gradient(to bottom, #dcdde2, #a5a7af 70%, #85878f);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    /* Urgröpning för att öppna locket */
+    .device-frame::before {
+        z-index: 2;
+        top: auto;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -18px;
+        width: 130px;
+        height: 6px;
+        border-radius: 0 0 10px 10px;
+        background: #8a8b93;
+    }
+
+    /* Kameran i ramens överkant (positioneras mot ramen) */
+    .camera-cutout {
+        top: -12px;
+        width: 6px;
+        height: 6px;
+    }
+
+    /* Aktivitetsfält längst ner */
+    .status-bar {
+        position: static;       /* så att kameran placeras mot ramen */
+        grid-area: taskbar;
+        display: grid;
+        grid-template-columns: auto 1fr auto auto;
+        grid-template-areas:
+            "brand . icons time"
+            "brand . icons date";
+        align-content: center;
+        column-gap: 14px;
+        row-gap: 3px;
+        height: 48px;
+        padding: 0 16px;
+        /* OBS: ingen backdrop-filter här – den skulle göra att kameran placeras mot aktivitetsfältet */
+        background: rgba(22, 22, 28, 0.9);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Väder nere till vänster, som i Windows 11 */
+    .taskbar-weather {
+        display: block;
+        grid-area: brand;
+        align-self: center;
+        padding: 6px 10px;
+        border-radius: 8px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        white-space: nowrap;
+    }
+
+    /* Väderwidget uppe till höger på skrivbordet */
+    .weather-widget {
+        grid-area: desk;
+        justify-self: end;
+        align-self: start;
+        width: 260px;
+        margin: 1.25rem;
+    }
+
+
+    .status-bar .status-icons { grid-area: icons; align-self: center; margin: 0; }
+    .status-bar .time { grid-area: time; justify-self: end; font-size: 0.75rem; }
+    .status-bar .date { grid-area: date; justify-self: end; display: block; font-size: 0.7rem; }
+
+    /* Apparna centrerade i aktivitetsfältet */
+    .app-grid {
+        grid-area: taskbar;
+        justify-self: center;
+        align-self: center;
+        display: flex;
+        gap: 0.25rem;
+        margin: 0;
+        z-index: 2;
+    }
+
+    .app-grid > .app-icon {      /* högre specificitet än .contact-app { padding: 0 } */
+        padding: 6px;
+        border-radius: 8px;
+        transition: background 0.15s ease;
+    }
+
+    .app-icon:hover,
+    .app-icon:focus-visible {
+        background: rgba(255, 255, 255, 0.12);
+    }
+
+    .icon-circle {
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+    }
+
+    .app-icon:hover .icon-circle,
+    .app-icon:focus-visible .icon-circle {
+        transform: translateY(-2px);
+    }
+
+    /* Appnamn som tooltip ovanför */
+    .app-grid > .app-icon .app-label,
+    .app-grid > .app-icon:nth-child(n+6) .app-label {
+        display: block;
+        position: absolute;
+        bottom: calc(100% + 10px);
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0;
+        padding: 4px 10px;
+        border-radius: 6px;
+        white-space: nowrap;
+        background: rgba(30, 30, 34, 0.92);
+        text-shadow: none;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.15s ease;
+    }
+
+    .app-icon:hover .app-label,
+    .app-icon:focus-visible .app-label {
+        opacity: 1;
+    }
+
+    .page-dots,
+    .nav-bar {
+        display: none;
+    }
+}

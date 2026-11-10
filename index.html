@@ -11,7 +11,19 @@
     <meta property="og:type" content="website">
 
     <title>Ninnie Dahlström - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- CSS i samma ordning som kaskaden kräver: grund först, ljust tema sist -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/skills.css">
+    <link rel="stylesheet" href="css/portfolio.css">
+    <link rel="stylesheet" href="css/references.css">
+    <link rel="stylesheet" href="css/contact-form.css">
+    <link rel="stylesheet" href="css/contact-device.css">
+    <link rel="stylesheet" href="css/contact-popup.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/theme-light.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
@@ -99,7 +111,7 @@
         <div class="hero-image-wrapper">
 
             <img 
-    src="image/portrait-ninniedahlstroem.jpg" 
+    src="image/portrait-ninnie-dahlstrom.webp" 
     class="portrait"
     alt="Porträttbild på Ninnie Dahlström"
     width="400"
@@ -556,7 +568,8 @@
 
 </footer>
 
-<script defer src="script.js"></script>
+<!-- type="module" = ES-moduler (import/export) och körs efter att sidan laddats -->
+<script type="module" src="js/main.js"></script>
 
 </body>
 </html>

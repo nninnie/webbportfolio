@@ -1,0 +1,163 @@
+/* =========================================================
+   contact-popup.css
+   Kontakt-popupen: överlägg, stängknapp, felmeddelanden och status efter skick.
+   ========================================================= */
+
+/* ============== KONTAKT – RUBRIK, POPUP & FORMULÄR ============== */
+
+.contact-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.contact-title .accent {
+    color: var(--glow);
+    text-shadow: 0 0 6px var(--glow);
+    font-weight: 900;
+}
+
+/* Kontakt-ikonen är en <button> – nollställ knappens standardstil */
+.contact-app {
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+.app-icon:focus-visible {
+    outline: 2px solid var(--glow);
+    outline-offset: 4px;
+    border-radius: 12px;
+}
+
+/* Mörk bakgrund över hela sidan */
+.contact-popup {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+/* hidden-attributet måste vinna över display:flex ovan */
+.contact-popup[hidden] {
+    display: none;
+}
+
+.contact-popup .contact-card {
+    position: relative;
+    width: min(100%, 480px);
+    max-height: 90vh;
+    overflow-y: auto;
+    background: rgba(20, 20, 20, 0.92);
+    opacity: 1;
+    text-align: left;
+    animation: contactPopupIn 0.25s ease-out;
+}
+
+.contact-popup h3 {
+    margin: 0 2rem 0.5rem 0;
+}
+
+@keyframes contactPopupIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+/* Stäng-knapp: överskriver .contact-card button */
+.contact-card .close-popup {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    margin: 0;
+    padding: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 1rem;
+    line-height: 1;
+}
+
+/* Felmeddelanden */
+.field-error {
+    min-height: 1.1em;
+    font-size: 0.8rem;
+    color: #ff6b6b;
+}
+
+.contact-card input[aria-invalid="true"],
+.contact-card textarea[aria-invalid="true"] {
+    border: 1px solid #ff6b6b;
+}
+
+.contact-card textarea {
+    margin-bottom: 0;
+}
+
+/* Status efter skickat */
+.form-status {
+    min-height: 1.2em;
+    margin: 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.form-status.success { color: #4ade80; }
+.form-status.error   { color: #ff6b6b; }
+
+.contact-card button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Spamskydd: dolt för människor, synligt för botar */
+.honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+/* Text som bara skärmläsare ska läsa */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Ljust läge */
+body.light .contact-popup .contact-card {
+    background: rgba(255, 255, 255, 0.97);
+}
+
+body.light .contact-card .close-popup {
+    background: rgba(0, 0, 0, 0.06);
+    border-color: rgba(0, 0, 0, 0.15);
+}
+
+body.light .field-error,
+body.light .form-status.error { color: #c62828; }
+
+body.light .form-status.success { color: #2e7d32; }
+
+body.light .contact-card input[aria-invalid="true"],
+body.light .contact-card textarea[aria-invalid="true"] {
+    border-color: #c62828;
+}
