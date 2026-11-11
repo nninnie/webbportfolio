@@ -248,6 +248,18 @@
     box-shadow: 0 0 6px var(--glow);
 }
 
+/* Privat repo: dölj länkarna (display: flex ovan skulle annars vinna över hidden) */
+.project-links[hidden] {
+    display: none;
+}
+
+.private-note {
+    margin-top: 0.8rem;
+    text-align: center;
+    font-weight: 600;
+    opacity: 0.85;
+}
+
 /* GITHUB DARK/LIGHT MODE IKONER */
 .icon-img.dark,
 .icon-img.light {

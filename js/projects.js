@@ -11,6 +11,7 @@ const projectsSv = {
         fullDescription: "Admin- och kassörsystem för kunder, konton och transaktioner. Byggt i tre lager (webb, services, data access) med rollbaserad inloggning, validering på server och klient, AJAX-laddning av transaktioner och Response Caching.",
         github: "https://github.com/nninnie/BankApp",
         demo: "https://github.com/nninnie/BankApp#readme",
+        isPrivate: true, // privat repo → popupen visar "Kod visas på begäran" i stället för länkar
         tech: ["C#", ".NET", "SQL"],
         features: ["ASP.NET Core Razor Pages", "EF Core (Database First)", "Identity med rollerna Admin/Cashier", "Saldo ändras bara via transaktioner", "Lagerindelning + AutoMapper"],
         img: "image/portfolio/bankapp.webp"
@@ -73,6 +74,7 @@ const projectsEn = {
         fullDescription: "Admin and cashier system for customers, accounts and transactions. Built in three layers (web, services, data access) with role-based login, server and client validation, AJAX-loaded transactions and Response Caching.",
         github: "https://github.com/nninnie/BankApp",
         demo: "https://github.com/nninnie/BankApp#readme",
+        isPrivate: true, // privat repo → popupen visar "Kod visas på begäran" i stället för länkar
         tech: ["C#", ".NET", "SQL"],
         features: ["ASP.NET Core Razor Pages", "EF Core (Database First)", "Identity with Admin/Cashier roles", "Balance only changes via transactions", "Layered architecture + AutoMapper"],
         img: "image/portfolio/bankapp.webp"
@@ -185,6 +187,8 @@ function initProjectModal(projects) {
     const descEl = document.getElementById("projectDescription");
     const githubEl = document.getElementById("githubLink");
     const demoEl = document.getElementById("demoLink");
+    const linksEl = document.querySelector(".project-links");
+    const privateNoteEl = document.getElementById("privateNote");
     const techEl = document.getElementById("projectTech");
     const featuresEl = document.getElementById("features");
 
@@ -209,6 +213,11 @@ function initProjectModal(projects) {
 
             githubEl.href = project.github;
             demoEl.href = project.demo;
+
+            // Privat repo: visa texten i stället för länkar som skulle ge 404
+            const isPrivate = project.isPrivate === true;
+            linksEl.hidden = isPrivate;
+            privateNoteEl.hidden = !isPrivate;
 
             modal.style.display = "flex";
         });
