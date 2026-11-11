@@ -104,6 +104,12 @@ body.light .device-frame .nav-back {
 
 /* ---------- GEMENSAMT ---------- */
 
+/* Kontaktsektionen lika bred som de andra sektionerna (about, skills, portfolio, referenser) */
+.contact-section {
+    width: clamp(80%, 70vw, 1100px);
+    margin: 0 auto;
+}
+
 .device-frame {
     --bezel: #111113;
     --frame-edge: #3a3b40;
@@ -339,7 +345,7 @@ body.light .device-frame .nav-back {
 /* ---------- 📱 MOBIL: GALAXY-TELEFON ---------- */
 
 .device-frame {
-    width: min(320px, max(72vw, 260px));   /* samma bredd som korten i de andra sektionerna */
+    width: min(90%, 400px);   /* samma bredd som korten i de andra sektionerna (90 % av sektionen) */
     aspect-ratio: 9 / 19.5;
     display: flex;
     flex-direction: column;
@@ -393,7 +399,7 @@ body.light .device-frame .nav-back {
 @media (min-width: 768px) and (max-width: 1199px) {
 
     .device-frame {
-        width: min(92%, 840px);
+        width: 90%;               /* samma bredd som korten i de andra sektionerna */
         aspect-ratio: 16 / 10;
         display: grid;
         grid-template-columns: 1fr;
@@ -480,7 +486,7 @@ body.light .device-frame .nav-back {
     .device-frame {
         --bezel: #18181b;
 
-        width: 900px;
+        width: 90%;               /* samma bredd som korten i de andra sektionerna */
         aspect-ratio: 16 / 10;
         display: grid;
         grid-template-rows: 1fr auto;
@@ -729,14 +735,25 @@ body.light .device-frame .nav-back {
     }
 }
 
-/* Surfplatta: LIA uppe till vänster, väder uppe till höger */
+/* Surfplatta: LIA uppe till vänster, väder uppe till höger.
+   Båda delar på bredden så att de aldrig krockar på en smal surfplatta. */
 @media (min-width: 768px) and (max-width: 1199px) {
+    .lia-widget,
+    .weather-widget {
+        width: min(260px, calc(50% - 0.5rem));
+    }
+
     .lia-widget {
         grid-area: widget;
         justify-self: start;
         align-self: start;
-        width: 260px;
-        margin-top: 1rem;
+        margin: 1rem 0;
+    }
+
+    /* Mindre väderikon och temperatur när kortet blir smalt */
+    .weather-icon,
+    .temp {
+        font-size: clamp(1.6rem, 3.4vw, 2.3rem);
     }
 }
 
