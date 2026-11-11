@@ -199,8 +199,27 @@ function initPhoneFallback() {
 }
 
 
+/* ---------- 📧 Outlook & Gmail på mobil ----------
+   På mobil öppnar webblänkarna bara webbläsaren. Där byter vi till mailto:,
+   som öppnar mobilens mejlapp med ett nytt meddelande till mig. */
+
+function initMailApps() {
+    if (!isMobile()) return; // på dator fungerar webblänkarna som de är
+
+    document.querySelectorAll('a[href^="https://outlook.live.com"], a[href^="https://mail.google.com"]')
+        .forEach((link) => {
+            const params = new URL(link.href).searchParams;
+            const subject = params.get("subject") || params.get("su") || "";
+
+            link.href = `mailto:${params.get("to")}?subject=${encodeURIComponent(subject)}`;
+            link.removeAttribute("target"); // mailto ska inte öppna en ny flik
+        });
+}
+
+
 export function initContact() {
     initPopup();
     initForm();
     initPhoneFallback();
+    initMailApps();
 }
