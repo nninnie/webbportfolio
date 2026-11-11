@@ -81,14 +81,6 @@
 .references-track {
     scrollbar-width: thin;
     scrollbar-color: var(--glow) rgba(255,255,255,0.05);
-
-    /* FIXAR WEBKIT-FÄRG */
-    background: rgba(0,0,0,0.12);
-}
-
-
-.references-track::-webkit-scrollbar {
-    z-index: 9999;
 }
 
 
