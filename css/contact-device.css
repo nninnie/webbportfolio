@@ -117,6 +117,7 @@ body.light .device-frame .nav-back {
     position: relative;
     margin: 0 auto;
     box-sizing: border-box;
+    container-type: inline-size;   /* ikonerna skalar med enhetens bredd (cqw) */
     color: #fff;
     background: var(--wallpaper);
     box-shadow:
@@ -345,7 +346,7 @@ body.light .device-frame .nav-back {
 /* ---------- 📱 MOBIL: GALAXY-TELEFON ---------- */
 
 .device-frame {
-    width: min(90%, 400px);   /* samma bredd som korten i de andra sektionerna (90 % av sektionen) */
+    width: clamp(260px, 90%, 400px);   /* samma bredd som korten i de andra sektionerna (90 % av sektionen) */
     aspect-ratio: 9 / 19.5;
     display: flex;
     flex-direction: column;
@@ -465,11 +466,12 @@ body.light .device-frame .nav-back {
     .app-grid > .app-icon:nth-child(n+6) .app-label { display: block; }
 
     .icon-circle {
-        width: 60px;
-        height: 60px;
+        width: clamp(40px, 8.5cqw, 58px);   /* skalar med surfplattans bredd */
+        height: auto;
+        aspect-ratio: 1;
     }
 
-    .app-label { font-size: 0.8rem; }
+    .app-label { font-size: 0.75rem; }
 
     .nav-bar {
         justify-content: center;
@@ -616,8 +618,9 @@ body.light .device-frame .nav-back {
     }
 
     .icon-circle {
-        width: 30px;
-        height: 30px;
+        width: clamp(26px, 3.4cqw, 34px);   /* skalar med laptopskärmens bredd */
+        height: auto;
+        aspect-ratio: 1;
         border-radius: 8px;
     }
 
@@ -727,9 +730,9 @@ body.light .device-frame .nav-back {
 @media (max-width: 767px) {
     .lia-tags { display: none; }
 
-    /* Ikonerna krymper med telefonen så att fyra får plats per rad */
+    /* Ikonerna skalar med telefonens bredd, som på en riktig telefon */
     .icon-circle {
-        width: min(52px, 100%);
+        width: clamp(40px, 20cqw, 56px);
         height: auto;
         aspect-ratio: 1;
     }
