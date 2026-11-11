@@ -1,0 +1,11 @@
+# Privata planeringsdokument (ska inte ligga publikt)
+# "\" behövs eftersom "!" i början av en rad betyder "inkludera" i .gitignore
+\!Documents/
+
+# Skärmbilder som Claude-appen sparar automatiskt
+Claude outputs/
+
+# Editor/OS-filer
+.vscode/
+Thumbs.db
+.DS_Store

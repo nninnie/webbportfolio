@@ -1,0 +1,334 @@
+/* =========================================================
+   portfolio.css
+   Portfolio: projektkorten (byggs i js/projects.js) och projekt-popupen (modal).
+   ========================================================= */
+
+/* ============== PORTFOLIO ============== */
+.sectionproject {
+    text-align: center;              
+    width: clamp(80%, 70vw, 1100px);
+    margin: 0 auto;    
+    font-size: clamp(0.9rem, 2vw, 1.1rem); 
+    line-height: 1.6;                
+    opacity: 0.9;                   
+    position: relative;              
+    z-index: 10;                  
+    min-height: 100vh;
+}
+
+/* PORTFOLIO GRID */
+.projects-card {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    justify-content: center; 
+}
+
+
+.portfolio-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.sectionproject .accent {
+    color: var(--glow);              
+    text-shadow:
+    0 0 6px var(--glow);
+    font-weight: 900;
+}
+
+/* PORTFOLIO CARD */
+.project-card {
+    box-sizing: border-box;
+    width: 100%; 
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+    border-radius: 1rem;
+    text-align: left;
+    transition: 0.25s ease;
+    cursor: pointer;
+    box-shadow:
+        0 0 6px rgba(0,0,0,0.25),
+        0 0 12px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    padding: clamp(2rem, 2vw, 6rem);
+}
+
+.project-card:hover {
+    transform: translateY(-4px) scale(1.015) rotateX(1deg) rotateY(1deg);
+    box-shadow: 0 0 12px var(--glow);
+}
+
+/* BBAKGRUND MAP IKONERNA*/
+.project-icon {
+    width: clamp(28px, 3vw, 40px);
+    height: clamp(28px, 3vw, 40px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    background: linear-gradient(135deg, var(--dark-blue), var(--blue));
+    box-shadow:
+        0 0 6px var(--glow),
+        0 0 2px var(--blue);
+    border-radius: 20px;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* MAP ICON */
+.folder-icon {
+    filter: brightness(0) invert(1);
+    width: 14px;
+    height: 14px;
+}
+
+/* TITEL */
+.folder-title {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 700;
+    min-height: 20px; 
+    margin-bottom: 0.3rem; 
+    letter-spacing: 0.2px;
+}
+
+
+/* TEXT*/
+.project-card p {
+    opacity: 0.8;
+    font-size: clamp(0.8rem, 1.3vw, 1rem);
+    min-height: 50px; 
+}
+
+.image-project {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-top: auto;
+}
+
+/* Mörkt tema visar den mörka bilden (ljust tema byter i theme-light.css) */
+.image-project.img-light {
+    display: none;
+}
+
+
+
+/* PROJEKTEN KLICKBARA */
+.project-click {
+    margin-top: 1rem;      
+    opacity: 0.6 !important;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.65rem !important;
+    letter-spacing: 0.3px;
+    padding: 0;
+    transition:
+        opacity 0.35s ease,
+        color 0.35s ease,
+        text-shadow 0.35s ease,
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    transform-origin: right center; 
+    margin-top: 1rem;
+
+}
+
+
+
+
+
+/* MODAL WRAPPER - PROJECTS*/
+
+/* OVERLAY */
+.project-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: rgba(0, 0, 0, 0.484);
+    backdrop-filter: blur(4px);
+    display: none; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 7rem;
+}
+
+@media (max-width: 600px) {
+    .project-modal {
+        align-items: flex-start;
+        padding-top: 5rem; 
+    }
+}
+
+
+/* CARD  */
+.project-modal-content {
+    width: min(90%, 750px);
+    max-height: 80dvh; 
+    overflow-y: auto;
+    padding: clamp(0.8rem, 3vw, 1.2rem);
+    box-sizing: border-box;
+    border-radius: 20px;
+    background: rgba(20, 20, 20, 0.92);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+
+#projectTitle {
+    font-size: clamp(1.4rem, 2.2vw, 1.6rem);
+    font-weight: 700;
+    color: var(--text);
+    margin-top: -0.2rem; 
+}
+
+#projectDescription, 
+#demoLink {
+    font-size: clamp(0.65rem, 1.2vw, 1rem);
+    line-height: 1.6;
+    padding-bottom: 0.5rem;
+}
+
+
+/* CLOSE BUTTON */
+.close-modal {
+    position: absolute;                 
+    top: 10px;                            
+    right: 12px;                          
+    background: none;                     
+    border: none;                         
+    color: var(--text);                   
+    font-size: 1rem;                    
+    cursor: pointer;                   
+}
+
+.close-modal:hover {
+    color: var(--glow); 
+    text-shadow:
+    0 0 6px var(--glow);
+
+}
+
+/* BUTTONS - Github & Readme */
+.project-links {
+    margin-top: 0.8rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.project-links a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: clamp(0.4rem, 1.2vw, 0.6rem) clamp(0.8rem, 2vw, 1.2rem);
+    border-radius: 8px;
+    background: rgba(39, 39, 39, 0.801);   
+    color: var(--text);                   
+    border: 1px solid rgba(36, 36, 36, 0.15);
+    text-decoration: none;
+    font-weight: 600;                
+    transition: 0.25s ease;
+}
+
+.project-links a img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain; 
+}
+
+.project-links a:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 6px var(--glow);
+}
+
+/* Privat repo: dölj länkarna (display: flex ovan skulle annars vinna över hidden) */
+.project-links[hidden] {
+    display: none;
+}
+
+.private-note {
+    margin-top: 0.8rem;
+    text-align: center;
+    font-weight: 600;
+    opacity: 0.85;
+}
+
+/* GITHUB DARK/LIGHT MODE IKONER */
+.icon-img.dark,
+.icon-img.light {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    display: none;
+}
+
+/* DARK ICON - DARK MODE */
+body:not(.light) .icon-img.dark {
+    display: inline-block;                
+}
+
+/* SKIILLS ICONS */
+.card-tech {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card-tech i {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    transition: 0.25s ease;
+    padding-top: 0.6rem;
+}
+
+.modal-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 14px 0 14px 0;
+    
+}
+
+/* FEATURES TEXT */
+#features {
+    text-align: left;
+    padding-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.6rem; 
+    line-height: 1.35;  
+}
+
+#features li {
+    margin-bottom: 0.25rem;
+    opacity: 0.85;
+    list-style: none;
+    position: relative;
+    padding-left: 0.8rem; 
+}
+
+#features li::before {
+    content: "•";
+    color: var(--glow);
+    position: absolute;
+    left: 0;
+    font-size: 0.6rem; 
+    line-height: 1;
+    top: 0.2rem;
+    text-shadow:
+        0 0 4px var(--glow);
+}

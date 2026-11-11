@@ -1,0 +1,116 @@
+/* =========================================================
+   skills.css
+   Kunskaper: rutnätet med teknikikoner.
+   ========================================================= */
+
+/* ============== SKILLS ============== */
+.skills-section {
+    margin: 0 auto;
+    width: clamp(80%, 70vw, 1100px);
+    line-height: 1.5;
+    opacity: 0.9;
+    min-height: 100vh;
+}
+
+.skills-section .accent {
+    color: var(--glow);
+    text-shadow:
+    0 0 6px var(--glow);
+    font-weight: 900;
+}
+.skills-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 90%;
+}
+.skills-card {
+    box-sizing: border-box;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    width: 100%;
+    padding: clamp(1.8rem, 4vw, 3rem) clamp(1.2rem, 3vw, 2.2rem);
+    border-radius: 1.1rem;
+    backdrop-filter: blur(12px);
+    line-height: 1.65;
+    opacity: 0.9;
+}
+
+/* Ikoner - Container */
+.skills-list.icons {
+    list-style: none;
+    padding: 0;
+    margin: 1rem auto 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: clamp(0.8rem, 2vw, 1.5rem); 
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+/* Kortet - RESPONSIV  */
+.skills-list.icons li {
+    width: clamp(90px, 12vw, 120px);  
+    height: clamp(90px, 12vw, 120px);  
+    aspect-ratio: 1 / 1;              
+    padding: 0.5rem;                  
+    border-radius: 16px;
+    box-sizing: border-box;
+    background: rgba(145, 145, 145, 0.041);
+    border: 1px solid rgba(100, 100, 100, 0.28);
+    backdrop-filter: blur(18px) saturate(160%);
+    box-shadow: 0 0 20px rgba(255,255,255,0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+
+@keyframes iconPop {
+    0% { opacity: 0; transform: scale(0.92); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+
+.skills-list.icons li:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 0 10px var(--glow);
+}
+
+.skills-list.icons i {
+    font-size: clamp(24px, 3vw, 38px);
+    margin-bottom: 0.3rem;
+    opacity: 0.95;
+    transition: 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skills-card p {
+    text-align: center;
+    opacity: 0.7;
+    padding-bottom: 1rem;
+}
+
+/* TEXTEN UNDER IKONEN  */
+.skills-list.icons span {
+    font-size: clamp(0.68rem, 1vw, 0.8rem); 
+    opacity: 0.75;
+    font-weight: 500;
+    margin-top: 0.1rem;
+    word-break: break-word; 
+    display: block;
+    width: 100%;
+}
+
+.github-icon {
+    font-size: clamp(26px, 3.5vw, 44px);
+    transition: 0.25s ease;
+    filter: invert(0);
+}
