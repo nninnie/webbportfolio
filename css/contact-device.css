@@ -339,7 +339,7 @@ body.light .device-frame .nav-back {
 /* ---------- 📱 MOBIL: GALAXY-TELEFON ---------- */
 
 .device-frame {
-    width: min(320px, 100%);
+    width: min(320px, max(72vw, 260px));   /* samma bredd som korten i de andra sektionerna */
     aspect-ratio: 9 / 19.5;
     display: flex;
     flex-direction: column;
@@ -720,6 +720,13 @@ body.light .device-frame .nav-back {
 
 @media (max-width: 767px) {
     .lia-tags { display: none; }
+
+    /* Ikonerna krymper med telefonen så att fyra får plats per rad */
+    .icon-circle {
+        width: min(52px, 100%);
+        height: auto;
+        aspect-ratio: 1;
+    }
 }
 
 /* Surfplatta: LIA uppe till vänster, väder uppe till höger */
