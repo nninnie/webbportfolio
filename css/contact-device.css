@@ -649,3 +649,171 @@ body.light .device-frame .nav-back {
         display: none;
     }
 }
+
+
+/* =========================================================
+   🟢 LIA-WIDGET + 🗂️ SKRIVBORDSIKONER
+   LIA-widgeten visas på alla enheter (samma glaskort som vädret).
+   Skrivbordsikonerna visas bara på laptopen.
+   ========================================================= */
+
+.lia-widget {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.9rem 1rem;
+    border-radius: 26px;
+    background: rgba(18, 18, 24, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+    box-sizing: border-box;
+}
+
+.lia-status {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Grön "tillgänglig"-prick */
+.lia-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #3ddc84;
+    box-shadow: 0 0 8px #3ddc84;
+}
+
+.lia-dates { font-size: 1.05rem; font-weight: 700; margin-top: 0.2rem; }
+.lia-sub   { font-size: 0.75rem; opacity: 0.8; }
+
+.lia-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin: 0.5rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lia-tags li {
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    background: color-mix(in srgb, var(--glow) 55%, transparent);
+}
+
+/* Skrivbordsikoner: dolda på mobil och surfplatta */
+.desktop-icons {
+    display: none;
+}
+
+/* Mobil: kompaktare kort, taggarna får inte plats */
+.lia-widget { width: 100%; }
+
+@media (max-width: 767px) {
+    .lia-tags { display: none; }
+}
+
+/* Surfplatta: LIA uppe till vänster, väder uppe till höger */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .lia-widget {
+        grid-area: widget;
+        justify-self: start;
+        align-self: start;
+        width: 260px;
+        margin-top: 1rem;
+    }
+}
+
+/* Laptop: ikoner till vänster, väder + LIA till höger */
+@media (min-width: 1200px) {
+    .device-frame {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+            "icons weather"
+            "icons lia"
+            "taskbar taskbar";
+    }
+
+    .weather-widget { grid-area: weather; }
+
+    .lia-widget {
+        grid-area: lia;
+        justify-self: end;
+        align-self: start;
+        width: 260px;
+        margin: 0 1.25rem;
+    }
+
+    .desktop-icons {
+        grid-area: icons;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem 1.25rem;
+    }
+
+    .desktop-icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.35rem;
+        width: 76px;
+        padding: 6px 0;
+        border-radius: 10px;
+        color: inherit;
+        font-size: 0.75rem;
+        text-decoration: none;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+        transition: background 0.15s ease;
+    }
+
+    .desktop-icon:hover,
+    .desktop-icon:focus-visible {
+        background: rgba(255, 255, 255, 0.12);
+    }
+
+    .desktop-icon-img {
+        display: grid;
+        place-items: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        font-size: 1.6rem;
+        background: rgba(18, 18, 24, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+    }
+}
+
+/* Ljust läge: samma ljusa glas som väderwidgeten */
+body.light .device-frame .lia-widget,
+body.light .device-frame .desktop-icon-img {
+    background: rgba(255, 255, 255, 0.45);
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+body.light .device-frame .lia-widget,
+body.light .device-frame .desktop-icon {
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+body.light .device-frame .lia-tags li {
+    color: #fff;
+    text-shadow: none;
+}
+
+body.light .device-frame .desktop-icon:hover,
+body.light .device-frame .desktop-icon:focus-visible {
+    background: rgba(0, 0, 0, 0.06);
+}
