@@ -224,6 +224,15 @@ body.light .references-track {
                      rgba(255,255,255,0.15);
 }
 
+/* PROJEKTBILDER: visa den ljusa versionen */
+body.light .image-project.img-dark {
+    display: none;
+}
+
+body.light .image-project.img-light {
+    display: block;
+}
+
 
 /* ABOUT EDUCATION titel */
 body.light .about-education h3 {

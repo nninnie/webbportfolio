@@ -30,8 +30,8 @@ const projectsSv = {
     "Guldkortet": {
         description: "Windows Forms-app som tar emot kortkoder över TCP, validerar dem mot SQL-databaser och delar ut belöningar.",
         fullDescription: "Programmet är en TCP-server som tar emot koder från ett externt program (NOS_Export), kontrollerar kund och kort mot två SQL-databaser och skickar tillbaka en belöning. Nätverkstrafiken körs asynkront i bakgrunden så att fönstret aldrig fryser, och belöningarna är byggda med arv och polymorfism.",
-        github: "https://github.com/nninnie/Guldkortet2",
-        demo: "https://github.com/nninnie/Guldkortet2",
+        github: "https://github.com/nninnie/Guldkortet",
+        demo: "https://github.com/nninnie/Guldkortet",
         tech: ["C#", ".NET", "SQL"],
         features: ["TCP-server (TcpListener, NetworkStream)", "async/await och trådsäker UI-uppdatering (Invoke)", "Arv och polymorfism för belöningar", "Parametriserade SQL-frågor", "Loggning till fil"],
         img: "image/portfolio/guldkortet.webp"
@@ -93,8 +93,8 @@ const projectsEn = {
     "Gold Card": {
         description: "Windows Forms app that receives card codes over TCP, validates them against SQL databases and hands out rewards.",
         fullDescription: "The program is a TCP server that receives codes from an external program (NOS_Export), checks customer and card against two SQL databases and sends back a reward. Network traffic runs asynchronously in the background so the window never freezes, and the rewards are built with inheritance and polymorphism.",
-        github: "https://github.com/nninnie/Guldkortet2",
-        demo: "https://github.com/nninnie/Guldkortet2",
+        github: "https://github.com/nninnie/Guldkortet",
+        demo: "https://github.com/nninnie/Guldkortet",
         tech: ["C#", ".NET", "SQL"],
         features: ["TCP server (TcpListener, NetworkStream)", "async/await and thread-safe UI updates (Invoke)", "Inheritance and polymorphism for rewards", "Parameterized SQL queries", "Logging to file"],
         img: "image/portfolio/guldkortet.webp"
@@ -166,7 +166,9 @@ function renderProjectCards(projects) {
             <span class="folder-title">${title}</span>
             <p>${data.description}</p>
 
-            <img src="${data.img}" alt="${title}" class="image-project" loading="lazy">
+            <!-- Två bilder: CSS visar den som matchar temat (ljus = samma filnamn + "-light") -->
+            <img src="${data.img}" alt="${title}" class="image-project img-dark" loading="lazy">
+            <img src="${data.img.replace(".webp", "-light.webp")}" alt="${title}" class="image-project img-light" loading="lazy">
 
             <p class="project-click">${projectButtonText} <span class="arrow">→</span></p>
 
