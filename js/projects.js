@@ -164,8 +164,10 @@ function renderProjectCards(projects) {
             <span class="folder-title">${title}</span>
             <p>${data.description}</p>
 
-            <!-- Samma skärmbild i mörkt och ljust läge -->
-            <img src="${data.img}" alt="${title}" class="image-project" loading="lazy">
+            <!-- Skärmbilden ligger i en ram som följer temat (CSS: .project-shot) -->
+            <div class="project-shot">
+                <img src="${data.img}" alt="${title}" class="image-project" loading="lazy">
+            </div>
 
             <p class="project-click">${projectButtonText} <span class="arrow">→</span></p>
 

@@ -105,11 +105,22 @@
     min-height: 50px; 
 }
 
-.image-project {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 14px;
+/* Ram runt skärmbilden: mörk gradient i mörkt läge (ljus i theme-light.css) */
+.project-shot {
     margin-top: auto;
+    padding: 3% 6%;
+    border-radius: 14px;
+    background: linear-gradient(90deg, #1a1530, #26142a);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.image-project {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1060 / 544;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
 }
 
 
