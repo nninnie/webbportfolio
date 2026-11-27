@@ -109,6 +109,25 @@ Det här finns i koden:
 
 ---
 
+## 📊 Lighthouse
+
+Uppmätt **2026-11-27** mot https://nninnie.se med Lighthouse 12.2.1 i Chrome.
+
+| | Prestanda | Tillgänglighet | Best practices | SEO |
+|---|---|---|---|---|
+| Mobil | 59 | 80 | 96 | 100 |
+| Dator | 84 | 86 | 96 | 100 |
+
+Det här ska förbättras:
+
+- **Prestanda:** typsnitt och ikoner laddas innan sidan visas, vilket ger lång laddtid på mobil (första innehållet efter 7,1 s i Lighthouses simulerade 4G)
+- **Kontrast:** några färgade texter har för låg kontrast mot bakgrunden
+- **Rubriker:** rubriknivåerna hoppar över steg
+- **Knappar och ARIA:** några knappar saknar namn för skärmläsare, och några element har ARIA-attribut som inte är tillåtna
+- **Pekytor:** några länkar och knappar är för små eller ligger för tätt på mobil
+
+---
+
 ## 🧪 Tekniker
 
 - HTML5
