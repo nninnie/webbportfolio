@@ -9,9 +9,8 @@ const projectsSv = {
     "MyBank – Bankadministration": {
         description: "Webbsystem för bankpersonal byggt i ASP.NET Core Razor Pages, EF Core och Identity.",
         fullDescription: "Admin- och kassörsystem för kunder, konton och transaktioner. Byggt i tre lager (webb, services, data access) med rollbaserad inloggning, validering på server och klient, AJAX-laddning av transaktioner och Response Caching.",
-        github: "https://github.com/nninnie/BankApp",
-        demo: "https://github.com/nninnie/BankApp#readme",
-        isPrivate: true, // privat repo → popupen visar "Kod visas på begäran" i stället för länkar
+        github: "https://github.com/nninnie/Banksystem",
+        demo: "https://bankapp-ninnie-afebhbh6b8cjezg0.swedencentral-01.azurewebsites.net",
         tech: ["C#", ".NET", "SQL"],
         features: ["ASP.NET Core Razor Pages", "EF Core (Database First)", "Identity med rollerna Admin/Cashier", "Saldo ändras bara via transaktioner", "Lagerindelning + AutoMapper"],
         img: "image/portfolio/bankapp.webp"
@@ -72,9 +71,8 @@ const projectsEn = {
     "MyBank – Bank administration": {
         description: "Web system for bank staff built with ASP.NET Core Razor Pages, EF Core and Identity.",
         fullDescription: "Admin and cashier system for customers, accounts and transactions. Built in three layers (web, services, data access) with role-based login, server and client validation, AJAX-loaded transactions and Response Caching.",
-        github: "https://github.com/nninnie/BankApp",
-        demo: "https://github.com/nninnie/BankApp#readme",
-        isPrivate: true, // privat repo → popupen visar "Kod visas på begäran" i stället för länkar
+        github: "https://github.com/nninnie/Banksystem",
+        demo: "https://bankapp-ninnie-afebhbh6b8cjezg0.swedencentral-01.azurewebsites.net",
         tech: ["C#", ".NET", "SQL"],
         features: ["ASP.NET Core Razor Pages", "EF Core (Database First)", "Identity with Admin/Cashier roles", "Balance only changes via transactions", "Layered architecture + AutoMapper"],
         img: "image/portfolio/bankapp.webp"
