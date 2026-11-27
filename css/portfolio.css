@@ -112,11 +112,6 @@
     margin-top: auto;
 }
 
-/* Mörkt tema visar den mörka bilden (ljust tema byter i theme-light.css) */
-.image-project.img-light {
-    display: none;
-}
-
 
 
 /* PROJEKTEN KLICKBARA */
