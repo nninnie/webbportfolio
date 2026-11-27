@@ -702,21 +702,53 @@ body.light .device-frame .nav-back {
 .lia-dates { font-size: 1.05rem; font-weight: 700; margin-top: 0.2rem; }
 .lia-sub   { font-size: 0.75rem; opacity: 0.8; }
 
-.lia-tags {
+/* LIA-kortet och kurskortet ligger ovanpå varandra */
+.lia-stack {
+    position: relative;
+    z-index: 1;
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.3rem;
-    margin: 0.5rem 0 0;
-    padding: 0;
-    list-style: none;
+    flex-direction: column;
+    gap: 0.6rem;
+    width: 100%;
 }
 
-.lia-tags li {
-    padding: 0.2rem 0.5rem;
-    border-radius: 999px;
-    font-size: 0.65rem;
-    font-weight: 600;
-    background: color-mix(in srgb, var(--glow) 55%, transparent);
+/* base.css ger alla span och a en egen storlek, så texten i rubriken ärver */
+.lia-status span:not(.lia-dot),
+.lia-link {
+    font-size: inherit;
+}
+
+.lia-link {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* Kurskortet: en rad per kurs, namn till vänster och datum till höger */
+.course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin: 0.35rem 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.75rem;
+}
+
+.course-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+}
+
+/* base.css ger alla span en egen storlek, så kursnamnet ärver från raden */
+.course-list li span {
+    font-size: inherit;
+}
+
+.course-list .lia-sub {
+    white-space: nowrap;
 }
 
 /* Skrivbordsikoner: dolda på mobil och surfplatta */
@@ -724,12 +756,9 @@ body.light .device-frame .nav-back {
     display: none;
 }
 
-/* Mobil: kompaktare kort, taggarna får inte plats */
 .lia-widget { width: 100%; }
 
 @media (max-width: 767px) {
-    .lia-tags { display: none; }
-
     /* Ikonerna skalar med telefonens bredd, som på en riktig telefon */
     .icon-circle {
         width: clamp(40px, 20cqw, 56px);
@@ -741,12 +770,12 @@ body.light .device-frame .nav-back {
 /* Surfplatta: LIA uppe till vänster, väder uppe till höger.
    Båda delar på bredden så att de aldrig krockar på en smal surfplatta. */
 @media (min-width: 768px) and (max-width: 1199px) {
-    .lia-widget,
+    .lia-stack,
     .weather-widget {
         width: min(260px, calc(50% - 0.5rem));
     }
 
-    .lia-widget {
+    .lia-stack {
         grid-area: widget;
         justify-self: start;
         align-self: start;
@@ -773,7 +802,7 @@ body.light .device-frame .nav-back {
 
     .weather-widget { grid-area: weather; }
 
-    .lia-widget {
+    .lia-stack {
         grid-area: lia;
         justify-self: end;
         align-self: start;
@@ -833,11 +862,6 @@ body.light .device-frame .desktop-icon-img {
 body.light .device-frame .lia-widget,
 body.light .device-frame .desktop-icon {
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
-}
-
-body.light .device-frame .lia-tags li {
-    color: #fff;
-    text-shadow: none;
 }
 
 body.light .device-frame .desktop-icon:hover,
