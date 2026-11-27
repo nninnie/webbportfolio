@@ -16,6 +16,16 @@ const projectsSv = {
         img: "image/portfolio/bankapp.webp"
     },
 
+    "APIAnnons – REST API": {
+        description: "REST API för annonser, byggt i ASP.NET Core Web API med EF Core och SQL Server.",
+        fullDescription: "Ett API med grundfunktionerna för en köp- och säljsida: lista, hämta, skapa, uppdatera, ändra delar av och ta bort annonser. Klienten skickar DTO:er, svaren har rätt statuskoder och API:t testas och dokumenteras med Swagger UI.",
+        github: "https://github.com/nninnie/APIAnnons",
+        demo: "https://github.com/nninnie/APIAnnons#readme",
+        tech: ["C#", ".NET", "SQL"],
+        features: ["ASP.NET Core Web API (controllers)", "EF Core Code First", "GET, POST, PUT, PATCH och DELETE", "DTO:er och rätt statuskoder (201, 204, 400, 404)", "Swagger UI"],
+        img: "image/portfolio/apiannons.webp"
+    },
+
     "Hotellbokningssystem": {
         description: "Bokningssystem för ett hotell byggt i .NET med EF Core och SQL Server.",
         fullDescription: "Konsolapplikation för rum, gäster, bokningar, fakturor och betalningar. Databasen skapas med EF Core Code First, beroenden hanteras med Autofac och gränssnittet är byggt med Spectre.Console.",
@@ -54,16 +64,6 @@ const projectsSv = {
         tech: ["C#", ".NET"],
         features: ["Inslag med PLU-kod och vikt/antal", "Kampanjer och rabatter", "Kvitto med löpnummer", "Filbaserad lagring", "OOP och lagerindelning"],
         img: "image/portfolio/kassa-system.webp"
-    },
-
-    "Webbportfolio": {
-        description: "Modern UI/UX-portfolio byggd i HTML, CSS och JavaScript.",
-        fullDescription: "En egenutvecklad portfolio skapad med HTML5, CSS3 och JavaScript.",
-        github: "https://github.com/nninnie/webbportfolio",
-        demo: "https://nninnie.se/",
-        tech: ["HTML", "CSS", "JavaScript", "UI/UX", "API"],
-        features: ["Responsiv design", "Glow Color Picker", "Dark/Light mode", "Weather API", "Interaktiva komponenter"],
-        img: "image/portfolio/webbportfolio.webp"
     }
 };
 
@@ -76,6 +76,16 @@ const projectsEn = {
         tech: ["C#", ".NET", "SQL"],
         features: ["ASP.NET Core Razor Pages", "EF Core (Database First)", "Identity with Admin/Cashier roles", "Balance only changes via transactions", "Layered architecture + AutoMapper"],
         img: "image/portfolio/bankapp.webp"
+    },
+
+    "APIAnnons – REST API": {
+        description: "REST API for classified ads, built with ASP.NET Core Web API, EF Core and SQL Server.",
+        fullDescription: "An API with the core features of a buy-and-sell site: list, get, create, update, partially update and delete ads. The client sends DTOs, responses use the correct status codes and the API is tested and documented with Swagger UI.",
+        github: "https://github.com/nninnie/APIAnnons",
+        demo: "https://github.com/nninnie/APIAnnons#readme",
+        tech: ["C#", ".NET", "SQL"],
+        features: ["ASP.NET Core Web API (controllers)", "EF Core Code First", "GET, POST, PUT, PATCH and DELETE", "DTOs and correct status codes (201, 204, 400, 404)", "Swagger UI"],
+        img: "image/portfolio/apiannons.webp"
     },
 
     "Hotel Booking System": {
@@ -116,16 +126,6 @@ const projectsEn = {
         tech: ["C#", ".NET"],
         features: ["PLU entry with weight/quantity", "Campaigns and discounts", "Numbered receipts", "File-based storage", "OOP and layered structure"],
         img: "image/portfolio/kassa-system.webp"
-    },
-
-    "Web Portfolio": {
-        description: "Modern UI/UX portfolio built with HTML, CSS and JavaScript.",
-        fullDescription: "A custom-built portfolio focusing on modern frontend, responsive design and interactive components.",
-        github: "https://github.com/nninnie/webbportfolio",
-        demo: "https://nninnie.se/",
-        tech: ["HTML", "CSS", "JavaScript", "UI/UX", "API"],
-        features: ["Responsive design", "Glow Color Picker", "Dark/Light mode", "Weather API", "Interactive components"],
-        img: "image/portfolio/webbportfolio.webp"
     }
 };
 
