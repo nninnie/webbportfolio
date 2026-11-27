@@ -712,6 +712,12 @@ body.light .device-frame .nav-back {
     width: 100%;
 }
 
+/* base.css ger alla span och a en egen storlek, så texten i rubriken ärver */
+.lia-status span:not(.lia-dot),
+.lia-link {
+    font-size: inherit;
+}
+
 .lia-link {
     color: inherit;
     text-decoration: underline;
@@ -745,34 +751,14 @@ body.light .device-frame .nav-back {
     white-space: nowrap;
 }
 
-.lia-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.3rem;
-    margin: 0.5rem 0 0;
-    padding: 0;
-    list-style: none;
-}
-
-.lia-tags li {
-    padding: 0.2rem 0.5rem;
-    border-radius: 999px;
-    font-size: 0.65rem;
-    font-weight: 600;
-    background: color-mix(in srgb, var(--glow) 55%, transparent);
-}
-
 /* Skrivbordsikoner: dolda på mobil och surfplatta */
 .desktop-icons {
     display: none;
 }
 
-/* Mobil: kompaktare kort, taggarna får inte plats */
 .lia-widget { width: 100%; }
 
 @media (max-width: 767px) {
-    .lia-tags { display: none; }
-
     /* Ikonerna skalar med telefonens bredd, som på en riktig telefon */
     .icon-circle {
         width: clamp(40px, 20cqw, 56px);
@@ -876,11 +862,6 @@ body.light .device-frame .desktop-icon-img {
 body.light .device-frame .lia-widget,
 body.light .device-frame .desktop-icon {
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
-}
-
-body.light .device-frame .lia-tags li {
-    color: #fff;
-    text-shadow: none;
 }
 
 body.light .device-frame .desktop-icon:hover,
