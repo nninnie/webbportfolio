@@ -9,7 +9,7 @@
     margin: 0 auto;  
     font-size: clamp(0.9rem, 1.8vw, 1.1rem);
     line-height: 1.6;
-    opacity: 0.85;
+    color: color-mix(in srgb, currentColor 85%, transparent); /* dämpar bara texten, inte färgade ord inuti */
     min-height: 100vh;
 }
 
@@ -44,7 +44,7 @@
     border: 1px solid rgba(255,255,255,0.12);
     backdrop-filter: blur(10px);
     line-height: 1.6;
-    opacity: 0.9;
+    color: color-mix(in srgb, currentColor 90%, transparent); /* dämpar bara texten, inte färgade ord inuti */
     box-sizing: border-box;
     max-width: 100%;
     padding: clamp(2rem, 3vw, 2rem); 
@@ -58,7 +58,7 @@
     border: 1px solid rgba(255,255,255,0.12);
     backdrop-filter: blur(10px);
     line-height: 1.6;
-    opacity: 0.9;
+    color: color-mix(in srgb, currentColor 90%, transparent); /* dämpar bara texten, inte färgade ord inuti */
     padding-bottom: 2rem;
     box-sizing: border-box;
     max-width: 100%;
@@ -95,7 +95,7 @@
 
 .edu-year {
     font-size: clamp(0.7rem, 1.1vw, 0.9rem);
-    opacity: 0.6;
+    color: color-mix(in srgb, currentColor 80%, transparent); /* tillräcklig kontrast mot bakgrunden */
 }
 
 .about-education h3 {

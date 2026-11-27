@@ -73,7 +73,7 @@ footer {
 
 
 .footer-credit {
-    opacity: 0.8;
+    color: color-mix(in srgb, currentColor 80%, transparent); /* dämpar bara texten, inte färgade ord inuti */
     letter-spacing: 0.5px;
     font-size: clamp(0.6rem, 1.2vw, 0.9rem);
 }

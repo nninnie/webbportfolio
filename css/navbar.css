@@ -126,7 +126,8 @@
 /* Portfolio-länk alltid orange */
 .nav-links a[href*="portfolio"],
 .mobile-menu a[href*="portfolio"] {
-    color: var(--dark-blue);
+    /* ljusare variant av mörkblå, så att texten syns tydligt mot svart */
+    color: color-mix(in srgb, var(--dark-blue) 45%, white);
     font-weight: 500;
 }
 
@@ -150,6 +151,8 @@
     border: none;
     cursor: pointer;
     padding: 0;
+    min-width: 24px;   /* pekyta minst 24 x 24 px (WCAG) */
+    min-height: 24px;
     display: flex;
     align-items: center;
     justify-content: center; 
