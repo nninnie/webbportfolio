@@ -37,7 +37,7 @@ Portfolion visar vem jag är, vad jag kan, mina projekt, referenser och hur man 
 ### 📁 Projekt
 - Projekten ligger som data i `projects.js`, och korten skapas med JavaScript
 - Klick på ett kort öppnar en popup med beskrivning, funktioner, GitHub-länk och demo-länk
-- Sex projekt: Banksystem, Hotellbokning, Guldkortet, Filmregister, Kassasystem och den här portfolion
+- Ett nytt projekt läggs till med ett objekt i listan i `projects.js`
 
 ### 💬 Referenser
 - Referenserna visas som en slider med `scroll-behavior: smooth`
@@ -45,8 +45,7 @@ Portfolion visar vem jag är, vad jag kan, mina projekt, referenser och hur man 
 ### 📱 Kontakt som enhet (Samsung One UI)
 - Samma HTML visas som telefon (mobil), surfplatta och laptop med media queries
 - Klocka och datum uppdateras med JavaScript (`device-clock.js`)
-- LIA-kort: LIA hos Dekiru, 8 mars–28 maj och 30 aug–19 nov 2027
-- Kurskort: kurserna som är kvar före LIA, med datum
+- Infokort för LIA och utbildning, som uppdateras direkt i HTML
 - Appikoner för telefon, SMS, WhatsApp, Outlook, Gmail, LinkedIn, GitHub och kontaktformulär
 - På dator kopierar telefonikonen numret och SMS öppnar WhatsApp Web. På pekskärm, som känns igen med `matchMedia("(pointer: coarse)")`, öppnas telefonens appar.
 
