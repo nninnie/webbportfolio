@@ -191,9 +191,17 @@ body.light .btn-icon {
 }
 
 
-/* PROJEKTBILDER: ljus kant (bakgrunden kommer från --wallpaper) */
+/* PROJEKTBILDER: ljus kant (bakgrunden kommer från --wallpaper) och den ljusa bilden */
 body.light .project-shot {
     border-color: rgba(255, 255, 255, 0.6);
+}
+
+body.light .image-project.img-dark {
+    display: none;
+}
+
+body.light .image-project.img-light {
+    display: block;
 }
 
 body.light .image-project {
