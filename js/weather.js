@@ -7,84 +7,60 @@ import { isEnglishPage, setText } from "./utils.js";
 const WEATHER_URL =
     "https://api.open-meteo.com/v1/forecast?latitude=59.3293&longitude=18.0686&current_weather=true";
 
-// Open-Meteo skickar en väderkod (WMO) – här översätts den till text
-const weatherDescriptionsSv = {
-    0: "Klart",
-    1: "Mest klart",
-    2: "Delvis molnigt",
-    3: "Mulet",
-    45: "Dimma",
-    48: "Dimma",
-    51: "Lätt duggregn",
-    53: "Duggregn",
-    55: "Kraftigt duggregn",
-    61: "Lätt regn",
-    63: "Regn",
-    65: "Kraftigt regn",
-    71: "Lätt snöfall",
-    73: "Snöfall",
-    75: "Kraftigt snöfall",
-    80: "Skurar",
-    81: "Regnskurar",
-    82: "Kraftiga regnskurar",
-    95: "Åska",
-    96: "Åska med lätt hagel",
-    99: "Åska med kraftigt hagel"
+// Om API:et inte svarar inom 5 sekunder ger vi upp och visar "Väder saknas"
+const TIMEOUT_MS = 5000;
+
+// Open-Meteo skickar en väderkod (WMO).
+// En tabell: ikon + text på svenska och engelska för varje kod.
+const WEATHER_CODES = {
+    0:  { icon: "☀️", sv: "Klart",                       en: "Clear" },
+    1:  { icon: "🌤️", sv: "Mest klart",                  en: "Mostly clear" },
+    2:  { icon: "⛅", sv: "Delvis molnigt",              en: "Partly cloudy" },
+    3:  { icon: "☁️", sv: "Mulet",                       en: "Overcast" },
+    45: { icon: "🌫️", sv: "Dimma",                       en: "Fog" },
+    48: { icon: "🌫️", sv: "Dimma",                       en: "Fog" },
+    51: { icon: "🌧️", sv: "Lätt duggregn",               en: "Light drizzle" },
+    53: { icon: "🌧️", sv: "Duggregn",                    en: "Drizzle" },
+    55: { icon: "🌧️", sv: "Kraftigt duggregn",           en: "Heavy drizzle" },
+    56: { icon: "🌧️", sv: "Underkylt duggregn",          en: "Freezing drizzle" },
+    57: { icon: "🌧️", sv: "Kraftigt underkylt duggregn", en: "Heavy freezing drizzle" },
+    61: { icon: "🌧️", sv: "Lätt regn",                   en: "Light rain" },
+    63: { icon: "🌧️", sv: "Regn",                        en: "Rain" },
+    65: { icon: "🌧️", sv: "Kraftigt regn",               en: "Heavy rain" },
+    66: { icon: "🌧️", sv: "Underkylt regn",              en: "Freezing rain" },
+    67: { icon: "🌧️", sv: "Kraftigt underkylt regn",     en: "Heavy freezing rain" },
+    71: { icon: "❄️", sv: "Lätt snöfall",                en: "Light snow" },
+    73: { icon: "❄️", sv: "Snöfall",                     en: "Snow" },
+    75: { icon: "❄️", sv: "Kraftigt snöfall",            en: "Heavy snow" },
+    77: { icon: "❄️", sv: "Snökorn",                     en: "Snow grains" },
+    80: { icon: "🌦️", sv: "Skurar",                      en: "Showers" },
+    81: { icon: "🌦️", sv: "Regnskurar",                  en: "Rain showers" },
+    82: { icon: "🌦️", sv: "Kraftiga regnskurar",         en: "Heavy rain showers" },
+    85: { icon: "🌨️", sv: "Snöbyar",                     en: "Snow showers" },
+    86: { icon: "🌨️", sv: "Kraftiga snöbyar",            en: "Heavy snow showers" },
+    95: { icon: "⛈️", sv: "Åska",                        en: "Thunderstorm" },
+    96: { icon: "⛈️", sv: "Åska med lätt hagel",         en: "Thunderstorm with light hail" },
+    99: { icon: "⛈️", sv: "Åska med kraftigt hagel",     en: "Thunderstorm with heavy hail" }
 };
 
-const weatherDescriptionsEn = {
-    0: "Clear",
-    1: "Mostly clear",
-    2: "Partly cloudy",
-    3: "Overcast",
-    45: "Fog",
-    48: "Fog",
-    51: "Light drizzle",
-    53: "Drizzle",
-    55: "Heavy drizzle",
-    61: "Light rain",
-    63: "Rain",
-    65: "Heavy rain",
-    71: "Light snow",
-    73: "Snow",
-    75: "Heavy snow",
-    80: "Showers",
-    81: "Rain showers",
-    82: "Heavy rain showers",
-    95: "Thunderstorm",
-    96: "Thunderstorm with light hail",
-    99: "Thunderstorm with heavy hail"
-};
-
-// Väderkod → ikon (intervall, eftersom flera koder betyder samma sak)
-function getWeatherIcon(code) {
-    if (code === 0) return "☀️";
-    if (code === 1) return "🌤️";
-    if (code === 2) return "⛅";
-    if (code === 3) return "☁️";
-    if (code >= 45 && code <= 48) return "🌫️";
-    if (code >= 51 && code <= 67) return "🌧️";
-    if (code >= 71 && code <= 77) return "❄️";
-    if (code >= 80 && code <= 82) return "🌦️";
-    if (code >= 95) return "⛈️";
-    return "🌡️";
-}
+// Används om API:et skickar en kod som inte finns i tabellen
+const UNKNOWN_WEATHER = { icon: "🌡️", sv: "Okänt väder", en: "Unknown weather" };
 
 // async/await: väntar på svaret utan att låsa sidan
 export async function initWeather() {
     try {
-        const response = await fetch(WEATHER_URL);
+        // AbortSignal.timeout avbryter anropet om det tar för lång tid
+        const response = await fetch(WEATHER_URL, { signal: AbortSignal.timeout(TIMEOUT_MS) });
 
         // fetch kastar inte fel vid 404/500 – därför kollar vi själva
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
         const data = await response.json();
         const temp = Math.round(data.current_weather.temperature);
-        const code = data.current_weather.weathercode;
+        const weather = WEATHER_CODES[data.current_weather.weathercode] || UNKNOWN_WEATHER;
 
-        const icon = getWeatherIcon(code);
-        const descriptions = isEnglishPage ? weatherDescriptionsEn : weatherDescriptionsSv;
-        const desc = descriptions[code] || (isEnglishPage ? "Unknown weather" : "Okänt väder");
+        const icon = weather.icon;
+        const desc = isEnglishPage ? weather.en : weather.sv;
 
         // Samma data visas på flera ställen
         setText("weather", `${temp}°C ${icon}`);             // navbar
