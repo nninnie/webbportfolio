@@ -17,8 +17,10 @@
    Ren CSS: 0 KB, inga licensfrågor.
    Följer temat (mörkt/ljust) och glödfärgen (--glow) från färgväljaren. */
 
-/* Mörkt läge: sidans svart + blå/lila palett (--glow, --blue, --purple) */
-.device-frame {
+/* Mörkt läge: sidans svart + blå/lila palett (--glow, --blue, --purple)
+   Samma bakgrund används i ramen runt projektbilderna (.project-shot) */
+.device-frame,
+.project-shot {
     --wallpaper:
         radial-gradient(60% 50% at 18% 20%, color-mix(in srgb, var(--glow) 90%, transparent) 0%, transparent 70%),
         radial-gradient(55% 45% at 88% 28%, color-mix(in srgb, var(--blue) 35%, transparent) 0%, transparent 70%),
@@ -30,6 +32,10 @@
 /* Ljust läge: sidans ljusa bakgrund + lila/rosa/orange (--glow, --pink, --orange) */
 body.light .device-frame {
     --frame-edge: #c4c5cc;   /* ljus metallkant i ljust läge */
+}
+
+body.light .device-frame,
+body.light .project-shot {
     --wallpaper:
         radial-gradient(60% 50% at 18% 20%, color-mix(in srgb, var(--glow) 45%, transparent) 0%, transparent 70%),
         radial-gradient(55% 45% at 88% 28%, color-mix(in srgb, var(--pink) 30%, transparent) 0%, transparent 70%),

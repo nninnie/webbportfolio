@@ -105,12 +105,13 @@
     min-height: 50px; 
 }
 
-/* Ram runt skärmbilden: mörk gradient i mörkt läge (ljus i theme-light.css) */
+/* Ram runt skärmbilden: samma bakgrund som datorn i kontaktdelen
+   (--wallpaper definieras i contact-device.css och följer temat) */
 .project-shot {
     margin-top: auto;
     padding: 3% 6%;
     border-radius: 14px;
-    background: linear-gradient(90deg, #1a1530, #26142a);
+    background: var(--wallpaper);
     border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
