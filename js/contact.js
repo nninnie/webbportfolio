@@ -144,11 +144,15 @@ function initForm() {
         submitBtn.disabled = true; // förhindrar dubbelklick/dubbla mejl
         setFormStatus(contactTexts.sending);
 
+        // Ta bort mellanslag i början och slutet innan mejlet skickas
+        const formData = new FormData(contactForm);
+        fields.forEach((input) => formData.set(input.name, input.value.trim()));
+
         try {
             const response = await fetch(contactForm.action, {
                 method: "POST",
                 headers: { Accept: "application/json" },
-                body: new FormData(contactForm)
+                body: formData
             });
 
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -170,8 +174,10 @@ function initForm() {
 
 /* ---------- 📞 Telefon/SMS på dator ---------- */
 
+// "pointer: coarse" = skärmen styrs med fingret (mobil och surfplatta).
+// Säkrare än att gissa utifrån webbläsarens namn.
 function isMobile() {
-    return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    return window.matchMedia("(pointer: coarse)").matches;
 }
 
 function initPhoneFallback() {
