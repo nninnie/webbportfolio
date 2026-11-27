@@ -1,136 +1,126 @@
 # 🌐 WebbPortfolio - Ninnie Dahlström
 
+**Live:** https://nninnie.se · **Kod:** https://github.com/nninnie/webbportfolio · **English version:** https://nninnie.se/index-en.html
+
 <p align="center">
   <img src="image/readme-image.png" alt="Webbportfolio i mörkt och ljust läge" width="1100"/>
 </p>
 
-En modern, responsiv och tillgänglig webportfolio byggd med **HTML**, **CSS** och **JavaScript**.  
-Projektet är utvecklat med fokus på UI/UX‑design, komponentbaserad struktur, API‑integration och ren, modulär kod.  
-Portfolion presenterar mina projekt, erfarenheter och kontaktmöjligheter i ett visuellt premium‑gränssnitt inspirerat av Samsung‑design och modern webbestetik.
+En responsiv webbportfolio byggd med **HTML**, **CSS** och **JavaScript**, utan ramverk.
+Portfolion visar vem jag är, vad jag kan, mina projekt, referenser och hur man kontaktar mig. Kontaktdelen är byggd som en enhet i Samsung One UI-stil som blir telefon, surfplatta eller laptop beroende på skärmen.
 
 ---
 
 ## ✨ Funktionalitet
 
-### 🌓 Dark & Light Mode
-- Tema‑toggle med ikon  
-- Glow‑effekter och glassmorphism  
-- Färgpalett anpassad för båda teman  
-- CV:t som laddas ner följer temat (mörkt/ljust)  
+### 🌓 Mörkt och ljust läge
+- Tema-knapp i navbaren
+- Glöd-effekter och glaskort (glassmorphism) i båda teman
+- CV-knappen laddar ner rätt CV för språket och temat: svenska eller engelska, mörkt eller ljust (`theme.js`)
 
-### 🌐 Språkväxling (Language Toggle)
-- Svensk (`index.html`) och engelsk (`index-en.html`) version
+### 🎨 Glödfärg
+- Två färgväljare (`<input type="color">`), en för mörkt läge och en för ljust läge
+- Färgen sätts i CSS-variabeln `--glow` och ändras direkt på hela sidan
+
+### 🌐 Svenska och engelska
+- Svensk version (`index.html`) och engelsk version (`index-en.html`)
 - Språkknappen växlar mellan sidorna
-- JavaScript läser av sidans språk och visar rätt texter (väder, projekt, formulär)
+- `utils.js` läser av vilken sida som visas, och modulerna väljer rätt texter (väder, projekt, formulär, datum)
 - Dold `<select>` med label för skärmläsare
 
-### 🌦️ Väder‑API
-- Integration med **Open‑Meteo API**
-- Hämtar temperatur och väderkod baserat på koordinater
-- Dynamisk ikon baserat på Open‑Meteos weather codes
-- Asynkron hämtning med `fetch()` och JSON‑hantering
-- Felhantering om API inte svarar
+### 🌦️ Väder (Open-Meteo API)
+- Hämtar aktuell temperatur och väderkod för Stockholm med `fetch()` och `async/await`
+- En tabell (`WEATHER_CODES`) med ikon och text på svenska och engelska för varje väderkod
+- Vädret visas i navbaren, i väderrutan och i laptopens aktivitetsfält
+- Anropet avbryts efter 5 sekunder (`AbortSignal.timeout`), och vid fel visas "Väder saknas"
 
-### 📱 Responsiv design
-- `clamp()` för typografi och spacing  
-- Flexbox och CSS Grid  
-- Media queries för mobil, tablet och laptop  
-- Mobilanpassad slider i referenssektionen  
+### 📁 Projekt
+- Projekten ligger som data i `projects.js`, och korten skapas med JavaScript
+- Klick på ett kort öppnar en popup med beskrivning, funktioner, GitHub-länk och demo-länk
+- Ett nytt projekt läggs till med ett objekt i listan i `projects.js`
 
-### 📱 Kontakt som enhet (Samsung / One UI)
-- Samma HTML visas som telefon (mobil), surfplatta och laptop via media queries
-- Klocka, datum och väder uppdateras med JavaScript
-- Bakgrunden är ren CSS och följer tema och glödfärg
+### 💬 Referenser
+- Referenserna visas som en slider med `scroll-behavior: smooth`
+
+### 📱 Kontakt som enhet (Samsung One UI)
+- Samma HTML visas som telefon (mobil), surfplatta och laptop med media queries
+- Klocka och datum uppdateras med JavaScript (`device-clock.js`)
+- Infokort för LIA och utbildning, som uppdateras direkt i HTML
+- Appikoner för telefon, SMS, WhatsApp, Outlook, Gmail, LinkedIn, GitHub och kontaktformulär
+- På dator kopierar telefonikonen numret och SMS öppnar WhatsApp Web. På pekskärm, som känns igen med `matchMedia("(pointer: coarse)")`, öppnas telefonens appar.
 
 ### 📨 Kontaktformulär
-- FormSubmit via AJAX (`fetch`) – ingen sidladdning  
-- Egen validering med tydliga felmeddelanden per fält (`aria-invalid`)  
-- Knappen låses under skick (inga dubbla mejl)  
-- Honeypot‑fält som spamskydd  
-- Statusmeddelande vid lyckat/misslyckat skick  
+- Skickas med FormSubmit via `fetch` (AJAX), utan sidladdning
+- Egen validering med felmeddelande per fält och `aria-invalid`
+- Fälten trimmas, så mellanslag i början och slutet skickas inte med
+- Knappen låses medan meddelandet skickas, så det blir inga dubbla mejl
+- Honeypot-fältet `_honey` som spamskydd
+- Statusmeddelande när det har lyckats eller misslyckats
 
 ### 🧭 Navigation
-- Sticky navbar  
-- Smooth scroll  
-- Skip‑link för tillgänglighet  
-- Ikoner för språk, tema och väder  
-
-### ✨ Glow Color Picker
-- CSS‑variabler för att styra glow‑färgen
-- JavaScript som lyssnar på input‑event
-- Direkt DOM‑uppdatering i realtid
-- Skapa en mer levande och personlig UI‑upplevelse
-- Ge användaren kontroll över designen
-- Visa interaktivitet och modern frontend‑teknik
+- Navbar som ligger kvar överst vid scroll
+- Mobilmeny (hamburgare) på små skärmar
+- Skip-link till innehållet
 
 ---
 
 ## 🧱 Arkitektur
 
-Projektet är uppdelat i tydliga lager för att hålla koden ren, skalbar och lätt att underhålla.
+### HTML – struktur
+- Semantiska element (`header`, `nav`, `section`, `footer`)
+- Sektionerna Hero, Om mig, Kunskaper, Portfolio, Referenser och Kontakt
+- Alt-texter på bilder och `aria-label` på ikonknappar
 
-### **HTML – Struktur**
-- Semantiska element  
-- Tydliga sektioner (Hero, About, Skills, Projects, References, Contact)  
-- Aria‑labels och alt‑texter  
-- Fokus på WCAG‑principer  
+### CSS – design och layout
+- En CSS-fil per sektion i mappen `css/`, laddade i kaskadordning
+- Färger och glöd som CSS-variabler i `base.css`
+- Ljust tema i `theme-light.css`, som laddas sist
+- Flexbox, CSS Grid och `clamp()` för storlekar
+- Media queries för mobil, surfplatta (768 px) och laptop (1200 px)
 
-### **CSS – Design & Layout**
-- En CSS‑fil per sektion i mappen `css/`, laddade i kaskadordning  
-- Variabler för färger och teman  
-- Glassmorphism, glow och micro‑interactions  
-- Responsiv layout med flex/grid  
-- Komponentbaserad styling  
+### JavaScript – funktionalitet
+- ES-moduler (`import`/`export`) i mappen `js/`, en modul per ansvar
+- `main.js` är startpunkten som startar alla moduler
 
-### **JavaScript – Funktionalitet**
-- ES‑moduler (`import`/`export`) i mappen `js/` – en modul per ansvar  
-- `main.js` är startpunkten som startar alla moduler  
-- Tema, väder‑API, formulärvalidering, projekt och navbar i egna filer  
-
----
-
-## 🖥️ UI‑lager
-
-UI‑lagret består av flera komponenter:
-
-- **theme.js** – dark/light mode, språkknapp, glödfärg och CV per tema  
-- **weather.js** – hämtar och visar väderdata (Open‑Meteo)  
-- **device-clock.js** – klocka och datum i enhetens statusrad  
-- **navbar.js** – mobilmeny och navbar vid scroll  
-- **hero-typing.js** – skrivmaskinseffekten i hero  
-- **contact.js** – popup, formulärvalidering, AJAX och toast  
-- **projects.js** – projektdata, projektkort och projekt‑popup  
-
-Varje komponent har ett tydligt ansvar, vilket gör koden lätt att bygga ut och underhålla.
+| Modul | Ansvar |
+|---|---|
+| `main.js` | Startar alla moduler |
+| `utils.js` | Gemensamma hjälpfunktioner, till exempel `isEnglishPage` och `setText` |
+| `theme.js` | Mörkt/ljust läge, språkknapp, glödfärg och CV per språk och tema |
+| `weather.js` | Hämtar och visar väder från Open-Meteo |
+| `device-clock.js` | Klocka och datum i enhetens statusrad |
+| `navbar.js` | Mobilmeny och navbar vid scroll |
+| `hero-typing.js` | Skrivmaskinseffekten i hero |
+| `contact.js` | Kontakt-popup, formulärvalidering, AJAX, telefon/SMS/mejl och toast |
+| `projects.js` | Projektdata, projektkort och projekt-popup |
 
 ---
 
-## ♿ WCAG & Tillgänglighet
+## ♿ Tillgänglighet
 
-- Semantisk HTML  
-- Alt‑texter  
-- Aria‑labels  
-- Fokusmarkeringar  
-- Skip‑link  
-- Kontrastkontroll i båda teman  
-- Tangentbordsnavigering  
+Det här finns i koden:
+
+- Semantisk HTML
+- Alt-texter på bilder
+- `aria-label` och `aria-invalid` i formuläret
+- Skip-link till innehållet
+- Synlig fokusmarkering (`:focus-visible`) på enhetens ikoner
+- Dold `<select>` med label för språkval
 
 ---
 
 ## 🧪 Tekniker
 
-- HTML5  
-- CSS3  
-- JavaScript (ES6+, ES‑moduler)  
-- Open‑Meteo API  
-- FormSubmit (AJAX)  
-- Devicon (teknikikoner)  
+- HTML5
+- CSS3
+- JavaScript (ES6+, ES-moduler)
+- Open-Meteo API (väder, ingen nyckel behövs)
+- FormSubmit (kontaktformulär)
+- Devicon (teknikikoner)
 
 ---
 
 ## 📁 Projektstruktur
-
-Projektet är enkelt strukturerat och innehåller endast de filer som behövs för portfolion.
 
 ```
 webbportfolio/
@@ -142,55 +132,51 @@ webbportfolio/
 │   ├── portfolio.css · references.css
 │   ├── contact-form.css · contact-device.css · contact-popup.css
 │   ├── footer.css
-│   └── theme-light.css # ljust tema – laddas sist
+│   └── theme-light.css # ljust tema, laddas sist
 ├── js/                 # ES-moduler
 │   ├── main.js         # startpunkt
 │   ├── utils.js · theme.js · weather.js · device-clock.js
 │   └── navbar.js · hero-typing.js · contact.js · projects.js
-├── image/              # bilder, ikoner och CV
+├── image/
+│   ├── icons/          # ikoner i kontaktdelen
+│   ├── portfolio/      # skärmbilder till projekten
+│   ├── cv-ninnie-dahlstrom*.pdf   # CV: svenska/engelska, mörkt/ljust
+│   └── portrait-ninnie-dahlstrom.webp
 ├── CNAME               # egen domän (nninnie.se)
 └── README.md
 ```
 
 ---
 
-## 🛠️ Installation
+## 🛠️ Kör lokalt
 
-1. Klona projektet  
-2. Öppna projektmappen  
-3. Starta med **Live Server** i VS Code (ES‑moduler kräver en webbserver – att dubbelklicka på index.html fungerar inte)  
+ES-moduler kräver en webbserver. Att dubbelklicka på `index.html` fungerar inte.
 
-Ingen installation krävs — projektet är helt statiskt. Live: **https://nninnie.se**
+1. Klona projektet
+2. Öppna mappen i VS Code
+3. Starta med **Live Server**, eller kör `npx http-server` i mappen
 
----
-
-## 📄 Dokumentation
-
-- Figma‑skisser (internt)  
-- Moodboard (internt)  
-- Komponentplanering  
-- UI‑system (spacing, färger, typografi)  
+Ingen installation eller byggsteg behövs, eftersom projektet är helt statiskt. Sajten ligger på GitHub Pages med egen domän.
 
 ---
 
-## 🧩 Lärdomar & Arbetssätt
+## 🧩 Arbetssätt och lärdomar
 
-Jag arbetade enligt principer som:
+Principer jag har följt:
 
-- **Single Responsibility Principle** – varje JS‑funktion gör en sak  
-- **Separation of concerns** – en CSS‑fil och en JS‑modul per del av sidan  
-- **Iterativ design** – bygga → testa → förbättra  
-- **Responsiv först** – mobil → tablet → laptop  
+- **Single Responsibility Principle:** varje JS-modul och funktion har ett ansvar
+- **Separation of concerns:** en CSS-fil och en JS-modul per del av sidan
+- **Iterativ design:** bygga, testa, förbättra
+- **Git:** en branch per funktion och Conventional Commits (`feat:`, `fix:`, `docs:`, `refactor:`)
 
 Lärdomar:
 
-- Jag hade velat börja i Figma tidigare  
-- Att planera komponenter sparar mycket tid  
-- `clamp()` är extremt kraftfullt för responsivitet  
-- Light mode kräver mer kontrastarbete än dark mode  
-- API‑integration gav bättre förståelse för asynkron JavaScript  
+- Att planera komponenter först sparar mycket tid
+- `clamp()` är mycket användbart för responsiv design
+- Ljust läge kräver mer arbete med kontrast än mörkt läge
+- Väder-API:et gav bättre förståelse för asynkron JavaScript och felhantering
 
 ---
 
-## ✍️ Utvecklat av  
-**Ninnie Dahlström – Web Portfolio**
+## ✍️ Utvecklat av
+**Ninnie Dahlström** · [nninnie.se](https://nninnie.se) · [GitHub](https://github.com/nninnie) · [LinkedIn](https://linkedin.com/in/ninnie-dahlstrom)
