@@ -164,9 +164,8 @@ function renderProjectCards(projects) {
             <span class="folder-title">${title}</span>
             <p>${data.description}</p>
 
-            <!-- Två bilder: CSS visar den som matchar temat (ljus = samma filnamn + "-light") -->
-            <img src="${data.img}" alt="${title}" class="image-project img-dark" loading="lazy">
-            <img src="${data.img.replace(".webp", "-light.webp")}" alt="${title}" class="image-project img-light" loading="lazy">
+            <!-- Samma skärmbild i mörkt och ljust läge -->
+            <img src="${data.img}" alt="${title}" class="image-project" loading="lazy">
 
             <p class="project-click">${projectButtonText} <span class="arrow">→</span></p>
 
