@@ -702,6 +702,49 @@ body.light .device-frame .nav-back {
 .lia-dates { font-size: 1.05rem; font-weight: 700; margin-top: 0.2rem; }
 .lia-sub   { font-size: 0.75rem; opacity: 0.8; }
 
+/* LIA-kortet och kurskortet ligger ovanpå varandra */
+.lia-stack {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    width: 100%;
+}
+
+.lia-link {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* Kurskortet: en rad per kurs, namn till vänster och datum till höger */
+.course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin: 0.35rem 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.75rem;
+}
+
+.course-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+}
+
+/* base.css ger alla span en egen storlek, så kursnamnet ärver från raden */
+.course-list li span {
+    font-size: inherit;
+}
+
+.course-list .lia-sub {
+    white-space: nowrap;
+}
+
 .lia-tags {
     display: flex;
     flex-wrap: wrap;
@@ -741,12 +784,12 @@ body.light .device-frame .nav-back {
 /* Surfplatta: LIA uppe till vänster, väder uppe till höger.
    Båda delar på bredden så att de aldrig krockar på en smal surfplatta. */
 @media (min-width: 768px) and (max-width: 1199px) {
-    .lia-widget,
+    .lia-stack,
     .weather-widget {
         width: min(260px, calc(50% - 0.5rem));
     }
 
-    .lia-widget {
+    .lia-stack {
         grid-area: widget;
         justify-self: start;
         align-self: start;
@@ -773,7 +816,7 @@ body.light .device-frame .nav-back {
 
     .weather-widget { grid-area: weather; }
 
-    .lia-widget {
+    .lia-stack {
         grid-area: lia;
         justify-self: end;
         align-self: start;
