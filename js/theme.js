@@ -2,13 +2,17 @@
    🌗 TEMA, 🌍 SPRÅK och 🎨 GLÖDFÄRG
 ----------------------------------------- */
 
+import { isEnglishPage } from "./utils.js";
+
 // Standardfärger för glöden (--glow) i respektive tema
 const defaultDarkGlow = "#1428A0";   // blå
 const defaultLightGlow = "#9F4DFF";  // lila
 
-// CV-filer per tema
-const CV_DARK = "image/cv-ninnie-dahlstrom.pdf";
-const CV_LIGHT = "image/cv-ninnie-dahlstrom-light.pdf";
+// CV-filer per språk och tema (mörkt läge / ljust läge)
+const CV_FILES = {
+    sv: { dark: "image/cv-ninnie-dahlstrom.pdf", light: "image/cv-ninnie-dahlstrom-light.pdf" },
+    en: { dark: "image/cv-ninnie-dahlstrom-eng.pdf", light: "image/cv-ninnie-dahlstrom-eng-light.pdf" }
+};
 
 export function initTheme() {
     const themeBtn = document.getElementById("themeToggle");
@@ -29,13 +33,13 @@ export function initTheme() {
         }
     }
 
-    // CV:t följer temat: mörkt CV i mörkt läge, ljust CV i ljust läge (svenska sidan)
+    // CV:t följer temat: mörkt CV i mörkt läge, ljust CV i ljust läge (på båda språken)
     function syncCvLinks() {
         const isLight = document.body.classList.contains("light");
+        const cv = isEnglishPage ? CV_FILES.en : CV_FILES.sv;
 
         document.querySelectorAll('a[href^="image/cv-ninnie-dahlstrom"]').forEach((link) => {
-            if (link.getAttribute("href").includes("-eng")) return; // engelska CV:t har bara en version
-            link.setAttribute("href", isLight ? CV_LIGHT : CV_DARK);
+            link.setAttribute("href", isLight ? cv.light : cv.dark);
         });
     }
 
