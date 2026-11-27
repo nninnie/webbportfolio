@@ -124,6 +124,11 @@
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
 }
 
+/* Mörkt läge visar den mörka bilden (ljust läge byter i theme-light.css) */
+.image-project.img-light {
+    display: none;
+}
+
 
 
 /* PROJEKTEN KLICKBARA */

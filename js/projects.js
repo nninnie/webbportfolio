@@ -164,9 +164,11 @@ function renderProjectCards(projects) {
             <span class="folder-title">${title}</span>
             <p>${data.description}</p>
 
-            <!-- Skärmbilden ligger i en ram som följer temat (CSS: .project-shot) -->
+            <!-- Skärmbilden ligger i en ram som följer temat (CSS: .project-shot).
+                 Två versioner: mörk bakgrund (filnamn + "-dark") och ljus. CSS visar rätt. -->
             <div class="project-shot">
-                <img src="${data.img}" alt="${title}" class="image-project" loading="lazy">
+                <img src="${data.img.replace(".webp", "-dark.webp")}" alt="${title}" class="image-project img-dark" loading="lazy">
+                <img src="${data.img}" alt="${title}" class="image-project img-light" loading="lazy">
             </div>
 
             <p class="project-click">${projectButtonText} <span class="arrow">→</span></p>
