@@ -90,7 +90,7 @@
     }
 
     .hero h1,
-    .hero h3,
+    .hero .hero-role,
     .hero p {
         text-align: center;
     }
@@ -105,7 +105,12 @@
     margin-bottom: 0.3rem; 
 }
 
-.hero h3 {
+/* Undertiteln (yrke och ort) är en p, men ser ut som förut när den var h3 */
+.hero .hero-role {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-size: clamp(0.9rem, 3vw, 1.4rem);
+    line-height: normal;
     margin-top: 0.2rem;
     margin-bottom: 0.4rem;
 }
@@ -345,6 +350,15 @@
 
 .social-media-hero  a img {
     transition: 0.25s ease;
+}
+
+/* Pekyta minst 24 x 24 px (WCAG), ikonen ligger i mitten */
+.social-media-hero a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    min-height: 24px;
 }
 
 .social-media-hero  a:hover img {

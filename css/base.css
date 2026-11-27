@@ -106,7 +106,7 @@ a, li, span {
 }
 
 .hero h1,
-.hero h3,
+.hero .hero-role,
 .hero p {
     opacity: 0;
     transform: translateY(6px);
