@@ -191,9 +191,8 @@ body.light .btn-icon {
 }
 
 
-/* PROJEKTBILDER: ljus pastellram */
+/* PROJEKTBILDER: ljus kant (bakgrunden kommer från --wallpaper) */
 body.light .project-shot {
-    background: linear-gradient(90deg, #e6d2fa, #fadee8);
     border-color: rgba(255, 255, 255, 0.6);
 }
 
