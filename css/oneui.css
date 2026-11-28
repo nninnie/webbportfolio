@@ -1862,3 +1862,11 @@ img.cv-mini.cv-mini-md {
     border-radius: 3px;
     object-fit: cover;
 }
+
+
+/* CV-knappen i Om mig visar <N/>-loggan i miniformat */
+.pa-icon img.pa-logo {
+    width: 26px;
+    height: 26px;
+    border-radius: 7px;
+}
