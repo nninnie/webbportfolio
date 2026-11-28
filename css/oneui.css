@@ -944,3 +944,199 @@ body.light .oneui-frame.glass {
     cursor: default;
     box-shadow: none;
 }
+
+
+/* =========================================================
+   📏 LIKA LÅNGA PROJEKTKORT
+   Rubriken får plats för två rader, kortet fyller resten
+   och "Se projekt" hamnar alltid längst ner.
+   ========================================================= */
+.rail .win {
+    grid-template-rows: auto 1fr;
+}
+
+.win-head {
+    min-height: 3.2rem;
+}
+
+.win-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.win-meta {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.win .project-click {
+    margin-top: auto;
+    padding-top: 12px;
+}
+
+
+/* =========================================================
+   💎 PREMIUM-GLAS PÅ ALLA SMÅ DETALJER
+   Samma glas överallt: genomskinlig gradient, suddig bakgrund,
+   ljus kant upptill och en mjuk skugga. Variablerna gör att
+   mörkt och ljust läge får samma känsla.
+   ========================================================= */
+:root {
+    --chip-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.03));
+    --chip-border: rgba(255, 255, 255, 0.16);
+    --chip-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.22),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.03),
+        0 8px 18px -10px rgba(0, 0, 0, 0.7);
+}
+
+body.light {
+    --chip-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.12));
+    --chip-border: color-mix(in srgb, var(--glow) 22%, rgba(255, 255, 255, 0.9));
+    --chip-shadow:
+        inset 0 1px 0 #ffffff,
+        inset 0 -1px 0 color-mix(in srgb, var(--glow) 10%, transparent),
+        0 8px 18px -10px color-mix(in srgb, var(--glow) 45%, transparent);
+}
+
+/* Neutrala glasdetaljer: taggar, chips, knappar och ikonrutor */
+.win-tags span,
+.chat-chip,
+.rail-btn,
+.pa-icon,
+.lock-shortcuts > a:not(.swipe),
+.skill-icon,
+body.light .skill-icon,
+.notif,
+.bubble {
+    background: var(--chip-bg);
+    border: 1px solid var(--chip-border);
+    box-shadow: var(--chip-shadow);
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+}
+
+/* Färgade glasdetaljer: små ikonrutor tonade i glödfärgen */
+.notif-icon,
+.prow-icon,
+.folder-icon-box {
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0)),
+        color-mix(in srgb, var(--glow) 28%, transparent);
+    border: 1px solid color-mix(in srgb, var(--glow) 35%, rgba(255, 255, 255, 0.2));
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.25),
+        0 6px 14px -8px color-mix(in srgb, var(--glow) 60%, transparent);
+}
+
+/* Taggarna lite luftigare och tydligare */
+.win-tags span {
+    padding: 5px 12px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+/* Hovring: alla små glasdetaljer glöder i den valda färgen */
+.rail-btn:not(:disabled):hover,
+.pactions a:hover .pa-icon,
+.lock-shortcuts > a:not(.swipe):hover,
+.skill-apps li:hover .skill-icon {
+    box-shadow:
+        var(--chip-shadow),
+        0 0 20px color-mix(in srgb, var(--glow) 50%, transparent);
+}
+
+/* Avatarerna i Referenser: vita initialer och glans, som en app-ikon */
+.msg-avatar,
+body.light .msg-avatar {
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.45),
+        0 8px 16px -8px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================================================
+   🎨 AVATARER OCH MAPPIKONER I SIDANS FÄRGER
+   Varje avatar har en egen gradient, men bara av bakgrundens färger:
+   mörkt läge = glöd, blått och lila, ljust läge = lila, rosa och orange.
+   Glasglansen ovanpå gör att de ser ut som app-ikoner.
+   ========================================================= */
+:root {
+    --gloss: radial-gradient(circle at 30% 22%, rgba(255, 255, 255, 0.45), transparent 52%);
+    --av-group: linear-gradient(145deg, color-mix(in srgb, var(--glow) 70%, var(--blue)), var(--purple));
+    --av-1: linear-gradient(145deg, var(--glow), color-mix(in srgb, var(--blue) 80%, black));
+    --av-2: linear-gradient(145deg, var(--purple), var(--glow));
+    --av-3: linear-gradient(145deg, color-mix(in srgb, var(--blue) 85%, black), var(--purple));
+    --av-4: linear-gradient(145deg, var(--glow), color-mix(in srgb, var(--purple) 70%, black));
+    --icon-bg: linear-gradient(145deg, color-mix(in srgb, var(--glow) 70%, var(--blue)), var(--purple));
+}
+
+body.light {
+    --av-group: linear-gradient(145deg, var(--glow), color-mix(in srgb, var(--pink) 75%, white));
+    --av-1: linear-gradient(145deg, color-mix(in srgb, var(--pink) 80%, white), color-mix(in srgb, var(--orange) 85%, white));
+    --av-2: linear-gradient(145deg, var(--glow), color-mix(in srgb, var(--pink) 70%, white));
+    --av-3: linear-gradient(145deg, color-mix(in srgb, var(--orange) 80%, white), color-mix(in srgb, var(--pink) 75%, white));
+    --av-4: linear-gradient(145deg, color-mix(in srgb, var(--glow) 85%, white), color-mix(in srgb, var(--orange) 80%, white));
+    --icon-bg: linear-gradient(145deg, var(--glow), color-mix(in srgb, var(--pink) 75%, white));
+}
+
+.msg-avatar.av-group { background: var(--gloss), var(--av-group); }
+.msg-avatar.av-1 { background: var(--gloss), var(--av-1); }
+.msg-avatar.av-2 { background: var(--gloss), var(--av-2); }
+.msg-avatar.av-3 { background: var(--gloss), var(--av-3); }
+.msg-avatar.av-4 { background: var(--gloss), var(--av-4); }
+
+/* Mappikonerna i Portfolio, samma glansiga stil */
+.win-icon {
+    background: var(--gloss), var(--icon-bg);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.45),
+        0 8px 16px -8px color-mix(in srgb, var(--glow) 70%, transparent);
+}
+
+/* =========================================================
+   ✨ SNEDSTRECKET "/" FRAMFÖR RUBRIKERNA
+   Färgen är din glödfärg, men glöden är i lager som ett neonrör:
+   ljus kärna närmast, sedan en mjuk halo som tonar ut.
+   ========================================================= */
+.oneui-head h2 .accent,
+.contact-section .contact-title .accent {
+    display: inline-block;
+    transform: skewX(-4deg);
+    text-shadow:
+        0 0 2px color-mix(in srgb, var(--glow) 50%, white),
+        0 0 8px var(--glow),
+        0 0 18px var(--glow),
+        0 0 36px color-mix(in srgb, var(--glow) 80%, transparent),
+        0 0 64px color-mix(in srgb, var(--glow) 55%, transparent),
+        0 0 100px color-mix(in srgb, var(--glow) 35%, transparent);
+    animation: accent-glow 4s ease-in-out infinite;
+}
+
+body.light .oneui-head h2 .accent,
+body.light .contact-section .contact-title .accent {
+    color: var(--glow);
+    text-shadow:
+        0 0 2px color-mix(in srgb, var(--glow) 60%, white),
+        0 0 10px color-mix(in srgb, var(--glow) 75%, transparent),
+        0 0 24px color-mix(in srgb, var(--glow) 55%, transparent),
+        0 0 48px color-mix(in srgb, var(--glow) 35%, transparent);
+}
+
+/* Glöden andas långsamt, nästan omärkligt */
+@keyframes accent-glow {
+    0%, 100% { filter: brightness(1); }
+    50%      { filter: brightness(1.35); }
+}
+
+/* Ingen animation för den som har valt minskad rörelse */
+@media (prefers-reduced-motion: reduce) {
+    .oneui-head h2 .accent,
+    .contact-section .contact-title .accent {
+        animation: none;
+    }
+}
