@@ -1,0 +1,1142 @@
+/* =========================================================
+   📱 ONE UI – hela sidan som en Samsung-telefon
+   Hero = låsskärm, Om mig = Kontakter, Kunskaper = hemskärmsmappar,
+   Portfolio = Senaste appar, Referenser = Meddelanden.
+   Bakgrunden är densamma som datorn i kontaktdelen (tre färger),
+   och alla kort är glas. Mörkt och ljust läge är samma design.
+   Laddas sist, efter premium.css. Kontaktdelen påverkas inte.
+   ========================================================= */
+
+:root {
+    --accent: color-mix(in srgb, var(--glow) 45%, var(--blue));
+    --oneui-text: #f4f4f6;
+    --oneui-muted: #b4b4c2;
+    --oneui-line: rgba(255, 255, 255, 0.12);
+    --oneui-glass: rgba(14, 14, 22, 0.46);
+    --oneui-glass2: rgba(255, 255, 255, 0.07);
+    --oneui-page:
+        radial-gradient(70vmax 50vmax at 10% 0%, color-mix(in srgb, var(--glow) 85%, transparent) 0%, transparent 60%),
+        radial-gradient(55vmax 45vmax at 95% 30%, color-mix(in srgb, var(--blue) 30%, transparent) 0%, transparent 65%),
+        radial-gradient(65vmax 55vmax at 70% 100%, color-mix(in srgb, var(--purple) 35%, transparent) 0%, transparent 65%),
+        linear-gradient(160deg, #05081f 0%, #020310 50%, #000000 100%);
+}
+
+body.light {
+    --accent: color-mix(in srgb, var(--glow) 75%, black);
+    --oneui-text: #17141d;
+    --oneui-muted: #5a5363;
+    --oneui-line: rgba(255, 255, 255, 0.75);
+    --oneui-glass: rgba(255, 255, 255, 0.58);
+    --oneui-glass2: rgba(255, 255, 255, 0.72);
+    --oneui-page:
+        radial-gradient(70vmax 50vmax at 10% 0%, color-mix(in srgb, var(--glow) 40%, transparent) 0%, transparent 60%),
+        radial-gradient(55vmax 45vmax at 95% 30%, color-mix(in srgb, var(--pink) 28%, transparent) 0%, transparent 65%),
+        radial-gradient(65vmax 55vmax at 60% 100%, color-mix(in srgb, var(--orange) 32%, transparent) 0%, transparent 65%),
+        linear-gradient(160deg, var(--bg-light) 0%, #f3e6f0 55%, #fbeee4 100%);
+}
+
+/* Bakgrunden ligger fast i fönstret, så varje skärm visar alla tre färgerna */
+body,
+body.light {
+    background: var(--oneui-page);
+    background-attachment: fixed;
+}
+
+
+/* base.css ger alla a, li och span en egen storlek. I de nya sektionerna ärver de
+   i stället storleken. :where() håller specificiteten låg, så klasserna nedan vinner. */
+:where(.lockscreen, .oneui-section, .oneui-footer) :is(a, li, span) {
+    font-size: inherit;
+}
+
+
+/* ---------- Gemensamt: glas och One UI-rubrik ---------- */
+
+.glass {
+    background: var(--oneui-glass);
+    border: 1px solid var(--oneui-line);
+    border-radius: 26px;
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 24px 48px -28px rgba(0, 0, 0, 0.7);
+    color: var(--oneui-text);
+}
+
+body.light .glass {
+    box-shadow:
+        inset 0 1px 0 #ffffff,
+        0 20px 40px -28px rgba(60, 20, 90, 0.3);
+}
+
+/* Samma bredd som datorn i kontaktdelen:
+   kontaktsektionen är clamp(80%, 70vw, 1100px) och datorn 90 % av den */
+:root {
+    --oneui-width: calc(clamp(80%, 70vw, 1100px) * 0.9);
+}
+
+.oneui-section {
+    display: block;
+    width: var(--oneui-width);
+    margin: 0 auto;
+    padding: 40vh 0 0; /* samma luft som förut: 40vh mellan sektionerna */
+    color: var(--oneui-text);
+}
+
+/* Telefonen i kontaktdelen är smal på mobil, så där får korten lite mer plats */
+@media (max-width: 767px) {
+    :root {
+        --oneui-width: 90%;
+    }
+}
+
+.oneui-head {
+    padding: 0 4px 1.25rem;
+}
+
+.oneui-label {
+    margin: 0 0 0.25rem;
+    font-size: 0.9rem;
+    color: var(--oneui-muted);
+}
+
+.oneui-head h2 {
+    margin: 0;
+    font-size: clamp(2rem, 4.4vw, 3.1rem);
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    color: var(--oneui-text);
+}
+
+.oneui-head h2 .accent {
+    color: var(--glow);
+    margin-right: 0.4rem;
+}
+
+/* Kontaktrubriken får samma stil som de andra: vänsterställd och lika bred som datorn.
+   Resten av kontaktdelen är oförändrad. */
+.contact-section .contact-title {
+    width: 90%;            /* lika bred som datorn */
+    box-sizing: border-box;
+    margin: 0 auto 1.25rem;
+    padding: 0 4px;   /* samma indrag som de andra rubrikerna */
+    text-align: left;
+    font-size: clamp(2rem, 4.4vw, 3.1rem);
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    color: var(--oneui-text);
+}
+
+.contact-section .contact-title .accent {
+    color: var(--glow);
+    font-weight: 600;
+    font-size: inherit;     /* annars blir snedstrecket litet (bas-css för span) */
+    margin-right: 0.4rem;
+}
+
+/* Samma luft ovanför kontaktdelen som ovanför de andra sektionerna */
+.contact-section {
+    padding-top: 40vh;
+}
+
+.oneui-intro {
+    margin: -0.25rem 0 1.25rem 4px;
+    color: var(--oneui-muted);
+}
+
+
+/* ---------- HERO = låsskärmen ---------- */
+
+.lockscreen {
+    display: block;
+    width: var(--oneui-width);
+    margin: 1.5rem auto 0;
+    padding: 0;
+}
+
+.lock {
+    position: relative;
+    border-radius: 40px;
+    padding: clamp(3.5rem, 6vw, 4.5rem) 6% clamp(5.5rem, 8vw, 6rem);
+    display: grid;
+    /* Bilden tar bara sin egen bredd, namnet får resten, så de krockar aldrig */
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 2rem;
+    align-items: center;
+}
+
+.lock-status {
+    position: absolute;
+    top: 18px;
+    left: 30px;
+    right: 30px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    font-weight: 600;
+    opacity: 0.85;
+}
+
+.lock-text {
+    text-align: left;
+}
+
+.lock-text h1,
+.lock-text p {
+    text-align: inherit;
+}
+
+.lock-date {
+    margin: 0 0 0.3rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--oneui-muted);
+}
+
+.lock h1 {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-size: clamp(2.6rem, 6.2vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: -2px;
+    color: var(--oneui-text);
+}
+
+/* Förnamn och efternamn tätt ihop (bas-css ger annars spans en egen hög radhöjd) */
+.lock h1 .lock-first,
+.lock h1 .lock-last {
+    line-height: inherit;
+}
+
+.lock h1 .lock-last {
+    display: block;
+    font-weight: 700;
+}
+
+.lock .hero-role {
+    margin: 0.9rem 0 0;
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    color: var(--oneui-text);
+}
+
+/* Aviseringen med skrivmaskinstexten */
+.notif {
+    margin-top: 1.6rem;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    max-width: 420px;
+    padding: 14px 16px;
+    border-radius: 22px;
+    background: var(--oneui-glass2);
+    border: 1px solid var(--oneui-line);
+}
+
+.notif-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    background: color-mix(in srgb, var(--accent) 25%, transparent);
+    color: var(--accent);
+    font-weight: 700;
+    flex: none;
+}
+
+.notif-title {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.notif .skills-hero {
+    margin: 0;
+    font-size: 0.85rem;
+    padding: 0;
+}
+
+/* Porträttet med 🎨 på kanten (färgväljaren styrs av premium.css) */
+.lock .hero-image-wrapper {
+    justify-self: center;
+    margin: 0;
+}
+
+.lock .portrait {
+    width: min(290px, 22vw);
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    /* Kransen runt bilden, som i förslaget */
+    box-shadow:
+        0 0 0 5px var(--glow),
+        0 0 60px color-mix(in srgb, var(--glow) 60%, transparent);
+}
+
+/* Genvägarna i låsskärmens hörn */
+.lock-shortcuts {
+    position: absolute;
+    left: 28px;
+    right: 28px;
+    bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lock-shortcuts > a:not(.swipe) {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--oneui-glass2);
+    border: 1px solid var(--oneui-line);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lock-shortcuts > a:not(.swipe):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 18px color-mix(in srgb, var(--glow) 55%, transparent);
+}
+
+.lock-shortcuts img {
+    width: 22px;
+    height: 22px;
+}
+
+.swipe {
+    display: grid;
+    justify-items: center;
+    gap: 2px;
+    font-size: 0.8rem;
+    color: var(--oneui-muted);
+    text-decoration: none;
+}
+
+
+/* ---------- OM MIG = profil i Kontakter ---------- */
+
+.profile {
+    display: grid;
+    grid-template-columns: 320px minmax(0, 1fr);
+    gap: 18px;
+    align-items: stretch;           /* profilkortet lika högt som korten bredvid */
+}
+
+.pcard {
+    padding: 30px 22px 22px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pcard img {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow:
+        0 0 0 4px color-mix(in srgb, var(--accent) 50%, transparent),
+        0 0 30px color-mix(in srgb, var(--glow) 55%, transparent);
+}
+
+.pcard h3 {
+    margin: 16px 0 2px;
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+.pcard p {
+    margin: 0;
+    color: var(--oneui-muted);
+    font-size: 0.9rem;
+}
+
+.pactions {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 22px;
+}
+
+.pactions a {
+    display: grid;
+    gap: 6px;
+    justify-items: center;
+    font-size: 0.75rem;
+    color: var(--oneui-text);
+    text-decoration: none;
+}
+
+.pa-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--oneui-glass2);
+    border: 1px solid var(--oneui-line);
+    font-size: 1.25rem;
+    color: var(--accent);
+    transition: box-shadow 0.2s ease;
+}
+
+.pactions a:hover .pa-icon {
+    box-shadow: 0 0 16px color-mix(in srgb, var(--glow) 55%, transparent);
+}
+
+.about-text {
+    padding: 22px 26px;
+    line-height: 1.7;
+}
+
+.about-text p {
+    margin: 0 0 0.8rem;
+    color: var(--oneui-text);
+}
+
+.about-text p:last-child {
+    margin-bottom: 0;
+}
+
+.prows {
+    margin-top: 14px;
+    padding: 4px 0;
+}
+
+.prow {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    padding: 15px 22px;
+}
+
+.prow + .prow {
+    border-top: 1px solid var(--oneui-line);
+}
+
+.prow-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    background: color-mix(in srgb, var(--accent) 20%, transparent);
+    font-size: 1.1rem;
+    flex: none;
+}
+
+.prow strong {
+    display: block;
+    font-weight: 500;
+}
+
+.prow span:not(.prow-icon) {
+    color: var(--oneui-muted);
+    font-size: 0.85rem;
+}
+
+
+/* ---------- KUNSKAPER = tre mappar på hemskärmen ---------- */
+
+.folders {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.3fr;
+    gap: 18px;
+    align-items: stretch;
+}
+
+.folder {
+    padding: 20px 20px 22px;
+    border-radius: 30px;
+}
+
+.folder-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.folder-icon-box {
+    width: 34px;
+    height: 34px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
+    font-size: 1rem;
+}
+
+.folder-head h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.folder-head span:not(.folder-icon-box) {
+    font-size: 0.75rem;
+    color: var(--oneui-muted);
+}
+
+.skill-apps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px 8px;
+}
+
+.folder.wide .skill-apps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.skill-apps li {
+    display: grid;
+    justify-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    text-align: center;
+}
+
+.skill-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 20px;
+    display: grid;
+    place-items: center;
+    font-size: 2.1rem;
+    background: var(--oneui-glass2);
+    border: 1px solid var(--oneui-line);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 10px 22px -12px rgba(0, 0, 0, 0.7);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.light .skill-icon {
+    background: #ffffff;
+    box-shadow: 0 8px 18px -10px rgba(40, 20, 80, 0.3);
+}
+
+.skill-apps li:hover .skill-icon {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--glow) 45%, transparent);
+}
+
+/* GitHub-ikonen är svart, så den blir vit i mörkt läge */
+.skill-icon .devicon-github-original {
+    color: var(--oneui-text);
+}
+
+
+/* ---------- PORTFOLIO = Senaste appar, en rad som scrollas i sidled ---------- */
+
+.rail {
+    display: flex;
+    gap: 22px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 6px 4px 22px;
+    scrollbar-width: none;          /* ingen scrollbar, pilarna räcker */
+}
+
+.rail::-webkit-scrollbar {
+    display: none;
+}
+
+.rail:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 20px;
+}
+
+/* Tre projekt syns åt gången på dator, två på surfplatta och ett på mobil */
+.rail .win {
+    flex: 0 0 calc((100% - 44px) / 3);
+    scroll-snap-align: start;
+    display: grid;
+    gap: 12px;
+    align-content: start;
+    cursor: pointer;
+}
+
+.win-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 6px;
+}
+
+.win-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    flex: none;
+    background:
+        radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.35), transparent 55%),
+        linear-gradient(145deg,
+            color-mix(in srgb, var(--glow) 85%, white),
+            color-mix(in srgb, var(--glow) 75%, black));
+}
+
+.win-icon .folder-icon {
+    width: 14px;
+    height: 14px;
+}
+
+.win .folder-title {
+    font-size: 1rem;
+    font-weight: 500;
+    min-height: 0;
+    margin: 0;
+    color: var(--oneui-text);
+}
+
+.win-body {
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.win:hover .win-body,
+.win:focus-visible .win-body {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px color-mix(in srgb, var(--glow) 35%, transparent);
+}
+
+.win:focus-visible {
+    outline: none;
+}
+
+.win-shot img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1060 / 544;
+    object-fit: cover;
+}
+
+.win-shot .img-light {
+    display: none;
+}
+
+body.light .win-shot .img-dark {
+    display: none;
+}
+
+body.light .win-shot .img-light {
+    display: block;
+}
+
+.win-meta {
+    padding: 14px 18px 16px;
+}
+
+.win-meta p {
+    margin: 0 0 10px;
+    color: var(--oneui-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    min-height: 0;
+    opacity: 1;
+}
+
+.win-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.win-tags span {
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--oneui-glass2);
+    border: 1px solid var(--oneui-line);
+}
+
+.win .project-click {
+    margin: 12px 0 0;
+    justify-content: flex-end;
+}
+
+.rail-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 4px;
+    font-size: 0.85rem;
+    color: var(--oneui-muted);
+}
+
+.rail-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--oneui-line);
+    background: var(--oneui-glass);
+    color: var(--oneui-text);
+    font-size: 1.1rem;
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+}
+
+.rail-btn:hover {
+    box-shadow: 0 0 16px color-mix(in srgb, var(--glow) 50%, transparent);
+}
+
+.rail-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+
+/* ---------- REFERENSER = Meddelanden ---------- */
+
+.chat {
+    padding: 8px 0 18px;
+}
+
+.chat-head {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 14px 22px 16px;
+    border-bottom: 1px solid var(--oneui-line);
+}
+
+.chat-head strong {
+    display: block;
+    font-weight: 500;
+}
+
+.chat-head span:not(.msg-avatar) {
+    color: var(--oneui-muted);
+    font-size: 0.8rem;
+}
+
+.thread {
+    display: grid;
+    gap: 16px;
+    padding: 20px 22px 0;
+}
+
+.chat-chip {
+    justify-self: center;
+    margin: 0;
+    font-size: 0.75rem;
+    color: var(--oneui-muted);
+    background: var(--oneui-glass2);
+    border: 1px solid var(--oneui-line);
+    padding: 4px 12px;
+    border-radius: 999px;
+}
+
+.msg {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 12px;
+    align-items: end;
+}
+
+.msg-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    flex: none;
+}
+
+.av-group { background: linear-gradient(145deg, var(--purple), var(--pink)); }
+.av-1 { background: linear-gradient(145deg, #c62828, #e8590c); }
+.av-2 { background: linear-gradient(145deg, #1e63c9, #7b3fd4); }
+.av-3 { background: linear-gradient(145deg, #8e24aa, #c2185b); }
+.av-4 { background: linear-gradient(145deg, #00796b, #1e63c9); }
+
+.bubble {
+    background: var(--oneui-glass2);
+    border: 1px solid var(--oneui-line);
+    border-radius: 22px 22px 22px 6px;
+    padding: 14px 18px;
+    max-width: 760px;
+}
+
+.bubble blockquote {
+    margin: 0;
+}
+
+.bubble blockquote p {
+    margin: 0;
+    line-height: 1.6;
+    color: var(--oneui-text);
+}
+
+.msg-sign {
+    margin: 8px 0 0;
+    font-size: 0.78rem;
+    color: var(--oneui-muted);
+}
+
+.msg-sign .sig {
+    font-family: "Great Vibes", cursive;
+    font-size: 1.4rem;
+    color: var(--accent);
+}
+
+
+/* ---------- FOOTER: en enkel glasrad ---------- */
+
+.oneui-footer {
+    width: var(--oneui-width);
+    margin: clamp(3rem, 7vw, 6rem) auto 2.5rem;
+    padding: 0;
+    background: none;
+    border: none;
+}
+
+.oneui-footer .footer-credit {
+    margin: 0;
+    padding: 16px 20px;
+    border-radius: 999px;
+    text-align: center;
+}
+
+
+/* ---------- 📱 Mobil och surfplatta ---------- */
+
+@media (max-width: 900px) {
+    .lock {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 3.5rem;
+    }
+
+    .lock .hero-image-wrapper {
+        order: -1;
+    }
+
+    .lock .portrait {
+        width: min(220px, 55vw);
+    }
+
+    .notif {
+        margin-inline: auto;
+        text-align: left;
+    }
+
+    .lock-text {
+        text-align: center;
+    }
+
+    .rail .win {
+        flex-basis: calc((100% - 22px) / 2);
+    }
+
+    .profile {
+        grid-template-columns: 1fr;
+    }
+
+    .folders {
+        grid-template-columns: 1fr;
+    }
+
+    .folder.wide .skill-apps {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .rail .win {
+        flex-basis: 85%;
+    }
+}
+
+@media (max-width: 480px) {
+    .lock {
+        border-radius: 30px;
+    }
+
+    .lock-shortcuts {
+        left: 16px;
+        right: 16px;
+    }
+
+    .swipe {
+        font-size: 0.7rem;
+    }
+
+    .skill-icon {
+        width: 54px;
+        height: 54px;
+        font-size: 1.7rem;
+        border-radius: 17px;
+    }
+
+    .msg {
+        grid-template-columns: 34px minmax(0, 1fr);
+    }
+
+    .msg-avatar {
+        width: 34px;
+        height: 34px;
+        font-size: 0.7rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .rail { scroll-behavior: auto; }
+    .win-body, .skill-icon, .lock-shortcuts > a { transition: none; }
+}
+
+/* ---------- 🎨 Easter egg: färgväljaren syns först när man hovrar över bilden ---------- */
+.lock .color-icon {
+    opacity: 0;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.hero-image-wrapper:hover .color-icon,
+.lock .color-icon:focus-within {
+    opacity: 1;
+}
+
+/* Bara temats egen färgväljare går att klicka på */
+body:not(.light) #glowLightPicker,
+body.light #glowDarkPicker {
+    display: none;
+}
+
+/* ---------- Glasramen runt korten i varje sektion ----------
+   Som datorn runt kontaktdelen: korten ligger "i något".
+   Ramen är mer genomskinlig än korten inuti. */
+.oneui-frame.glass {
+    padding: clamp(18px, 3.4vw, 44px);
+    border-radius: 36px;
+    background: color-mix(in srgb, var(--oneui-glass) 55%, transparent);
+}
+
+body.light .oneui-frame.glass {
+    background: rgba(255, 255, 255, 0.28);
+}
+
+@media (max-width: 600px) {
+    .oneui-frame.glass {
+        border-radius: 26px;
+    }
+}
+
+/* Pilen tonas ner när man är i början eller slutet av raden */
+.rail-btn:disabled {
+    opacity: 0.35;
+    cursor: default;
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   📏 LIKA LÅNGA PROJEKTKORT
+   Rubriken får plats för två rader, kortet fyller resten
+   och "Se projekt" hamnar alltid längst ner.
+   ========================================================= */
+.rail .win {
+    grid-template-rows: auto 1fr;
+}
+
+.win-head {
+    min-height: 3.2rem;
+}
+
+.win-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.win-meta {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.win .project-click {
+    margin-top: auto;
+    padding-top: 12px;
+}
+
+
+/* =========================================================
+   💎 PREMIUM-GLAS PÅ ALLA SMÅ DETALJER
+   Samma glas överallt: genomskinlig gradient, suddig bakgrund,
+   ljus kant upptill och en mjuk skugga. Variablerna gör att
+   mörkt och ljust läge får samma känsla.
+   ========================================================= */
+:root {
+    --chip-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.03));
+    --chip-border: rgba(255, 255, 255, 0.16);
+    --chip-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.22),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.03),
+        0 8px 18px -10px rgba(0, 0, 0, 0.7);
+}
+
+body.light {
+    --chip-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.12));
+    --chip-border: color-mix(in srgb, var(--glow) 22%, rgba(255, 255, 255, 0.9));
+    --chip-shadow:
+        inset 0 1px 0 #ffffff,
+        inset 0 -1px 0 color-mix(in srgb, var(--glow) 10%, transparent),
+        0 8px 18px -10px color-mix(in srgb, var(--glow) 45%, transparent);
+}
+
+/* Neutrala glasdetaljer: taggar, chips, knappar och ikonrutor */
+.win-tags span,
+.chat-chip,
+.rail-btn,
+.pa-icon,
+.lock-shortcuts > a:not(.swipe),
+.skill-icon,
+body.light .skill-icon,
+.notif,
+.bubble {
+    background: var(--chip-bg);
+    border: 1px solid var(--chip-border);
+    box-shadow: var(--chip-shadow);
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+}
+
+/* Färgade glasdetaljer: små ikonrutor tonade i glödfärgen */
+.notif-icon,
+.prow-icon,
+.folder-icon-box {
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0)),
+        color-mix(in srgb, var(--glow) 28%, transparent);
+    border: 1px solid color-mix(in srgb, var(--glow) 35%, rgba(255, 255, 255, 0.2));
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.25),
+        0 6px 14px -8px color-mix(in srgb, var(--glow) 60%, transparent);
+}
+
+/* Taggarna lite luftigare och tydligare */
+.win-tags span {
+    padding: 5px 12px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+/* Hovring: alla små glasdetaljer glöder i den valda färgen */
+.rail-btn:not(:disabled):hover,
+.pactions a:hover .pa-icon,
+.lock-shortcuts > a:not(.swipe):hover,
+.skill-apps li:hover .skill-icon {
+    box-shadow:
+        var(--chip-shadow),
+        0 0 20px color-mix(in srgb, var(--glow) 50%, transparent);
+}
+
+/* Avatarerna i Referenser: vita initialer och glans, som en app-ikon */
+.msg-avatar,
+body.light .msg-avatar {
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.45),
+        0 8px 16px -8px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================================================
+   🎨 AVATARER OCH MAPPIKONER I SIDANS FÄRGER
+   Varje avatar har en egen gradient, men bara av bakgrundens färger:
+   mörkt läge = glöd, blått och lila, ljust läge = lila, rosa och orange.
+   Glasglansen ovanpå gör att de ser ut som app-ikoner.
+   ========================================================= */
+:root {
+    --gloss: radial-gradient(circle at 30% 22%, rgba(255, 255, 255, 0.45), transparent 52%);
+    --av-group: linear-gradient(145deg, color-mix(in srgb, var(--glow) 70%, var(--blue)), var(--purple));
+    --av-1: linear-gradient(145deg, var(--glow), color-mix(in srgb, var(--blue) 80%, black));
+    --av-2: linear-gradient(145deg, var(--purple), var(--glow));
+    --av-3: linear-gradient(145deg, color-mix(in srgb, var(--blue) 85%, black), var(--purple));
+    --av-4: linear-gradient(145deg, var(--glow), color-mix(in srgb, var(--purple) 70%, black));
+    --icon-bg: linear-gradient(145deg, color-mix(in srgb, var(--glow) 70%, var(--blue)), var(--purple));
+}
+
+body.light {
+    --av-group: linear-gradient(145deg, var(--glow), color-mix(in srgb, var(--pink) 75%, white));
+    --av-1: linear-gradient(145deg, color-mix(in srgb, var(--pink) 80%, white), color-mix(in srgb, var(--orange) 85%, white));
+    --av-2: linear-gradient(145deg, var(--glow), color-mix(in srgb, var(--pink) 70%, white));
+    --av-3: linear-gradient(145deg, color-mix(in srgb, var(--orange) 80%, white), color-mix(in srgb, var(--pink) 75%, white));
+    --av-4: linear-gradient(145deg, color-mix(in srgb, var(--glow) 85%, white), color-mix(in srgb, var(--orange) 80%, white));
+    --icon-bg: linear-gradient(145deg, var(--glow), color-mix(in srgb, var(--pink) 75%, white));
+}
+
+.msg-avatar.av-group { background: var(--gloss), var(--av-group); }
+.msg-avatar.av-1 { background: var(--gloss), var(--av-1); }
+.msg-avatar.av-2 { background: var(--gloss), var(--av-2); }
+.msg-avatar.av-3 { background: var(--gloss), var(--av-3); }
+.msg-avatar.av-4 { background: var(--gloss), var(--av-4); }
+
+/* Mappikonerna i Portfolio, samma glansiga stil */
+.win-icon {
+    background: var(--gloss), var(--icon-bg);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.45),
+        0 8px 16px -8px color-mix(in srgb, var(--glow) 70%, transparent);
+}
+
+/* =========================================================
+   ✨ SNEDSTRECKET "/" FRAMFÖR RUBRIKERNA
+   Färgen är din glödfärg, men glöden är i lager som ett neonrör:
+   ljus kärna närmast, sedan en mjuk halo som tonar ut.
+   ========================================================= */
+.oneui-head h2 .accent,
+.contact-section .contact-title .accent {
+    display: inline-block;
+    transform: skewX(-4deg);
+    text-shadow:
+        0 0 2px color-mix(in srgb, var(--glow) 50%, white),
+        0 0 8px var(--glow),
+        0 0 18px var(--glow),
+        0 0 36px color-mix(in srgb, var(--glow) 80%, transparent),
+        0 0 64px color-mix(in srgb, var(--glow) 55%, transparent),
+        0 0 100px color-mix(in srgb, var(--glow) 35%, transparent);
+    animation: accent-glow 4s ease-in-out infinite;
+}
+
+body.light .oneui-head h2 .accent,
+body.light .contact-section .contact-title .accent {
+    color: var(--glow);
+    text-shadow:
+        0 0 2px color-mix(in srgb, var(--glow) 60%, white),
+        0 0 10px color-mix(in srgb, var(--glow) 75%, transparent),
+        0 0 24px color-mix(in srgb, var(--glow) 55%, transparent),
+        0 0 48px color-mix(in srgb, var(--glow) 35%, transparent);
+}
+
+/* Glöden andas långsamt, nästan omärkligt */
+@keyframes accent-glow {
+    0%, 100% { filter: brightness(1); }
+    50%      { filter: brightness(1.35); }
+}
+
+/* Ingen animation för den som har valt minskad rörelse */
+@media (prefers-reduced-motion: reduce) {
+    .oneui-head h2 .accent,
+    .contact-section .contact-title .accent {
+        animation: none;
+    }
+}
