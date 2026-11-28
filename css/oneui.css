@@ -1815,3 +1815,26 @@ body:not(.light) .nav-links a:hover,
 body:not(.light) .nav-links a:focus-visible {
     color: color-mix(in srgb, var(--glow) 40%, white);
 }
+
+
+/* Kunskaper: chipsen blir en lugn textrad med prickar emellan, utan ramar */
+.folder .stack-chips {
+    gap: 4px 0;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--oneui-line);
+}
+
+.folder .stack-chips li {
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 0.78rem;
+    color: var(--oneui-muted);
+}
+
+.folder .stack-chips li:not(:last-child)::after {
+    content: "·";
+    margin: 0 9px;
+    color: color-mix(in srgb, var(--glow) 60%, var(--oneui-muted));
+}
