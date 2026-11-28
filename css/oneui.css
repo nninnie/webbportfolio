@@ -1290,3 +1290,14 @@ body.light .notif-title::before {
         height: 1.7rem;
     }
 }
+
+
+/* Projektets egen ikon i den glansiga cirkeln (i stället för mappen).
+   Linjeikonen ritas vit med en CSS-mask, så den syns på gradienten. */
+.win-icon .proj-glyph {
+    width: 17px;
+    height: 17px;
+    background: #ffffff;
+    -webkit-mask: var(--icon) center / contain no-repeat;
+    mask: var(--icon) center / contain no-repeat;
+}
