@@ -1650,3 +1650,19 @@ body.light .notif-title::before {
         max-width: none;
     }
 }
+/* Pilen som följer med: ingen ring, bara en diskret pil som i hero */
+.next-section,
+.next-section:hover,
+.next-section:focus-visible {
+    background: none;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.next-section:hover .swipe-arrow,
+.next-section:focus-visible .swipe-arrow {
+    border-color: var(--glow);
+    filter: drop-shadow(0 0 6px var(--glow));
+}
