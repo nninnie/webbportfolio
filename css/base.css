@@ -70,7 +70,7 @@ section {
 
 /* ============== TEXT - FONT ============== */
 h1 {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: clamp(2.2rem, 5vw, 5rem);
     word-break: normal;
     font-weight: 900;
