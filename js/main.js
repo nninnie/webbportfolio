@@ -12,6 +12,7 @@ import { initNavbar } from "./navbar.js";
 import { initHeroTyping } from "./hero-typing.js";
 import { initContact } from "./contact.js";
 import { initProjects } from "./projects.js";
+import { initScroll } from "./scroll.js";
 
 initTheme();
 initWeather();      // async – sidan väntar inte på vädret
@@ -20,3 +21,4 @@ initNavbar();
 initHeroTyping();
 initContact();
 initProjects();
+initScroll();
