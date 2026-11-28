@@ -28,7 +28,7 @@ const projectsSv = {
     },
 
     "Bra Surr – Forum": {
-        description: "Svenskt diskussionsforum med trådar, citat, sök och moderering. Började som grupparbete och är färdigbyggt av mig i ASP.NET Core MVC med EF Core, SQLite och Identity.",
+        description: "Diskussionsforum med trådar, citat och moderering, byggt i ASP.NET Core MVC och EF Core.",
         fullDescription: "Började som BlixtSchack i kursen Agil systemutveckling. Där låg fokus på att arbeta agilt i grupp, med sprintar och retrospektiv, och inte på att bli klara med appen, så vi hann bara bygga grunden. Efter kursen byggde jag färdigt forumet själv tillsammans med Claude (AI), för att lära mig hur man arbetar med en AI-assistent i ett riktigt projekt. Jag täppte säkerhetshål och lade till medlemmar, citat, sök, sidbläddring, moderering och tester, och jag gick igenom och godkände varje steg.",
         github: "https://github.com/nninnie/BraSurr",
         demo: "https://brasurr-ninnie-bkf7g5ecevacb8f3.swedencentral-01.azurewebsites.net",
@@ -38,7 +38,7 @@ const projectsSv = {
     },
 
     "Hotellbokningssystem": {
-        description: "Bokningssystem för ett hotell byggt i .NET med EF Core och SQL Server.",
+        description: "Konsolapp för hotellbokningar, byggt i C# och .NET med EF Core och SQL Server.",
         fullDescription: "Konsolapplikation för rum, gäster, bokningar, fakturor och betalningar. Databasen skapas med EF Core Code First, beroenden hanteras med Autofac och gränssnittet är byggt med Spectre.Console.",
         github: "https://github.com/nninnie/HotelBooking",
         demo: "https://github.com/nninnie/HotelBooking#readme",
@@ -48,7 +48,7 @@ const projectsSv = {
     },
 
     "Guldkortet": {
-        description: "Windows Forms-app som tar emot kortkoder över TCP, validerar dem mot SQL-databaser och delar ut belöningar.",
+        description: "Windows Forms-app som tar emot kortkoder över TCP och delar ut belöningar via SQL.",
         fullDescription: "Programmet är en TCP-server som tar emot koder från ett externt program (NOS_Export), kontrollerar kund och kort mot två SQL-databaser och skickar tillbaka en belöning. Nätverkstrafiken körs asynkront i bakgrunden så att fönstret aldrig fryser, och belöningarna är byggda med arv och polymorfism.",
         github: "https://github.com/nninnie/Guldkortet",
         demo: "https://github.com/nninnie/Guldkortet",
@@ -58,7 +58,7 @@ const projectsSv = {
     },
 
     "Filmregister": {
-        description: "Filmregister med klassisk dataåtkomst via ADO.NET och SQL Server.",
+        description: "Filmregister byggt i C# med klassisk dataåtkomst via ADO.NET och SQL Server.",
         fullDescription: "Konsolapplikation där man kan visa, söka, lägga till, uppdatera och ta bort filmer. Dataåtkomsten är skriven med ADO.NET och parametriserade SQL-frågor i ett repository-lager.",
         github: "https://github.com/nninnie/ADONet-MovieRegister",
         demo: "https://github.com/nninnie/ADONet-MovieRegister#readme",
@@ -100,7 +100,7 @@ const projectsEn = {
     },
 
     "Bra Surr – Forum": {
-        description: "Swedish discussion forum with threads, quotes, search and moderation. Started as a group project and finished by me in ASP.NET Core MVC with EF Core, SQLite and Identity.",
+        description: "Discussion forum with threads, quotes and moderation, built with ASP.NET Core MVC and EF Core.",
         fullDescription: "Started as BlixtSchack in an agile development course. The focus there was on working agile as a team, with sprints and retrospectives, not on finishing the app, so we only had time to build the foundation. After the course I finished the forum myself together with Claude (AI), to learn how to work with an AI assistant in a real project. I closed security holes and added members, quotes, search, paging, moderation and tests, and I reviewed and approved every step.",
         github: "https://github.com/nninnie/BraSurr",
         demo: "https://brasurr-ninnie-bkf7g5ecevacb8f3.swedencentral-01.azurewebsites.net",
@@ -110,7 +110,7 @@ const projectsEn = {
     },
 
     "Hotel Booking System": {
-        description: "Booking system for a hotel built in .NET with EF Core and SQL Server.",
+        description: "Console app for hotel bookings, built in C# and .NET with EF Core and SQL Server.",
         fullDescription: "Console application for rooms, guests, bookings, invoices and payments. The database is created with EF Core Code First, dependencies are handled with Autofac and the UI is built with Spectre.Console.",
         github: "https://github.com/nninnie/HotelBooking",
         demo: "https://github.com/nninnie/HotelBooking#readme",
@@ -120,7 +120,7 @@ const projectsEn = {
     },
 
     "Gold Card": {
-        description: "Windows Forms app that receives card codes over TCP, validates them against SQL databases and hands out rewards.",
+        description: "Windows Forms app that receives card codes over TCP and hands out rewards via SQL.",
         fullDescription: "The program is a TCP server that receives codes from an external program (NOS_Export), checks customer and card against two SQL databases and sends back a reward. Network traffic runs asynchronously in the background so the window never freezes, and the rewards are built with inheritance and polymorphism.",
         github: "https://github.com/nninnie/Guldkortet",
         demo: "https://github.com/nninnie/Guldkortet",
@@ -130,7 +130,7 @@ const projectsEn = {
     },
 
     "Movie Register": {
-        description: "Movie register with classic data access using ADO.NET and SQL Server.",
+        description: "Movie register built in C# with classic data access using ADO.NET and SQL Server.",
         fullDescription: "Console application for listing, searching, adding, updating and deleting movies. Data access is written with ADO.NET and parameterized SQL queries in a repository layer.",
         github: "https://github.com/nninnie/ADONet-MovieRegister",
         demo: "https://github.com/nninnie/ADONet-MovieRegister#readme",
