@@ -12,6 +12,7 @@ import { initNavbar } from "./navbar.js";
 import { initHeroTyping } from "./hero-typing.js";
 import { initContact } from "./contact.js";
 import { initProjects } from "./projects.js";
+import { initCourses } from "./courses.js";
 import { initScroll } from "./scroll.js";
 
 initTheme();
@@ -21,4 +22,5 @@ initNavbar();
 initHeroTyping();
 initContact();
 initProjects();
+initCourses();
 initScroll();

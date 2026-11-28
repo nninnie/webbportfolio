@@ -1371,3 +1371,282 @@ body.light .notif-title::before {
         transform: translateY(10px);
     }
 }
+
+/* =========================================================
+   KUNSKAPER: mindre ikoner och mer luft, så fler får plats
+   ========================================================= */
+.skill-apps,
+.folder.wide .skill-apps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px 12px;
+}
+
+.skill-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 15px;
+}
+
+.skill-icon img,
+.skill-icon .mask-icon {
+    width: 1.45rem;
+    height: 1.45rem;
+}
+
+.skill-apps li {
+    font-size: 0.72rem;
+    gap: 7px;
+}
+
+/* På mellanstora skärmar ligger mapparna under varandra med 6 ikoner i bredd */
+@media (max-width: 900px) {
+    .skill-apps,
+    .folder.wide .skill-apps {
+        grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+    }
+}
+
+
+/* Mapparna i full bredd under varandra, så ikonerna får plats */
+.folders {
+    grid-template-columns: 1fr;
+}
+
+.skill-apps,
+.folder.wide .skill-apps {
+    grid-template-columns: repeat(auto-fill, minmax(78px, 1fr));
+}
+
+/* Mer i stacken: glas-chips med resten av teknikerna från kurserna */
+.stack-more {
+    margin-top: 18px;   /* samma mellanrum som mellan mapparna */
+}
+
+.stack-more h3 {
+    margin: 0 0 14px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--oneui-text);
+}
+
+.stack-chips {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.stack-chips li {
+    padding: 6px 13px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--oneui-text);
+    background: var(--chip-bg);
+    border: 1px solid var(--chip-border);
+    box-shadow: var(--chip-shadow);
+}
+
+
+/* Chips inuti mapparna (mer backend och arbetssätt) */
+.folder .stack-chips {
+    margin-top: 16px;
+}
+
+.chips-label {
+    margin: 16px 0 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--oneui-muted);
+}
+
+.chips-label + .stack-chips {
+    margin-top: 8px;
+}
+
+/* Diskreta chips, så att fokus ligger på ikonerna */
+.folder .stack-chips {
+    gap: 6px;
+    margin-top: 14px;
+}
+
+.folder .stack-chips li {
+    padding: 3px 10px;
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: var(--oneui-muted);
+    background: transparent;
+    border: 1px solid color-mix(in srgb, var(--oneui-muted) 25%, transparent);
+    box-shadow: none;
+}
+
+.folder .chips-label {
+    margin-top: 14px;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.folder .chips-label + .stack-chips {
+    margin-top: 6px;
+}
+
+
+/* =========================================================
+   🎓 KURSERNA I KUNSKAPER – en tabell i ett eget glaskort
+   ✓ klar (grön bock), ● pågår (glödande prick), ○ kommande (grå ring)
+   ========================================================= */
+.edu-courses {
+    list-style: none;
+    margin: 4px 18px 16px;
+    padding: 6px 0;
+    border-radius: 18px;
+    background: var(--chip-bg);
+    border: 1px solid var(--chip-border);
+    text-align: left;
+    font-size: 0.85rem;
+}
+
+.course {
+    display: grid;
+    grid-template-columns: 18px 1fr auto;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    color: var(--oneui-text);
+}
+
+.course + .course {
+    border-top: 1px solid var(--oneui-line);
+}
+
+.course-name {
+    text-align: left;
+}
+
+.course-date {
+    font-size: 0.75rem;
+    color: var(--oneui-muted);
+    white-space: nowrap;
+}
+
+.course.next .course-name {
+    color: var(--oneui-muted);
+}
+
+/* Den pågående kursen lyser lite */
+.course.now {
+    font-weight: 600;
+    background: color-mix(in srgb, var(--glow) 14%, transparent);
+}
+
+.course-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 10px;
+    line-height: 1;
+}
+
+/* Bocken i sidans egna färger, med glans som app-ikonerna */
+.course.done .course-dot {
+    background:
+        radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.45), transparent 55%),
+        linear-gradient(145deg, var(--blue), var(--purple));
+    color: #ffffff;
+    box-shadow: 0 0 6px color-mix(in srgb, var(--purple) 55%, transparent);
+}
+
+.course.done .course-dot::before {
+    content: "✓";
+    font-weight: 800;
+}
+
+.course.now .course-dot {
+    background: var(--glow);
+    box-shadow: 0 0 8px var(--glow);
+}
+
+.course.next .course-dot {
+    border: 1.5px solid var(--oneui-muted);
+}
+
+@media (max-width: 600px) {
+    .edu-courses {
+        margin: 4px 12px 14px;
+    }
+
+    .course {
+        gap: 10px;
+        padding: 8px 12px;
+    }
+}
+
+/* Kurskortet ligger i full bredd under mapparna i Kunskaper */
+.edu-card {
+    margin-top: 18px;
+    padding: 20px 22px 18px;
+}
+
+.edu-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 0 4px 12px;
+}
+
+.edu-head strong {
+    font-size: 1.05rem;
+}
+
+.edu-head span {
+    font-size: 0.8rem;
+    color: var(--oneui-muted);
+}
+
+.edu-card .edu-courses {
+    margin: 0;
+}
+
+/* Mycket smala mobiler: datumet hamnar under kursnamnet */
+@media (max-width: 380px) {
+    .course {
+        grid-template-columns: 18px 1fr;
+    }
+
+    .course-date {
+        grid-column: 2;
+    }
+}
+
+
+
+
+/* =========================================================
+   📐 SEKTIONERNA 5 % SMALARE ÄN HERO
+   Hero behåller full bredd. Alla andra sektioner, footern och
+   datorn i Kontakt är 95 % av den, så att allt är lika brett.
+   ========================================================= */
+:root {
+    /* 95 % av hero, men aldrig så bred att datorn blir högre än skärmen
+       (datorn är 1,6 gånger så bred som hög, 150 px = meny och rubrik) */
+    --section-width: min(calc(var(--oneui-width) * 0.95), calc((90svh - 150px) * 1.6));
+}
+
+.oneui-section,
+.oneui-footer {
+    width: var(--section-width);
+}
+
+@media (min-width: 768px) {
+    /* Datorn är 90 % av kontaktsektionen och ska vara lika bred som de andra */
+    .contact-section {
+        width: calc(var(--section-width) / 0.9);
+        max-width: none;
+    }
+}
