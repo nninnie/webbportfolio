@@ -38,7 +38,7 @@
 <a href="#main" class="skip-link">Skip to content</a>
 
 <header class="navbar">
-    <nav>
+    <nav aria-label="Main menu">
 
         <!-- Weather to the left -->
         <div class="weather-box">
@@ -48,7 +48,7 @@
 
 
         <!-- Hamburger menu (mobile) -->
-        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <button type="button" class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
             ☰
         </button>
 
@@ -65,12 +65,12 @@
         <div class="nav-controls">
 
     <!-- THEME BUTTON -->
-<button id="themeToggle" class="icon-btn" aria-label="Switch theme">
+<button type="button" id="themeToggle" class="icon-btn" aria-label="Switch theme">
     <span class="mode-icon">🌗</span>
 </button>
 
 <!-- LANGUAGE BUTTON -->
-<button id="languageToggle" class="icon-btn" aria-label="Switch language">
+<button type="button" id="languageToggle" class="icon-btn" aria-label="Switch language">
     <span class="mode-icon">🌍</span>
 </button>
 
@@ -79,8 +79,8 @@
 </div>
 
             <!-- Hidden select language - required -->
+            <label for="languageSelect" class="visually-hidden">Language</label>
             <select id="languageSelect" class="hidden-select">
-                <label for="languageSelect" class="visually-hidden">Language</label>
                 <option value="sv">SV</option>
                 <option value="en" selected>EN</option>
             </select>
@@ -115,12 +115,12 @@
     width="400"
     height="400">
 
-            <label class="color-icon">
+            <span class="color-icon">
     🎨
-    <input type="color" id="glowDarkPicker">
-<input type="color" id="glowLightPicker">
+    <input type="color" id="glowDarkPicker" aria-label="Choose glow colour for dark mode">
+<input type="color" id="glowLightPicker" aria-label="Choose glow colour for light mode">
 
-</label>
+</span>
 
         </div>
 
@@ -156,7 +156,8 @@
         <a class="btn orb pink" aria-label="View portfolio" href="#portfolio">
             <span><img src="image/icons/folder.png" class="btn-icon"  width="24" height="24" alt="">View Portfolio</span>
         </a>
-    
+    </div>
+
 </section>
 
 
@@ -249,12 +250,13 @@
     <div id="projectModal" class="project-modal" role="dialog" aria-modal="true" aria-labelledby="projectTitle" aria-describedby="projectDescription">
         <div class="project-modal-content">
 
-            <button class="close-modal" aria-label="Close project window">✕</button>
+            <button type="button" class="close-modal" aria-label="Close project window">✕</button>
             
             <div id="projectTech" class="project-tech"></div>
 
             <div class="modal-divider"></div>
 
+            <!-- [html-validate-disable-next empty-heading -- fylls i av projects.js] -->
             <h3 id="projectTitle"></h3>
 
             <p id="projectDescription"></p>
@@ -553,7 +555,7 @@
 
     
     <p class="footer-credit">
-    <span class="copy-symbol">©</span> Designed & developed by <span class="name">Ninnie Dahlström</span>
+    <span class="copy-symbol">©</span> Designed &amp; developed by <span class="name">Ninnie Dahlström</span>
     </p>
 
 
