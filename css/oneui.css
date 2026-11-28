@@ -1207,3 +1207,42 @@ body.light .lock-shortcuts > a:not(.swipe) {
 .chat {
     padding-top: 6px;
 }
+
+
+/* =========================================================
+   </> "FOKUS JUST NU" MED KODTECKEN
+   Tecknet i glödfärgen med samma neonglöd som "/" i rubrikerna.
+   Ingen ruta runt, bara tecknet. Görs i CSS med ::before.
+   ========================================================= */
+.notif-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.notif-title::before {
+    content: "</>";
+    content: "</>" / "";          /* skärmläsare hoppar över tecknet */
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: var(--glow);
+    text-shadow:
+        0 0 2px color-mix(in srgb, var(--glow) 50%, white),
+        0 0 8px var(--glow),
+        0 0 18px color-mix(in srgb, var(--glow) 70%, transparent);
+    animation: accent-glow 4s ease-in-out infinite;
+}
+
+body.light .notif-title::before {
+    text-shadow:
+        0 0 2px color-mix(in srgb, var(--glow) 60%, white),
+        0 0 10px color-mix(in srgb, var(--glow) 60%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .notif-title::before {
+        animation: none;
+    }
+}
