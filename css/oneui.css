@@ -1708,3 +1708,35 @@ body.light .notif-title::before {
 .msg-sign .sig {
     font-size: 1.15rem;
 }
+
+
+/* Referenserna visar två rader, "Läs mer" fäller ut resten (js/references.js) */
+.bubble blockquote p.is-clamped {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+}
+
+.read-more {
+    margin: 0 0 0 10px;
+    padding: 0;
+    background: none;
+    border: none;
+    font: inherit;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+    cursor: pointer;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+.read-more:focus-visible {
+    outline: 2px solid var(--glow);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
