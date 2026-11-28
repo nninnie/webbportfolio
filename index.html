@@ -39,7 +39,7 @@
 <a href="#main" class="skip-link">Hoppa till innehåll</a>
 
 <header class="navbar">
-    <nav>
+    <nav aria-label="Huvudmeny">
 
         <!-- Väder till vänster -->
         <div class="weather-box">
@@ -49,7 +49,7 @@
 
 
         <!-- Hamburgarmeny (mobil) -->
-        <button class="hamburger" id="hamburgerBtn" aria-label="Öppna meny" aria-expanded="false" aria-controls="mobileMenu">
+        <button type="button" class="hamburger" id="hamburgerBtn" aria-label="Öppna meny" aria-expanded="false" aria-controls="mobileMenu">
             ☰
         </button>
 
@@ -67,12 +67,12 @@
         <div class="nav-controls">
 
     <!-- TEMA-KNAPP -->
-<button id="themeToggle" class="icon-btn" aria-label="Ändra tema">
+<button type="button" id="themeToggle" class="icon-btn" aria-label="Ändra tema">
     <span class="mode-icon">🌗</span>
 </button>
 
 <!-- SPRÅK BUTTON -->
-<button id="languageToggle" class="icon-btn" aria-label="Ändra språk">
+<button type="button" id="languageToggle" class="icon-btn" aria-label="Ändra språk">
     <span class="mode-icon">🌍</span>
 </button>
 
@@ -122,12 +122,12 @@
     width="400"
     height="400">
 
-            <label class="color-icon">
+            <span class="color-icon">
     🎨
     <input type="color" id="glowDarkPicker" aria-label="Välj glödfärg för mörkt läge">
 <input type="color" id="glowLightPicker" aria-label="Välj glödfärg för ljust läge">
 
-</label>
+</span>
 
         </div>
 
@@ -256,12 +256,13 @@
     <div id="projectModal" class="project-modal" role="dialog" aria-modal="true" aria-labelledby="projectTitle" aria-describedby="projectDescription">
         <div class="project-modal-content">
 
-            <button class="close-modal" aria-label="Stäng projektfönster">✕</button>
+            <button type="button" class="close-modal" aria-label="Stäng projektfönster">✕</button>
             
             <div id="projectTech" class="project-tech"></div>
 
             <div class="modal-divider"></div>
 
+            <!-- [html-validate-disable-next empty-heading -- fylls i av projects.js] -->
             <h3 id="projectTitle"></h3>
 
             <p id="projectDescription"></p>
@@ -572,7 +573,7 @@
 
     
     <p class="footer-credit">
-    <span class="copy-symbol">©</span> Designad & utvecklad av <span class="name">Ninnie Dahlström</span>
+    <span class="copy-symbol">©</span> Designad &amp; utvecklad av <span class="name">Ninnie Dahlström</span>
     </p>
 
 </footer>

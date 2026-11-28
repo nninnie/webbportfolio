@@ -1,0 +1,41 @@
+# Kontroll av varje PR: HTML-validering och Lighthouse.
+# Ger en grön bock eller ett rött kryss i PR:en innan man mergar.
+# Själva publiceringen på GitHub Pages påverkas inte.
+
+name: Kontroll
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:        # gör att den också kan köras för hand under Actions
+
+jobs:
+  html:
+    name: HTML-validering
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hämta koden
+        uses: actions/checkout@v4
+
+      - name: Installera Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Validera HTML (regler i .htmlvalidate.json)
+        run: npx --yes html-validate@8.18.2 index.html index-en.html
+
+  lighthouse:
+    name: Lighthouse
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hämta koden
+        uses: actions/checkout@v4
+
+      - name: Installera Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Kör Lighthouse (krav i lighthouserc.json)
+        run: npx --yes @lhci/cli@0.14.0 autorun
