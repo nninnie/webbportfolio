@@ -150,17 +150,16 @@ const projectsEn = {
     }
 };
 
-// Teknik → Devicon-klass (ikonerna laddas från devicon i <head>)
+// Teknik → ikonfil i image/skills (små SVG-filer i stället för hela devicon-fonten)
 const techIcons = {
-    "HTML": "devicon-html5-plain colored",
-    "CSS": "devicon-css3-plain colored",
-    "JavaScript": "devicon-javascript-plain colored",
-    "UI/UX": "devicon-figma-plain colored",
-    "API": "devicon-nodejs-plain colored",
-    "C#": "devicon-csharp-plain colored",
-    ".NET": "devicon-dotnetcore-plain colored",
-    "SQL": "devicon-microsoftsqlserver-plain colored",
-    "OOP": "devicon-code-plain colored"
+    "HTML": "html5.svg",
+    "CSS": "css3.svg",
+    "JavaScript": "javascript.svg",
+    "UI/UX": "figma.svg",
+    "API": "nodejs.svg",
+    "C#": "csharp.svg",
+    ".NET": "dotnetcore.svg",
+    "SQL": "microsoftsqlserver.svg"
 };
 
 
@@ -270,7 +269,7 @@ function initProjectModal(projects) {
 
             techEl.innerHTML = `
                 <div class="card-tech">
-                    ${project.tech.map((t) => `<i class="${techIcons[t] || ""}"></i>`).join("")}
+                    ${project.tech.filter((t) => techIcons[t]).map((t) => `<img src="image/skills/${techIcons[t]}" alt="${t}" width="24" height="24">`).join("")}
                 </div>
             `;
 

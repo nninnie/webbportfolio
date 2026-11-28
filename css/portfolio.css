@@ -300,11 +300,12 @@ body:not(.light) .icon-img.dark {
     flex-wrap: wrap;
 }
 
-.card-tech i {
-    font-size: 1.5rem;
+.card-tech img {
+    width: 1.5rem;
+    height: 1.5rem;
     opacity: 0.9;
     transition: 0.25s ease;
-    padding-top: 0.6rem;
+    margin-top: 0.6rem;
 }
 
 .modal-divider {

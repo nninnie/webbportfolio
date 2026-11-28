@@ -530,10 +530,31 @@ body.light .skill-icon {
     box-shadow: 0 0 20px color-mix(in srgb, var(--glow) 45%, transparent);
 }
 
-/* GitHub-ikonen är svart, så den blir vit i mörkt läge */
-.skill-icon .devicon-github-original {
+/* Ikonerna är små SVG-filer i image/skills */
+.skill-icon img,
+.skill-icon .mask-icon {
+    width: 2.1rem;
+    height: 2.1rem;
+}
+
+/* GitHub-ikonen är svart, så den följer textfärgen (vit i mörkt läge) */
+.skill-icon .mask-github {
     color: var(--oneui-text);
 }
+
+/* Enfärgade ikoner (GitHub, LinkedIn) ritas med en CSS-mask:
+   formen kommer från SVG-filen och färgen från textfärgen (currentColor) */
+.mask-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background: currentColor;
+    -webkit-mask: var(--icon) center / contain no-repeat;
+    mask: var(--icon) center / contain no-repeat;
+}
+
+.mask-github { --icon: url("../image/skills/github.svg"); }
+.mask-linkedin { --icon: url("../image/skills/linkedin.svg"); }
 
 
 /* ---------- PORTFOLIO = Senaste appar, en rad som scrollas i sidled ---------- */
@@ -1259,3 +1280,13 @@ body.light .notif-title::before {
     text-shadow: 0 0 6px color-mix(in srgb, var(--glow) 50%, transparent);
 }
 
+
+
+/* Mindre ikoner i Kunskaper på mobil */
+@media (max-width: 600px) {
+    .skill-icon img,
+    .skill-icon .mask-icon {
+        width: 1.7rem;
+        height: 1.7rem;
+    }
+}
