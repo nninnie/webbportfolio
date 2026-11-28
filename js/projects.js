@@ -6,8 +6,10 @@
 
 import { isEnglishPage } from "./utils.js";
 
+// icon = linjeikon i image/projects (Lucide, ISC-licens)
 const projectsSv = {
     "MyBank – Bankadministration": {
+        icon: "landmark",
         description: "Webbsystem för bankpersonal byggt i ASP.NET Core Razor Pages, EF Core och Identity.",
         fullDescription: "Admin- och kassörsystem för kunder, konton och transaktioner. Byggt i tre lager (webb, services, data access) med rollbaserad inloggning, validering på server och klient, AJAX-laddning av transaktioner och Response Caching.",
         github: "https://github.com/nninnie/Banksystem",
@@ -18,6 +20,7 @@ const projectsSv = {
     },
 
     "APIAnnons – REST API": {
+        icon: "braces",
         description: "REST API för annonser, byggt i ASP.NET Core Web API med EF Core och SQL Server.",
         fullDescription: "Ett API med grundfunktionerna för en köp- och säljsida: lista, hämta, skapa, uppdatera, ändra delar av och ta bort annonser. Klienten skickar DTO:er, svaren har rätt statuskoder och API:t testas och dokumenteras med Swagger UI.",
         github: "https://github.com/nninnie/APIAnnons",
@@ -28,6 +31,7 @@ const projectsSv = {
     },
 
     "Bra Surr – Forum": {
+        icon: "messages-square",
         description: "Diskussionsforum med trådar, citat och moderering, byggt i ASP.NET Core MVC och EF Core.",
         fullDescription: "Började som BlixtSchack i kursen Agil systemutveckling. Där låg fokus på att arbeta agilt i grupp, med sprintar och retrospektiv, och inte på att bli klara med appen, så vi hann bara bygga grunden. Efter kursen byggde jag färdigt forumet själv tillsammans med Claude (AI), för att lära mig hur man arbetar med en AI-assistent i ett riktigt projekt. Jag täppte säkerhetshål och lade till medlemmar, citat, sök, sidbläddring, moderering och tester, och jag gick igenom och godkände varje steg.",
         github: "https://github.com/nninnie/BraSurr",
@@ -38,6 +42,7 @@ const projectsSv = {
     },
 
     "Hotellbokningssystem": {
+        icon: "bed-double",
         description: "Konsolapp för hotellbokningar, byggt i C# och .NET med EF Core och SQL Server.",
         fullDescription: "Konsolapplikation för rum, gäster, bokningar, fakturor och betalningar. Databasen skapas med EF Core Code First, beroenden hanteras med Autofac och gränssnittet är byggt med Spectre.Console.",
         github: "https://github.com/nninnie/HotelBooking",
@@ -48,6 +53,7 @@ const projectsSv = {
     },
 
     "Guldkortet": {
+        icon: "credit-card",
         description: "Windows Forms-app som tar emot kortkoder över TCP och delar ut belöningar via SQL.",
         fullDescription: "Programmet är en TCP-server som tar emot koder från ett externt program (NOS_Export), kontrollerar kund och kort mot två SQL-databaser och skickar tillbaka en belöning. Nätverkstrafiken körs asynkront i bakgrunden så att fönstret aldrig fryser, och belöningarna är byggda med arv och polymorfism.",
         github: "https://github.com/nninnie/Guldkortet",
@@ -58,6 +64,7 @@ const projectsSv = {
     },
 
     "Filmregister": {
+        icon: "clapperboard",
         description: "Filmregister byggt i C# med klassisk dataåtkomst via ADO.NET och SQL Server.",
         fullDescription: "Konsolapplikation där man kan visa, söka, lägga till, uppdatera och ta bort filmer. Dataåtkomsten är skriven med ADO.NET och parametriserade SQL-frågor i ett repository-lager.",
         github: "https://github.com/nninnie/ADONet-MovieRegister",
@@ -68,6 +75,7 @@ const projectsSv = {
     },
 
     "Kassasystem": {
+        icon: "shopping-cart",
         description: "Kassasystem för en frukthandel, byggt i C# och .NET med objektorienterad design.",
         fullDescription: "Konsolapplikation där kassören slår in varor med PLU-kod och antal/vikt, ser kundvagnen och får ett kvitto med kampanjrabatter. Produkter, kampanjer och kvitton sparas i textfiler, och koden är uppdelad i controllers, services och dataklasser.",
         github: "https://github.com/nninnie/CashRegisterSystem",
@@ -80,6 +88,7 @@ const projectsSv = {
 
 const projectsEn = {
     "MyBank – Bank administration": {
+        icon: "landmark",
         description: "Web system for bank staff built with ASP.NET Core Razor Pages, EF Core and Identity.",
         fullDescription: "Admin and cashier system for customers, accounts and transactions. Built in three layers (web, services, data access) with role-based login, server and client validation, AJAX-loaded transactions and Response Caching.",
         github: "https://github.com/nninnie/Banksystem",
@@ -90,6 +99,7 @@ const projectsEn = {
     },
 
     "APIAnnons – REST API": {
+        icon: "braces",
         description: "REST API for classified ads, built with ASP.NET Core Web API, EF Core and SQL Server.",
         fullDescription: "An API with the core features of a buy-and-sell site: list, get, create, update, partially update and delete ads. The client sends DTOs, responses use the correct status codes and the API is tested and documented with Swagger UI.",
         github: "https://github.com/nninnie/APIAnnons",
@@ -100,6 +110,7 @@ const projectsEn = {
     },
 
     "Bra Surr – Forum": {
+        icon: "messages-square",
         description: "Discussion forum with threads, quotes and moderation, built with ASP.NET Core MVC and EF Core.",
         fullDescription: "Started as BlixtSchack in an agile development course. The focus there was on working agile as a team, with sprints and retrospectives, not on finishing the app, so we only had time to build the foundation. After the course I finished the forum myself together with Claude (AI), to learn how to work with an AI assistant in a real project. I closed security holes and added members, quotes, search, paging, moderation and tests, and I reviewed and approved every step.",
         github: "https://github.com/nninnie/BraSurr",
@@ -110,6 +121,7 @@ const projectsEn = {
     },
 
     "Hotel Booking System": {
+        icon: "bed-double",
         description: "Console app for hotel bookings, built in C# and .NET with EF Core and SQL Server.",
         fullDescription: "Console application for rooms, guests, bookings, invoices and payments. The database is created with EF Core Code First, dependencies are handled with Autofac and the UI is built with Spectre.Console.",
         github: "https://github.com/nninnie/HotelBooking",
@@ -120,6 +132,7 @@ const projectsEn = {
     },
 
     "Gold Card": {
+        icon: "credit-card",
         description: "Windows Forms app that receives card codes over TCP and hands out rewards via SQL.",
         fullDescription: "The program is a TCP server that receives codes from an external program (NOS_Export), checks customer and card against two SQL databases and sends back a reward. Network traffic runs asynchronously in the background so the window never freezes, and the rewards are built with inheritance and polymorphism.",
         github: "https://github.com/nninnie/Guldkortet",
@@ -130,6 +143,7 @@ const projectsEn = {
     },
 
     "Movie Register": {
+        icon: "clapperboard",
         description: "Movie register built in C# with classic data access using ADO.NET and SQL Server.",
         fullDescription: "Console application for listing, searching, adding, updating and deleting movies. Data access is written with ADO.NET and parameterized SQL queries in a repository layer.",
         github: "https://github.com/nninnie/ADONet-MovieRegister",
@@ -140,6 +154,7 @@ const projectsEn = {
     },
 
     "Cash Register System": {
+        icon: "shopping-cart",
         description: "Cash register system for a fruit store, built in C# and .NET with object-oriented design.",
         fullDescription: "Console application where the cashier enters items by PLU code and quantity/weight, sees the cart and gets a receipt with campaign discounts. Products, campaigns and receipts are stored in text files, and the code is split into controllers, services and data classes.",
         github: "https://github.com/nninnie/CashRegisterSystem",
@@ -184,7 +199,7 @@ function renderProjectCards(projects) {
 
         card.innerHTML = `
             <div class="win-head">
-                <span class="win-icon" aria-hidden="true"><img src="image/icons/folder.png" alt="" class="folder-icon"></span>
+                <span class="win-icon" aria-hidden="true"><span class="proj-glyph" style="--icon: url(../image/projects/${data.icon}.svg)"></span></span>
                 <span class="folder-title">${title}</span>
             </div>
 
