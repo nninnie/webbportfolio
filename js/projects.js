@@ -1,21 +1,12 @@
 /* -----------------------------------------
    📁 PORTFOLIO – projektdata, projektkort och projekt-popup (modal)
    Lägg till ett projekt = lägg till ett objekt i listan nedan.
+   Ordningen är den en arbetsgivare bör se dem i: det viktigaste först.
 ----------------------------------------- */
 
 import { isEnglishPage } from "./utils.js";
 
 const projectsSv = {
-    "Bra Surr – Forum": {
-        description: "Svenskt diskussionsforum i stil med Flashback, byggt i ASP.NET Core MVC med EF Core, SQLite och Identity.",
-        fullDescription: "Började som ett grupparbete i Agil systemutveckling. Jag gjorde det sedan till mitt eget med hjälp av Claude: täppte säkerhetshål och byggde medlemmar, numrerade inlägg med citat, sök, sidbläddring och moderering. Designen är ett eget mörkt tema utan ramverk.",
-        github: "https://github.com/nninnie/BraSurr",
-        demo: "https://brasurr-ninnie-bkf7g5ecevacb8f3.swedencentral-01.azurewebsites.net",
-        tech: ["C#", ".NET", "SQL"],
-        features: ["ASP.NET Core MVC + EF Core (SQLite)", "Identity med rollerna Admin/Moderator", "Citat, sök och sidbläddring", "Fästa, låsa och anmäla inlägg", "28 tester med MSTest"],
-        img: "image/portfolio/bra-surr.webp"
-    },
-
     "MyBank – Bankadministration": {
         description: "Webbsystem för bankpersonal byggt i ASP.NET Core Razor Pages, EF Core och Identity.",
         fullDescription: "Admin- och kassörsystem för kunder, konton och transaktioner. Byggt i tre lager (webb, services, data access) med rollbaserad inloggning, validering på server och klient, AJAX-laddning av transaktioner och Response Caching.",
@@ -34,6 +25,16 @@ const projectsSv = {
         tech: ["C#", ".NET", "SQL"],
         features: ["ASP.NET Core Web API (controllers)", "EF Core Code First", "GET, POST, PUT, PATCH och DELETE", "DTO:er och rätt statuskoder (201, 204, 400, 404)", "Swagger UI"],
         img: "image/portfolio/apiannons.webp"
+    },
+
+    "Bra Surr – Forum": {
+        description: "Svenskt diskussionsforum i stil med Flashback, byggt i ASP.NET Core MVC med EF Core, SQLite och Identity.",
+        fullDescription: "Började som ett grupparbete i Agil systemutveckling. Jag gjorde det sedan till mitt eget med hjälp av Claude: täppte säkerhetshål och byggde medlemmar, numrerade inlägg med citat, sök, sidbläddring och moderering. Designen är ett eget mörkt tema utan ramverk.",
+        github: "https://github.com/nninnie/BraSurr",
+        demo: "https://brasurr-ninnie-bkf7g5ecevacb8f3.swedencentral-01.azurewebsites.net",
+        tech: ["C#", ".NET", "SQL"],
+        features: ["ASP.NET Core MVC + EF Core (SQLite)", "Identity med rollerna Admin/Moderator", "Citat, sök och sidbläddring", "Fästa, låsa och anmäla inlägg", "28 tester med MSTest"],
+        img: "image/portfolio/bra-surr.webp"
     },
 
     "Hotellbokningssystem": {
@@ -78,16 +79,6 @@ const projectsSv = {
 };
 
 const projectsEn = {
-    "Bra Surr – Forum": {
-        description: "Swedish discussion forum in the style of Flashback, built with ASP.NET Core MVC, EF Core, SQLite and Identity.",
-        fullDescription: "Started as a group project in an agile development course. I then made it my own with help from Claude: closed security holes and built members, numbered posts with quotes, search, paging and moderation. The design is my own dark theme without a framework.",
-        github: "https://github.com/nninnie/BraSurr",
-        demo: "https://brasurr-ninnie-bkf7g5ecevacb8f3.swedencentral-01.azurewebsites.net",
-        tech: ["C#", ".NET", "SQL"],
-        features: ["ASP.NET Core MVC + EF Core (SQLite)", "Identity with Admin/Moderator roles", "Quotes, search and paging", "Pin, lock and report posts", "28 tests with MSTest"],
-        img: "image/portfolio/bra-surr.webp"
-    },
-
     "MyBank – Bank administration": {
         description: "Web system for bank staff built with ASP.NET Core Razor Pages, EF Core and Identity.",
         fullDescription: "Admin and cashier system for customers, accounts and transactions. Built in three layers (web, services, data access) with role-based login, server and client validation, AJAX-loaded transactions and Response Caching.",
@@ -106,6 +97,16 @@ const projectsEn = {
         tech: ["C#", ".NET", "SQL"],
         features: ["ASP.NET Core Web API (controllers)", "EF Core Code First", "GET, POST, PUT, PATCH and DELETE", "DTOs and correct status codes (201, 204, 400, 404)", "Swagger UI"],
         img: "image/portfolio/apiannons.webp"
+    },
+
+    "Bra Surr – Forum": {
+        description: "Swedish discussion forum in the style of Flashback, built with ASP.NET Core MVC, EF Core, SQLite and Identity.",
+        fullDescription: "Started as a group project in an agile development course. I then made it my own with help from Claude: closed security holes and built members, numbered posts with quotes, search, paging and moderation. The design is my own dark theme without a framework.",
+        github: "https://github.com/nninnie/BraSurr",
+        demo: "https://brasurr-ninnie-bkf7g5ecevacb8f3.swedencentral-01.azurewebsites.net",
+        tech: ["C#", ".NET", "SQL"],
+        features: ["ASP.NET Core MVC + EF Core (SQLite)", "Identity with Admin/Moderator roles", "Quotes, search and paging", "Pin, lock and report posts", "28 tests with MSTest"],
+        img: "image/portfolio/bra-surr.webp"
     },
 
     "Hotel Booking System": {
