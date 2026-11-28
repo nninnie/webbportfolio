@@ -28,7 +28,7 @@ const projectsSv = {
     },
 
     "Bra Surr – Forum": {
-        description: "Svenskt forum i stil med Flashback. Började som grupparbete och är färdigbyggt av mig i ASP.NET Core MVC med EF Core, SQLite och Identity.",
+        description: "Svenskt diskussionsforum med trådar, citat, sök och moderering. Började som grupparbete och är färdigbyggt av mig i ASP.NET Core MVC med EF Core, SQLite och Identity.",
         fullDescription: "Började som BlixtSchack i kursen Agil systemutveckling. Där låg fokus på att arbeta agilt i grupp, med sprintar och retrospektiv, och inte på att bli klara med appen, så vi hann bara bygga grunden. Efter kursen byggde jag färdigt forumet själv tillsammans med Claude (AI), för att lära mig hur man arbetar med en AI-assistent i ett riktigt projekt. Jag täppte säkerhetshål och lade till medlemmar, citat, sök, sidbläddring, moderering och tester, och jag gick igenom och godkände varje steg.",
         github: "https://github.com/nninnie/BraSurr",
         demo: "https://brasurr-ninnie-bkf7g5ecevacb8f3.swedencentral-01.azurewebsites.net",
@@ -100,7 +100,7 @@ const projectsEn = {
     },
 
     "Bra Surr – Forum": {
-        description: "Swedish forum in the style of Flashback. Started as a group project and finished by me in ASP.NET Core MVC with EF Core, SQLite and Identity.",
+        description: "Swedish discussion forum with threads, quotes, search and moderation. Started as a group project and finished by me in ASP.NET Core MVC with EF Core, SQLite and Identity.",
         fullDescription: "Started as BlixtSchack in an agile development course. The focus there was on working agile as a team, with sprints and retrospectives, not on finishing the app, so we only had time to build the foundation. After the course I finished the forum myself together with Claude (AI), to learn how to work with an AI assistant in a real project. I closed security holes and added members, quotes, search, paging, moderation and tests, and I reviewed and approved every step.",
         github: "https://github.com/nninnie/BraSurr",
         demo: "https://brasurr-ninnie-bkf7g5ecevacb8f3.swedencentral-01.azurewebsites.net",
