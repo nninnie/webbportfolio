@@ -151,33 +151,75 @@ function renderProjectCards(projects) {
 
     projectsGrid.innerHTML = "";
 
-    // Object.entries ger [titel, data] för varje projekt
+    // Object.entries ger [titel, data] för varje projekt.
+    // Varje projekt blir ett app-fönster i raden "Senaste appar".
     Object.entries(projects).forEach(([title, data]) => {
         const card = document.createElement("div");
-        card.className = "folder-item project-card";
+        card.className = "folder-item win";
+        card.tabIndex = 0;                      // går att nå med tangentbordet
+        card.setAttribute("role", "button");
+        card.setAttribute("aria-label", `${title}, ${projectButtonText.toLowerCase()}`);
+
+        const tags = data.tech.map((tech) => `<span>${tech}</span>`).join("");
 
         card.innerHTML = `
-            <div class="project-icon">
-                <img src="image/icons/folder.png" alt="folder" class="folder-icon">
+            <div class="win-head">
+                <span class="win-icon" aria-hidden="true"><img src="image/icons/folder.png" alt="" class="folder-icon"></span>
+                <span class="folder-title">${title}</span>
             </div>
 
-            <span class="folder-title">${title}</span>
-            <p>${data.description}</p>
-
-            <!-- Skärmbilden ligger i en ram som följer temat (CSS: .project-shot).
-                 Två versioner: mörk bakgrund (filnamn + "-dark") och ljus. CSS visar rätt. -->
-            <div class="project-shot">
-                <img src="${data.img.replace(".webp", "-dark.webp")}" alt="${title}" class="image-project img-dark" loading="lazy">
-                <img src="${data.img}" alt="${title}" class="image-project img-light" loading="lazy">
+            <div class="win-body glass">
+                <!-- Två skärmbilder: mörk (filnamn + "-dark") och ljus. CSS visar rätt för temat. -->
+                <div class="win-shot">
+                    <img src="${data.img.replace(".webp", "-dark.webp")}" alt="" class="img-dark" loading="lazy">
+                    <img src="${data.img}" alt="" class="img-light" loading="lazy">
+                </div>
+                <div class="win-meta">
+                    <p>${data.description}</p>
+                    <div class="win-tags">${tags}</div>
+                    <p class="project-click">${projectButtonText} <span class="arrow">→</span></p>
+                </div>
             </div>
-
-            <p class="project-click">${projectButtonText} <span class="arrow">→</span></p>
-
-            <div class="ui-card-accent"></div>
         `;
+
+        // Enter och mellanslag öppnar projektet, precis som ett klick
+        card.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                card.click();
+            }
+        });
 
         projectsGrid.appendChild(card);
     });
+}
+
+
+/* ---------- ↔️ Raden med projekt: pilarna ---------- */
+
+function initProjectRail() {
+    const rail = document.getElementById("projectsGrid");
+    const buttons = document.querySelectorAll(".rail-btn");
+    if (!rail || buttons.length < 2) return;
+
+    // Pilarna scrollar ett kort åt gången
+    buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const card = rail.querySelector(".win");
+            const step = card ? card.getBoundingClientRect().width + 22 : rail.clientWidth;
+            rail.scrollBy({ left: step * Number(btn.dataset.dir), behavior: "smooth" });
+        });
+    });
+
+    // En pil är avstängd när man redan är i början eller slutet av raden
+    function updateButtons() {
+        buttons[0].disabled = rail.scrollLeft <= 2;
+        buttons[1].disabled = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 2;
+    }
+
+    rail.addEventListener("scroll", () => requestAnimationFrame(updateButtons), { passive: true });
+    window.addEventListener("resize", updateButtons);
+    updateButtons();
 }
 
 
@@ -250,4 +292,5 @@ export function initProjects() {
 
     renderProjectCards(projects);
     initProjectModal(projects);
+    initProjectRail();
 }

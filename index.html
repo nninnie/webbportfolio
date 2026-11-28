@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/theme-light.css">
     <link rel="stylesheet" href="css/premium.css">
+    <link rel="stylesheet" href="css/oneui.css">
     <!-- Typsnitt och ikoner: ansluter tidigt, en enda förfrågan för typsnitten,
          och ikonerna laddas utan att blockera att sidan visas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,256 +110,235 @@
 <main id="main" class="page-wrapper">
 
 
-<!-- HERO -->
-<section class="hero">
+<!-- HERO: Samsung-låsskärmen -->
+<section class="lockscreen" aria-label="Introduktion">
+    <div class="lock glass">
 
-    <div class="hero-card">
-        <div class="hero-image-wrapper">
-
-            <img 
-    src="image/portrait-ninnie-dahlstrom.webp" 
-    class="portrait"
-    alt="Porträttbild på Ninnie Dahlström"
-    width="400"
-    height="400">
-
-            <span class="color-icon">
-    🎨
-    <input type="color" id="glowDarkPicker" aria-label="Välj glödfärg för mörkt läge">
-<input type="color" id="glowLightPicker" aria-label="Välj glödfärg för ljust läge">
-
-</span>
-
-        </div>
-
-        <div class="hero-text">
-            <h1>Ninnie Dahlström</h1>
+        <div class="lock-text">
+            <p class="lock-date" id="heroDate">Stockholm</p>
+            <h1><span class="lock-first">Ninnie</span> <span class="lock-last">Dahlström</span></h1>
             <p class="hero-role">Systemutvecklare .NET • Stockholm</p>
 
-            <p id="skills-hero-text" class="skills-hero">Backend • C# • .NET • SQL • API-utveckling</p>
-            
-            <div class="social-media-hero">
-                    <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/in/ninnie-dahlstrom" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <img src="image/icons/linkedin.svg" alt="LinkedIn - Ninnie Dahlström" width="24" height="24">
-        </a>
-
-        <!-- GitHub -->
-        <a href="https://github.com/nninnie" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <img src="image/icons/GitHub.png" alt="Github - Ninnie Dahlström" class="icon-img light github" width="24" height="24">
-            <img src="image/icons/GitHub-darkmode.png" alt="Github - Ninnie Dahlström" class="icon-img dark github" width="24" height="24">
-        </a>
-        </div>
-    </div>
-</div>   
-
-    <div class="ui-card-accent"></div>
-
-    <div class="hero-buttons">
-        <a class="btn orb orange" aria-label="Ladda ner CV" href="image/cv-ninnie-dahlstrom.pdf" download>
-            <span><img src="image/icons/download.png" class="btn-icon" width="24" height="24" alt="">Ladda ner CV</span>
-        </a>
-
-        <a class="btn orb pink" aria-label="Se portfolio" href="#portfolio">
-            <span><img src="image/icons/folder.png" class="btn-icon" width="24" height="24" alt="">Se Portfolio</span>
-        </a>
-    </div>
-</section>
-
-
-
-<!-- ABOUT -->
-<section id="about" class="sectionabout">
-    <h2><span class="accent">/</span> Om mig</h2>
-
-    <div class="about-wrapper">
-
-        <div class="about-card">
-            <div class="ui-card-accent"></div>
-
-            <p>
-                Jag är en junior systemutvecklare inom <span class="key-pink">.NET</span>  
-                under utbildning med fokus på backend, API-utveckling och fullstack.
-                Jag arbetar med <span class="key-orange">C#</span>, SQL, CRUD och SOLID 
-                för att bygga strukturerade och skalbara lösningar, och kombinerar det 
-                med modern frontend för att skapa tydliga och användarvänliga gränssnitt.
-                <br><br>
-                Som <span class="key-purple">problemlösare</span> drivs jag av ren kod, 
-                smart arkitektur och att förstå hur system hänger ihop. Med intresse för 
-                <span class="key-blue">UX/UI</span>, AI och webbutveckling strävar jag 
-                efter att skapa lösningar som är både logiska, moderna och intuitiva.
-            </p>
-        </div>
-
-        <div class="about-education">
-            <div class="ui-card-accent"></div>
-
-            <h3>Utbildning</h3>
-
-            <div class="edu-item">
-                <strong>Systemutvecklare .NET</strong>
-                <span class="edu-school">YH Akademin</span>
-                <span class="edu-year">2026-2027</span>
+            <!-- Aviseringen: skrivmaskinstexten fylls i av hero-typing.js -->
+            <div class="notif">
+                <span class="notif-icon" aria-hidden="true">&lt;/&gt;</span>
+                <div>
+                    <span class="notif-title">Fokus just nu</span>
+                    <p id="skills-hero-text" class="skills-hero">Backend • C# • .NET • SQL • API-utveckling</p>
+                </div>
             </div>
         </div>
 
+        <div class="hero-image-wrapper">
+            <img src="image/portrait-ninnie-dahlstrom.webp" class="portrait" alt="Porträttbild på Ninnie Dahlström" width="400" height="400">
+            <span class="color-icon">
+                🎨
+                <input type="color" id="glowDarkPicker" aria-label="Välj glödfärg för mörkt läge">
+                <input type="color" id="glowLightPicker" aria-label="Välj glödfärg för ljust läge">
+            </span>
+        </div>
+
+        <!-- Genvägarna i låsskärmens hörn -->
+        <div class="lock-shortcuts">
+            <a href="https://www.linkedin.com/in/ninnie-dahlstrom" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <img src="image/icons/linkedin.svg" alt="" width="24" height="24">
+            </a>
+            <a href="#about" class="swipe"><span aria-hidden="true">⌃</span>Svep upp för att se mer</a>
+            <a href="https://github.com/nninnie" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <img src="image/icons/GitHub.png" alt="" class="icon-img light github" width="24" height="24">
+                <img src="image/icons/GitHub-darkmode.png" alt="" class="icon-img dark github" width="24" height="24">
+            </a>
+        </div>
     </div>
 </section>
 
 
 
-<!-- SKILLS -->
-<section id="skills" class="section skills-section">
-    
+<!-- OM MIG: profil i Kontakter -->
+<section id="about" class="oneui-section">
+    <div class="oneui-head">
+        <h2><span class="accent">/</span> Om mig</h2>
+    </div>
 
-    <div class="skills-wrapper">
+    <div class="profile">
+        <div class="glass pcard">
+            <img src="image/portrait-ninnie-dahlstrom.webp" alt="" width="128" height="128" loading="lazy">
+            <h3>Ninnie Dahlström</h3>
+            <p>Systemutvecklare .NET · Stockholm</p>
+            <div class="pactions">
+                <a href="image/cv-ninnie-dahlstrom.pdf" download><span class="pa-icon" aria-hidden="true">📄</span>CV</a>
+                <a href="https://github.com/nninnie" target="_blank" rel="noopener noreferrer"><span class="pa-icon" aria-hidden="true"><i class="devicon-github-original"></i></span>GitHub</a>
+                <a href="https://www.linkedin.com/in/ninnie-dahlstrom" target="_blank" rel="noopener noreferrer"><span class="pa-icon" aria-hidden="true"><i class="devicon-linkedin-plain"></i></span>LinkedIn</a>
+            </div>
+        </div>
+
+        <div>
+            <div class="glass about-text">
+                <p>Jag är en junior systemutvecklare inom <span class="key-pink">.NET</span> under utbildning med fokus på backend, API-utveckling och fullstack. Jag arbetar med <span class="key-orange">C#</span>, SQL, CRUD och SOLID för att bygga strukturerade och skalbara lösningar, och kombinerar det med modern frontend för att skapa tydliga och användarvänliga gränssnitt.</p>
+                <p>Som <span class="key-purple">problemlösare</span> drivs jag av ren kod, smart arkitektur och att förstå hur system hänger ihop. Med intresse för <span class="key-blue">UX/UI</span>, AI och webbutveckling strävar jag efter att skapa lösningar som är både logiska, moderna och intuitiva.</p>
+            </div>
+
+            <div class="glass prows">
+                <div class="prow"><span class="prow-icon" aria-hidden="true">🎓</span><div><strong>Systemutvecklare .NET</strong><span>YH Akademin · 2026–2027</span></div></div>
+                <div class="prow"><span class="prow-icon" aria-hidden="true">📍</span><div><strong>Stockholm</strong><span>Plats</span></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- KUNSKAPER: tre mappar på hemskärmen -->
+<section id="skills" class="oneui-section">
+    <div class="oneui-head">
         <h2><span class="accent">/</span> Kunskaper</h2>
-        
-        <div class="skills-card">
-            <div class="ui-card-accent"></div>
-
-            <p>Här är de tekniker och verktyg jag arbetar mest med inom <span class="key-pink">.NET</span>, webbutveckling och <span class="key-blue">UX/UI</span>.</p>
-
-            <ul class="skills-list icons">
-
-                <!-- DEVIOCN - IKONER -->
-                <li><i class="devicon-csharp-plain colored" aria-hidden="true"></i><span>C# / .NET</span></li>
-                <li><i class="devicon-microsoftsqlserver-plain colored" aria-hidden="true"></i><span>SQL Server</span></li>
-                <li><i class="devicon-postman-plain colored" aria-hidden="true"></i><span>REST API</span></li>
-
-                <li><i class="devicon-html5-plain colored" aria-hidden="true"></i><span>HTML5</span></li>
-                <li><i class="devicon-css3-plain colored" aria-hidden="true"></i><span>CSS3</span></li>
-                <li><i class="devicon-javascript-plain colored" aria-hidden="true"></i><span>JavaScript</span></li>
-
-                <li><i class="devicon-git-plain colored" aria-hidden="true"></i><span>Git</span></li>
-                <li><i class="devicon-github-original github-icon" aria-hidden="true"></i><span>GitHub</span></li>
-                <li><i class="devicon-visualstudio-plain colored" aria-hidden="true"></i><span>Visual Studio</span></li>
-                <li><i class="devicon-vscode-plain colored" aria-hidden="true"></i><span>VS Code</span></li>
-
-            </ul>
-        </div>
     </div>
-</section>
 
+    <!-- Glasramen runt korten, som datorn runt kontaktdelen -->
+    <div class="oneui-frame glass">
+        <p class="oneui-intro">Det jag arbetar mest med inom <span class="key-pink">.NET</span>, webbutveckling och <span class="key-blue">UX/UI</span>.</p>
 
-<!-- PORTFOLIO -->
-<section id="portfolio" class="sectionproject">
-    
-    <div class="portfolio-wrapper">
-
-        <h2><span class="accent">/</span> Portfolio</h2>
-
-        <div class="projects-card" id="projectsGrid"></div>
-
-    </div> 
-
-    <!-- PROJECT MODAL -->
-    <div id="projectModal" class="project-modal" role="dialog" aria-modal="true" aria-labelledby="projectTitle" aria-describedby="projectDescription">
-        <div class="project-modal-content">
-
-            <button type="button" class="close-modal" aria-label="Stäng projektfönster">✕</button>
-            
-            <div id="projectTech" class="project-tech"></div>
-
-            <div class="modal-divider"></div>
-
-            <!-- [html-validate-disable-next empty-heading -- fylls i av projects.js] -->
-            <h3 id="projectTitle"></h3>
-
-            <p id="projectDescription"></p>
-
-            <ul id="features"></ul>
-
-
-            <div class="project-links">
-                <a id="githubLink" href="#" target="_blank" rel="noopener noreferrer" aria-label="Öppna projekt GitHub">
-                    <img class="icon-img dark" src="image/icons/GitHub-darkmode.png" alt="GitHub" width="20" height="20">
-                    <img class="icon-img light" src="image/icons/GitHub.png" alt="GitHub" width="20" height="20">
-                    GitHub
-                </a>
-
-                <a id="demoLink" href="#" target="_blank" rel="noopener noreferrer" aria-label="Öppna projekt ReadMe">
-                    <img class="icon-img dark" src="image/icons/GitHub-darkmode.png" alt="ReadMe" width="20" height="20">
-                    <img class="icon-img light" src="image/icons/GitHub.png" alt="ReadMe" width="20" height="20">
-                    ReadMe
-                </a>
+        <div class="folders">
+            <div class="glass folder">
+                <div class="folder-head"><span class="folder-icon-box" aria-hidden="true">⚙️</span><div><h3>Backend</h3><span>3 appar</span></div></div>
+                <ul class="skill-apps">
+                    <li><span class="skill-icon"><i class="devicon-csharp-plain colored" aria-hidden="true"></i></span>C# / .NET</li>
+                    <li><span class="skill-icon"><i class="devicon-microsoftsqlserver-plain colored" aria-hidden="true"></i></span>SQL Server</li>
+                    <li><span class="skill-icon"><i class="devicon-postman-plain colored" aria-hidden="true"></i></span>REST API</li>
+                </ul>
             </div>
 
-            <!-- Visas i stället för länkarna när projektet har isPrivate: true -->
-            <p id="privateNote" class="private-note" hidden>🔒 Kod visas på begäran</p>
+            <div class="glass folder">
+                <div class="folder-head"><span class="folder-icon-box" aria-hidden="true">🎨</span><div><h3>Frontend</h3><span>3 appar</span></div></div>
+                <ul class="skill-apps">
+                    <li><span class="skill-icon"><i class="devicon-html5-plain colored" aria-hidden="true"></i></span>HTML5</li>
+                    <li><span class="skill-icon"><i class="devicon-css3-plain colored" aria-hidden="true"></i></span>CSS3</li>
+                    <li><span class="skill-icon"><i class="devicon-javascript-plain colored" aria-hidden="true"></i></span>JavaScript</li>
+                </ul>
+            </div>
 
+            <div class="glass folder wide">
+                <div class="folder-head"><span class="folder-icon-box" aria-hidden="true">🧰</span><div><h3>Verktyg</h3><span>4 appar</span></div></div>
+                <ul class="skill-apps">
+                    <li><span class="skill-icon"><i class="devicon-git-plain colored" aria-hidden="true"></i></span>Git</li>
+                    <li><span class="skill-icon"><i class="devicon-github-original" aria-hidden="true"></i></span>GitHub</li>
+                    <li><span class="skill-icon"><i class="devicon-visualstudio-plain colored" aria-hidden="true"></i></span>Visual Studio</li>
+                    <li><span class="skill-icon"><i class="devicon-vscode-plain colored" aria-hidden="true"></i></span>VS Code</li>
+                </ul>
+            </div>
         </div>
     </div>
+</section>
 
+
+<!-- PORTFOLIO: Senaste appar, en rad som scrollas i sidled -->
+<section id="portfolio" class="oneui-section">
+    <div class="oneui-head">
+        <h2><span class="accent">/</span> Portfolio</h2>
+    </div>
+
+    <!-- Glasramen runt korten, som datorn runt kontaktdelen -->
+    <div class="oneui-frame glass">
+        <!-- Projektkorten skapas av projects.js -->
+        <div class="rail" id="projectsGrid" tabindex="0" aria-label="Projekt, scrolla i sidled"></div>
+
+        <div class="rail-nav">
+            <button type="button" class="rail-btn" data-dir="-1" aria-label="Föregående projekt">‹</button>
+            <button type="button" class="rail-btn" data-dir="1" aria-label="Nästa projekt">›</button>
+        </div>
+
+        <!-- PROJECT MODAL -->
+        <div id="projectModal" class="project-modal" role="dialog" aria-modal="true" aria-labelledby="projectTitle" aria-describedby="projectDescription">
+            <div class="project-modal-content">
+
+                <button type="button" class="close-modal" aria-label="Stäng projektfönster">✕</button>
+            
+                <div id="projectTech" class="project-tech"></div>
+
+                <div class="modal-divider"></div>
+
+                <!-- [html-validate-disable-next empty-heading -- fylls i av projects.js] -->
+                <h3 id="projectTitle"></h3>
+
+                <p id="projectDescription"></p>
+
+                <ul id="features"></ul>
+
+
+                <div class="project-links">
+                    <a id="githubLink" href="#" target="_blank" rel="noopener noreferrer" aria-label="Öppna projekt GitHub">
+                        <img class="icon-img dark" src="image/icons/GitHub-darkmode.png" alt="GitHub" width="20" height="20">
+                        <img class="icon-img light" src="image/icons/GitHub.png" alt="GitHub" width="20" height="20">
+                        GitHub
+                    </a>
+
+                    <a id="demoLink" href="#" target="_blank" rel="noopener noreferrer" aria-label="Öppna projekt ReadMe">
+                        <img class="icon-img dark" src="image/icons/GitHub-darkmode.png" alt="ReadMe" width="20" height="20">
+                        <img class="icon-img light" src="image/icons/GitHub.png" alt="ReadMe" width="20" height="20">
+                        ReadMe
+                    </a>
+                </div>
+
+                <!-- Visas i stället för länkarna när projektet har isPrivate: true -->
+                <p id="privateNote" class="private-note" hidden>🔒 Kod visas på begäran</p>
+
+            </div>
+        </div>
+    </div>
 </section>
 
 
 
 
-<!-- REFERENCES -->
-<section id="reference" class="section-references">
+<!-- REFERENSER: Meddelanden -->
+<section id="reference" class="oneui-section">
+    <div class="oneui-head">
+        <h2><span class="accent">/</span> Referenser</h2>
+    </div>
 
-<div class="references-wrapper">
-    <h2 class="section-title"><span class="accent">/</span> Referenser</h2>
+    <div class="glass chat">
+        <div class="chat-head">
+            <span class="msg-avatar av-group" aria-hidden="true">4</span>
+            <div><strong>Referenser</strong><span>Robin, Jill, Lina och David</span></div>
+        </div>
 
-        <div class="references-slider">
+        <div class="thread">
+            <p class="chat-chip">ICA</p>
+            <article class="msg">
+                <span class="msg-avatar av-1" aria-hidden="true">RO</span>
+                <div class="bubble">
+                    <blockquote><p>”Ninnie hade ett stort ansvar i butiken och höll alltid många bollar i luften utan att tappa någon. Hon är snabb, lösningsorienterad och har en naturlig känsla för både kunder och kollegor. En pålitlig medarbetare som gör hela teamet bättre.”</p></blockquote>
+                    <p class="msg-sign"><span class="sig">Robin Ollenberg</span>, Butikschef, ICA</p>
+                </div>
+            </article>
 
-        <div class="references-track">
+            <p class="chat-chip">YH Akademin</p>
+            <article class="msg">
+                <span class="msg-avatar av-2" aria-hidden="true">JJ</span>
+                <div class="bubble">
+                    <blockquote><p>”Ninnie är smart, lugn och väldigt stabil i grupparbeten. Hon har en fin förmåga att se helheten, ta initiativ när det behövs och arbeta effektivt utan att stressa. Jag uppskattar hennes tydlighet och hur hon skapar trygghet genom sin överblick.”</p></blockquote>
+                    <p class="msg-sign"><span class="sig">Jill Jeginder Hilmersson</span>, Klasskamrat</p>
+                </div>
+            </article>
 
-      <div class="reference-card">
-        <div class="ui-card-accent"></div>
-        <h3 class="reference-title">Robin Ollenberg - Butikschef, ICA</h3>
-        <p class="reference-text">
-          ”Jag har varit Ninnies butikschef på ICA och kan varmt rekommendera henne.
-          Hon hade ett stort ansvar i butiken och hanterade alltid många bollar i
-          luften på ett imponerande sätt. Ninnie har en naturlig känsla för
-          kundkontakt, är snabb, lösningsorienterad och väldigt hjälpsam både mot
-          kollegor och kunder. Hon är mångsidig, pålitlig och en sådan medarbetare
-          man alltid kan lita på. Ninnie bidrar till en positiv arbetsmiljö och gör
-          att teamet fungerar bättre.”
-        </p>
-        <p class="reference-signature">
-          - <strong>Robin Ollenberg</strong>, Butikschef
-        </p>
-      </div>
+            <article class="msg">
+                <span class="msg-avatar av-3" aria-hidden="true">LS</span>
+                <div class="bubble">
+                    <blockquote><p>”Ninnie är en trygg och närvarande person som alltid levererar, ofta med det lilla extra. Hon kombinerar professionalism med ödmjukhet och skapar förtroende genom sitt lugna och pålitliga sätt. Som klasskamrat har hon genomgående varit en stor tillgång i lärandet och någon man alltid kan räkna med.”</p></blockquote>
+                    <p class="msg-sign"><span class="sig">Lina Samuelsson</span>, Klasskamrat</p>
+                </div>
+            </article>
 
-      <div class="reference-card">
-        <div class="ui-card-accent"></div>
-        <h3 class="reference-title">Kevin Jammeh - Studiekamrat</h3>
-        <p class="reference-text">
-          ”Jag studerade tillsammans med Ninnie och arbetade med henne i flera
-          projekt. Hon är engagerad, kreativ och väldigt lätt att samarbeta med.
-          Ninnie är snabb, organiserad och tar ansvar när det behövs. Hon är en
-          naturlig problemlösare och bidrar alltid med både struktur och energi i
-          grupparbeten. Det jag uppskattar mest är att hon vill att alla ska få ta
-          plats och utrymme, vilket gör henne till en fantastisk lagspelare som
-          lyfter hela gruppen.”
-        </p>
-        <p class="reference-signature">
-          - <strong>Kevin Jammeh</strong>, Studiekamrat
-        </p>
-      </div>
-
-      <div class="reference-card">
-        <div class="ui-card-accent"></div>
-        <h3 class="reference-title">David Marténg - VD, Qualified Sales Sweden AB </h3>
-        <p class="reference-text">
-          ”Jag var VD för bolaget där Ninnie arbetade administrativt, och jag kan
-          intyga att hon är en mycket kompetent och mångsidig medarbetare. Hon
-          arbetar snabbt, strukturerat och sätter sig in i nya system utan minsta
-          problem. Ninnie hanterade fakturor, order, kundkontakt och andra
-          administrativa uppgifter med hög precision och professionalism. Hon är en
-          naturlig problemlösare som tar initiativ och får saker gjorda. En trygg,
-          självständig och pålitlig person som höjer kvaliteten i hela
-          organisationen.”
-        </p>
-        <p class="reference-signature">
-          - <strong>David Marténg</strong>, VD
-        </p>
-      </div>
-      </div>
-      </div>
-  </div>
+            <p class="chat-chip">Qualified Sales Sweden AB</p>
+            <article class="msg">
+                <span class="msg-avatar av-4" aria-hidden="true">DM</span>
+                <div class="bubble">
+                    <blockquote><p>”Ninnie skötte fakturor, order och kundkontakt med hög precision och professionalism. Hon sätter sig snabbt in i nya system, tar initiativ och får saker gjorda. En trygg och självständig medarbetare som höjer kvaliteten i hela organisationen.”</p></blockquote>
+                    <p class="msg-sign"><span class="sig">David Marténg</span>, VD, Qualified Sales Sweden AB</p>
+                </div>
+            </article>
+        </div>
+    </div>
 </section>
 
 
@@ -564,18 +544,11 @@
 </main>
 
 
-<!-- FOOTER -->
-<footer>
-
-
-
-    <div class="footer-divider"></div>
-
-    
-    <p class="footer-credit">
-    <span class="copy-symbol">©</span> Designad &amp; utvecklad av <span class="name">Ninnie Dahlström</span>
+<!-- FOOTER: en enkel glasrad -->
+<footer class="oneui-footer">
+    <p class="footer-credit glass">
+        <span class="copy-symbol">©</span> Designad &amp; utvecklad av <span class="name">Ninnie Dahlström</span>
     </p>
-
 </footer>
 
 <!-- type="module" = ES-moduler (import/export) och körs efter att sidan laddats -->
