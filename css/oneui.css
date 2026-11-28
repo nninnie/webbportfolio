@@ -1710,33 +1710,108 @@ body.light .notif-title::before {
 }
 
 
-/* Referenserna visar två rader, "Läs mer" fäller ut resten (js/references.js) */
-.bubble blockquote p.is-clamped {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    overflow: hidden;
-}
 
-.read-more {
-    margin: 0 0 0 10px;
-    padding: 0;
+
+/* =========================================================
+   ✨ PREMIUM-FINISH
+   Pilar utan ringar, glas med en ton av glödfärgen,
+   ljust läge utan helvitt och en mer premium meny.
+   ========================================================= */
+
+/* Portfolio-pilarna: tydliga pilar utan ring */
+.rail-btn,
+.rail-btn:not(:disabled):hover {
+    width: 40px;
+    height: 40px;
     background: none;
     border: none;
-    font: inherit;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--accent);
-    cursor: pointer;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    font-size: 1.9rem;
+    line-height: 1;
+    color: var(--oneui-text);
+    transition: color 0.2s ease, transform 0.2s ease, text-shadow 0.2s ease;
 }
 
-.read-more:hover {
-    text-decoration: underline;
+.rail-btn:not(:disabled):hover {
+    color: var(--glow);
+    transform: scale(1.15);
+    text-shadow: 0 0 10px var(--glow);
 }
 
-.read-more:focus-visible {
-    outline: 2px solid var(--glow);
-    outline-offset: 2px;
-    border-radius: 4px;
+.rail-btn:disabled {
+    opacity: 0.25;
+}
+
+/* Glaset i små kort och knappar får en svag ton av glödfärgen */
+:root {
+    --chip-bg: linear-gradient(145deg,
+        color-mix(in srgb, var(--glow) 14%, rgba(255, 255, 255, 0.10)),
+        rgba(255, 255, 255, 0.03));
+    --chip-border: color-mix(in srgb, var(--glow) 30%, rgba(255, 255, 255, 0.14));
+}
+
+/* Ljust läge: inget helvitt, en ljus rosagrå glaston i stället */
+body.light {
+    --oneui-glass: rgba(252, 243, 249, 0.62);
+    --oneui-glass2: rgba(250, 240, 247, 0.78);
+    --chip-bg: linear-gradient(145deg, rgba(255, 241, 248, 0.88), rgba(244, 234, 244, 0.6));
+    --chip-border: color-mix(in srgb, var(--glow) 22%, rgba(255, 255, 255, 0.85));
+}
+
+body.light .glass {
+    background: var(--oneui-glass);
+}
+
+/* CV-knappen i Om mig visar <N/>-loggan i miniformat */
+.pa-icon .pa-logo {
+    width: 26px;
+    height: 26px;
+    border-radius: 7px;
+}
+
+/* Menyn: tunnare glas, en glödande hårlinje i underkant och glödande hover */
+.navbar,
+body.light .navbar {
+    background: linear-gradient(180deg,
+        color-mix(in srgb, var(--oneui-glass) 92%, transparent),
+        color-mix(in srgb, var(--oneui-glass) 70%, transparent));
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border-bottom: 1px solid transparent;
+    border-image: linear-gradient(90deg,
+        transparent,
+        color-mix(in srgb, var(--glow) 55%, transparent),
+        transparent) 1;
+}
+
+.nav-links a {
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--glow);
+    box-shadow: 0 0 8px var(--glow);
+    transform: translateX(-50%);
+    transition: width 0.25s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after {
+    width: 70%;
+}
+
+/* Mörkt läge: länken man hovrar över blir ljus i glödens ton, så den syns */
+body:not(.light) .nav-links a:hover,
+body:not(.light) .nav-links a:focus-visible {
+    color: color-mix(in srgb, var(--glow) 40%, white);
 }
