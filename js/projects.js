@@ -10,7 +10,7 @@ const projectsSv = {
         description: "Svenskt diskussionsforum i stil med Flashback, byggt i ASP.NET Core MVC med EF Core, SQLite och Identity.",
         fullDescription: "Började som ett grupparbete i Agil systemutveckling. Jag gjorde det sedan till mitt eget med hjälp av Claude: täppte säkerhetshål och byggde medlemmar, numrerade inlägg med citat, sök, sidbläddring och moderering. Designen är ett eget mörkt tema utan ramverk.",
         github: "https://github.com/nninnie/BraSurr",
-        demo: "https://github.com/nninnie/BraSurr#readme",
+        demo: "https://brasurr-ninnie-bkf7g5ecevacb8f3.swedencentral-01.azurewebsites.net",
         tech: ["C#", ".NET", "SQL"],
         features: ["ASP.NET Core MVC + EF Core (SQLite)", "Identity med rollerna Admin/Moderator", "Citat, sök och sidbläddring", "Fästa, låsa och anmäla inlägg", "28 tester med MSTest"],
         img: "image/portfolio/bra-surr.webp"
@@ -82,7 +82,7 @@ const projectsEn = {
         description: "Swedish discussion forum in the style of Flashback, built with ASP.NET Core MVC, EF Core, SQLite and Identity.",
         fullDescription: "Started as a group project in an agile development course. I then made it my own with help from Claude: closed security holes and built members, numbered posts with quotes, search, paging and moderation. The design is my own dark theme without a framework.",
         github: "https://github.com/nninnie/BraSurr",
-        demo: "https://github.com/nninnie/BraSurr#readme",
+        demo: "https://brasurr-ninnie-bkf7g5ecevacb8f3.swedencentral-01.azurewebsites.net",
         tech: ["C#", ".NET", "SQL"],
         features: ["ASP.NET Core MVC + EF Core (SQLite)", "Identity with Admin/Moderator roles", "Quotes, search and paging", "Pin, lock and report posts", "28 tests with MSTest"],
         img: "image/portfolio/bra-surr.webp"
