@@ -1630,15 +1630,15 @@ body.light .notif-title::before {
 /* =========================================================
    💻 LAPTOPEN I KONTAKT: lite mindre och centrerad
    Alla sektioner har samma bredd. Rubriken "/ Kontakt" ligger i linje
-   med de andra rubrikerna, och datorn är 85 % av sektionsbredden,
+   med de andra rubrikerna, och datorn är 95 % av sektionsbredden,
    centrerad som en produktbild. På låga skärmar krymper den så att
    den alltid får plats (1,6 gånger så bred som hög, 150 px = meny och rubrik).
    Datorn ligger i en sektion som är 1/0,9 av sektionsbredden,
-   så 85 % av sektionsbredden = 76,5 % av den.
+   så 95 % av sektionsbredden = 85,5 % av den.
    ========================================================= */
 @media (min-width: 1200px) {
     .contact-section .device-frame {
-        width: min(76.5%, calc((90svh - 150px) * 1.6));
+        width: min(85.5%, calc((90svh - 150px) * 1.6));   /* 95 % av sektionsbredden */
     }
 }
 
@@ -1668,4 +1668,43 @@ body.light .notif-title::before {
     .contact-section .contact-title {
         width: 100%;
     }
+}
+
+/* =========================================================
+   💬 KOMPAKTARE REFERENSER
+   Samma stil, men mindre text och luft så att kortet inte blir så stort
+   ========================================================= */
+.thread {
+    gap: 12px;
+    padding: 14px 20px 0;
+}
+
+.msg {
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 10px;
+}
+
+.msg-avatar {
+    width: 34px;
+    height: 34px;
+    font-size: 0.72rem;
+}
+
+.bubble {
+    padding: 11px 16px;
+    border-radius: 18px 18px 18px 6px;
+}
+
+.bubble blockquote p {
+    font-size: 0.88rem;
+    line-height: 1.55;
+}
+
+.msg-sign {
+    margin-top: 6px;
+    font-size: 0.72rem;
+}
+
+.msg-sign .sig {
+    font-size: 1.15rem;
 }
