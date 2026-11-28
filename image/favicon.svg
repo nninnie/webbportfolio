@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Favicon: <N/>. Taggarna i blått till lila, N:et i blått, rosa och orange som nninnie.se -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a0f3a"/><stop offset="1" stop-color="#05030f"/></linearGradient>
+    <linearGradient id="tag" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#4DA3FF"/><stop offset="1" stop-color="#9F4DFF"/></linearGradient>
+    <linearGradient id="n" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#4DA3FF"/><stop offset="0.45" stop-color="#ff00c8"/><stop offset="1" stop-color="#FF7A00"/></linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="url(#bg)"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+    <path d="M12 23 L4.5 32 L12 41" stroke="url(#tag)" stroke-width="4"/>
+    <path d="M52 23 L59.5 32 L52 41" stroke="url(#tag)" stroke-width="4"/>
+    <path d="M47 17 L40.5 47" stroke="url(#tag)" stroke-width="4"/>
+    <path d="M17.5 46 L17.5 18 L33.5 46 L33.5 18" stroke="url(#n)" stroke-width="6.5"/>
+  </g>
+</svg>
