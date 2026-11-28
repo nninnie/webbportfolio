@@ -28,8 +28,8 @@ const projectsSv = {
     },
 
     "Bra Surr – Forum": {
-        description: "Svenskt diskussionsforum i stil med Flashback, byggt i ASP.NET Core MVC med EF Core, SQLite och Identity.",
-        fullDescription: "Började som ett grupparbete i Agil systemutveckling. Jag gjorde det sedan till mitt eget med hjälp av Claude: täppte säkerhetshål och byggde medlemmar, numrerade inlägg med citat, sök, sidbläddring och moderering. Designen är ett eget mörkt tema utan ramverk.",
+        description: "Svenskt forum i stil med Flashback. Började som grupparbete och är färdigbyggt av mig i ASP.NET Core MVC med EF Core, SQLite och Identity.",
+        fullDescription: "Började som BlixtSchack i kursen Agil systemutveckling. Där låg fokus på att arbeta agilt i grupp, med sprintar och retrospektiv, och inte på att bli klara med appen, så vi hann bara bygga grunden. Efter kursen byggde jag färdigt forumet själv tillsammans med Claude (AI), för att lära mig hur man arbetar med en AI-assistent i ett riktigt projekt. Jag täppte säkerhetshål och lade till medlemmar, citat, sök, sidbläddring, moderering och tester, och jag gick igenom och godkände varje steg.",
         github: "https://github.com/nninnie/BraSurr",
         demo: "https://brasurr-ninnie-bkf7g5ecevacb8f3.swedencentral-01.azurewebsites.net",
         tech: ["C#", ".NET", "SQL"],
@@ -100,8 +100,8 @@ const projectsEn = {
     },
 
     "Bra Surr – Forum": {
-        description: "Swedish discussion forum in the style of Flashback, built with ASP.NET Core MVC, EF Core, SQLite and Identity.",
-        fullDescription: "Started as a group project in an agile development course. I then made it my own with help from Claude: closed security holes and built members, numbered posts with quotes, search, paging and moderation. The design is my own dark theme without a framework.",
+        description: "Swedish forum in the style of Flashback. Started as a group project and finished by me in ASP.NET Core MVC with EF Core, SQLite and Identity.",
+        fullDescription: "Started as BlixtSchack in an agile development course. The focus there was on working agile as a team, with sprints and retrospectives, not on finishing the app, so we only had time to build the foundation. After the course I finished the forum myself together with Claude (AI), to learn how to work with an AI assistant in a real project. I closed security holes and added members, quotes, search, paging, moderation and tests, and I reviewed and approved every step.",
         github: "https://github.com/nninnie/BraSurr",
         demo: "https://brasurr-ninnie-bkf7g5ecevacb8f3.swedencentral-01.azurewebsites.net",
         tech: ["C#", ".NET", "SQL"],
