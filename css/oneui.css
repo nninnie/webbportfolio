@@ -73,7 +73,9 @@ body.light .glass {
 /* Samma bredd som datorn i kontaktdelen:
    kontaktsektionen är clamp(80%, 70vw, 1100px) och datorn 90 % av den */
 :root {
-    --oneui-width: calc(clamp(80%, 70vw, 1100px) * 0.9);
+    /* Max 1000 px, annars blir allt för stort på stora skärmar
+       (clamp:ens minsta värde 80 % vinner annars över 1100 px) */
+    --oneui-width: min(calc(clamp(80%, 70vw, 1100px) * 0.9), 1000px);
 }
 
 .oneui-section {
@@ -149,10 +151,15 @@ body.light .glass {
 /* ---------- HERO = låsskärmen ---------- */
 
 .lockscreen {
-    display: block;
     width: var(--oneui-width);
-    margin: 1.5rem auto 0;
-    padding: 0;
+    margin: 0 auto;
+    padding: 1.5rem 0;
+    /* Hero fyller skärmen under menyn och låsskärmen hamnar i mitten */
+    box-sizing: border-box;   /* paddingen räknas in i höjden */
+    min-height: calc(100svh - 81px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .lock {
@@ -1288,5 +1295,69 @@ body.light .notif-title::before {
     .skill-icon .mask-icon {
         width: 1.7rem;
         height: 1.7rem;
+    }
+}
+
+
+/* =========================================================
+   ⬇ PILEN SOM FÖLJER MED
+   Ligger fast längst ner i mitten och tar en till nästa sektion.
+   Dold i hero och vid sista sektionen (js/scroll.js).
+   ========================================================= */
+.next-section {
+    position: fixed;
+    left: 50%;
+    bottom: 18px;
+    z-index: 50;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    background: var(--chip-bg);
+    border: 1px solid var(--chip-border);
+    box-shadow: var(--chip-shadow);
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    transform: translateX(-50%);
+    transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.2s ease;
+}
+
+.next-section:hover,
+.next-section:focus-visible {
+    box-shadow: var(--chip-shadow), 0 0 18px color-mix(in srgb, var(--glow) 55%, transparent);
+}
+
+.next-section:focus-visible {
+    outline: 2px solid var(--glow);
+    outline-offset: 3px;
+}
+
+.next-section.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(10px);
+}
+
+/* Pilen inuti knappen sitter lite högre, så den ser centrerad ut */
+.next-section .swipe-arrow {
+    margin-top: -4px;
+}
+
+/* På mobil sitter pilen i nedre högra hörnet, så den inte ligger över texten */
+@media (max-width: 600px) {
+    .next-section {
+        left: auto;
+        right: 16px;
+        bottom: 16px;
+        width: 40px;
+        height: 40px;
+        transform: none;
+    }
+
+    .next-section.is-hidden {
+        transform: translateY(10px);
     }
 }

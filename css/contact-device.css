@@ -113,6 +113,7 @@ body.light .device-frame .nav-back {
 /* Kontaktsektionen lika bred som de andra sektionerna (about, skills, portfolio, referenser) */
 .contact-section {
     width: clamp(80%, 70vw, 1100px);
+    max-width: 1111px;   /* datorn är 90 % av detta, alltså max 1000 px som sektionerna */
     margin: 0 auto;
 }
 
