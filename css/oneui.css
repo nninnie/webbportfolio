@@ -1628,28 +1628,20 @@ body.light .notif-title::before {
 
 
 /* =========================================================
-   📐 SEKTIONERNA 5 % SMALARE ÄN HERO
-   Hero behåller full bredd. Alla andra sektioner, footern och
-   datorn i Kontakt är 95 % av den, så att allt är lika brett.
+   💻 LAPTOPEN I KONTAKT: lite mindre och centrerad
+   Alla sektioner har samma bredd. Rubriken "/ Kontakt" ligger i linje
+   med de andra rubrikerna, och datorn är 85 % av sektionsbredden,
+   centrerad som en produktbild. På låga skärmar krymper den så att
+   den alltid får plats (1,6 gånger så bred som hög, 150 px = meny och rubrik).
+   Datorn ligger i en sektion som är 1/0,9 av sektionsbredden,
+   så 85 % av sektionsbredden = 76,5 % av den.
    ========================================================= */
-:root {
-    /* 95 % av hero, men aldrig så bred att datorn blir högre än skärmen
-       (datorn är 1,6 gånger så bred som hög, 150 px = meny och rubrik) */
-    --section-width: min(calc(var(--oneui-width) * 0.95), calc((90svh - 150px) * 1.6));
-}
-
-.oneui-section,
-.oneui-footer {
-    width: var(--section-width);
-}
-
-@media (min-width: 768px) {
-    /* Datorn är 90 % av kontaktsektionen och ska vara lika bred som de andra */
-    .contact-section {
-        width: calc(var(--section-width) / 0.9);
-        max-width: none;
+@media (min-width: 1200px) {
+    .contact-section .device-frame {
+        width: min(76.5%, calc((90svh - 150px) * 1.6));
     }
 }
+
 /* Pilen som följer med: ingen ring, bara en diskret pil som i hero */
 .next-section,
 .next-section:hover,
@@ -1665,4 +1657,15 @@ body.light .notif-title::before {
 .next-section:focus-visible .swipe-arrow {
     border-color: var(--glow);
     filter: drop-shadow(0 0 6px var(--glow));
+}
+
+/* Mobil: rubriken "/ Kontakt" i linje med de andra rubrikerna */
+@media (max-width: 767px) {
+    .contact-section {
+        width: var(--oneui-width);
+    }
+
+    .contact-section .contact-title {
+        width: 100%;
+    }
 }
