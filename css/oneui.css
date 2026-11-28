@@ -1764,12 +1764,6 @@ body.light .glass {
     background: var(--oneui-glass);
 }
 
-/* CV-knappen i Om mig visar <N/>-loggan i miniformat */
-.pa-icon .pa-logo {
-    width: 26px;
-    height: 26px;
-    border-radius: 7px;
-}
 
 /* Menyn: tunnare glas, en glödande hårlinje i underkant och glödande hover */
 .navbar,
@@ -1837,4 +1831,34 @@ body:not(.light) .nav-links a:focus-visible {
     content: "·";
     margin: 0 9px;
     color: color-mix(in srgb, var(--glow) 60%, var(--oneui-muted));
+}
+
+
+/* Miniatyr av CV:ts första sida, i Om mig och på skrivbordet i Kontakt.
+   Mörk eller ljus bild följer temat, som CV:t man laddar ner. */
+.cv-mini {
+    display: block;
+    border-radius: 3px;
+    object-fit: cover;
+    box-shadow:
+        0 0 0 1px color-mix(in srgb, var(--glow) 35%, rgba(255, 255, 255, 0.25)),
+        0 4px 10px -4px rgba(0, 0, 0, 0.6);
+}
+
+img.cv-mini.cv-mini-sm {
+    width: 20px;
+    height: 28px;
+}
+
+img.cv-mini.cv-mini-md {
+    width: 26px;
+    height: 37px;
+}
+
+/* CV-miniatyren i den runda knappen ska vara rektangulär, inte rund */
+.pa-icon img.cv-mini.cv-mini-sm {
+    width: 20px;
+    height: 28px;
+    border-radius: 3px;
+    object-fit: cover;
 }
