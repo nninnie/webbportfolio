@@ -19,13 +19,13 @@ function updateDeviceClock() {
     });
     setText("deviceDate", date);
 
-    // Låsskärmen i hero: långt datum och tid, t.ex. "Lördag 28 november · 14:40 · Stockholm"
+    // Låsskärmen i hero: långt datum och tid, t.ex. "Lördag 28 november · 14:40"
     const longDate = now.toLocaleDateString(isEnglishPage ? "en-GB" : "sv-SE", {
         weekday: "long",
         day: "numeric",
         month: "long"
     });
-    setText("heroDate", `${longDate.charAt(0).toUpperCase()}${longDate.slice(1)} · ${hours}:${minutes} · Stockholm`);
+    setText("heroDate", `${longDate.charAt(0).toUpperCase()}${longDate.slice(1)} · ${hours}:${minutes}`);
 }
 
 export function initDeviceClock() {
